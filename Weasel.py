@@ -122,6 +122,7 @@ class MainWindow(QMainWindow):
         try:
             scan_directory = self.getScanDirectory()
             if scan_directory:
+                number_files, number_folders = WriteXMLfromDICOM.get_files_info(scan_directory)
                 scans, paths = WriteXMLfromDICOM.get_scan_data(scan_directory)
                 dictionary = WriteXMLfromDICOM.get_studies_series(scans)
                 xml = WriteXMLfromDICOM.open_dicom_to_xml(dictionary, scans, paths)
