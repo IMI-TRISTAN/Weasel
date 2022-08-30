@@ -7,7 +7,7 @@ It also contains functions that allow the user to insert inputs and give an upda
 import os
 import logging
 from PyQt5.QtWidgets import (QMessageBox, QFileDialog)
-from Displays.ViewMetaData import displayMetaDataSubWindow
+from Displays.ViewMetaData import DisplayMetaDataSubWindow
 from DICOM.DeveloperTools import PixelArrayDICOMTools
 
 logger = logging.getLogger(__name__)
