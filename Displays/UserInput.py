@@ -365,6 +365,7 @@ class ParameterInputDialog(QDialog):
             for key in paramDict:
                 #paramType = paramDict[key].lower()
                 paramType, value1, value2, value3 = self.getParamData(paramDict[key].lower())
+                print("key={}, paramType={}, value1={}, value2={}, value3={}".format(key, paramType, value1, value2, value3))
                 if paramType not in ("integer", "float", "string", "dropdownlist", "listview"):
                     #This unit test is for developers who mistype the above 3 parameter 
                     #types when they are developing new Weasel tools that need

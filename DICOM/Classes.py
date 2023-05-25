@@ -837,6 +837,7 @@ class Series:
         self.seriesUID = self.SeriesUID if seriesUID is None else seriesUID
         self.suffix = '' if suffix is None else suffix
         self.referencePathsList = []
+        print("Series object created")
         # This is to deal with Enhanced MRI
         #if self.PydicomList and len(self.images) == 1:
         #    self.indices = list(np.arange(len(self.PydicomList[0].PerFrameFunctionalGroupsSequence))) if hasattr(self.PydicomList[0], 'PerFrameFunctionalGroupsSequence') else []
@@ -844,7 +845,7 @@ class Series:
         #    self.indices = []
     
     def __repr__(self):
-       return '{}'.format(self.__class__.__name__)
+       return '{} series ID={}'.format(self.__class__.__name__, self.seriesID)
 
     @property
     def children(self):
