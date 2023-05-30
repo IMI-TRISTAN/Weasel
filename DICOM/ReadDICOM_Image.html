@@ -1,0 +1,1650 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>Weasel.DICOM.ReadDICOM_Image API documentation</title>
+<meta name="description" content="Collection of functions that read DICOM files and return meaningful content stored in these files (related to image, colourmap, dates and times, …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>Weasel.DICOM.ReadDICOM_Image</code></h1>
+</header>
+<section id="section-intro">
+<p>Collection of functions that read DICOM files and return meaningful content stored in these files (related to image, colourmap, dates and times, acquisiton, etc.).</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+Collection of functions that read DICOM files and return meaningful content stored in these files (related to image, colourmap, dates and times, acquisiton, etc.).
+&#34;&#34;&#34;
+
+import os
+import struct
+import numpy as np
+from datetime import datetime
+import pydicom
+from nibabel.affines import apply_affine
+import logging
+logger = logging.getLogger(__name__)
+
+
+def returnPixelArray(imagePath):
+    &#34;&#34;&#34;This method reads the DICOM file in imagePath and returns the Image/Pixel array&#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.returnPixelArray called&#34;)
+    try:
+        if os.path.exists(imagePath):
+            dataset = getDicomDataset(imagePath)
+            pixelArray = getPixelArray(dataset)
+            return pixelArray
+        else:
+            return None
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.returnPixelArray: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.returnPixelArray: &#39; + str(e))
+
+
+def returnAffineArray(imagePath):
+    &#34;&#34;&#34;This method reads the DICOM file in imagePath and returns the Affine/Orientation matrix&#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.returnAffineArray called&#34;)
+    try:
+        if os.path.exists(imagePath):
+            dataset = getDicomDataset(imagePath)
+            affineArray = getAffineArray(dataset)
+            return affineArray
+        else:
+            return None
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.returnAffineArray: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.returnAffineArray: &#39; + str(e))
+
+
+def returnSeriesPixelArray(imagePathList):
+    &#34;&#34;&#34;This method reads the DICOM files in imagePathList and 
+    returns a list where each element is a DICOM Dataset object/class&#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.returnSeriesPixelArray called&#34;)
+    try:
+        datasetList = getSeriesDicomDataset(imagePathList)
+        imageList = [getPixelArray(dataset) for dataset in datasetList]
+        if imageList:
+            volumeArray = np.array(imageList)
+            del imageList
+            return volumeArray
+        else:
+            del imageList
+            return None
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.returnSeriesPixelArray: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.returnSeriesPixelArray: &#39; + str(e))
+
+
+def getMultiframeBySlices(dataset, sliceList=None, sort=False):
+    &#34;&#34;&#34;This method splits and sorts the slices in the variable `dataset`. In this case, `dataset` is an Enhanced DICOM object.&#34;&#34;&#34;
+    try:
+        if any(hasattr(dataset, attr) for attr in [&#39;PixelData&#39;, &#39;FloatPixelData&#39;, &#39;DoubleFloatPixelData&#39;]) and hasattr(dataset, &#39;PerFrameFunctionalGroupsSequence&#39;):
+            originalArray = getPixelArray(dataset)
+            numberSlices = dataset[0x20011018].value
+            sortedArray = list()
+            sortedSlicesList = list()
+            if sliceList is None:
+                numberFrames = dataset.NumberOfFrames
+            else:
+                numberFrames = len(sliceList)
+            
+            if (sort == True):
+                if &#39;2D&#39; in dataset.MRAcquisitionType:
+                    for start in range(int(numberFrames/numberSlices)):
+                        sortedSlicesList.append(list(range(start, numberFrames, int(numberFrames/numberSlices))))
+                    sortedSlicesList = np.array(sortedSlicesList).flatten()
+                elif &#39;3D&#39; in dataset.MRAcquisitionType:
+                    sortedSlicesList = list(range(numberFrames))
+            elif (sort == False) and ((type(sliceList) is list) or (type(sliceList) is np.array)):
+                sortedSlicesList = sliceList
+            else:
+                sortedSlicesList = list(range(numberFrames))
+                
+            for index in sortedSlicesList:
+                sortedArray.append(np.squeeze(originalArray[index, ...]))
+            sortedArray = np.array(sortedArray)
+            return sortedArray, sortedSlicesList, numberSlices
+        else:
+            return None, None, None
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.getMultiframeBySlices: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.getMultiframeBySlices: &#39; + str(e))
+
+
+def getImageTagValue(imagePath, dicomTag):
+    &#34;&#34;&#34;This method reads the DICOM file in imagePath and returns the value in the given DICOM tag
+        Output is : attribute
+    &#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.getImageTagValue called&#34;)
+    try:
+        if os.path.exists(imagePath):
+            dataset = getDicomDataset(imagePath)
+            # The following if statement is an exception for Multi-frame / Enhanced DICOM images (13/08/2021)
+            if (dicomTag == &#34;SliceLocation&#34; or dicomTag == (0x0020,0x1041)) and not hasattr(dataset, &#34;SliceLocation&#34;): dicomTag = (0x2001, 0x100a)
+            # This is not for Enhanced MRI. Only Classic DICOM
+            if isinstance(dicomTag, str):
+                try:
+                    if isinstance(dataset.data_element(dicomTag).value, bytes) == True:
+                        try:
+                            attribute = list(struct.unpack(&#39;h&#39;, dataset.data_element(dicomTag).value))
+                            if len(attribute) == 1: attribute = attribute[0]
+                        except:
+                            attribute = dataset.data_element(dicomTag).value.decode(&#39;utf-8&#39;)
+                            if &#34;\\&#34; in attribute: attribute = list(map(eval, attribute.split(&#34;\\&#34;)))
+                    else:
+                        attribute = dataset.data_element(dicomTag).value
+                    if dataset.data_element(dicomTag).VR == &#34;TM&#34;:
+                        if &#34;.&#34; in attribute: attribute = (datetime.strptime(attribute, &#34;%H%M%S.%f&#34;) - datetime(1900, 1, 1)).total_seconds()
+                        else: attribute = (datetime.strptime(attribute, &#34;%H%M%S&#34;) - datetime(1900, 1, 1)).total_seconds()
+                except:
+                    return None
+            elif isinstance(dicomTag, tuple):
+                try:
+                    if isinstance(dataset[dicomTag].value, bytes) == True:
+                        try:
+                            attribute = list(struct.unpack(&#39;h&#39;, dataset[dicomTag].value))
+                            if len(attribute) == 1: attribute = attribute[0]
+                        except:
+                            attribute = dataset[dicomTag].value.decode(&#39;utf-8&#39;)
+                            if &#34;\\&#34; in attribute: attribute = list(map(eval, attribute.split(&#34;\\&#34;)))
+                    else:
+                        attribute = dataset[dicomTag].value
+                    if dataset[dicomTag].VR == &#34;TM&#34;: 
+                        if &#34;.&#34; in attribute: attribute = (datetime.strptime(attribute, &#34;%H%M%S.%f&#34;) - datetime(1900, 1, 1)).total_seconds()
+                        else: attribute = (datetime.strptime(attribute, &#34;%H%M%S&#34;) - datetime(1900, 1, 1)).total_seconds()
+                except:
+                    return None
+            else:
+                try:
+                    if isinstance(dataset[hex(dicomTag)].value, bytes) == True:
+                        try:
+                            attribute = list(struct.unpack(&#39;h&#39;, dataset[hex(dicomTag)].value))
+                            if len(attribute) == 1: attribute = attribute[0]
+                        except:
+                            attribute = dataset[hex(dicomTag)].value.decode(&#39;utf-8&#39;)
+                            if &#34;\\&#34; in attribute: attribute = list(map(eval, attribute.split(&#34;\\&#34;)))
+                    else:
+                        attribute = dataset[hex(dicomTag)].value
+                    if dataset[hex(dicomTag)].VR == &#34;TM&#34;:
+                        if &#34;.&#34; in attribute: attribute = (datetime.strptime(attribute, &#34;%H%M%S.%f&#34;) - datetime(1900, 1, 1)).total_seconds()
+                        else: attribute = (datetime.strptime(attribute, &#34;%H%M%S&#34;) - datetime(1900, 1, 1)).total_seconds()
+                except:
+                    return None
+            del dataset
+            return attribute
+        else:
+            return None
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.getImageTagValue: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.getImageTagValue: &#39; + str(e))
+
+
+def getSeriesTagValues(imagePathList, dicomTag):
+    &#34;&#34;&#34;This method reads the DICOM files in imagePathList and returns the list of values in the given DICOM tag
+        Outputs are : attributeList, numAttribute
+        The output attributeList may have repeated values. 
+        Removing these repetitions will be up to the developer of the specific algorithm
+    &#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.getSeriesTagValues called&#34;)
+    try:
+        if os.path.exists(imagePathList[0]):
+            datasetList = getSeriesDicomDataset(imagePathList)
+            # The following if statement is an exception for Multi-frame / Enhanced DICOM images (13/08/2021)
+            if (dicomTag == &#34;SliceLocation&#34; or dicomTag == (0x0020,0x1041)) and not hasattr(datasetList[0], &#34;SliceLocation&#34;): dicomTag = (0x2001, 0x100a)
+            if not hasattr(datasetList[0], &#39;PerFrameFunctionalGroupsSequence&#39;):
+                # Classic DICOM
+                if isinstance(dicomTag, str):
+                    try:
+                        if isinstance(datasetList[0].data_element(dicomTag).value, bytes) == True:
+                            try:
+                                attributeList = [list(struct.unpack(&#39;h&#39;, dataset.data_element(dicomTag).value)) if len(list(struct.unpack(&#39;h&#39;, dataset.data_element(dicomTag).value)))==1 else list(struct.unpack(&#39;h&#39;, dataset.data_element(dicomTag).value))[0] for dataset in datasetList]
+                            except:
+                                attributeList = [dataset.data_element(dicomTag).value.decode(&#39;utf-8&#39;) if &#34;\\&#34; not in dataset.data_element(dicomTag).value.decode(&#39;utf-8&#39;) else list(map(eval,dataset.data_element(dicomTag).value.decode(&#39;utf-8&#39;).split(&#34;\\&#34;))) for dataset in datasetList]
+                                #if &#34;\\&#34; in attribute: attribute = list(map(eval, attribute.split(&#34;\\&#34;)))
+                        else:
+                            attributeList = [dataset.data_element(dicomTag).value for dataset in datasetList]
+                        if datasetList[0].data_element(dicomTag).VR == &#34;TM&#34;: 
+                            if &#34;.&#34; in attributeList[0]: attributeList = [(datetime.strptime(attr, &#34;%H%M%S.%f&#34;) - datetime(1900, 1, 1)).total_seconds() for attr in attributeList]
+                            else: attributeList = [(datetime.strptime(attr, &#34;%H%M%S&#34;) - datetime(1900, 1, 1)).total_seconds() for attr in attributeList]
+                    except:
+                        return None, None
+                elif isinstance(dicomTag, tuple):
+                    try:
+                        if isinstance(datasetList[0][dicomTag].value, bytes) == True:
+                            try:
+                                attributeList = [list(struct.unpack(&#39;h&#39;, dataset[dicomTag].value)) if len(list(struct.unpack(&#39;h&#39;, dataset[dicomTag].value)))==1 else list(struct.unpack(&#39;h&#39;, dataset[dicomTag].value))[0] for dataset in datasetList]
+                            except:
+                                attributeList = [dataset[dicomTag].value.decode(&#39;utf-8&#39;) if &#34;\\&#34; not in dataset[dicomTag].value.decode(&#39;utf-8&#39;) else list(map(eval,dataset[dicomTag].value.decode(&#39;utf-8&#39;).split(&#34;\\&#34;))) for dataset in datasetList]
+                        else:
+                            attributeList = [dataset[dicomTag].value for dataset in datasetList]
+                            if datasetList[0][dicomTag].VR == &#34;TM&#34;: 
+                                if &#34;.&#34; in attributeList[0]: attributeList = [(datetime.strptime(attr, &#34;%H%M%S.%f&#34;) - datetime(1900, 1, 1)).total_seconds() for attr in attributeList]
+                                else: attributeList = [(datetime.strptime(attr, &#34;%H%M%S&#34;) - datetime(1900, 1, 1)).total_seconds() for attr in attributeList]
+                    except:
+                        return None, None
+                else:
+                    try:
+                        if isinstance(datasetList[0][hex(dicomTag)].value, bytes) == True:
+                            try:
+                                attributeList = [list(struct.unpack(&#39;h&#39;, dataset[hex(dicomTag)].value)) if len(list(struct.unpack(&#39;h&#39;, dataset[hex(dicomTag)].value)))==1 else list(struct.unpack(&#39;h&#39;, dataset[hex(dicomTag)].value))[0] for dataset in datasetList]
+                            except:
+                                attributeList = [dataset[hex(dicomTag)].value.decode(&#39;utf-8&#39;) if &#34;\\&#34; not in dataset[hex(dicomTag)].value.decode(&#39;utf-8&#39;) else list(map(eval,dataset[hex(dicomTag)].value.decode(&#39;utf-8&#39;).split(&#34;\\&#34;))) for dataset in datasetList]
+                        else:
+                            attributeList = [dataset[hex(dicomTag)].value for dataset in datasetList]
+                            if datasetList[0][hex(dicomTag)].VR == &#34;TM&#34;:
+                                if &#34;.&#34; in attributeList[0]: attributeList = [(datetime.strptime(attr, &#34;%H%M%S.%f&#34;) - datetime(1900, 1, 1)).total_seconds() for attr in attributeList]
+                                else: attributeList = [(datetime.strptime(attr, &#34;%H%M%S&#34;) - datetime(1900, 1, 1)).total_seconds() for attr in attributeList]
+                    except:
+                        return None, None
+                attributeList = [0 if x is None else x for x in attributeList]
+                attributeListUnique = []
+                for x in attributeList:
+                    if x not in attributeListUnique:
+                        attributeListUnique.append(x)
+                numAttribute = len(attributeListUnique)
+                del datasetList
+                return attributeList, numAttribute
+            else:
+                # Enhanced MRI =&gt; This else will probably never happen, because this type of DICOM is converted at Import (13/08/2021)
+                dataset = datasetList[0]
+                attributeList = []
+                fields = dicomTag.split(&#39;.&#39;)
+                if len(fields) == 1:
+                    if isinstance(dicomTag, str):
+                        try:
+                            attributeList = [dataset.data_element(dicomTag).value for dataset in datasetList]
+                            if datasetList[0].data_element(dicomTag).VR == &#34;TM&#34;: attributeList = [(datetime.strptime(attr, &#34;%H%M%S&#34;) - datetime(1900, 1, 1)).total_seconds() for attr in attributeList]
+                        except:
+                            return None, None
+                    elif isinstance(dicomTag, tuple):
+                        try:
+                            attributeList = [dataset[dicomTag].value for dataset in datasetList]
+                            if datasetList[0][dicomTag].VR == &#34;TM&#34;: attributeList = [(datetime.strptime(attr, &#34;%H%M%S&#34;) - datetime(1900, 1, 1)).total_seconds() for attr in attributeList]
+                        except:
+                            return None, None
+                    else:
+                        try:
+                            attributeList = [dataset[hex(dicomTag)].value for dataset in datasetList]
+                            if datasetList[0][hex(dicomTag)].VR == &#34;TM&#34;: attributeList = [(datetime.strptime(attr, &#34;%H%M%S&#34;) - datetime(1900, 1, 1)).total_seconds() for attr in attributeList]
+                        except:
+                            return None, None
+                elif fields[0] == &#34;PerFrameFunctionalGroupsSequence&#34;:
+                    remaining_fields = &#34;&#34;
+                    for field in fields[1:-1]:
+                        remaining_fields += &#34;.&#34; + str(field) + &#34;[0]&#34;
+                    remaining_fields += &#34;.&#34; + fields[-1]
+                    for singleSlice in dataset.PerFrameFunctionalGroupsSequence:
+                        pyDicom_command_string = &#34;singleSlice&#34; + remaining_fields
+                        attributeList.append(eval(pyDicom_command_string))
+                else:
+                    # These seem to be the only options for now
+                    return None, None
+                attributeList = [0 if x is None else x for x in attributeList]
+                attributeListUnique = []
+                for x in attributeList:
+                    if x not in attributeListUnique:
+                        attributeListUnique.append(x)
+                numAttribute = len(attributeListUnique)
+                # numAttribute = len(np.unique(attributeList))
+                del dataset, datasetList, fields
+                return attributeList, numAttribute
+        else:
+            return None, None
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.getSeriesTagValues: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.getSeriesTagValues: &#39; + str(e))
+
+
+def sortSequenceByTag(imagePathList, dicomTag):
+    &#34;&#34;&#34;This method reads the DICOM files in imagePathList and sorts the list according to the given DICOM tag
+        Outputs are : sortedSequencePath, attributeList, numAttribute
+        The output attributeList may have repeated values. 
+        Removing these repetitions will be up to the developer of the specific algorithm
+    &#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.sortSequenceByTag called&#34;)
+    try:
+        if os.path.exists(imagePathList[0]):
+            attributeList, numAttribute = getSeriesTagValues(imagePathList, dicomTag)
+            #attributeListUnique = np.unique(attributeList) # sorted(np.unique(attributeList))
+            attributeListUnique = [] # Works for strings as well, unlike np.unique
+            for x in attributeList:
+                if x not in attributeListUnique:
+                    attributeListUnique.append(x)
+            attributeListUnique = [0 if x is None else x for x in attributeListUnique]
+            indicesSorted = list()
+            for i in range(numAttribute):
+                indices = [index for index, value in enumerate(attributeList) if value == attributeListUnique[i]]
+                indicesSorted.extend(indices)
+            # If/Else regarding Multi-Frame DICOM
+            dataset = getDicomDataset(imagePathList[0])
+            if not hasattr(dataset, &#39;PerFrameFunctionalGroupsSequence&#39;):
+                sortedSequencePath = [imagePathList[index] for index in indicesSorted]
+            else:
+                sortedSequencePath = imagePathList
+            attributeListSorted = [attributeList[index] for index in indicesSorted]
+            del dataset, attributeList, attributeListUnique
+            return sortedSequencePath, attributeListSorted, numAttribute, indicesSorted
+        else:
+            return None, None, None, None
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.sortSequenceByTag: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.sortSequenceByTag: &#39; + str(e))
+
+
+def getSeriesDicomDataset(imagePathList):
+    &#34;&#34;&#34;This method reads the DICOM files in imagePathList and 
+    returns a list where each element is a DICOM Dataset object/class&#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.getSeriesDicomDataset called&#34;)
+    try:
+        #datasetList = [getDicomDataset(imagePath) for imagePath in imagePathList if getDicomDataset(imagePath) is not None]
+        datasetList = []
+        for imagePath in imagePathList:
+            dataset = getDicomDataset(imagePath)
+            if dataset is not None:
+                datasetList.append(dataset)
+        if datasetList:
+            return datasetList
+        else:
+            return None
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.getSeriesDicomDataset: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.getSeriesDicomDataset: &#39; + str(e))
+
+
+def getDicomDataset(imagePath):
+    &#34;&#34;&#34;This method reads the DICOM file in imagePath and returns the DICOM Dataset object/class&#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.getDicomDataset called&#34;)
+    try:
+        if os.path.exists(imagePath):
+            return pydicom.dcmread(imagePath)
+        else:
+            return None
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.getDicomDataset when imagePath = {}: &#39;.format(imagePath) + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.getDicomDataset: &#39; + str(e))
+
+
+def getPixelArray(dataset):
+    &#34;&#34;&#34;This method reads the DICOM Dataset object/class and returns the Image/Pixel array&#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.getPixelArray called&#34;)
+    try:
+        if any(hasattr(dataset, attr) for attr in [&#39;PixelData&#39;, &#39;FloatPixelData&#39;, &#39;DoubleFloatPixelData&#39;]):
+            if hasattr(dataset, &#39;PerFrameFunctionalGroupsSequence&#39;):
+                imageList = list()
+                originalArray = dataset.pixel_array.astype(np.float32)
+                if len(np.shape(originalArray)) == 2:
+                    slope = float(getattr(dataset.PerFrameFunctionalGroupsSequence[0].PixelValueTransformationSequence[0], &#39;RescaleSlope&#39;, 1)) * np.ones(originalArray.shape)
+                    intercept = float(getattr(dataset.PerFrameFunctionalGroupsSequence[0].PixelValueTransformationSequence[0], &#39;RescaleIntercept&#39;, 0)) * np.ones(originalArray.shape)
+                    pixelArray = np.transpose(originalArray * slope + intercept)
+                else:
+                    for index in range(np.shape(originalArray)[0]):
+                        sliceArray = np.squeeze(originalArray[index, ...])
+                        slope = float(getattr(dataset.PerFrameFunctionalGroupsSequence[index].PixelValueTransformationSequence[0], &#39;RescaleSlope&#39;, 1)) * np.ones(sliceArray.shape)
+                        intercept = float(getattr(dataset.PerFrameFunctionalGroupsSequence[index].PixelValueTransformationSequence[0], &#39;RescaleIntercept&#39;, 0)) * np.ones(sliceArray.shape)
+                        tempArray = np.transpose(sliceArray * slope + intercept)
+                        imageList.append(tempArray)
+                    pixelArray = np.array(imageList)
+                    del sliceArray, tempArray, index
+                del originalArray, imageList
+            else:
+                slope = float(getattr(dataset, &#39;RescaleSlope&#39;, 1)) * np.ones(dataset.pixel_array.shape)
+                intercept = float(getattr(dataset, &#39;RescaleIntercept&#39;, 0)) * np.ones(dataset.pixel_array.shape)
+                if len(dataset.pixel_array.shape) == 3:
+                    pixelArray = np.rot90(np.array(dataset.pixel_array.astype(np.float32) * slope + intercept), k=1, axes=(0, 1))
+                else:
+                    pixelArray = np.transpose(dataset.pixel_array.astype(np.float32) * slope + intercept)
+            if [0x2005, 0x100E] in dataset: # &#39;Philips Rescale Slope&#39;
+                pixelArray = pixelArray / (slope * dataset[(0x2005, 0x100E)].value)
+            del slope, intercept
+            return np.nan_to_num(pixelArray)
+        else:
+            return None
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.getPixelArray: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.getPixelArray: &#39; + str(e))
+
+
+def getAffineArray(dataset):
+    &#34;&#34;&#34;This method reads the DICOM Dataset object/class and returns the Affine/Orientation matrix&#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.getAffineArray called&#34;)
+    try:
+        if any(hasattr(dataset, attr) for attr in [&#39;PixelData&#39;, &#39;FloatPixelData&#39;, &#39;DoubleFloatPixelData&#39;]):
+            if hasattr(dataset, &#39;PerFrameFunctionalGroupsSequence&#39;):
+                affineList = list()
+                for index in range(len(dataset.PerFrameFunctionalGroupsSequence)):
+                    image_orientation = dataset.PerFrameFunctionalGroupsSequence[index].PlaneOrientationSequence[0].ImageOrientationPatient
+                    row_cosine = np.array(image_orientation[:3])
+                    column_cosine = np.array(image_orientation[3:])
+                    slice_cosine = np.cross(row_cosine, column_cosine)
+                    row_spacing, column_spacing = dataset.PerFrameFunctionalGroupsSequence[index].PixelMeasuresSequence[0].PixelSpacing
+                    slice_spacing = dataset.PerFrameFunctionalGroupsSequence[index].PixelMeasuresSequence[0].SpacingBetweenSlices
+
+                    affine = np.identity(4, dtype=np.float32)
+                    affine[:3, 0] = row_cosine * column_spacing
+                    affine[:3, 1] = column_cosine * row_spacing
+                    affine[:3, 2] = slice_cosine * slice_spacing
+                    affine[:3, 3] = dataset.PerFrameFunctionalGroupsSequence[index].PlanePositionSequence[0].ImagePositionPatient
+                    affineList.append(affine)
+                affine = np.squeeze(np.array(affineList))
+            else:
+                image_orientation = dataset.ImageOrientationPatient
+                row_cosine = np.array(image_orientation[:3])
+                column_cosine = np.array(image_orientation[3:])
+                slice_cosine = np.cross(row_cosine, column_cosine)
+                row_spacing, column_spacing = dataset.PixelSpacing
+                slice_spacing = dataset.SliceThickness
+
+                affine = np.identity(4, dtype=np.float32)
+                affine[:3, 0] = row_cosine * column_spacing
+                affine[:3, 1] = column_cosine * row_spacing
+                affine[:3, 2] = slice_cosine * slice_spacing
+                affine[:3, 3] = dataset.ImagePositionPatient
+            return affine
+        else:
+            return None
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.getAffineArray: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.getAffineArray: &#39; + str(e))
+
+
+def getTopLeftCorner(dataset):
+    &#34;&#34;&#34;This method reads the DICOM Dataset object/class and returns the real-world coordinate of the top left-hand corner of the image in dataset.&#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.getTopLeftCorner called&#34;)
+    try:
+        if any(hasattr(dataset, attr) for attr in [&#39;PixelData&#39;, &#39;FloatPixelData&#39;, &#39;DoubleFloatPixelData&#39;]):
+            if hasattr(dataset, &#39;PerFrameFunctionalGroupsSequence&#39;):
+                top_left_coords = list()
+                for index in range(len(dataset.PerFrameFunctionalGroupsSequence)):
+                    image_position = dataset.PerFrameFunctionalGroupsSequence[index].PlanePositionSequence[0].ImagePositionPatient
+                    image_orientation = dataset.PerFrameFunctionalGroupsSequence[index].PlaneOrientationSequence[0].ImageOrientationPatient
+                    row_cosine = np.array(image_orientation[:3])
+                    column_cosine = np.array(image_orientation[3:])
+                    row_spacing, column_spacing = dataset.PerFrameFunctionalGroupsSequence[index].PixelMeasuresSequence[0].PixelSpacing
+                    top_left_x = image_position[0] - 0.5 * row_spacing * row_cosine[0] - 0.5 * column_spacing * column_cosine[0]
+                    top_left_y = image_position[1] - 0.5 * row_spacing * row_cosine[1] - 0.5 * column_spacing * column_cosine[1]
+                    top_left_z = image_position[2] - 0.5 * row_spacing * row_cosine[2] - 0.5 * column_spacing * column_cosine[2]
+                    top_left_coords.append([top_left_x, top_left_y, top_left_z])
+            else:
+                image_position = np.array(dataset.ImagePositionPatient) # Centre of Top left-hand corner pixel
+                image_orientation = dataset.ImageOrientationPatient
+                row_cosine = np.array(image_orientation[:3])
+                column_cosine = np.array(image_orientation[3:])
+                row_spacing, column_spacing = dataset.PixelSpacing
+                top_left_x = image_position[0] - 0.5 * row_spacing * row_cosine[0] - 0.5 * column_spacing * column_cosine[0]
+                top_left_y = image_position[1] - 0.5 * row_spacing * row_cosine[1] - 0.5 * column_spacing * column_cosine[1]
+                top_left_z = image_position[2] - 0.5 * row_spacing * row_cosine[2] - 0.5 * column_spacing * column_cosine[2]
+                top_left_coords = [top_left_x, top_left_y, top_left_z]
+            return top_left_coords
+        else:
+            return None
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.getTopLeftCorner: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.getTopLeftCorner: &#39; + str(e))
+
+
+def mapMaskToImage(mask, datasetMask, datasetTarget):
+    &#34;&#34;&#34;This method takes a binary mask pixel_array and returns a list of indexes
+        of the True values of the mask in the coordinate system of the `datasetTarget`&#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.mapMaskToImage called&#34;)
+    try:
+        affineTarget = getAffineArray(datasetTarget)
+        affineMask = getAffineArray(datasetMask)
+        indexes = np.transpose(np.where(mask==1))
+        if np.shape(indexes) == (0,2):
+            listIndexes = []
+        else:
+            listIndexes = mapCoordinates(indexes, affineTarget, affineMask)
+        return listIndexes
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.mapMaskToImage: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.mapMaskToImage: &#39; + str(e))
+
+
+def mapCoordinates(indexes, affineTarget, affineMask):
+    &#34;&#34;&#34;This method returns a list of indexes that results from mapping the input argument 
+        `indexes` to the coordinate system of the target image.
+    &#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.mapCoordinates called&#34;)
+    try:
+        coords = [[index[0], index[1], 0] for index in indexes]
+        newCoord = np.round(applyAffine(affineTarget, affineMask, np.array(coords)), 3).astype(int)
+        return [(coord[1], coord[0]) for coord in newCoord if coord[-1] == 0]
+
+        # Legacy code that might be needed if we move to 3D
+        #if len(index) == 2: 
+        #coords = [[index[0], index[1], 0] for index in indexes]
+        #else:
+        #temp_index = np.array([index[1], index[2], index[0]])
+        #if (len(index) == 2) and (newCoord[-1] == 0):
+        #    return (newCoord[1], newCoord[0])
+        #elif len(index) == 3:
+        #    return (newCoord[-1], newCoord[1], newCoord[0])
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.mapCoordinates: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.mapCoordinates: &#39; + str(e))
+
+
+def applyAffine(affineReference, affineTarget, coordinates):
+    &#34;&#34;&#34;This method uses the affines from the reference image and from the target image and 
+        calculates the new spatial values of the `coordinates` input argument in the target image coordinate system.&#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.applyAffine called&#34;)
+    try:
+        maskToTarget = np.linalg.inv(affineReference).dot(affineTarget)
+        return apply_affine(maskToTarget, coordinates)
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.applyAffine: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.applyAffine: &#39; + str(e))
+
+
+def getColourmap(imagePath):
+    &#34;&#34;&#34;This method reads the DICOM file in imagePath and returns the colourmap if there&#39;s any&#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.getColourmap called&#34;)
+    try:
+        dataset = getDicomDataset(imagePath)
+        if hasattr(dataset, &#39;ContentLabel&#39;):
+            if dataset.PhotometricInterpretation == &#39;PALETTE COLOR&#39;:
+                colourmapName = dataset.ContentLabel
+            elif &#39;MONOCHROME&#39; in dataset.PhotometricInterpretation:
+                colourmapName = &#39;gray&#39;
+            else:
+                colourmapName = None
+        else:
+            colourmapName = None
+        if len(dataset.dir(&#34;PaletteColor&#34;))&gt;=3 and dataset.PhotometricInterpretation == &#39;PALETTE COLOR&#39;:
+            if colourmapName is None:
+                colourmapName = &#39;custom&#39;
+            redColour = list(dataset.RedPaletteColorLookupTableData)
+            greenColour = list(dataset.GreenPaletteColorLookupTableData)
+            blueColour = list(dataset.BluePaletteColorLookupTableData)
+            redLut = list(struct.unpack(&#39;&lt;&#39; + (&#39;H&#39; * dataset.RedPaletteColorLookupTableDescriptor[0]), bytearray(redColour)))
+            greenLut = list(struct.unpack(&#39;&lt;&#39; + (&#39;H&#39; * dataset.GreenPaletteColorLookupTableDescriptor[0]), bytearray(greenColour)))
+            blueLut = list(struct.unpack(&#39;&lt;&#39; + (&#39;H&#39; * dataset.BluePaletteColorLookupTableDescriptor[0]), bytearray(blueColour)))
+            colours = np.transpose([redLut, greenLut, blueLut])
+            normaliseFactor = int(np.power(2, dataset.RedPaletteColorLookupTableDescriptor[2]))
+            # Fast ColourTable loading
+            colourTable = np.around(colours/normaliseFactor, decimals = 2)
+            indexes = np.unique(colourTable, axis=0, return_index=True)[1]
+            lut = [colourTable[index].tolist() for index in sorted(indexes)]
+            # Full / Complete Colourmap - takes 20 seconds to load each image
+            # lut = (colours/normaliseFactor).tolist()
+        else:
+            lut = None
+        return colourmapName, lut
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.getColourmap: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.getColourmap: &#39; + str(e))
+    
+
+def checkImageType(dataset):
+    &#34;&#34;&#34;This method reads the DICOM Dataset object/class and returns if it is a Magnitude, Phase, Real or Imaginary image or None&#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.checkImageType called&#34;)
+    try:
+        mapsList = [&#39;ADC&#39;, &#39;FA&#39;, &#39;B0&#39;, &#39;B0 MAP&#39;, &#39;B0_MAP&#39;, &#39;T1&#39;, &#39;T1 MAP&#39;, &#39;T1_MAP&#39;, &#39;T2&#39;, &#39;T2 MAP&#39;, &#39;T2_MAP&#39;, &#39;T2_STAR&#39;, &#39;T2_STAR MAP&#39;, &#39;T2_STAR_MAP&#39;, &#39;MAP&#39;, &#39;FIELD_MAP&#39;]
+        if hasattr(dataset, &#39;PerFrameFunctionalGroupsSequence&#39;):
+            flagMagnitude = []
+            flagPhase = []
+            flagReal = []
+            flagImaginary = []
+            flagMap = []
+            for index, singleSlice in enumerate(dataset.PerFrameFunctionalGroupsSequence):
+                if hasattr(singleSlice.MRImageFrameTypeSequence[0], &#39;FrameType&#39;):
+                    if set([&#39;M&#39;, &#39;MAGNITUDE&#39;]).intersection(set(singleSlice.MRImageFrameTypeSequence[0].FrameType)):
+                        flagMagnitude.append(index)
+                        continue
+                    elif set([&#39;P&#39;, &#39;PHASE&#39;]).intersection(set(singleSlice.MRImageFrameTypeSequence[0].FrameType)):
+                        flagPhase.append(index)
+                        continue
+                    elif set([&#39;R&#39;, &#39;REAL&#39;]).intersection(set(singleSlice.MRImageFrameTypeSequence[0].FrameType)):
+                        flagReal.append(index)
+                        continue
+                    elif set([&#39;I&#39;, &#39;IMAGINARY&#39;]).intersection(set(singleSlice.MRImageFrameTypeSequence[0].FrameType)):
+                        flagImaginary.append(index)
+                        continue
+                    elif set(mapsList).intersection(set(singleSlice.MRImageFrameTypeSequence[0].FrameType)):
+                        flagMap.append(list(set(mapsList).intersection(set(singleSlice.MRImageFrameTypeSequence[0].FrameType)))[0])
+                        continue
+                if hasattr(singleSlice.MRImageFrameTypeSequence[0], &#39;ComplexImageComponent&#39;):
+                    if set([&#39;M&#39;, &#39;MAGNITUDE&#39;]).intersection(set(singleSlice.MRImageFrameTypeSequence[0].ComplexImageComponent)):
+                        flagMagnitude.append(index)
+                        continue
+                    elif set([&#39;P&#39;, &#39;PHASE&#39;]).intersection(set(singleSlice.MRImageFrameTypeSequence[0].ComplexImageComponent)):
+                        flagPhase.append(index)
+                        continue
+                    elif set([&#39;R&#39;, &#39;REAL&#39;]).intersection(set(singleSlice.MRImageFrameTypeSequence[0].ComplexImageComponent)):
+                        flagReal.append(index)
+                        continue
+                    elif set([&#39;I&#39;, &#39;IMAGINARY&#39;]).intersection(set(singleSlice.MRImageFrameTypeSequence[0].ComplexImageComponent)):
+                        flagImaginary.append(index)
+                        continue
+                    elif set(mapsList).intersection(set(singleSlice.MRImageFrameTypeSequence[0].ComplexImageComponent)):
+                        flagMap.append(list(set(mapsList).intersection(set(singleSlice.MRImageFrameTypeSequence[0].ComplexImageComponent)))[0])
+                        continue
+        else:
+            flagMagnitude = False
+            flagPhase = False
+            flagReal = False
+            flagImaginary = False
+            flagMap = False
+            try: private_ge = dataset[0x0043102f]
+            except: private_ge = None
+            if private_ge is not None: #MAG = 0; PHASE = 1; REAL = 2; IMAG = 3; # RawDataType_ImageType in GE - &#39;0x0043102f&#39;
+                try:
+                    if struct.unpack(&#39;h&#39;, private_ge.value)[0] == 0:
+                        flagMagnitude = True
+                    elif struct.unpack(&#39;h&#39;, private_ge.value)[0] == 1:
+                        flagPhase = True
+                    elif struct.unpack(&#39;h&#39;, private_ge.value)[0] == 2:
+                        flagReal = True
+                    elif struct.unpack(&#39;h&#39;, private_ge.value)[0] == 3:
+                        flagImaginary = True
+                except:
+                    if private_ge.value == 0:
+                        flagMagnitude = True
+                    elif private_ge.value == 1:
+                        flagPhase = True
+                    elif private_ge.value == 2:
+                        flagReal = True
+                    elif private_ge.value == 3:
+                        flagImaginary = True
+            if hasattr(dataset, &#39;ImageType&#39;):
+                if set([&#39;M&#39;, &#39;MAGNITUDE&#39;]).intersection(set(dataset.ImageType)):
+                    flagMagnitude = True
+                elif set([&#39;P&#39;, &#39;PHASE&#39;]).intersection(set(dataset.ImageType)):# or (&#39;B0&#39; in dataset.ImageType) or (&#39;FIELD_MAP&#39; in dataset.ImageType):
+                    flagPhase = True
+                elif set([&#39;R&#39;, &#39;REAL&#39;]).intersection(set(dataset.ImageType)):
+                    flagReal = True
+                elif set([&#39;I&#39;, &#39;IMAGINARY&#39;]).intersection(set(dataset.ImageType)):
+                    flagImaginary = True
+                elif set(mapsList).intersection(set(dataset.ImageType)):
+                    flagMap = list(set(mapsList).intersection(set(dataset.ImageType)))[0]
+            if flagMagnitude == False and flagPhase == False and flagReal == False and \
+               flagImaginary == False and flagMap == False and hasattr(dataset, &#39;ComplexImageComponent&#39;):
+                if dataset.ComplexImageComponent == &#39;MAGNITUDE&#39;:
+                    flagMagnitude = True
+                elif dataset.ComplexImageComponent == &#39;PHASE&#39;:
+                    flagPhase = True
+                elif dataset.ComplexImageComponent == &#39;REAL&#39;:
+                    flagReal = True
+                elif dataset.ComplexImageComponent == &#39;IMAGINARY&#39;:
+                    flagImaginary = True
+        return flagMagnitude, flagPhase, flagReal, flagImaginary, flagMap
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.checkImageType: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.checkImageType: &#39; + str(e))
+
+
+def checkAcquisitionType(dataset):
+    &#34;&#34;&#34;This method reads the DICOM Dataset object/class and returns if it is a Water, Fat, In-Phase, Out-phase image or None&#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.checkImageType called&#34;)
+    try:
+        flagWater = False
+        flagFat = False
+        flagInPhase = False
+        flagOutPhase = False
+        if hasattr(dataset, &#39;PerFrameFunctionalGroupsSequence&#39;):
+            if hasattr(dataset.MRImageFrameTypeSequence[0], &#39;FrameType&#39;):
+                if set([&#39;W&#39;, &#39;WATER&#39;]).intersection(set(dataset.MRImageFrameTypeSequence[0].FrameType)):
+                    flagWater = True
+                elif set([&#39;F&#39;, &#39;FAT&#39;]).intersection(set(dataset.MRImageFrameTypeSequence[0].FrameType)):
+                    flagFat = True
+                elif set([&#39;IP&#39;, &#39;IN_PHASE&#39;]).intersection(set(dataset.MRImageFrameTypeSequence[0].FrameType)):
+                    flagInPhase = True
+                elif set([&#39;OP&#39;, &#39;OUT_PHASE&#39;]).intersection(set(dataset.MRImageFrameTypeSequence[0].FrameType)):
+                    flagOutPhase = True
+            elif hasattr(dataset.MRImageFrameTypeSequence[0], &#39;ComplexImageComponent&#39;):
+                if set([&#39;W&#39;, &#39;WATER&#39;]).intersection(set(dataset.MRImageFrameTypeSequence[0].ComplexImageComponent)):
+                    flagWater = True
+                elif set([&#39;F&#39;, &#39;FAT&#39;]).intersection(set(dataset.MRImageFrameTypeSequence[0].ComplexImageComponent)):
+                    flagFat = True
+                elif set([&#39;IP&#39;, &#39;IN_PHASE&#39;]).intersection(set(dataset.MRImageFrameTypeSequence[0].ComplexImageComponent)):
+                    flagInPhase = True
+                elif set([&#39;OP&#39;, &#39;OUT_PHASE&#39;]).intersection(set(dataset.MRImageFrameTypeSequence[0].ComplexImageComponent)):
+                    flagOutPhase = True
+        else:
+            if hasattr(dataset, &#39;ImageType&#39;):
+                if set([&#39;W&#39;, &#39;WATER&#39;]).intersection(set(dataset.ImageType)):
+                    flagWater = True
+                elif set([&#39;F&#39;, &#39;FAT&#39;]).intersection(set(dataset.ImageType)):# or (&#39;B0&#39; in dataset.ImageType) or (&#39;FIELD_MAP&#39; in dataset.ImageType):
+                    flagFat = True
+                elif set([&#39;IP&#39;, &#39;IN_PHASE&#39;]).intersection(set(dataset.ImageType)):
+                    flagInPhase = True
+                elif set([&#39;OP&#39;, &#39;OUT_PHASE&#39;]).intersection(set(dataset.ImageType)):
+                    flagOutPhase = True
+        return flagWater, flagFat, flagInPhase, flagOutPhase
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.checkAcquisitionType: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.checkAcquisitionType: &#39; + str(e))</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="Weasel.DICOM.ReadDICOM_Image.applyAffine"><code class="name flex">
+<span>def <span class="ident">applyAffine</span></span>(<span>affineReference, affineTarget, coordinates)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method uses the affines from the reference image and from the target image and
+calculates the new spatial values of the <code>coordinates</code> input argument in the target image coordinate system.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def applyAffine(affineReference, affineTarget, coordinates):
+    &#34;&#34;&#34;This method uses the affines from the reference image and from the target image and 
+        calculates the new spatial values of the `coordinates` input argument in the target image coordinate system.&#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.applyAffine called&#34;)
+    try:
+        maskToTarget = np.linalg.inv(affineReference).dot(affineTarget)
+        return apply_affine(maskToTarget, coordinates)
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.applyAffine: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.applyAffine: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.DICOM.ReadDICOM_Image.checkAcquisitionType"><code class="name flex">
+<span>def <span class="ident">checkAcquisitionType</span></span>(<span>dataset)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method reads the DICOM Dataset object/class and returns if it is a Water, Fat, In-Phase, Out-phase image or None</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def checkAcquisitionType(dataset):
+    &#34;&#34;&#34;This method reads the DICOM Dataset object/class and returns if it is a Water, Fat, In-Phase, Out-phase image or None&#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.checkImageType called&#34;)
+    try:
+        flagWater = False
+        flagFat = False
+        flagInPhase = False
+        flagOutPhase = False
+        if hasattr(dataset, &#39;PerFrameFunctionalGroupsSequence&#39;):
+            if hasattr(dataset.MRImageFrameTypeSequence[0], &#39;FrameType&#39;):
+                if set([&#39;W&#39;, &#39;WATER&#39;]).intersection(set(dataset.MRImageFrameTypeSequence[0].FrameType)):
+                    flagWater = True
+                elif set([&#39;F&#39;, &#39;FAT&#39;]).intersection(set(dataset.MRImageFrameTypeSequence[0].FrameType)):
+                    flagFat = True
+                elif set([&#39;IP&#39;, &#39;IN_PHASE&#39;]).intersection(set(dataset.MRImageFrameTypeSequence[0].FrameType)):
+                    flagInPhase = True
+                elif set([&#39;OP&#39;, &#39;OUT_PHASE&#39;]).intersection(set(dataset.MRImageFrameTypeSequence[0].FrameType)):
+                    flagOutPhase = True
+            elif hasattr(dataset.MRImageFrameTypeSequence[0], &#39;ComplexImageComponent&#39;):
+                if set([&#39;W&#39;, &#39;WATER&#39;]).intersection(set(dataset.MRImageFrameTypeSequence[0].ComplexImageComponent)):
+                    flagWater = True
+                elif set([&#39;F&#39;, &#39;FAT&#39;]).intersection(set(dataset.MRImageFrameTypeSequence[0].ComplexImageComponent)):
+                    flagFat = True
+                elif set([&#39;IP&#39;, &#39;IN_PHASE&#39;]).intersection(set(dataset.MRImageFrameTypeSequence[0].ComplexImageComponent)):
+                    flagInPhase = True
+                elif set([&#39;OP&#39;, &#39;OUT_PHASE&#39;]).intersection(set(dataset.MRImageFrameTypeSequence[0].ComplexImageComponent)):
+                    flagOutPhase = True
+        else:
+            if hasattr(dataset, &#39;ImageType&#39;):
+                if set([&#39;W&#39;, &#39;WATER&#39;]).intersection(set(dataset.ImageType)):
+                    flagWater = True
+                elif set([&#39;F&#39;, &#39;FAT&#39;]).intersection(set(dataset.ImageType)):# or (&#39;B0&#39; in dataset.ImageType) or (&#39;FIELD_MAP&#39; in dataset.ImageType):
+                    flagFat = True
+                elif set([&#39;IP&#39;, &#39;IN_PHASE&#39;]).intersection(set(dataset.ImageType)):
+                    flagInPhase = True
+                elif set([&#39;OP&#39;, &#39;OUT_PHASE&#39;]).intersection(set(dataset.ImageType)):
+                    flagOutPhase = True
+        return flagWater, flagFat, flagInPhase, flagOutPhase
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.checkAcquisitionType: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.checkAcquisitionType: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.DICOM.ReadDICOM_Image.checkImageType"><code class="name flex">
+<span>def <span class="ident">checkImageType</span></span>(<span>dataset)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method reads the DICOM Dataset object/class and returns if it is a Magnitude, Phase, Real or Imaginary image or None</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def checkImageType(dataset):
+    &#34;&#34;&#34;This method reads the DICOM Dataset object/class and returns if it is a Magnitude, Phase, Real or Imaginary image or None&#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.checkImageType called&#34;)
+    try:
+        mapsList = [&#39;ADC&#39;, &#39;FA&#39;, &#39;B0&#39;, &#39;B0 MAP&#39;, &#39;B0_MAP&#39;, &#39;T1&#39;, &#39;T1 MAP&#39;, &#39;T1_MAP&#39;, &#39;T2&#39;, &#39;T2 MAP&#39;, &#39;T2_MAP&#39;, &#39;T2_STAR&#39;, &#39;T2_STAR MAP&#39;, &#39;T2_STAR_MAP&#39;, &#39;MAP&#39;, &#39;FIELD_MAP&#39;]
+        if hasattr(dataset, &#39;PerFrameFunctionalGroupsSequence&#39;):
+            flagMagnitude = []
+            flagPhase = []
+            flagReal = []
+            flagImaginary = []
+            flagMap = []
+            for index, singleSlice in enumerate(dataset.PerFrameFunctionalGroupsSequence):
+                if hasattr(singleSlice.MRImageFrameTypeSequence[0], &#39;FrameType&#39;):
+                    if set([&#39;M&#39;, &#39;MAGNITUDE&#39;]).intersection(set(singleSlice.MRImageFrameTypeSequence[0].FrameType)):
+                        flagMagnitude.append(index)
+                        continue
+                    elif set([&#39;P&#39;, &#39;PHASE&#39;]).intersection(set(singleSlice.MRImageFrameTypeSequence[0].FrameType)):
+                        flagPhase.append(index)
+                        continue
+                    elif set([&#39;R&#39;, &#39;REAL&#39;]).intersection(set(singleSlice.MRImageFrameTypeSequence[0].FrameType)):
+                        flagReal.append(index)
+                        continue
+                    elif set([&#39;I&#39;, &#39;IMAGINARY&#39;]).intersection(set(singleSlice.MRImageFrameTypeSequence[0].FrameType)):
+                        flagImaginary.append(index)
+                        continue
+                    elif set(mapsList).intersection(set(singleSlice.MRImageFrameTypeSequence[0].FrameType)):
+                        flagMap.append(list(set(mapsList).intersection(set(singleSlice.MRImageFrameTypeSequence[0].FrameType)))[0])
+                        continue
+                if hasattr(singleSlice.MRImageFrameTypeSequence[0], &#39;ComplexImageComponent&#39;):
+                    if set([&#39;M&#39;, &#39;MAGNITUDE&#39;]).intersection(set(singleSlice.MRImageFrameTypeSequence[0].ComplexImageComponent)):
+                        flagMagnitude.append(index)
+                        continue
+                    elif set([&#39;P&#39;, &#39;PHASE&#39;]).intersection(set(singleSlice.MRImageFrameTypeSequence[0].ComplexImageComponent)):
+                        flagPhase.append(index)
+                        continue
+                    elif set([&#39;R&#39;, &#39;REAL&#39;]).intersection(set(singleSlice.MRImageFrameTypeSequence[0].ComplexImageComponent)):
+                        flagReal.append(index)
+                        continue
+                    elif set([&#39;I&#39;, &#39;IMAGINARY&#39;]).intersection(set(singleSlice.MRImageFrameTypeSequence[0].ComplexImageComponent)):
+                        flagImaginary.append(index)
+                        continue
+                    elif set(mapsList).intersection(set(singleSlice.MRImageFrameTypeSequence[0].ComplexImageComponent)):
+                        flagMap.append(list(set(mapsList).intersection(set(singleSlice.MRImageFrameTypeSequence[0].ComplexImageComponent)))[0])
+                        continue
+        else:
+            flagMagnitude = False
+            flagPhase = False
+            flagReal = False
+            flagImaginary = False
+            flagMap = False
+            try: private_ge = dataset[0x0043102f]
+            except: private_ge = None
+            if private_ge is not None: #MAG = 0; PHASE = 1; REAL = 2; IMAG = 3; # RawDataType_ImageType in GE - &#39;0x0043102f&#39;
+                try:
+                    if struct.unpack(&#39;h&#39;, private_ge.value)[0] == 0:
+                        flagMagnitude = True
+                    elif struct.unpack(&#39;h&#39;, private_ge.value)[0] == 1:
+                        flagPhase = True
+                    elif struct.unpack(&#39;h&#39;, private_ge.value)[0] == 2:
+                        flagReal = True
+                    elif struct.unpack(&#39;h&#39;, private_ge.value)[0] == 3:
+                        flagImaginary = True
+                except:
+                    if private_ge.value == 0:
+                        flagMagnitude = True
+                    elif private_ge.value == 1:
+                        flagPhase = True
+                    elif private_ge.value == 2:
+                        flagReal = True
+                    elif private_ge.value == 3:
+                        flagImaginary = True
+            if hasattr(dataset, &#39;ImageType&#39;):
+                if set([&#39;M&#39;, &#39;MAGNITUDE&#39;]).intersection(set(dataset.ImageType)):
+                    flagMagnitude = True
+                elif set([&#39;P&#39;, &#39;PHASE&#39;]).intersection(set(dataset.ImageType)):# or (&#39;B0&#39; in dataset.ImageType) or (&#39;FIELD_MAP&#39; in dataset.ImageType):
+                    flagPhase = True
+                elif set([&#39;R&#39;, &#39;REAL&#39;]).intersection(set(dataset.ImageType)):
+                    flagReal = True
+                elif set([&#39;I&#39;, &#39;IMAGINARY&#39;]).intersection(set(dataset.ImageType)):
+                    flagImaginary = True
+                elif set(mapsList).intersection(set(dataset.ImageType)):
+                    flagMap = list(set(mapsList).intersection(set(dataset.ImageType)))[0]
+            if flagMagnitude == False and flagPhase == False and flagReal == False and \
+               flagImaginary == False and flagMap == False and hasattr(dataset, &#39;ComplexImageComponent&#39;):
+                if dataset.ComplexImageComponent == &#39;MAGNITUDE&#39;:
+                    flagMagnitude = True
+                elif dataset.ComplexImageComponent == &#39;PHASE&#39;:
+                    flagPhase = True
+                elif dataset.ComplexImageComponent == &#39;REAL&#39;:
+                    flagReal = True
+                elif dataset.ComplexImageComponent == &#39;IMAGINARY&#39;:
+                    flagImaginary = True
+        return flagMagnitude, flagPhase, flagReal, flagImaginary, flagMap
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.checkImageType: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.checkImageType: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.DICOM.ReadDICOM_Image.getAffineArray"><code class="name flex">
+<span>def <span class="ident">getAffineArray</span></span>(<span>dataset)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method reads the DICOM Dataset object/class and returns the Affine/Orientation matrix</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getAffineArray(dataset):
+    &#34;&#34;&#34;This method reads the DICOM Dataset object/class and returns the Affine/Orientation matrix&#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.getAffineArray called&#34;)
+    try:
+        if any(hasattr(dataset, attr) for attr in [&#39;PixelData&#39;, &#39;FloatPixelData&#39;, &#39;DoubleFloatPixelData&#39;]):
+            if hasattr(dataset, &#39;PerFrameFunctionalGroupsSequence&#39;):
+                affineList = list()
+                for index in range(len(dataset.PerFrameFunctionalGroupsSequence)):
+                    image_orientation = dataset.PerFrameFunctionalGroupsSequence[index].PlaneOrientationSequence[0].ImageOrientationPatient
+                    row_cosine = np.array(image_orientation[:3])
+                    column_cosine = np.array(image_orientation[3:])
+                    slice_cosine = np.cross(row_cosine, column_cosine)
+                    row_spacing, column_spacing = dataset.PerFrameFunctionalGroupsSequence[index].PixelMeasuresSequence[0].PixelSpacing
+                    slice_spacing = dataset.PerFrameFunctionalGroupsSequence[index].PixelMeasuresSequence[0].SpacingBetweenSlices
+
+                    affine = np.identity(4, dtype=np.float32)
+                    affine[:3, 0] = row_cosine * column_spacing
+                    affine[:3, 1] = column_cosine * row_spacing
+                    affine[:3, 2] = slice_cosine * slice_spacing
+                    affine[:3, 3] = dataset.PerFrameFunctionalGroupsSequence[index].PlanePositionSequence[0].ImagePositionPatient
+                    affineList.append(affine)
+                affine = np.squeeze(np.array(affineList))
+            else:
+                image_orientation = dataset.ImageOrientationPatient
+                row_cosine = np.array(image_orientation[:3])
+                column_cosine = np.array(image_orientation[3:])
+                slice_cosine = np.cross(row_cosine, column_cosine)
+                row_spacing, column_spacing = dataset.PixelSpacing
+                slice_spacing = dataset.SliceThickness
+
+                affine = np.identity(4, dtype=np.float32)
+                affine[:3, 0] = row_cosine * column_spacing
+                affine[:3, 1] = column_cosine * row_spacing
+                affine[:3, 2] = slice_cosine * slice_spacing
+                affine[:3, 3] = dataset.ImagePositionPatient
+            return affine
+        else:
+            return None
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.getAffineArray: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.getAffineArray: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.DICOM.ReadDICOM_Image.getColourmap"><code class="name flex">
+<span>def <span class="ident">getColourmap</span></span>(<span>imagePath)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method reads the DICOM file in imagePath and returns the colourmap if there's any</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getColourmap(imagePath):
+    &#34;&#34;&#34;This method reads the DICOM file in imagePath and returns the colourmap if there&#39;s any&#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.getColourmap called&#34;)
+    try:
+        dataset = getDicomDataset(imagePath)
+        if hasattr(dataset, &#39;ContentLabel&#39;):
+            if dataset.PhotometricInterpretation == &#39;PALETTE COLOR&#39;:
+                colourmapName = dataset.ContentLabel
+            elif &#39;MONOCHROME&#39; in dataset.PhotometricInterpretation:
+                colourmapName = &#39;gray&#39;
+            else:
+                colourmapName = None
+        else:
+            colourmapName = None
+        if len(dataset.dir(&#34;PaletteColor&#34;))&gt;=3 and dataset.PhotometricInterpretation == &#39;PALETTE COLOR&#39;:
+            if colourmapName is None:
+                colourmapName = &#39;custom&#39;
+            redColour = list(dataset.RedPaletteColorLookupTableData)
+            greenColour = list(dataset.GreenPaletteColorLookupTableData)
+            blueColour = list(dataset.BluePaletteColorLookupTableData)
+            redLut = list(struct.unpack(&#39;&lt;&#39; + (&#39;H&#39; * dataset.RedPaletteColorLookupTableDescriptor[0]), bytearray(redColour)))
+            greenLut = list(struct.unpack(&#39;&lt;&#39; + (&#39;H&#39; * dataset.GreenPaletteColorLookupTableDescriptor[0]), bytearray(greenColour)))
+            blueLut = list(struct.unpack(&#39;&lt;&#39; + (&#39;H&#39; * dataset.BluePaletteColorLookupTableDescriptor[0]), bytearray(blueColour)))
+            colours = np.transpose([redLut, greenLut, blueLut])
+            normaliseFactor = int(np.power(2, dataset.RedPaletteColorLookupTableDescriptor[2]))
+            # Fast ColourTable loading
+            colourTable = np.around(colours/normaliseFactor, decimals = 2)
+            indexes = np.unique(colourTable, axis=0, return_index=True)[1]
+            lut = [colourTable[index].tolist() for index in sorted(indexes)]
+            # Full / Complete Colourmap - takes 20 seconds to load each image
+            # lut = (colours/normaliseFactor).tolist()
+        else:
+            lut = None
+        return colourmapName, lut
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.getColourmap: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.getColourmap: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.DICOM.ReadDICOM_Image.getDicomDataset"><code class="name flex">
+<span>def <span class="ident">getDicomDataset</span></span>(<span>imagePath)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method reads the DICOM file in imagePath and returns the DICOM Dataset object/class</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getDicomDataset(imagePath):
+    &#34;&#34;&#34;This method reads the DICOM file in imagePath and returns the DICOM Dataset object/class&#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.getDicomDataset called&#34;)
+    try:
+        if os.path.exists(imagePath):
+            return pydicom.dcmread(imagePath)
+        else:
+            return None
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.getDicomDataset when imagePath = {}: &#39;.format(imagePath) + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.getDicomDataset: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.DICOM.ReadDICOM_Image.getImageTagValue"><code class="name flex">
+<span>def <span class="ident">getImageTagValue</span></span>(<span>imagePath, dicomTag)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method reads the DICOM file in imagePath and returns the value in the given DICOM tag
+Output is : attribute</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getImageTagValue(imagePath, dicomTag):
+    &#34;&#34;&#34;This method reads the DICOM file in imagePath and returns the value in the given DICOM tag
+        Output is : attribute
+    &#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.getImageTagValue called&#34;)
+    try:
+        if os.path.exists(imagePath):
+            dataset = getDicomDataset(imagePath)
+            # The following if statement is an exception for Multi-frame / Enhanced DICOM images (13/08/2021)
+            if (dicomTag == &#34;SliceLocation&#34; or dicomTag == (0x0020,0x1041)) and not hasattr(dataset, &#34;SliceLocation&#34;): dicomTag = (0x2001, 0x100a)
+            # This is not for Enhanced MRI. Only Classic DICOM
+            if isinstance(dicomTag, str):
+                try:
+                    if isinstance(dataset.data_element(dicomTag).value, bytes) == True:
+                        try:
+                            attribute = list(struct.unpack(&#39;h&#39;, dataset.data_element(dicomTag).value))
+                            if len(attribute) == 1: attribute = attribute[0]
+                        except:
+                            attribute = dataset.data_element(dicomTag).value.decode(&#39;utf-8&#39;)
+                            if &#34;\\&#34; in attribute: attribute = list(map(eval, attribute.split(&#34;\\&#34;)))
+                    else:
+                        attribute = dataset.data_element(dicomTag).value
+                    if dataset.data_element(dicomTag).VR == &#34;TM&#34;:
+                        if &#34;.&#34; in attribute: attribute = (datetime.strptime(attribute, &#34;%H%M%S.%f&#34;) - datetime(1900, 1, 1)).total_seconds()
+                        else: attribute = (datetime.strptime(attribute, &#34;%H%M%S&#34;) - datetime(1900, 1, 1)).total_seconds()
+                except:
+                    return None
+            elif isinstance(dicomTag, tuple):
+                try:
+                    if isinstance(dataset[dicomTag].value, bytes) == True:
+                        try:
+                            attribute = list(struct.unpack(&#39;h&#39;, dataset[dicomTag].value))
+                            if len(attribute) == 1: attribute = attribute[0]
+                        except:
+                            attribute = dataset[dicomTag].value.decode(&#39;utf-8&#39;)
+                            if &#34;\\&#34; in attribute: attribute = list(map(eval, attribute.split(&#34;\\&#34;)))
+                    else:
+                        attribute = dataset[dicomTag].value
+                    if dataset[dicomTag].VR == &#34;TM&#34;: 
+                        if &#34;.&#34; in attribute: attribute = (datetime.strptime(attribute, &#34;%H%M%S.%f&#34;) - datetime(1900, 1, 1)).total_seconds()
+                        else: attribute = (datetime.strptime(attribute, &#34;%H%M%S&#34;) - datetime(1900, 1, 1)).total_seconds()
+                except:
+                    return None
+            else:
+                try:
+                    if isinstance(dataset[hex(dicomTag)].value, bytes) == True:
+                        try:
+                            attribute = list(struct.unpack(&#39;h&#39;, dataset[hex(dicomTag)].value))
+                            if len(attribute) == 1: attribute = attribute[0]
+                        except:
+                            attribute = dataset[hex(dicomTag)].value.decode(&#39;utf-8&#39;)
+                            if &#34;\\&#34; in attribute: attribute = list(map(eval, attribute.split(&#34;\\&#34;)))
+                    else:
+                        attribute = dataset[hex(dicomTag)].value
+                    if dataset[hex(dicomTag)].VR == &#34;TM&#34;:
+                        if &#34;.&#34; in attribute: attribute = (datetime.strptime(attribute, &#34;%H%M%S.%f&#34;) - datetime(1900, 1, 1)).total_seconds()
+                        else: attribute = (datetime.strptime(attribute, &#34;%H%M%S&#34;) - datetime(1900, 1, 1)).total_seconds()
+                except:
+                    return None
+            del dataset
+            return attribute
+        else:
+            return None
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.getImageTagValue: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.getImageTagValue: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.DICOM.ReadDICOM_Image.getMultiframeBySlices"><code class="name flex">
+<span>def <span class="ident">getMultiframeBySlices</span></span>(<span>dataset, sliceList=None, sort=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method splits and sorts the slices in the variable <code>dataset</code>. In this case, <code>dataset</code> is an Enhanced DICOM object.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getMultiframeBySlices(dataset, sliceList=None, sort=False):
+    &#34;&#34;&#34;This method splits and sorts the slices in the variable `dataset`. In this case, `dataset` is an Enhanced DICOM object.&#34;&#34;&#34;
+    try:
+        if any(hasattr(dataset, attr) for attr in [&#39;PixelData&#39;, &#39;FloatPixelData&#39;, &#39;DoubleFloatPixelData&#39;]) and hasattr(dataset, &#39;PerFrameFunctionalGroupsSequence&#39;):
+            originalArray = getPixelArray(dataset)
+            numberSlices = dataset[0x20011018].value
+            sortedArray = list()
+            sortedSlicesList = list()
+            if sliceList is None:
+                numberFrames = dataset.NumberOfFrames
+            else:
+                numberFrames = len(sliceList)
+            
+            if (sort == True):
+                if &#39;2D&#39; in dataset.MRAcquisitionType:
+                    for start in range(int(numberFrames/numberSlices)):
+                        sortedSlicesList.append(list(range(start, numberFrames, int(numberFrames/numberSlices))))
+                    sortedSlicesList = np.array(sortedSlicesList).flatten()
+                elif &#39;3D&#39; in dataset.MRAcquisitionType:
+                    sortedSlicesList = list(range(numberFrames))
+            elif (sort == False) and ((type(sliceList) is list) or (type(sliceList) is np.array)):
+                sortedSlicesList = sliceList
+            else:
+                sortedSlicesList = list(range(numberFrames))
+                
+            for index in sortedSlicesList:
+                sortedArray.append(np.squeeze(originalArray[index, ...]))
+            sortedArray = np.array(sortedArray)
+            return sortedArray, sortedSlicesList, numberSlices
+        else:
+            return None, None, None
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.getMultiframeBySlices: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.getMultiframeBySlices: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.DICOM.ReadDICOM_Image.getPixelArray"><code class="name flex">
+<span>def <span class="ident">getPixelArray</span></span>(<span>dataset)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method reads the DICOM Dataset object/class and returns the Image/Pixel array</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getPixelArray(dataset):
+    &#34;&#34;&#34;This method reads the DICOM Dataset object/class and returns the Image/Pixel array&#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.getPixelArray called&#34;)
+    try:
+        if any(hasattr(dataset, attr) for attr in [&#39;PixelData&#39;, &#39;FloatPixelData&#39;, &#39;DoubleFloatPixelData&#39;]):
+            if hasattr(dataset, &#39;PerFrameFunctionalGroupsSequence&#39;):
+                imageList = list()
+                originalArray = dataset.pixel_array.astype(np.float32)
+                if len(np.shape(originalArray)) == 2:
+                    slope = float(getattr(dataset.PerFrameFunctionalGroupsSequence[0].PixelValueTransformationSequence[0], &#39;RescaleSlope&#39;, 1)) * np.ones(originalArray.shape)
+                    intercept = float(getattr(dataset.PerFrameFunctionalGroupsSequence[0].PixelValueTransformationSequence[0], &#39;RescaleIntercept&#39;, 0)) * np.ones(originalArray.shape)
+                    pixelArray = np.transpose(originalArray * slope + intercept)
+                else:
+                    for index in range(np.shape(originalArray)[0]):
+                        sliceArray = np.squeeze(originalArray[index, ...])
+                        slope = float(getattr(dataset.PerFrameFunctionalGroupsSequence[index].PixelValueTransformationSequence[0], &#39;RescaleSlope&#39;, 1)) * np.ones(sliceArray.shape)
+                        intercept = float(getattr(dataset.PerFrameFunctionalGroupsSequence[index].PixelValueTransformationSequence[0], &#39;RescaleIntercept&#39;, 0)) * np.ones(sliceArray.shape)
+                        tempArray = np.transpose(sliceArray * slope + intercept)
+                        imageList.append(tempArray)
+                    pixelArray = np.array(imageList)
+                    del sliceArray, tempArray, index
+                del originalArray, imageList
+            else:
+                slope = float(getattr(dataset, &#39;RescaleSlope&#39;, 1)) * np.ones(dataset.pixel_array.shape)
+                intercept = float(getattr(dataset, &#39;RescaleIntercept&#39;, 0)) * np.ones(dataset.pixel_array.shape)
+                if len(dataset.pixel_array.shape) == 3:
+                    pixelArray = np.rot90(np.array(dataset.pixel_array.astype(np.float32) * slope + intercept), k=1, axes=(0, 1))
+                else:
+                    pixelArray = np.transpose(dataset.pixel_array.astype(np.float32) * slope + intercept)
+            if [0x2005, 0x100E] in dataset: # &#39;Philips Rescale Slope&#39;
+                pixelArray = pixelArray / (slope * dataset[(0x2005, 0x100E)].value)
+            del slope, intercept
+            return np.nan_to_num(pixelArray)
+        else:
+            return None
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.getPixelArray: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.getPixelArray: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.DICOM.ReadDICOM_Image.getSeriesDicomDataset"><code class="name flex">
+<span>def <span class="ident">getSeriesDicomDataset</span></span>(<span>imagePathList)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method reads the DICOM files in imagePathList and
+returns a list where each element is a DICOM Dataset object/class</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getSeriesDicomDataset(imagePathList):
+    &#34;&#34;&#34;This method reads the DICOM files in imagePathList and 
+    returns a list where each element is a DICOM Dataset object/class&#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.getSeriesDicomDataset called&#34;)
+    try:
+        #datasetList = [getDicomDataset(imagePath) for imagePath in imagePathList if getDicomDataset(imagePath) is not None]
+        datasetList = []
+        for imagePath in imagePathList:
+            dataset = getDicomDataset(imagePath)
+            if dataset is not None:
+                datasetList.append(dataset)
+        if datasetList:
+            return datasetList
+        else:
+            return None
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.getSeriesDicomDataset: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.getSeriesDicomDataset: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.DICOM.ReadDICOM_Image.getSeriesTagValues"><code class="name flex">
+<span>def <span class="ident">getSeriesTagValues</span></span>(<span>imagePathList, dicomTag)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method reads the DICOM files in imagePathList and returns the list of values in the given DICOM tag
+Outputs are : attributeList, numAttribute
+The output attributeList may have repeated values.
+Removing these repetitions will be up to the developer of the specific algorithm</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getSeriesTagValues(imagePathList, dicomTag):
+    &#34;&#34;&#34;This method reads the DICOM files in imagePathList and returns the list of values in the given DICOM tag
+        Outputs are : attributeList, numAttribute
+        The output attributeList may have repeated values. 
+        Removing these repetitions will be up to the developer of the specific algorithm
+    &#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.getSeriesTagValues called&#34;)
+    try:
+        if os.path.exists(imagePathList[0]):
+            datasetList = getSeriesDicomDataset(imagePathList)
+            # The following if statement is an exception for Multi-frame / Enhanced DICOM images (13/08/2021)
+            if (dicomTag == &#34;SliceLocation&#34; or dicomTag == (0x0020,0x1041)) and not hasattr(datasetList[0], &#34;SliceLocation&#34;): dicomTag = (0x2001, 0x100a)
+            if not hasattr(datasetList[0], &#39;PerFrameFunctionalGroupsSequence&#39;):
+                # Classic DICOM
+                if isinstance(dicomTag, str):
+                    try:
+                        if isinstance(datasetList[0].data_element(dicomTag).value, bytes) == True:
+                            try:
+                                attributeList = [list(struct.unpack(&#39;h&#39;, dataset.data_element(dicomTag).value)) if len(list(struct.unpack(&#39;h&#39;, dataset.data_element(dicomTag).value)))==1 else list(struct.unpack(&#39;h&#39;, dataset.data_element(dicomTag).value))[0] for dataset in datasetList]
+                            except:
+                                attributeList = [dataset.data_element(dicomTag).value.decode(&#39;utf-8&#39;) if &#34;\\&#34; not in dataset.data_element(dicomTag).value.decode(&#39;utf-8&#39;) else list(map(eval,dataset.data_element(dicomTag).value.decode(&#39;utf-8&#39;).split(&#34;\\&#34;))) for dataset in datasetList]
+                                #if &#34;\\&#34; in attribute: attribute = list(map(eval, attribute.split(&#34;\\&#34;)))
+                        else:
+                            attributeList = [dataset.data_element(dicomTag).value for dataset in datasetList]
+                        if datasetList[0].data_element(dicomTag).VR == &#34;TM&#34;: 
+                            if &#34;.&#34; in attributeList[0]: attributeList = [(datetime.strptime(attr, &#34;%H%M%S.%f&#34;) - datetime(1900, 1, 1)).total_seconds() for attr in attributeList]
+                            else: attributeList = [(datetime.strptime(attr, &#34;%H%M%S&#34;) - datetime(1900, 1, 1)).total_seconds() for attr in attributeList]
+                    except:
+                        return None, None
+                elif isinstance(dicomTag, tuple):
+                    try:
+                        if isinstance(datasetList[0][dicomTag].value, bytes) == True:
+                            try:
+                                attributeList = [list(struct.unpack(&#39;h&#39;, dataset[dicomTag].value)) if len(list(struct.unpack(&#39;h&#39;, dataset[dicomTag].value)))==1 else list(struct.unpack(&#39;h&#39;, dataset[dicomTag].value))[0] for dataset in datasetList]
+                            except:
+                                attributeList = [dataset[dicomTag].value.decode(&#39;utf-8&#39;) if &#34;\\&#34; not in dataset[dicomTag].value.decode(&#39;utf-8&#39;) else list(map(eval,dataset[dicomTag].value.decode(&#39;utf-8&#39;).split(&#34;\\&#34;))) for dataset in datasetList]
+                        else:
+                            attributeList = [dataset[dicomTag].value for dataset in datasetList]
+                            if datasetList[0][dicomTag].VR == &#34;TM&#34;: 
+                                if &#34;.&#34; in attributeList[0]: attributeList = [(datetime.strptime(attr, &#34;%H%M%S.%f&#34;) - datetime(1900, 1, 1)).total_seconds() for attr in attributeList]
+                                else: attributeList = [(datetime.strptime(attr, &#34;%H%M%S&#34;) - datetime(1900, 1, 1)).total_seconds() for attr in attributeList]
+                    except:
+                        return None, None
+                else:
+                    try:
+                        if isinstance(datasetList[0][hex(dicomTag)].value, bytes) == True:
+                            try:
+                                attributeList = [list(struct.unpack(&#39;h&#39;, dataset[hex(dicomTag)].value)) if len(list(struct.unpack(&#39;h&#39;, dataset[hex(dicomTag)].value)))==1 else list(struct.unpack(&#39;h&#39;, dataset[hex(dicomTag)].value))[0] for dataset in datasetList]
+                            except:
+                                attributeList = [dataset[hex(dicomTag)].value.decode(&#39;utf-8&#39;) if &#34;\\&#34; not in dataset[hex(dicomTag)].value.decode(&#39;utf-8&#39;) else list(map(eval,dataset[hex(dicomTag)].value.decode(&#39;utf-8&#39;).split(&#34;\\&#34;))) for dataset in datasetList]
+                        else:
+                            attributeList = [dataset[hex(dicomTag)].value for dataset in datasetList]
+                            if datasetList[0][hex(dicomTag)].VR == &#34;TM&#34;:
+                                if &#34;.&#34; in attributeList[0]: attributeList = [(datetime.strptime(attr, &#34;%H%M%S.%f&#34;) - datetime(1900, 1, 1)).total_seconds() for attr in attributeList]
+                                else: attributeList = [(datetime.strptime(attr, &#34;%H%M%S&#34;) - datetime(1900, 1, 1)).total_seconds() for attr in attributeList]
+                    except:
+                        return None, None
+                attributeList = [0 if x is None else x for x in attributeList]
+                attributeListUnique = []
+                for x in attributeList:
+                    if x not in attributeListUnique:
+                        attributeListUnique.append(x)
+                numAttribute = len(attributeListUnique)
+                del datasetList
+                return attributeList, numAttribute
+            else:
+                # Enhanced MRI =&gt; This else will probably never happen, because this type of DICOM is converted at Import (13/08/2021)
+                dataset = datasetList[0]
+                attributeList = []
+                fields = dicomTag.split(&#39;.&#39;)
+                if len(fields) == 1:
+                    if isinstance(dicomTag, str):
+                        try:
+                            attributeList = [dataset.data_element(dicomTag).value for dataset in datasetList]
+                            if datasetList[0].data_element(dicomTag).VR == &#34;TM&#34;: attributeList = [(datetime.strptime(attr, &#34;%H%M%S&#34;) - datetime(1900, 1, 1)).total_seconds() for attr in attributeList]
+                        except:
+                            return None, None
+                    elif isinstance(dicomTag, tuple):
+                        try:
+                            attributeList = [dataset[dicomTag].value for dataset in datasetList]
+                            if datasetList[0][dicomTag].VR == &#34;TM&#34;: attributeList = [(datetime.strptime(attr, &#34;%H%M%S&#34;) - datetime(1900, 1, 1)).total_seconds() for attr in attributeList]
+                        except:
+                            return None, None
+                    else:
+                        try:
+                            attributeList = [dataset[hex(dicomTag)].value for dataset in datasetList]
+                            if datasetList[0][hex(dicomTag)].VR == &#34;TM&#34;: attributeList = [(datetime.strptime(attr, &#34;%H%M%S&#34;) - datetime(1900, 1, 1)).total_seconds() for attr in attributeList]
+                        except:
+                            return None, None
+                elif fields[0] == &#34;PerFrameFunctionalGroupsSequence&#34;:
+                    remaining_fields = &#34;&#34;
+                    for field in fields[1:-1]:
+                        remaining_fields += &#34;.&#34; + str(field) + &#34;[0]&#34;
+                    remaining_fields += &#34;.&#34; + fields[-1]
+                    for singleSlice in dataset.PerFrameFunctionalGroupsSequence:
+                        pyDicom_command_string = &#34;singleSlice&#34; + remaining_fields
+                        attributeList.append(eval(pyDicom_command_string))
+                else:
+                    # These seem to be the only options for now
+                    return None, None
+                attributeList = [0 if x is None else x for x in attributeList]
+                attributeListUnique = []
+                for x in attributeList:
+                    if x not in attributeListUnique:
+                        attributeListUnique.append(x)
+                numAttribute = len(attributeListUnique)
+                # numAttribute = len(np.unique(attributeList))
+                del dataset, datasetList, fields
+                return attributeList, numAttribute
+        else:
+            return None, None
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.getSeriesTagValues: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.getSeriesTagValues: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.DICOM.ReadDICOM_Image.getTopLeftCorner"><code class="name flex">
+<span>def <span class="ident">getTopLeftCorner</span></span>(<span>dataset)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method reads the DICOM Dataset object/class and returns the real-world coordinate of the top left-hand corner of the image in dataset.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getTopLeftCorner(dataset):
+    &#34;&#34;&#34;This method reads the DICOM Dataset object/class and returns the real-world coordinate of the top left-hand corner of the image in dataset.&#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.getTopLeftCorner called&#34;)
+    try:
+        if any(hasattr(dataset, attr) for attr in [&#39;PixelData&#39;, &#39;FloatPixelData&#39;, &#39;DoubleFloatPixelData&#39;]):
+            if hasattr(dataset, &#39;PerFrameFunctionalGroupsSequence&#39;):
+                top_left_coords = list()
+                for index in range(len(dataset.PerFrameFunctionalGroupsSequence)):
+                    image_position = dataset.PerFrameFunctionalGroupsSequence[index].PlanePositionSequence[0].ImagePositionPatient
+                    image_orientation = dataset.PerFrameFunctionalGroupsSequence[index].PlaneOrientationSequence[0].ImageOrientationPatient
+                    row_cosine = np.array(image_orientation[:3])
+                    column_cosine = np.array(image_orientation[3:])
+                    row_spacing, column_spacing = dataset.PerFrameFunctionalGroupsSequence[index].PixelMeasuresSequence[0].PixelSpacing
+                    top_left_x = image_position[0] - 0.5 * row_spacing * row_cosine[0] - 0.5 * column_spacing * column_cosine[0]
+                    top_left_y = image_position[1] - 0.5 * row_spacing * row_cosine[1] - 0.5 * column_spacing * column_cosine[1]
+                    top_left_z = image_position[2] - 0.5 * row_spacing * row_cosine[2] - 0.5 * column_spacing * column_cosine[2]
+                    top_left_coords.append([top_left_x, top_left_y, top_left_z])
+            else:
+                image_position = np.array(dataset.ImagePositionPatient) # Centre of Top left-hand corner pixel
+                image_orientation = dataset.ImageOrientationPatient
+                row_cosine = np.array(image_orientation[:3])
+                column_cosine = np.array(image_orientation[3:])
+                row_spacing, column_spacing = dataset.PixelSpacing
+                top_left_x = image_position[0] - 0.5 * row_spacing * row_cosine[0] - 0.5 * column_spacing * column_cosine[0]
+                top_left_y = image_position[1] - 0.5 * row_spacing * row_cosine[1] - 0.5 * column_spacing * column_cosine[1]
+                top_left_z = image_position[2] - 0.5 * row_spacing * row_cosine[2] - 0.5 * column_spacing * column_cosine[2]
+                top_left_coords = [top_left_x, top_left_y, top_left_z]
+            return top_left_coords
+        else:
+            return None
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.getTopLeftCorner: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.getTopLeftCorner: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.DICOM.ReadDICOM_Image.mapCoordinates"><code class="name flex">
+<span>def <span class="ident">mapCoordinates</span></span>(<span>indexes, affineTarget, affineMask)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method returns a list of indexes that results from mapping the input argument
+<code>indexes</code> to the coordinate system of the target image.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def mapCoordinates(indexes, affineTarget, affineMask):
+    &#34;&#34;&#34;This method returns a list of indexes that results from mapping the input argument 
+        `indexes` to the coordinate system of the target image.
+    &#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.mapCoordinates called&#34;)
+    try:
+        coords = [[index[0], index[1], 0] for index in indexes]
+        newCoord = np.round(applyAffine(affineTarget, affineMask, np.array(coords)), 3).astype(int)
+        return [(coord[1], coord[0]) for coord in newCoord if coord[-1] == 0]
+
+        # Legacy code that might be needed if we move to 3D
+        #if len(index) == 2: 
+        #coords = [[index[0], index[1], 0] for index in indexes]
+        #else:
+        #temp_index = np.array([index[1], index[2], index[0]])
+        #if (len(index) == 2) and (newCoord[-1] == 0):
+        #    return (newCoord[1], newCoord[0])
+        #elif len(index) == 3:
+        #    return (newCoord[-1], newCoord[1], newCoord[0])
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.mapCoordinates: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.mapCoordinates: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.DICOM.ReadDICOM_Image.mapMaskToImage"><code class="name flex">
+<span>def <span class="ident">mapMaskToImage</span></span>(<span>mask, datasetMask, datasetTarget)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method takes a binary mask pixel_array and returns a list of indexes
+of the True values of the mask in the coordinate system of the <code>datasetTarget</code></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def mapMaskToImage(mask, datasetMask, datasetTarget):
+    &#34;&#34;&#34;This method takes a binary mask pixel_array and returns a list of indexes
+        of the True values of the mask in the coordinate system of the `datasetTarget`&#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.mapMaskToImage called&#34;)
+    try:
+        affineTarget = getAffineArray(datasetTarget)
+        affineMask = getAffineArray(datasetMask)
+        indexes = np.transpose(np.where(mask==1))
+        if np.shape(indexes) == (0,2):
+            listIndexes = []
+        else:
+            listIndexes = mapCoordinates(indexes, affineTarget, affineMask)
+        return listIndexes
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.mapMaskToImage: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.mapMaskToImage: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.DICOM.ReadDICOM_Image.returnAffineArray"><code class="name flex">
+<span>def <span class="ident">returnAffineArray</span></span>(<span>imagePath)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method reads the DICOM file in imagePath and returns the Affine/Orientation matrix</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def returnAffineArray(imagePath):
+    &#34;&#34;&#34;This method reads the DICOM file in imagePath and returns the Affine/Orientation matrix&#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.returnAffineArray called&#34;)
+    try:
+        if os.path.exists(imagePath):
+            dataset = getDicomDataset(imagePath)
+            affineArray = getAffineArray(dataset)
+            return affineArray
+        else:
+            return None
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.returnAffineArray: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.returnAffineArray: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.DICOM.ReadDICOM_Image.returnPixelArray"><code class="name flex">
+<span>def <span class="ident">returnPixelArray</span></span>(<span>imagePath)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method reads the DICOM file in imagePath and returns the Image/Pixel array</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def returnPixelArray(imagePath):
+    &#34;&#34;&#34;This method reads the DICOM file in imagePath and returns the Image/Pixel array&#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.returnPixelArray called&#34;)
+    try:
+        if os.path.exists(imagePath):
+            dataset = getDicomDataset(imagePath)
+            pixelArray = getPixelArray(dataset)
+            return pixelArray
+        else:
+            return None
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.returnPixelArray: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.returnPixelArray: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.DICOM.ReadDICOM_Image.returnSeriesPixelArray"><code class="name flex">
+<span>def <span class="ident">returnSeriesPixelArray</span></span>(<span>imagePathList)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method reads the DICOM files in imagePathList and
+returns a list where each element is a DICOM Dataset object/class</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def returnSeriesPixelArray(imagePathList):
+    &#34;&#34;&#34;This method reads the DICOM files in imagePathList and 
+    returns a list where each element is a DICOM Dataset object/class&#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.returnSeriesPixelArray called&#34;)
+    try:
+        datasetList = getSeriesDicomDataset(imagePathList)
+        imageList = [getPixelArray(dataset) for dataset in datasetList]
+        if imageList:
+            volumeArray = np.array(imageList)
+            del imageList
+            return volumeArray
+        else:
+            del imageList
+            return None
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.returnSeriesPixelArray: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.returnSeriesPixelArray: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.DICOM.ReadDICOM_Image.sortSequenceByTag"><code class="name flex">
+<span>def <span class="ident">sortSequenceByTag</span></span>(<span>imagePathList, dicomTag)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method reads the DICOM files in imagePathList and sorts the list according to the given DICOM tag
+Outputs are : sortedSequencePath, attributeList, numAttribute
+The output attributeList may have repeated values.
+Removing these repetitions will be up to the developer of the specific algorithm</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def sortSequenceByTag(imagePathList, dicomTag):
+    &#34;&#34;&#34;This method reads the DICOM files in imagePathList and sorts the list according to the given DICOM tag
+        Outputs are : sortedSequencePath, attributeList, numAttribute
+        The output attributeList may have repeated values. 
+        Removing these repetitions will be up to the developer of the specific algorithm
+    &#34;&#34;&#34;
+    logger.info(&#34;ReadDICOM_Image.sortSequenceByTag called&#34;)
+    try:
+        if os.path.exists(imagePathList[0]):
+            attributeList, numAttribute = getSeriesTagValues(imagePathList, dicomTag)
+            #attributeListUnique = np.unique(attributeList) # sorted(np.unique(attributeList))
+            attributeListUnique = [] # Works for strings as well, unlike np.unique
+            for x in attributeList:
+                if x not in attributeListUnique:
+                    attributeListUnique.append(x)
+            attributeListUnique = [0 if x is None else x for x in attributeListUnique]
+            indicesSorted = list()
+            for i in range(numAttribute):
+                indices = [index for index, value in enumerate(attributeList) if value == attributeListUnique[i]]
+                indicesSorted.extend(indices)
+            # If/Else regarding Multi-Frame DICOM
+            dataset = getDicomDataset(imagePathList[0])
+            if not hasattr(dataset, &#39;PerFrameFunctionalGroupsSequence&#39;):
+                sortedSequencePath = [imagePathList[index] for index in indicesSorted]
+            else:
+                sortedSequencePath = imagePathList
+            attributeListSorted = [attributeList[index] for index in indicesSorted]
+            del dataset, attributeList, attributeListUnique
+            return sortedSequencePath, attributeListSorted, numAttribute, indicesSorted
+        else:
+            return None, None, None, None
+    except Exception as e:
+        print(&#39;Error in function ReadDICOM_Image.sortSequenceByTag: &#39; + str(e))
+        logger.exception(&#39;Error in ReadDICOM_Image.sortSequenceByTag: &#39; + str(e))</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="Weasel.DICOM" href="index.html">Weasel.DICOM</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="Weasel.DICOM.ReadDICOM_Image.applyAffine" href="#Weasel.DICOM.ReadDICOM_Image.applyAffine">applyAffine</a></code></li>
+<li><code><a title="Weasel.DICOM.ReadDICOM_Image.checkAcquisitionType" href="#Weasel.DICOM.ReadDICOM_Image.checkAcquisitionType">checkAcquisitionType</a></code></li>
+<li><code><a title="Weasel.DICOM.ReadDICOM_Image.checkImageType" href="#Weasel.DICOM.ReadDICOM_Image.checkImageType">checkImageType</a></code></li>
+<li><code><a title="Weasel.DICOM.ReadDICOM_Image.getAffineArray" href="#Weasel.DICOM.ReadDICOM_Image.getAffineArray">getAffineArray</a></code></li>
+<li><code><a title="Weasel.DICOM.ReadDICOM_Image.getColourmap" href="#Weasel.DICOM.ReadDICOM_Image.getColourmap">getColourmap</a></code></li>
+<li><code><a title="Weasel.DICOM.ReadDICOM_Image.getDicomDataset" href="#Weasel.DICOM.ReadDICOM_Image.getDicomDataset">getDicomDataset</a></code></li>
+<li><code><a title="Weasel.DICOM.ReadDICOM_Image.getImageTagValue" href="#Weasel.DICOM.ReadDICOM_Image.getImageTagValue">getImageTagValue</a></code></li>
+<li><code><a title="Weasel.DICOM.ReadDICOM_Image.getMultiframeBySlices" href="#Weasel.DICOM.ReadDICOM_Image.getMultiframeBySlices">getMultiframeBySlices</a></code></li>
+<li><code><a title="Weasel.DICOM.ReadDICOM_Image.getPixelArray" href="#Weasel.DICOM.ReadDICOM_Image.getPixelArray">getPixelArray</a></code></li>
+<li><code><a title="Weasel.DICOM.ReadDICOM_Image.getSeriesDicomDataset" href="#Weasel.DICOM.ReadDICOM_Image.getSeriesDicomDataset">getSeriesDicomDataset</a></code></li>
+<li><code><a title="Weasel.DICOM.ReadDICOM_Image.getSeriesTagValues" href="#Weasel.DICOM.ReadDICOM_Image.getSeriesTagValues">getSeriesTagValues</a></code></li>
+<li><code><a title="Weasel.DICOM.ReadDICOM_Image.getTopLeftCorner" href="#Weasel.DICOM.ReadDICOM_Image.getTopLeftCorner">getTopLeftCorner</a></code></li>
+<li><code><a title="Weasel.DICOM.ReadDICOM_Image.mapCoordinates" href="#Weasel.DICOM.ReadDICOM_Image.mapCoordinates">mapCoordinates</a></code></li>
+<li><code><a title="Weasel.DICOM.ReadDICOM_Image.mapMaskToImage" href="#Weasel.DICOM.ReadDICOM_Image.mapMaskToImage">mapMaskToImage</a></code></li>
+<li><code><a title="Weasel.DICOM.ReadDICOM_Image.returnAffineArray" href="#Weasel.DICOM.ReadDICOM_Image.returnAffineArray">returnAffineArray</a></code></li>
+<li><code><a title="Weasel.DICOM.ReadDICOM_Image.returnPixelArray" href="#Weasel.DICOM.ReadDICOM_Image.returnPixelArray">returnPixelArray</a></code></li>
+<li><code><a title="Weasel.DICOM.ReadDICOM_Image.returnSeriesPixelArray" href="#Weasel.DICOM.ReadDICOM_Image.returnSeriesPixelArray">returnSeriesPixelArray</a></code></li>
+<li><code><a title="Weasel.DICOM.ReadDICOM_Image.sortSequenceByTag" href="#Weasel.DICOM.ReadDICOM_Image.sortSequenceByTag">sortSequenceByTag</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

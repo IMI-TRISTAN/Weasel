@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>Weasel.External.Tools.ImageProcessing API documentation</title>
+<meta name="description" content="This script contains several image processing auxiliary functions that could be used in image processing pipelines development …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>Weasel.External.Tools.ImageProcessing</code></h1>
+</header>
+<section id="section-intro">
+<p>This script contains several image processing auxiliary functions that could be used in image processing pipelines development.</p>
+<p>At the moment, none of the functions is being used in Weasel or in any examples in Tutorial. </p>
+<p>However, the idea is that the list of functions in this file grows and can be used as support in developer pipelines.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+This script contains several image processing auxiliary functions that could be used in image processing pipelines development.
+
+At the moment, none of the functions is being used in Weasel or in any examples in Tutorial. 
+
+However, the idea is that the list of functions in this file grows and can be used as support in developer pipelines.
+&#34;&#34;&#34;
+
+import numpy as np
+import scipy.ndimage
+
+
+def convertToPiRange(pixelArray):
+    &#34;&#34;&#34;
+    Rescale the image values to the interval [-pi, pi].
+
+    Parameters
+    ----------
+    pixel_array : np.ndarray
+
+    Returns
+    -------
+    radians_array : np.ndarray
+        An array containing with the same shape as pixel_array
+        scaled to the range [-pi, pi].
+    &#34;&#34;&#34;
+    if (np.amax(pixelArray) &gt; 3.2) or (np.amin(pixelArray) &lt; -3.2):
+        # Scale the image to the interval [-pi, pi]. 
+        # The value 3.2 was chosen instead of np.pi in order to give some margin 
+        piArray = np.pi * np.ones(np.shape(pixelArray))
+        minArray = np.amin(pixelArray) * np.ones(np.shape(pixelArray))
+        maxArray = np.amax(pixelArray) * np.ones(np.shape(pixelArray))
+        radiansArray = (2.0 * piArray * (pixelArray - minArray) / (maxArray - minArray)) - piArray
+    else:
+        # It means it&#39;s already on the interval [-pi, pi]
+        radiansArray = pixelArray
+    return radiansArray
+
+
+def invertAlgorithm(pixelArray, dataset):
+    &#34;&#34;&#34;
+    Inverts the image values.
+
+    Parameters
+    ----------
+    pixel_array : np.ndarray
+
+    Returns
+    -------
+    inverted pixel_array : np.ndarray
+    &#34;&#34;&#34;
+    try:
+        totalBytes = dataset.BitsAllocated
+        return np.invert(pixelArray.astype(&#39;int&#39; + str(totalBytes)))
+    except Exception as e:
+        print(&#39;Error in function ImageProcessing.invertAlgorithm: &#39; + str(e))
+
+
+def squareAlgorithm(pixelArray):
+    &#34;&#34;&#34;
+    Squares the image values.
+
+    Parameters
+    ----------
+    pixel_array : np.ndarray
+
+    Returns
+    -------
+    squared pixel_array : np.ndarray
+    &#34;&#34;&#34;
+    try:
+        return np.square(pixelArray)
+    except Exception as e:
+        print(&#39;Error in function ImageProcessing.squareAlgorithm: &#39; + str(e))
+
+
+def gaussianFilter(pixelArray, sigma):
+    &#34;&#34;&#34;
+    Applies a gaussian filter with a standard deviation for gaussian kernel of `sigma` to the image.
+
+    Parameters
+    ----------
+    pixel_array : np.ndarray
+
+    Returns
+    -------
+    filtered pixel_array : np.ndarray
+    &#34;&#34;&#34;
+    try:
+        return scipy.ndimage.gaussian_filter(pixelArray, sigma)
+    except Exception as e:
+        print(&#39;Error in function ImageProcessing.gaussianFilter: &#39; + str(e))
+
+
+def thresholdPixelArray(pixelArray, lower_threshold, upper_threshold):
+    &#34;&#34;&#34;
+    Applies a threshold to the image based on the given `lower_threshold` and `upper_threshold` and returns a binary image.
+
+    Parameters
+    ----------
+    pixel_array : np.ndarray
+
+    Returns
+    -------
+    binary pixel_array : np.ndarray
+    &#34;&#34;&#34;
+    if (lower_threshold &lt; 0 or lower_threshold &gt; 100):
+        print(&#34;Raise lower threshold error&#34;)
+    elif (upper_threshold &lt; lower_threshold):
+        print(&#34;Raise lower threshold greater than upper threshold error&#34;)
+    
+    maximum_value = np.amax(pixelArray)
+    minimum_value = np.amin(pixelArray)
+    upper_value = minimum_value + (upper_threshold / 100) * (maximum_value - minimum_value)
+    lower_value = minimum_value + (lower_threshold / 100) * (maximum_value - minimum_value)
+
+    thresholdedArray = pixelArray
+    thresholdedArray[thresholdedArray &lt; lower_value] = 0
+    thresholdedArray[thresholdedArray &gt; upper_value] = 0
+    thresholdedArray[thresholdedArray != 0] = 1
+    return thresholdedArray
+    
+
+def imageStats(pixelArray):
+    &#34;&#34;&#34;
+    This functions takes an image and calculates its mean, std, min and max.
+    It is used in the unit tests, but it can also be used for other
+    image processing tasks.
+
+    Parameters
+    ----------
+    pixelArray : np.ndarray
+
+    Returns
+    -------
+    list() with 4 values calculated from pixel_array:
+        [mean, standard deviation, minimum, maximum]
+    &#34;&#34;&#34;
+    mean = np.nanmean(pixelArray)
+    std = np.nanstd(pixelArray)
+    minimum = np.nanmin(pixelArray)
+    maximum = np.nanmax(pixelArray)
+    return [mean, std, minimum, maximum]</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="Weasel.External.Tools.ImageProcessing.convertToPiRange"><code class="name flex">
+<span>def <span class="ident">convertToPiRange</span></span>(<span>pixelArray)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Rescale the image values to the interval [-pi, pi].</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>pixel_array</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>radians_array</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>An array containing with the same shape as pixel_array
+scaled to the range [-pi, pi].</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def convertToPiRange(pixelArray):
+    &#34;&#34;&#34;
+    Rescale the image values to the interval [-pi, pi].
+
+    Parameters
+    ----------
+    pixel_array : np.ndarray
+
+    Returns
+    -------
+    radians_array : np.ndarray
+        An array containing with the same shape as pixel_array
+        scaled to the range [-pi, pi].
+    &#34;&#34;&#34;
+    if (np.amax(pixelArray) &gt; 3.2) or (np.amin(pixelArray) &lt; -3.2):
+        # Scale the image to the interval [-pi, pi]. 
+        # The value 3.2 was chosen instead of np.pi in order to give some margin 
+        piArray = np.pi * np.ones(np.shape(pixelArray))
+        minArray = np.amin(pixelArray) * np.ones(np.shape(pixelArray))
+        maxArray = np.amax(pixelArray) * np.ones(np.shape(pixelArray))
+        radiansArray = (2.0 * piArray * (pixelArray - minArray) / (maxArray - minArray)) - piArray
+    else:
+        # It means it&#39;s already on the interval [-pi, pi]
+        radiansArray = pixelArray
+    return radiansArray</code></pre>
+</details>
+</dd>
+<dt id="Weasel.External.Tools.ImageProcessing.gaussianFilter"><code class="name flex">
+<span>def <span class="ident">gaussianFilter</span></span>(<span>pixelArray, sigma)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Applies a gaussian filter with a standard deviation for gaussian kernel of <code>sigma</code> to the image.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>pixel_array</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>filtered pixel_array : np.ndarray</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def gaussianFilter(pixelArray, sigma):
+    &#34;&#34;&#34;
+    Applies a gaussian filter with a standard deviation for gaussian kernel of `sigma` to the image.
+
+    Parameters
+    ----------
+    pixel_array : np.ndarray
+
+    Returns
+    -------
+    filtered pixel_array : np.ndarray
+    &#34;&#34;&#34;
+    try:
+        return scipy.ndimage.gaussian_filter(pixelArray, sigma)
+    except Exception as e:
+        print(&#39;Error in function ImageProcessing.gaussianFilter: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.External.Tools.ImageProcessing.imageStats"><code class="name flex">
+<span>def <span class="ident">imageStats</span></span>(<span>pixelArray)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This functions takes an image and calculates its mean, std, min and max.
+It is used in the unit tests, but it can also be used for other
+image processing tasks.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>pixelArray</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list() with 4 values calculated from pixel_array:</code></dt>
+<dd>[mean, standard deviation, minimum, maximum]</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def imageStats(pixelArray):
+    &#34;&#34;&#34;
+    This functions takes an image and calculates its mean, std, min and max.
+    It is used in the unit tests, but it can also be used for other
+    image processing tasks.
+
+    Parameters
+    ----------
+    pixelArray : np.ndarray
+
+    Returns
+    -------
+    list() with 4 values calculated from pixel_array:
+        [mean, standard deviation, minimum, maximum]
+    &#34;&#34;&#34;
+    mean = np.nanmean(pixelArray)
+    std = np.nanstd(pixelArray)
+    minimum = np.nanmin(pixelArray)
+    maximum = np.nanmax(pixelArray)
+    return [mean, std, minimum, maximum]</code></pre>
+</details>
+</dd>
+<dt id="Weasel.External.Tools.ImageProcessing.invertAlgorithm"><code class="name flex">
+<span>def <span class="ident">invertAlgorithm</span></span>(<span>pixelArray, dataset)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Inverts the image values.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>pixel_array</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>inverted pixel_array : np.ndarray</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def invertAlgorithm(pixelArray, dataset):
+    &#34;&#34;&#34;
+    Inverts the image values.
+
+    Parameters
+    ----------
+    pixel_array : np.ndarray
+
+    Returns
+    -------
+    inverted pixel_array : np.ndarray
+    &#34;&#34;&#34;
+    try:
+        totalBytes = dataset.BitsAllocated
+        return np.invert(pixelArray.astype(&#39;int&#39; + str(totalBytes)))
+    except Exception as e:
+        print(&#39;Error in function ImageProcessing.invertAlgorithm: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.External.Tools.ImageProcessing.squareAlgorithm"><code class="name flex">
+<span>def <span class="ident">squareAlgorithm</span></span>(<span>pixelArray)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Squares the image values.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>pixel_array</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>squared pixel_array : np.ndarray</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def squareAlgorithm(pixelArray):
+    &#34;&#34;&#34;
+    Squares the image values.
+
+    Parameters
+    ----------
+    pixel_array : np.ndarray
+
+    Returns
+    -------
+    squared pixel_array : np.ndarray
+    &#34;&#34;&#34;
+    try:
+        return np.square(pixelArray)
+    except Exception as e:
+        print(&#39;Error in function ImageProcessing.squareAlgorithm: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.External.Tools.ImageProcessing.thresholdPixelArray"><code class="name flex">
+<span>def <span class="ident">thresholdPixelArray</span></span>(<span>pixelArray, lower_threshold, upper_threshold)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Applies a threshold to the image based on the given <code>lower_threshold</code> and <code>upper_threshold</code> and returns a binary image.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>pixel_array</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>binary pixel_array : np.ndarray</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def thresholdPixelArray(pixelArray, lower_threshold, upper_threshold):
+    &#34;&#34;&#34;
+    Applies a threshold to the image based on the given `lower_threshold` and `upper_threshold` and returns a binary image.
+
+    Parameters
+    ----------
+    pixel_array : np.ndarray
+
+    Returns
+    -------
+    binary pixel_array : np.ndarray
+    &#34;&#34;&#34;
+    if (lower_threshold &lt; 0 or lower_threshold &gt; 100):
+        print(&#34;Raise lower threshold error&#34;)
+    elif (upper_threshold &lt; lower_threshold):
+        print(&#34;Raise lower threshold greater than upper threshold error&#34;)
+    
+    maximum_value = np.amax(pixelArray)
+    minimum_value = np.amin(pixelArray)
+    upper_value = minimum_value + (upper_threshold / 100) * (maximum_value - minimum_value)
+    lower_value = minimum_value + (lower_threshold / 100) * (maximum_value - minimum_value)
+
+    thresholdedArray = pixelArray
+    thresholdedArray[thresholdedArray &lt; lower_value] = 0
+    thresholdedArray[thresholdedArray &gt; upper_value] = 0
+    thresholdedArray[thresholdedArray != 0] = 1
+    return thresholdedArray</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="Weasel.External.Tools" href="index.html">Weasel.External.Tools</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="two-column">
+<li><code><a title="Weasel.External.Tools.ImageProcessing.convertToPiRange" href="#Weasel.External.Tools.ImageProcessing.convertToPiRange">convertToPiRange</a></code></li>
+<li><code><a title="Weasel.External.Tools.ImageProcessing.gaussianFilter" href="#Weasel.External.Tools.ImageProcessing.gaussianFilter">gaussianFilter</a></code></li>
+<li><code><a title="Weasel.External.Tools.ImageProcessing.imageStats" href="#Weasel.External.Tools.ImageProcessing.imageStats">imageStats</a></code></li>
+<li><code><a title="Weasel.External.Tools.ImageProcessing.invertAlgorithm" href="#Weasel.External.Tools.ImageProcessing.invertAlgorithm">invertAlgorithm</a></code></li>
+<li><code><a title="Weasel.External.Tools.ImageProcessing.squareAlgorithm" href="#Weasel.External.Tools.ImageProcessing.squareAlgorithm">squareAlgorithm</a></code></li>
+<li><code><a title="Weasel.External.Tools.ImageProcessing.thresholdPixelArray" href="#Weasel.External.Tools.ImageProcessing.thresholdPixelArray">thresholdPixelArray</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,2596 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem API documentation</title>
+<meta name="description" content="This class allows a DICOM image in the form of a pixel array to be displayed
+on a GraphicsScene object …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem</code></h1>
+</header>
+<section id="section-intro">
+<p>This class allows a DICOM image in the form of a pixel array to be displayed
+on a GraphicsScene object.</p>
+<p>It also provides functionality for the creation and erasing of an ROI,
+which is coloured red:</p>
+<ol>
+<li>
+<p>A boundary may be drawn around the RIO.
+If the boundary is not closed,
+a straight line is drawn between the start and end points.
+Then the area
+enclosed by this boundary in infilled with red.</p>
+</li>
+<li>
+<p>An ROI may be painted onto the image. </p>
+</li>
+<li>
+<p>Part of all of an RIO may be erased.</p>
+</li>
+</ol>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+This class allows a DICOM image in the form of a pixel array to be displayed
+on a GraphicsScene object.
+
+It also provides functionality for the creation and erasing of an ROI, 
+which is coloured red:
+
+1. A boundary may be drawn around the RIO.  If the boundary is not closed, 
+a straight line is drawn between the start and end points.  Then the area
+enclosed by this boundary in infilled with red.
+
+2. An ROI may be painted onto the image. 
+
+3. Part of all of an RIO may be erased. 
+&#34;&#34;&#34;
+from PyQt5.QtCore import (QRectF, QRect, QPoint, Qt)
+from PyQt5 import QtGui, QtCore
+from PyQt5.QtGui import (QPainter, QPixmap, QColor, QImage, QCursor, qRgb)
+from PyQt5.QtWidgets import  QGraphicsObject, QApplication, QMenu, QAction
+import numpy as np
+from scipy.stats import iqr
+from numpy import nanmin, nanmax
+from matplotlib.path import Path as MplPath
+import sys
+from .HelperFunctions import *
+from .Resources import * 
+np.set_printoptions(threshold=sys.maxsize)
+import logging
+logger = logging.getLogger(__name__)
+
+__version__ = &#39;1.0&#39;
+__author__ = &#39;Steve Shillitoe&#39;
+#October/November 2020
+
+
+class GraphicsItem(QGraphicsObject):
+    #sub classing QGraphicsObject rather than more logical QGraphicsItem
+    #because QGraphicsObject can emit signals but QGraphicsItem cannot
+    sigMouseHovered = QtCore.Signal(bool)
+    sigGetDetailsROI = QtCore.Signal()
+    sigRecalculateMeanROI = QtCore.Signal()
+    sigRightMouseDrag = QtCore.Signal(float, float)
+    sigZoomIn = QtCore.Signal()
+    sigZoomOut = QtCore.Signal()
+    sigUpdateImageLevels = QtCore.Signal()
+     
+
+    def __init__(self, linkToGraphicsView): 
+        &#34;&#34;&#34;
+        Instanciates a GraphicsItem object and initialises its properties.
+        &#34;&#34;&#34;
+        super(GraphicsItem, self).__init__()
+        self.linkToGraphicsView = linkToGraphicsView
+        self.last_x, self.last_y = None, None
+        self.start_x = None
+        self.start_y = None
+        self.pathCoordsList = []
+        self.setAcceptHoverEvents(True)
+        self.listROICoords = None
+        self.xMouseCoord  = None
+        self.yMouseCoord  = None
+        self.pixelValue = None
+        self.mouseMoved = False
+        self.mask = None
+        self.pixelArray = None
+
+
+    def setImage(self, pixelArray, roi, path):
+        &#34;&#34;&#34;
+        Displays the image with it&#39;s ROI if it has one in the GraphicsItem object.
+
+        The image&#39;s pixel array is transformed into a PyQt QPixmap for display 
+        in the GraphicsItem object. 
+
+        Input arguments
+        ***************
+        pixelArray - the image&#39;s pixel array
+        roi - pixel array of the ROI on the image
+        path - file path to the image file
+        &#34;&#34;&#34;
+        logger.info(&#34;GraphicsItem.setImage called&#34;)
+        self.origQImage = None
+        self.qImage = None
+        self.mask = None
+        self.pixelArray = pixelArray
+        if path is not None:
+            minValue, maxValue = readLevels(path, self.pixelArray)
+        else:
+            minValue, maxValue = self.__quickMinMax(self.pixelArray)
+        self.contrast = maxValue - minValue
+        self.intensity = minValue + (maxValue - minValue)/2
+        imgData, alpha = makeARGB(data=self.pixelArray, levels=[minValue, maxValue])
+        self.origQImage = makeQImage(imgData, alpha)
+        self.qImage = makeQImage(imgData, alpha)
+        if roi is not None:
+            #add roi to pixel map
+            self.addROItoImage(roi)
+            self.mask = roi
+        #The contents of self.pixMap are displayed in this graphics item 
+        #in the paint event
+        self.pixMap = QPixmap.fromImage(self.qImage)
+        self.width = float(self.pixMap.width()) 
+        self.height = float(self.pixMap.height())
+        #Calling update() causes the paint event to execute
+        self.update()
+
+
+    def __repr__(self):
+        &#34;&#34;&#34;Represents this class&#39;s objects as a string&#34;&#34;&#34;
+        return &#39;{}&#39;.format(
+           self.__class__.__name__)
+
+
+    def updateImageLevels(self, intensity, contrast, roi):
+        &#34;&#34;&#34;
+        Applies new intensity and contrast values to the image.
+
+        A new QPixmap object is formed from the pixel array with the
+        new contrast &amp; intensity values.  Then the image is repainted
+        so to display this new QPixmap object.
+
+        Input arguments
+        ***************
+        intensity - integer representing the image intensity value
+        contrast - integer representing the image contrast value
+        roi - pixel array of the ROI on the image
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.updateImageLevels called&#34;)
+        try:
+            minValue = intensity - (contrast/2)
+            maxValue = contrast + minValue
+            imgData, alpha = makeARGB(data=self.pixelArray, levels=[minValue, maxValue])
+            self.qImage = makeQImage(imgData, alpha)
+            self.pixMap = QPixmap.fromImage(self.qImage)
+            #Need to reapply mask
+            if roi is not None and roi.any():
+                self.reloadMask(roi)
+            #repaint the image with the new contrast &amp; intensity values. 
+            self.update()
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.updateImageLevels: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.updateImageLevels: &#39; + str(e))
+
+
+    def paint(self, painter, option, widget):
+        &#34;&#34;&#34;Built in PyQt function used to render the DICOM image&#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.paint called&#34;)
+        try:
+            painter.setOpacity(1)
+            painter.drawPixmap(0,0, self.width, self.height, self.pixMap)
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.paint: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.paint: &#39; + str(e))
+        
+
+    def boundingRect(self): 
+        &#34;&#34;&#34;Built in PyQt function used to render the DICOM image&#34;&#34;&#34;
+        return QRectF(0,0,self.width, self.height)
+
+
+    def __quickMinMax(self, data):
+        &#34;&#34;&#34;
+        Estimate the min/max values of *data* by subsampling.
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.__quickMinMax called&#34;)
+        try:
+            while data.size &gt; 1e6:
+                ax = np.argmax(data.shape)
+                sl = [slice(None)] * data.ndim
+                sl[ax] = slice(None, None, 2)
+                data = data[sl]
+            return nanmin(data), nanmax(data)
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.__quickMinMax: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.__quickMinMax: &#39; + str(e))
+
+
+    def hoverEnterEvent(self, event):
+        &#34;&#34;&#34;
+        Built in PyQt function that is executed when the cursor enters the 
+        GraphicItem object. 
+        
+        Here it is used to set the cursor icon according
+        to ROI drawing function selected: draw, paint, zoom or erase.
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.hoverEnterEvent called&#34;)
+        try:
+            if self.linkToGraphicsView.drawEnabled:
+                pm = QPixmap(PEN_CURSOR)
+                cursor = QCursor(pm, hotX=0, hotY=30)
+                QApplication.setOverrideCursor(cursor)
+
+            if self.linkToGraphicsView.eraseEnabled:
+                pm = QPixmap(ERASER_CURSOR)
+                cursor = QCursor(pm, hotX=0, hotY=30)
+                QApplication.setOverrideCursor(cursor)
+
+            if self.linkToGraphicsView.paintEnabled:
+                pm = QPixmap(BRUSH_CURSOR)
+                cursor = QCursor(pm, hotX=0, hotY=30)
+                QApplication.setOverrideCursor(cursor)
+
+            if self.linkToGraphicsView.zoomEnabled:
+                pm = QPixmap(MAGNIFYING_GLASS_CURSOR)
+                cursor = QCursor(pm, hotX=0, hotY=30)
+                QApplication.setOverrideCursor(cursor)
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.hoverEnterEvent: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.hoverEnterEvent: &#39; + str(e))
+
+
+    def hoverLeaveEvent(self, event):
+        &#34;&#34;&#34;
+        Built in PyQt function that is executed when the cursor leaves the 
+        GraphicItem object. 
+
+        Restores the mouse cursor from that set in hoverEnterEvent 
+        to the default arrow.
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.hoverLeaveEvent called&#34;)
+        try:
+            QApplication.restoreOverrideCursor()
+            self.sigMouseHovered.emit(False)
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.hoverEnterEvent: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.hoverEnterEvent: &#39; + str(e))
+
+
+    def hoverMoveEvent(self, event):
+        &#34;&#34;&#34;
+        Built in PyQt function that is executed as the cursor hovers over the 
+        GraphicItem object. 
+
+        Determines the x,y coordinates of the mouse pointer and value of the pixel
+        under it&#39;s tip.  When these values change the sigMouseHovered signal is 
+        emitted to alert the module hosting the GraphicsView widget.
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.hoverMoveEvent called&#34;)
+        try:
+            self.xMouseCoord = int(event.pos().x()) #columns
+            self.yMouseCoord = int(event.pos().y()) #rows
+            maxRow, maxCol = self.pixelArray.shape
+            if self.yMouseCoord &lt; maxRow and self.xMouseCoord &lt; maxCol:
+                #only get pixel value when mouse pointer is over the image
+                self.pixelValue = self.pixelArray[self.xMouseCoord, self.yMouseCoord]
+                self.sigMouseHovered.emit(True)
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.hoverMoveEvent when xMouseCoord={}, yMouseCoord={}: &#39;.format(self.xMouseCoord, self.yMouseCoord) + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.hoverMoveEvent: &#39; + str(e))
+       
+
+    def drawROIBoundary(self):
+        &#34;&#34;&#34;
+        As the mouse is moved over the image,
+       
+        1. The red channel of the 
+        pixel under the cursor tip is set to 255, making it appear red.
+
+        2. The coordinates of each pixel the mouse cursor moves over
+        is added to a list. 
+        &#34;&#34;&#34;
+        if self.last_x is None: # First draw event.
+            self.last_x = self.xMouseCoord
+            self.last_y = self.yMouseCoord
+            self.start_x = self.xMouseCoord
+            self.start_y = self.yMouseCoord
+            return #  Ignore the first time.
+        self.setPixelToRed(self.xMouseCoord, self.yMouseCoord)
+        
+        #Update the current mouse pointer position
+        #These values are used to close the ROI
+        self.last_x = self.xMouseCoord
+        self.last_y = self.yMouseCoord
+        #Do not add duplicates to the list
+        if [self.last_x, self.last_y] not in self.pathCoordsList:
+            self.pathCoordsList.append([self.last_x, self.last_y])
+        self.mouseMoved = True
+
+
+    def mouseMoveEvent(self, event):
+        &#34;&#34;&#34;
+        Built in PyQt function that is executed when a mouse button is pressed 
+        &amp; the cursor is moved over the GraphicsItem object.
+
+        If the left mouse button is pressed, if any of the following functions 
+        are selected they are performed: draw a boundary around the RIO, paint the ROI 
+        &amp; erase the ROI.
+
+        If the right mouse button is pressed, the sigRightMouseDrag signal is emitted
+        with the distance moved in the x &amp; y directions. This is used to adjust image 
+        levels.
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.mouseMoveEvent called&#34;)
+        try:
+            buttons = event.buttons()
+            if buttons == Qt.LeftButton:
+                self.xMouseCoord = int(event.pos().x())
+                self.yMouseCoord = int(event.pos().y())
+                
+                if self.linkToGraphicsView.drawEnabled:
+                    self.drawROIBoundary()
+
+                if self.linkToGraphicsView.eraseEnabled:
+                    self.eraseROI()
+
+                if self.linkToGraphicsView.paintEnabled:
+                    self.paintROI()
+
+            elif buttons == Qt.RightButton:
+                delta = event.screenPos() - event.lastScreenPos()
+                deltaY = delta.y()
+                deltaX =  delta.x()
+                self.sigRightMouseDrag.emit(deltaX, deltaY)
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.mouseMoveEvent: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.mouseMoveEvent: &#39; + str(e))
+
+
+    def addROIBoundaryToMask(self):
+        &#34;&#34;&#34;
+        The ROI is represented by True values in a boolean array that has the same
+        shape as it&#39;s image.  This function ensures that the boundary drawn around
+        the RIO is included in the mask. 
+        &#34;&#34;&#34;
+        for coords in self.pathCoordsList:
+            cols = coords[0]  #x
+            rows = coords[1]  #y
+            self.mask[rows, cols] = True
+
+
+    def closeAndFillROI(self):
+        &#34;&#34;&#34;
+        Creates the mask corresponding to the RIO and sets the pixels within the RIO to red.
+
+        If the boundary drawn around a ROI is not closed, this function closes it 
+        with a straight line connecting the start and end points of the line. 
+        Then a mask is created from the coordinates of the pixels on the this boundary.
+        The mask is a boolean array with the same shape as the image, in which elements
+        corresponding to the RIO are True and those outside the RIO are False. 
+
+        Pixels within the RIO then have only their red channel set to 255, to 
+        make them appear red but still allowing the image to be visible.
+        &#34;&#34;&#34;
+        if  (self.last_x != None and self.start_x != None 
+                and self.last_y != None and self.start_y != None):
+            self.createMaskFromDrawnROI(self.pathCoordsList)
+            self.addROIBoundaryToMask()
+            #store mask
+            self.sigGetDetailsROI.emit()
+            self.linkToGraphicsView.dictROIs.addMask(self.mask)
+
+            self.sigRecalculateMeanROI.emit()
+            
+            self.listROICoords = self.getListRoiInnerPoints(self.mask)
+            self.fillFreeHandRoi()
+            self.update()
+            self.start_x = None 
+            self.start_y = None
+            self.last_x = None
+            self.last_y = None
+            self.pathCoordsList = []
+            self.mouseMoved = False
+
+
+    def mouseReleaseEvent(self, event):
+        &#34;&#34;&#34;
+        Built in PyQt function that is executed when the mouse button is released.
+
+        If the left mouse button is released, the draw RIO function was selected 
+        and the mouse was moved over the image immediately prior to releasing 
+        the left mouse button, then the ROI is closed if necessary and coloured
+        red.
+
+
+        If the left mouse button is released, the draw RIO function was selected 
+        and the mouse was not moved over the image immediately prior to releasing 
+        the left mouse button, then a single pixel is coloured red and added to the
+        existing ROI on that image or a new ROI is created.
+
+
+        If the left mouse button is released and the paint RIO function was selected
+        then one or more contiguous pixels, depending on the brush size selected, are coloured red
+        and added to the existing RIO on that image or a new RIO is created.
+
+
+        If the left mouse button is released and the erase RIO function was selected
+        then one or more contiguous pixels, depending on the eraser size selected, are returned
+        to their original colour and removed from the existing RIO on that image.
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.mouseReleaseEvent called&#34;)
+        try:
+            #Get the coordinates of the cursor
+            self.xMouseCoord = int(event.pos().x())
+            self.yMouseCoord = int(event.pos().y())
+            button = event.button()
+            if (button == Qt.LeftButton):
+                if self.linkToGraphicsView.drawEnabled:
+                    if self.mouseMoved:
+                        self.closeAndFillROI()
+                    else:
+                        #The mouse was not moved, so a pixel was clicked on
+                        if self.mask is not None:
+                            if self.mask[self.yMouseCoord, self.xMouseCoord] == True:
+                                pass
+                                #mask already exists at this pixel, 
+                                #so do nothing
+                            else:
+                                #update mask
+                                self.setPixelToRed(self.xMouseCoord, self.yMouseCoord)
+                                self.mask[self.yMouseCoord, self.xMouseCoord] = True
+                                #store mask
+                                self.sigGetDetailsROI.emit()
+                                self.linkToGraphicsView.dictROIs.addMask(self.mask)
+                                self.sigRecalculateMeanROI.emit()
+                        else:
+                            self.createBlankMask() #create a new boolean mask with all values False
+                            self.setPixelToRed(self.xMouseCoord, self.yMouseCoord)
+                            self.mask[self.yMouseCoord, self.xMouseCoord] = True
+                            #store mask
+                            self.sigGetDetailsROI.emit()
+                            self.linkToGraphicsView.dictROIs.addMask(self.mask)
+                            self.sigRecalculateMeanROI.emit()
+
+                if self.linkToGraphicsView.eraseEnabled:
+                    self.eraseROI()
+                    #pixel values from the original image
+                    #will have the initial contrast &amp; intensity of that
+                    #image, so update the image levels so that they are the same as
+                    #those in the levels spinboxes
+                    self.sigUpdateImageLevels.emit()
+                        
+                if self.linkToGraphicsView.paintEnabled:
+                    self.paintROI()
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.mouseReleaseEvent: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.mouseReleaseEvent: &#39; + str(e))
+
+
+    def paintROI(self):
+        &#34;&#34;&#34;
+        Depending on the brush size selected, this function paints 
+        one or more contiguous pixels red and adds them to the 
+        existing RIO on the image; i.e., in the mask it sets the
+        corresponding pixel(s) to True.
+        If there is no existing RIO on the image, then a blank mask is created first.  
+        A blank mask is a boolean array with all its elements set to False 
+        and that has the same shape as the image. 
+        &#34;&#34;&#34;
+        if self.mask is None:
+            self.createBlankMask()
+            
+        if self.linkToGraphicsView.pixelSquareSize == 1:
+            #indices reversed for setting mask values to
+            #fit with the numpy [rows, columns] format
+            self.mask[self.yMouseCoord, self.xMouseCoord] = True
+            self.setPixelToRed(self.xMouseCoord, self.yMouseCoord)
+        else:
+            increment = (self.linkToGraphicsView.pixelSquareSize - 1)/2
+            lowX = int(self.xMouseCoord - increment)
+            highX = int(self.xMouseCoord + increment)
+            lowY = int(self.yMouseCoord - increment)
+            highY = int(self.yMouseCoord + increment)
+            
+            for x in range(lowX, highX+1, 1):
+                for y in range(lowY, highY+1, 1):
+                    if x &gt; -1 and  y &gt; -1:
+                        #indices reversed for setting mask values to
+                        #fit with the numpy [rows, columns] format
+                        self.mask[y, x] = True
+                        self.setPixelToRed(x, y)    
+        self.update()
+        self.sigGetDetailsROI.emit()
+        self.linkToGraphicsView.dictROIs.addMask(self.mask)
+        self.sigRecalculateMeanROI.emit()
+
+
+    def eraseROI(self):
+        &#34;&#34;&#34;
+        Depending on the brush size selected, this function 
+        returns one or more contiguous pixels to their original colour 
+        and removes them from the RIO; i.e., in the mask it sets the
+        corresponding pixel(s) to False.
+        &#34;&#34;&#34;
+        #Make sure we are erasing the RIO on the latest version of the mask
+        self.mask = self.linkToGraphicsView.dictROIs.getUpdatedMask()
+        if self.mask is not None:
+            if self.linkToGraphicsView.pixelSquareSize == 1:
+                self.resetPixelToOriginalValue(self.xMouseCoord, self.yMouseCoord)
+                #indices reversed for setting mask values to
+                #fit with the numpy [rows, columns] format
+                self.mask[self.yMouseCoord, self.xMouseCoord] = False
+            else:
+                increment = (self.linkToGraphicsView.pixelSquareSize - 1)/2
+                lowX = int(self.xMouseCoord - increment)
+                highX = int(self.xMouseCoord + increment)
+                lowY = int(self.yMouseCoord - increment)
+                highY = int(self.yMouseCoord + increment)
+            
+                for x in range(lowX, highX+1, 1):
+                    for y in range(lowY, highY+1, 1):
+                        if x &gt; -1 and  y &gt; -1:
+                            self.resetPixelToOriginalValue(x, y)
+                            #indices reversed for setting mask values to
+                            #fit with the numpy [rows, columns] format
+                            self.mask[y, x] = False
+                            
+            self.sigGetDetailsROI.emit()
+            #update existing mask
+            self.linkToGraphicsView.dictROIs.replaceMask(self.mask)
+            self.sigRecalculateMeanROI.emit()
+
+
+    def resetPixelToOriginalValue(self, x, y):
+        &#34;&#34;&#34;
+        This function is used by the eraseRIO function to return
+        a pixel in the RIO to its original grey value. 
+
+        The pixel value is obtained from a copy of the image at x,y and
+        the pixel at x,y in the viewed image is set to this value. 
+        A new QPixmap of the image is then created and the image repainted.
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.resetPixelToOriginalValue called&#34;)
+        try:
+            origPixelValue = self.origQImage.pixel(x, y) 
+            self.qImage.setPixel(x, y,  origPixelValue)
+            #convert QImage to QPixmap to be able to update image
+            self.pixMap = QPixmap.fromImage(self.qImage)
+            #repaint image by updating it
+            self.update()
+            
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.resetPixelToOriginalValue: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.resetPixelToOriginalValue: &#39; + str(e))
+    
+
+    def setPixelToRed(self, x, y):
+        &#34;&#34;&#34;
+        This function sets the red channel of the pixel at x,y to 255; thus,
+        making it appear red. 
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.setPixelToRed called&#34;)
+        try:
+            pixelColour = self.qImage.pixel(x, y) 
+            pixelRGB =  QColor(pixelColour).getRgb()
+            redVal = pixelRGB[0]
+            greenVal = pixelRGB[1]
+            blueVal = pixelRGB[2]
+            if greenVal &gt; 240 and blueVal &gt; 240:
+                #This pixel would be white if red channel set to 255
+                #so set the green and blue channels to 240
+                greenVal = blueVal = 240
+            value = qRgb(255, greenVal, blueVal)
+            self.qImage.setPixel(x, y, value)
+            #convert QImage to QPixmap to be able to update image
+            #with filled ROI
+            self.pixMap = QPixmap.fromImage(self.qImage)
+            #repaint image
+            self.update()
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.setPixelToRed: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.setPixelToRed: &#39; + str(e))
+
+
+    def reloadMask(self, mask):
+        &#34;&#34;&#34;
+        Redisplays the ROI represented by mask on the image.
+
+        This function makes a list of the coordinates of the elements
+        in the input argument mask that have the value True and therefore correspond
+        to the RIO. Then the pixels in the image, within the RIO, have 
+        their Red channel set to 255, to make them appear red. 
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.reloadMask called&#34;)
+        try:
+            self.listROICoords = self.getListRoiInnerPoints(mask)
+            self.fillFreeHandRoi()
+            self.listROICoords = []
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.reloadMask: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.reloadMask: &#39; + str(e))
+
+
+    def fillFreeHandRoi(self):
+        &#34;&#34;&#34;
+        Sets the Red channel to 255 of the pixels within the RIO.  
+        This makes them appear red.
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.fillFreeHandRoi called&#34;)
+        try:
+            #self.listROICoords is a list of the coordinates of the pixels
+            #within the RIO
+            if self.listROICoords is not None:
+                for coords in self.listROICoords:
+                    x = coords[0]
+                    y = coords[1]
+                    self.setPixelToRed(x, y)
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.fillFreeHandRoi: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.fillFreeHandRoi: &#39; + str(e))
+
+
+    def addROItoImage(self, roi):
+        &#34;&#34;&#34;
+        This function is used to add an existing ROI to an image 
+        before it is displayed for the first time in the GraphicsItem object.
+
+        rio - boolean array containing elements corresponding to the ROI; i.e.,
+            their value is True. 
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.addROItoImage called&#34;)
+        try:
+            listROICoords = self.getListRoiInnerPoints(roi)
+            if listROICoords is not None:
+                for coords in listROICoords:
+                    x = coords[0]
+                    y = coords[1]
+                    pixelColour = self.qImage.pixel(x, y) 
+                    pixelRGB =  QColor(pixelColour).getRgb()
+                    redVal = pixelRGB[0]
+                    greenVal = pixelRGB[1]
+                    blueVal = pixelRGB[2]
+                    if greenVal &gt; 240 and blueVal &gt; 240:
+                        #This pixel would be white if red channel set to 255
+                        #so set the green and blue channels to 240
+                        greenVal = blueVal = 240
+                    value = qRgb(255, greenVal, blueVal)
+                    self.qImage.setPixel(x, y, value)
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.addROItoImage: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.addROItoImage: &#39; + str(e))
+
+
+    def getMaskData(self):
+        &#34;&#34;&#34;
+        This function returns the mask (boolean array) associated with 
+        the GraphicsItem object. 
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.getMaskData called&#34;)
+        return self.mask
+
+
+    def getListRoiInnerPoints(self, mask):
+        &#34;&#34;&#34;
+        This function returns a list of the coordinates 
+        of the elements in the mask whose values are True. 
+       
+        Input argument
+        ***************
+        mask - a boolean array the same size as the image. 
+            Elements in the mask whose value is True correspond  
+            to the pixels in the ROI drawn on the image.
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.getListRoiInnerPoints called&#34;)
+        try:
+            if mask is not None:
+                roi = np.where(mask == True)
+                return list(zip(roi[1], roi[0]))
+            else:
+                return None
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.getListRoiInnerPoints: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.getListRoiInnerPoints: &#39; + str(e))
+
+
+    def createBlankMask(self):
+        &#34;&#34;&#34;
+        Creates a boolean array with the same shape as the image&#39;s
+        pixel array. All its elements are set to False. This boolean array
+        is assigned to the class property self.mask.
+
+        This function is used by the paintROI function and when no ROI exists
+        and an ROI is drawn on just one pixel.
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.createBlankMask called&#34;)
+        rows, cols = np.shape(self.pixelArray)
+        self.mask = np.full((rows, cols), False, dtype=bool)
+
+
+    def createMaskFromDrawnROI(self, roiBoundaryCoords):
+        &#34;&#34;&#34;
+        Using the coordinates of the points on the boundary of a drawn RIO,
+        this function creates a mask. 
+        The mask is a boolean array with the same shape as
+        the image. 
+        Elements in the mask with the value True represent the ROI. 
+        Elements in the mask outside the RIO have the value False. 
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.createMaskFromDrawnROI called&#34;)
+        try:
+            self.mask = None
+            #1. Create a list called points
+            # of x,y coordinates for each element 
+            #in self.pixelArray, the pixel array of the DICOM image
+            nx, ny = np.shape(self.pixelArray)
+            x, y = np.meshgrid(np.arange(nx), np.arange(ny))
+            points = list(zip(x.flatten(),y.flatten()))
+
+            #2. Convert the ROI boundary coordinates into a path object
+            roiPath = MplPath(roiBoundaryCoords, closed=True)
+
+            #3.Create a boolean array representing the original pixel array
+            #with all elements set to False except those falling within the
+            #ROI that are set to True.  
+            #Setting radius=0.0 does not include the drawn boundary in the ROI
+            self.mask = roiPath.contains_points(points, radius=0.0).reshape((ny, nx))   
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.createMaskFromDrawnROI: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.createMaskFromDrawnROI: &#39; + str(e))
+            
+
+    def mousePressEvent(self, event):
+        &#34;&#34;&#34;
+        Built in PyQt function that is executed when the mouse button is pressed.
+
+        When the left mouse button is pressed, the sigZoomIn signal is emitted to 
+        communicate this to the host GraphicsView widget, that then zooms in on 
+        the image.
+
+        When the right mouse button is pressed, the sigZoomOut signal is emitted to 
+        communicate this to the host GraphicsView widget, that then zooms out from 
+        the image.
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.mousePressEvent called&#34;)
+        try:
+            pass
+            button = event.button()
+            if (button == Qt.LeftButton):
+              self.sigZoomIn.emit()
+            elif (button == Qt.RightButton): 
+              self.sigZoomOut.emit()
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.mousePressEvent: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.mousePressEvent: &#39; + str(e))
+
+
+
+
+    </code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem"><code class="flex name class">
+<span>class <span class="ident">GraphicsItem</span></span>
+<span>(</span><span>linkToGraphicsView)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>QGraphicsObject(parent: QGraphicsItem = None)</p>
+<p>Instanciates a GraphicsItem object and initialises its properties.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class GraphicsItem(QGraphicsObject):
+    #sub classing QGraphicsObject rather than more logical QGraphicsItem
+    #because QGraphicsObject can emit signals but QGraphicsItem cannot
+    sigMouseHovered = QtCore.Signal(bool)
+    sigGetDetailsROI = QtCore.Signal()
+    sigRecalculateMeanROI = QtCore.Signal()
+    sigRightMouseDrag = QtCore.Signal(float, float)
+    sigZoomIn = QtCore.Signal()
+    sigZoomOut = QtCore.Signal()
+    sigUpdateImageLevels = QtCore.Signal()
+     
+
+    def __init__(self, linkToGraphicsView): 
+        &#34;&#34;&#34;
+        Instanciates a GraphicsItem object and initialises its properties.
+        &#34;&#34;&#34;
+        super(GraphicsItem, self).__init__()
+        self.linkToGraphicsView = linkToGraphicsView
+        self.last_x, self.last_y = None, None
+        self.start_x = None
+        self.start_y = None
+        self.pathCoordsList = []
+        self.setAcceptHoverEvents(True)
+        self.listROICoords = None
+        self.xMouseCoord  = None
+        self.yMouseCoord  = None
+        self.pixelValue = None
+        self.mouseMoved = False
+        self.mask = None
+        self.pixelArray = None
+
+
+    def setImage(self, pixelArray, roi, path):
+        &#34;&#34;&#34;
+        Displays the image with it&#39;s ROI if it has one in the GraphicsItem object.
+
+        The image&#39;s pixel array is transformed into a PyQt QPixmap for display 
+        in the GraphicsItem object. 
+
+        Input arguments
+        ***************
+        pixelArray - the image&#39;s pixel array
+        roi - pixel array of the ROI on the image
+        path - file path to the image file
+        &#34;&#34;&#34;
+        logger.info(&#34;GraphicsItem.setImage called&#34;)
+        self.origQImage = None
+        self.qImage = None
+        self.mask = None
+        self.pixelArray = pixelArray
+        if path is not None:
+            minValue, maxValue = readLevels(path, self.pixelArray)
+        else:
+            minValue, maxValue = self.__quickMinMax(self.pixelArray)
+        self.contrast = maxValue - minValue
+        self.intensity = minValue + (maxValue - minValue)/2
+        imgData, alpha = makeARGB(data=self.pixelArray, levels=[minValue, maxValue])
+        self.origQImage = makeQImage(imgData, alpha)
+        self.qImage = makeQImage(imgData, alpha)
+        if roi is not None:
+            #add roi to pixel map
+            self.addROItoImage(roi)
+            self.mask = roi
+        #The contents of self.pixMap are displayed in this graphics item 
+        #in the paint event
+        self.pixMap = QPixmap.fromImage(self.qImage)
+        self.width = float(self.pixMap.width()) 
+        self.height = float(self.pixMap.height())
+        #Calling update() causes the paint event to execute
+        self.update()
+
+
+    def __repr__(self):
+        &#34;&#34;&#34;Represents this class&#39;s objects as a string&#34;&#34;&#34;
+        return &#39;{}&#39;.format(
+           self.__class__.__name__)
+
+
+    def updateImageLevels(self, intensity, contrast, roi):
+        &#34;&#34;&#34;
+        Applies new intensity and contrast values to the image.
+
+        A new QPixmap object is formed from the pixel array with the
+        new contrast &amp; intensity values.  Then the image is repainted
+        so to display this new QPixmap object.
+
+        Input arguments
+        ***************
+        intensity - integer representing the image intensity value
+        contrast - integer representing the image contrast value
+        roi - pixel array of the ROI on the image
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.updateImageLevels called&#34;)
+        try:
+            minValue = intensity - (contrast/2)
+            maxValue = contrast + minValue
+            imgData, alpha = makeARGB(data=self.pixelArray, levels=[minValue, maxValue])
+            self.qImage = makeQImage(imgData, alpha)
+            self.pixMap = QPixmap.fromImage(self.qImage)
+            #Need to reapply mask
+            if roi is not None and roi.any():
+                self.reloadMask(roi)
+            #repaint the image with the new contrast &amp; intensity values. 
+            self.update()
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.updateImageLevels: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.updateImageLevels: &#39; + str(e))
+
+
+    def paint(self, painter, option, widget):
+        &#34;&#34;&#34;Built in PyQt function used to render the DICOM image&#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.paint called&#34;)
+        try:
+            painter.setOpacity(1)
+            painter.drawPixmap(0,0, self.width, self.height, self.pixMap)
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.paint: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.paint: &#39; + str(e))
+        
+
+    def boundingRect(self): 
+        &#34;&#34;&#34;Built in PyQt function used to render the DICOM image&#34;&#34;&#34;
+        return QRectF(0,0,self.width, self.height)
+
+
+    def __quickMinMax(self, data):
+        &#34;&#34;&#34;
+        Estimate the min/max values of *data* by subsampling.
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.__quickMinMax called&#34;)
+        try:
+            while data.size &gt; 1e6:
+                ax = np.argmax(data.shape)
+                sl = [slice(None)] * data.ndim
+                sl[ax] = slice(None, None, 2)
+                data = data[sl]
+            return nanmin(data), nanmax(data)
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.__quickMinMax: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.__quickMinMax: &#39; + str(e))
+
+
+    def hoverEnterEvent(self, event):
+        &#34;&#34;&#34;
+        Built in PyQt function that is executed when the cursor enters the 
+        GraphicItem object. 
+        
+        Here it is used to set the cursor icon according
+        to ROI drawing function selected: draw, paint, zoom or erase.
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.hoverEnterEvent called&#34;)
+        try:
+            if self.linkToGraphicsView.drawEnabled:
+                pm = QPixmap(PEN_CURSOR)
+                cursor = QCursor(pm, hotX=0, hotY=30)
+                QApplication.setOverrideCursor(cursor)
+
+            if self.linkToGraphicsView.eraseEnabled:
+                pm = QPixmap(ERASER_CURSOR)
+                cursor = QCursor(pm, hotX=0, hotY=30)
+                QApplication.setOverrideCursor(cursor)
+
+            if self.linkToGraphicsView.paintEnabled:
+                pm = QPixmap(BRUSH_CURSOR)
+                cursor = QCursor(pm, hotX=0, hotY=30)
+                QApplication.setOverrideCursor(cursor)
+
+            if self.linkToGraphicsView.zoomEnabled:
+                pm = QPixmap(MAGNIFYING_GLASS_CURSOR)
+                cursor = QCursor(pm, hotX=0, hotY=30)
+                QApplication.setOverrideCursor(cursor)
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.hoverEnterEvent: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.hoverEnterEvent: &#39; + str(e))
+
+
+    def hoverLeaveEvent(self, event):
+        &#34;&#34;&#34;
+        Built in PyQt function that is executed when the cursor leaves the 
+        GraphicItem object. 
+
+        Restores the mouse cursor from that set in hoverEnterEvent 
+        to the default arrow.
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.hoverLeaveEvent called&#34;)
+        try:
+            QApplication.restoreOverrideCursor()
+            self.sigMouseHovered.emit(False)
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.hoverEnterEvent: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.hoverEnterEvent: &#39; + str(e))
+
+
+    def hoverMoveEvent(self, event):
+        &#34;&#34;&#34;
+        Built in PyQt function that is executed as the cursor hovers over the 
+        GraphicItem object. 
+
+        Determines the x,y coordinates of the mouse pointer and value of the pixel
+        under it&#39;s tip.  When these values change the sigMouseHovered signal is 
+        emitted to alert the module hosting the GraphicsView widget.
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.hoverMoveEvent called&#34;)
+        try:
+            self.xMouseCoord = int(event.pos().x()) #columns
+            self.yMouseCoord = int(event.pos().y()) #rows
+            maxRow, maxCol = self.pixelArray.shape
+            if self.yMouseCoord &lt; maxRow and self.xMouseCoord &lt; maxCol:
+                #only get pixel value when mouse pointer is over the image
+                self.pixelValue = self.pixelArray[self.xMouseCoord, self.yMouseCoord]
+                self.sigMouseHovered.emit(True)
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.hoverMoveEvent when xMouseCoord={}, yMouseCoord={}: &#39;.format(self.xMouseCoord, self.yMouseCoord) + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.hoverMoveEvent: &#39; + str(e))
+       
+
+    def drawROIBoundary(self):
+        &#34;&#34;&#34;
+        As the mouse is moved over the image,
+       
+        1. The red channel of the 
+        pixel under the cursor tip is set to 255, making it appear red.
+
+        2. The coordinates of each pixel the mouse cursor moves over
+        is added to a list. 
+        &#34;&#34;&#34;
+        if self.last_x is None: # First draw event.
+            self.last_x = self.xMouseCoord
+            self.last_y = self.yMouseCoord
+            self.start_x = self.xMouseCoord
+            self.start_y = self.yMouseCoord
+            return #  Ignore the first time.
+        self.setPixelToRed(self.xMouseCoord, self.yMouseCoord)
+        
+        #Update the current mouse pointer position
+        #These values are used to close the ROI
+        self.last_x = self.xMouseCoord
+        self.last_y = self.yMouseCoord
+        #Do not add duplicates to the list
+        if [self.last_x, self.last_y] not in self.pathCoordsList:
+            self.pathCoordsList.append([self.last_x, self.last_y])
+        self.mouseMoved = True
+
+
+    def mouseMoveEvent(self, event):
+        &#34;&#34;&#34;
+        Built in PyQt function that is executed when a mouse button is pressed 
+        &amp; the cursor is moved over the GraphicsItem object.
+
+        If the left mouse button is pressed, if any of the following functions 
+        are selected they are performed: draw a boundary around the RIO, paint the ROI 
+        &amp; erase the ROI.
+
+        If the right mouse button is pressed, the sigRightMouseDrag signal is emitted
+        with the distance moved in the x &amp; y directions. This is used to adjust image 
+        levels.
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.mouseMoveEvent called&#34;)
+        try:
+            buttons = event.buttons()
+            if buttons == Qt.LeftButton:
+                self.xMouseCoord = int(event.pos().x())
+                self.yMouseCoord = int(event.pos().y())
+                
+                if self.linkToGraphicsView.drawEnabled:
+                    self.drawROIBoundary()
+
+                if self.linkToGraphicsView.eraseEnabled:
+                    self.eraseROI()
+
+                if self.linkToGraphicsView.paintEnabled:
+                    self.paintROI()
+
+            elif buttons == Qt.RightButton:
+                delta = event.screenPos() - event.lastScreenPos()
+                deltaY = delta.y()
+                deltaX =  delta.x()
+                self.sigRightMouseDrag.emit(deltaX, deltaY)
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.mouseMoveEvent: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.mouseMoveEvent: &#39; + str(e))
+
+
+    def addROIBoundaryToMask(self):
+        &#34;&#34;&#34;
+        The ROI is represented by True values in a boolean array that has the same
+        shape as it&#39;s image.  This function ensures that the boundary drawn around
+        the RIO is included in the mask. 
+        &#34;&#34;&#34;
+        for coords in self.pathCoordsList:
+            cols = coords[0]  #x
+            rows = coords[1]  #y
+            self.mask[rows, cols] = True
+
+
+    def closeAndFillROI(self):
+        &#34;&#34;&#34;
+        Creates the mask corresponding to the RIO and sets the pixels within the RIO to red.
+
+        If the boundary drawn around a ROI is not closed, this function closes it 
+        with a straight line connecting the start and end points of the line. 
+        Then a mask is created from the coordinates of the pixels on the this boundary.
+        The mask is a boolean array with the same shape as the image, in which elements
+        corresponding to the RIO are True and those outside the RIO are False. 
+
+        Pixels within the RIO then have only their red channel set to 255, to 
+        make them appear red but still allowing the image to be visible.
+        &#34;&#34;&#34;
+        if  (self.last_x != None and self.start_x != None 
+                and self.last_y != None and self.start_y != None):
+            self.createMaskFromDrawnROI(self.pathCoordsList)
+            self.addROIBoundaryToMask()
+            #store mask
+            self.sigGetDetailsROI.emit()
+            self.linkToGraphicsView.dictROIs.addMask(self.mask)
+
+            self.sigRecalculateMeanROI.emit()
+            
+            self.listROICoords = self.getListRoiInnerPoints(self.mask)
+            self.fillFreeHandRoi()
+            self.update()
+            self.start_x = None 
+            self.start_y = None
+            self.last_x = None
+            self.last_y = None
+            self.pathCoordsList = []
+            self.mouseMoved = False
+
+
+    def mouseReleaseEvent(self, event):
+        &#34;&#34;&#34;
+        Built in PyQt function that is executed when the mouse button is released.
+
+        If the left mouse button is released, the draw RIO function was selected 
+        and the mouse was moved over the image immediately prior to releasing 
+        the left mouse button, then the ROI is closed if necessary and coloured
+        red.
+
+
+        If the left mouse button is released, the draw RIO function was selected 
+        and the mouse was not moved over the image immediately prior to releasing 
+        the left mouse button, then a single pixel is coloured red and added to the
+        existing ROI on that image or a new ROI is created.
+
+
+        If the left mouse button is released and the paint RIO function was selected
+        then one or more contiguous pixels, depending on the brush size selected, are coloured red
+        and added to the existing RIO on that image or a new RIO is created.
+
+
+        If the left mouse button is released and the erase RIO function was selected
+        then one or more contiguous pixels, depending on the eraser size selected, are returned
+        to their original colour and removed from the existing RIO on that image.
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.mouseReleaseEvent called&#34;)
+        try:
+            #Get the coordinates of the cursor
+            self.xMouseCoord = int(event.pos().x())
+            self.yMouseCoord = int(event.pos().y())
+            button = event.button()
+            if (button == Qt.LeftButton):
+                if self.linkToGraphicsView.drawEnabled:
+                    if self.mouseMoved:
+                        self.closeAndFillROI()
+                    else:
+                        #The mouse was not moved, so a pixel was clicked on
+                        if self.mask is not None:
+                            if self.mask[self.yMouseCoord, self.xMouseCoord] == True:
+                                pass
+                                #mask already exists at this pixel, 
+                                #so do nothing
+                            else:
+                                #update mask
+                                self.setPixelToRed(self.xMouseCoord, self.yMouseCoord)
+                                self.mask[self.yMouseCoord, self.xMouseCoord] = True
+                                #store mask
+                                self.sigGetDetailsROI.emit()
+                                self.linkToGraphicsView.dictROIs.addMask(self.mask)
+                                self.sigRecalculateMeanROI.emit()
+                        else:
+                            self.createBlankMask() #create a new boolean mask with all values False
+                            self.setPixelToRed(self.xMouseCoord, self.yMouseCoord)
+                            self.mask[self.yMouseCoord, self.xMouseCoord] = True
+                            #store mask
+                            self.sigGetDetailsROI.emit()
+                            self.linkToGraphicsView.dictROIs.addMask(self.mask)
+                            self.sigRecalculateMeanROI.emit()
+
+                if self.linkToGraphicsView.eraseEnabled:
+                    self.eraseROI()
+                    #pixel values from the original image
+                    #will have the initial contrast &amp; intensity of that
+                    #image, so update the image levels so that they are the same as
+                    #those in the levels spinboxes
+                    self.sigUpdateImageLevels.emit()
+                        
+                if self.linkToGraphicsView.paintEnabled:
+                    self.paintROI()
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.mouseReleaseEvent: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.mouseReleaseEvent: &#39; + str(e))
+
+
+    def paintROI(self):
+        &#34;&#34;&#34;
+        Depending on the brush size selected, this function paints 
+        one or more contiguous pixels red and adds them to the 
+        existing RIO on the image; i.e., in the mask it sets the
+        corresponding pixel(s) to True.
+        If there is no existing RIO on the image, then a blank mask is created first.  
+        A blank mask is a boolean array with all its elements set to False 
+        and that has the same shape as the image. 
+        &#34;&#34;&#34;
+        if self.mask is None:
+            self.createBlankMask()
+            
+        if self.linkToGraphicsView.pixelSquareSize == 1:
+            #indices reversed for setting mask values to
+            #fit with the numpy [rows, columns] format
+            self.mask[self.yMouseCoord, self.xMouseCoord] = True
+            self.setPixelToRed(self.xMouseCoord, self.yMouseCoord)
+        else:
+            increment = (self.linkToGraphicsView.pixelSquareSize - 1)/2
+            lowX = int(self.xMouseCoord - increment)
+            highX = int(self.xMouseCoord + increment)
+            lowY = int(self.yMouseCoord - increment)
+            highY = int(self.yMouseCoord + increment)
+            
+            for x in range(lowX, highX+1, 1):
+                for y in range(lowY, highY+1, 1):
+                    if x &gt; -1 and  y &gt; -1:
+                        #indices reversed for setting mask values to
+                        #fit with the numpy [rows, columns] format
+                        self.mask[y, x] = True
+                        self.setPixelToRed(x, y)    
+        self.update()
+        self.sigGetDetailsROI.emit()
+        self.linkToGraphicsView.dictROIs.addMask(self.mask)
+        self.sigRecalculateMeanROI.emit()
+
+
+    def eraseROI(self):
+        &#34;&#34;&#34;
+        Depending on the brush size selected, this function 
+        returns one or more contiguous pixels to their original colour 
+        and removes them from the RIO; i.e., in the mask it sets the
+        corresponding pixel(s) to False.
+        &#34;&#34;&#34;
+        #Make sure we are erasing the RIO on the latest version of the mask
+        self.mask = self.linkToGraphicsView.dictROIs.getUpdatedMask()
+        if self.mask is not None:
+            if self.linkToGraphicsView.pixelSquareSize == 1:
+                self.resetPixelToOriginalValue(self.xMouseCoord, self.yMouseCoord)
+                #indices reversed for setting mask values to
+                #fit with the numpy [rows, columns] format
+                self.mask[self.yMouseCoord, self.xMouseCoord] = False
+            else:
+                increment = (self.linkToGraphicsView.pixelSquareSize - 1)/2
+                lowX = int(self.xMouseCoord - increment)
+                highX = int(self.xMouseCoord + increment)
+                lowY = int(self.yMouseCoord - increment)
+                highY = int(self.yMouseCoord + increment)
+            
+                for x in range(lowX, highX+1, 1):
+                    for y in range(lowY, highY+1, 1):
+                        if x &gt; -1 and  y &gt; -1:
+                            self.resetPixelToOriginalValue(x, y)
+                            #indices reversed for setting mask values to
+                            #fit with the numpy [rows, columns] format
+                            self.mask[y, x] = False
+                            
+            self.sigGetDetailsROI.emit()
+            #update existing mask
+            self.linkToGraphicsView.dictROIs.replaceMask(self.mask)
+            self.sigRecalculateMeanROI.emit()
+
+
+    def resetPixelToOriginalValue(self, x, y):
+        &#34;&#34;&#34;
+        This function is used by the eraseRIO function to return
+        a pixel in the RIO to its original grey value. 
+
+        The pixel value is obtained from a copy of the image at x,y and
+        the pixel at x,y in the viewed image is set to this value. 
+        A new QPixmap of the image is then created and the image repainted.
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.resetPixelToOriginalValue called&#34;)
+        try:
+            origPixelValue = self.origQImage.pixel(x, y) 
+            self.qImage.setPixel(x, y,  origPixelValue)
+            #convert QImage to QPixmap to be able to update image
+            self.pixMap = QPixmap.fromImage(self.qImage)
+            #repaint image by updating it
+            self.update()
+            
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.resetPixelToOriginalValue: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.resetPixelToOriginalValue: &#39; + str(e))
+    
+
+    def setPixelToRed(self, x, y):
+        &#34;&#34;&#34;
+        This function sets the red channel of the pixel at x,y to 255; thus,
+        making it appear red. 
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.setPixelToRed called&#34;)
+        try:
+            pixelColour = self.qImage.pixel(x, y) 
+            pixelRGB =  QColor(pixelColour).getRgb()
+            redVal = pixelRGB[0]
+            greenVal = pixelRGB[1]
+            blueVal = pixelRGB[2]
+            if greenVal &gt; 240 and blueVal &gt; 240:
+                #This pixel would be white if red channel set to 255
+                #so set the green and blue channels to 240
+                greenVal = blueVal = 240
+            value = qRgb(255, greenVal, blueVal)
+            self.qImage.setPixel(x, y, value)
+            #convert QImage to QPixmap to be able to update image
+            #with filled ROI
+            self.pixMap = QPixmap.fromImage(self.qImage)
+            #repaint image
+            self.update()
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.setPixelToRed: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.setPixelToRed: &#39; + str(e))
+
+
+    def reloadMask(self, mask):
+        &#34;&#34;&#34;
+        Redisplays the ROI represented by mask on the image.
+
+        This function makes a list of the coordinates of the elements
+        in the input argument mask that have the value True and therefore correspond
+        to the RIO. Then the pixels in the image, within the RIO, have 
+        their Red channel set to 255, to make them appear red. 
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.reloadMask called&#34;)
+        try:
+            self.listROICoords = self.getListRoiInnerPoints(mask)
+            self.fillFreeHandRoi()
+            self.listROICoords = []
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.reloadMask: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.reloadMask: &#39; + str(e))
+
+
+    def fillFreeHandRoi(self):
+        &#34;&#34;&#34;
+        Sets the Red channel to 255 of the pixels within the RIO.  
+        This makes them appear red.
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.fillFreeHandRoi called&#34;)
+        try:
+            #self.listROICoords is a list of the coordinates of the pixels
+            #within the RIO
+            if self.listROICoords is not None:
+                for coords in self.listROICoords:
+                    x = coords[0]
+                    y = coords[1]
+                    self.setPixelToRed(x, y)
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.fillFreeHandRoi: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.fillFreeHandRoi: &#39; + str(e))
+
+
+    def addROItoImage(self, roi):
+        &#34;&#34;&#34;
+        This function is used to add an existing ROI to an image 
+        before it is displayed for the first time in the GraphicsItem object.
+
+        rio - boolean array containing elements corresponding to the ROI; i.e.,
+            their value is True. 
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.addROItoImage called&#34;)
+        try:
+            listROICoords = self.getListRoiInnerPoints(roi)
+            if listROICoords is not None:
+                for coords in listROICoords:
+                    x = coords[0]
+                    y = coords[1]
+                    pixelColour = self.qImage.pixel(x, y) 
+                    pixelRGB =  QColor(pixelColour).getRgb()
+                    redVal = pixelRGB[0]
+                    greenVal = pixelRGB[1]
+                    blueVal = pixelRGB[2]
+                    if greenVal &gt; 240 and blueVal &gt; 240:
+                        #This pixel would be white if red channel set to 255
+                        #so set the green and blue channels to 240
+                        greenVal = blueVal = 240
+                    value = qRgb(255, greenVal, blueVal)
+                    self.qImage.setPixel(x, y, value)
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.addROItoImage: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.addROItoImage: &#39; + str(e))
+
+
+    def getMaskData(self):
+        &#34;&#34;&#34;
+        This function returns the mask (boolean array) associated with 
+        the GraphicsItem object. 
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.getMaskData called&#34;)
+        return self.mask
+
+
+    def getListRoiInnerPoints(self, mask):
+        &#34;&#34;&#34;
+        This function returns a list of the coordinates 
+        of the elements in the mask whose values are True. 
+       
+        Input argument
+        ***************
+        mask - a boolean array the same size as the image. 
+            Elements in the mask whose value is True correspond  
+            to the pixels in the ROI drawn on the image.
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.getListRoiInnerPoints called&#34;)
+        try:
+            if mask is not None:
+                roi = np.where(mask == True)
+                return list(zip(roi[1], roi[0]))
+            else:
+                return None
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.getListRoiInnerPoints: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.getListRoiInnerPoints: &#39; + str(e))
+
+
+    def createBlankMask(self):
+        &#34;&#34;&#34;
+        Creates a boolean array with the same shape as the image&#39;s
+        pixel array. All its elements are set to False. This boolean array
+        is assigned to the class property self.mask.
+
+        This function is used by the paintROI function and when no ROI exists
+        and an ROI is drawn on just one pixel.
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.createBlankMask called&#34;)
+        rows, cols = np.shape(self.pixelArray)
+        self.mask = np.full((rows, cols), False, dtype=bool)
+
+
+    def createMaskFromDrawnROI(self, roiBoundaryCoords):
+        &#34;&#34;&#34;
+        Using the coordinates of the points on the boundary of a drawn RIO,
+        this function creates a mask. 
+        The mask is a boolean array with the same shape as
+        the image. 
+        Elements in the mask with the value True represent the ROI. 
+        Elements in the mask outside the RIO have the value False. 
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.createMaskFromDrawnROI called&#34;)
+        try:
+            self.mask = None
+            #1. Create a list called points
+            # of x,y coordinates for each element 
+            #in self.pixelArray, the pixel array of the DICOM image
+            nx, ny = np.shape(self.pixelArray)
+            x, y = np.meshgrid(np.arange(nx), np.arange(ny))
+            points = list(zip(x.flatten(),y.flatten()))
+
+            #2. Convert the ROI boundary coordinates into a path object
+            roiPath = MplPath(roiBoundaryCoords, closed=True)
+
+            #3.Create a boolean array representing the original pixel array
+            #with all elements set to False except those falling within the
+            #ROI that are set to True.  
+            #Setting radius=0.0 does not include the drawn boundary in the ROI
+            self.mask = roiPath.contains_points(points, radius=0.0).reshape((ny, nx))   
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.createMaskFromDrawnROI: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.createMaskFromDrawnROI: &#39; + str(e))
+            
+
+    def mousePressEvent(self, event):
+        &#34;&#34;&#34;
+        Built in PyQt function that is executed when the mouse button is pressed.
+
+        When the left mouse button is pressed, the sigZoomIn signal is emitted to 
+        communicate this to the host GraphicsView widget, that then zooms in on 
+        the image.
+
+        When the right mouse button is pressed, the sigZoomOut signal is emitted to 
+        communicate this to the host GraphicsView widget, that then zooms out from 
+        the image.
+        &#34;&#34;&#34;
+        logger.info(&#34;FreeHandROI.GraphicsItem.mousePressEvent called&#34;)
+        try:
+            pass
+            button = event.button()
+            if (button == Qt.LeftButton):
+              self.sigZoomIn.emit()
+            elif (button == Qt.RightButton): 
+              self.sigZoomOut.emit()
+        except Exception as e:
+            print(&#39;Error in FreeHandROI.GraphicsItem.mousePressEvent: &#39; + str(e))
+            logger.error(&#39;Error in FreeHandROI.GraphicsItem.mousePressEvent: &#39; + str(e))</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>PyQt5.QtWidgets.QGraphicsObject</li>
+<li>PyQt5.QtCore.QObject</li>
+<li>PyQt5.QtWidgets.QGraphicsItem</li>
+<li>sip.wrapper</li>
+<li>sip.simplewrapper</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.addROIBoundaryToMask"><code class="name flex">
+<span>def <span class="ident">addROIBoundaryToMask</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The ROI is represented by True values in a boolean array that has the same
+shape as it's image.
+This function ensures that the boundary drawn around
+the RIO is included in the mask.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addROIBoundaryToMask(self):
+    &#34;&#34;&#34;
+    The ROI is represented by True values in a boolean array that has the same
+    shape as it&#39;s image.  This function ensures that the boundary drawn around
+    the RIO is included in the mask. 
+    &#34;&#34;&#34;
+    for coords in self.pathCoordsList:
+        cols = coords[0]  #x
+        rows = coords[1]  #y
+        self.mask[rows, cols] = True</code></pre>
+</details>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.addROItoImage"><code class="name flex">
+<span>def <span class="ident">addROItoImage</span></span>(<span>self, roi)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function is used to add an existing ROI to an image
+before it is displayed for the first time in the GraphicsItem object.</p>
+<p>rio - boolean array containing elements corresponding to the ROI; i.e.,
+their value is True.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addROItoImage(self, roi):
+    &#34;&#34;&#34;
+    This function is used to add an existing ROI to an image 
+    before it is displayed for the first time in the GraphicsItem object.
+
+    rio - boolean array containing elements corresponding to the ROI; i.e.,
+        their value is True. 
+    &#34;&#34;&#34;
+    logger.info(&#34;FreeHandROI.GraphicsItem.addROItoImage called&#34;)
+    try:
+        listROICoords = self.getListRoiInnerPoints(roi)
+        if listROICoords is not None:
+            for coords in listROICoords:
+                x = coords[0]
+                y = coords[1]
+                pixelColour = self.qImage.pixel(x, y) 
+                pixelRGB =  QColor(pixelColour).getRgb()
+                redVal = pixelRGB[0]
+                greenVal = pixelRGB[1]
+                blueVal = pixelRGB[2]
+                if greenVal &gt; 240 and blueVal &gt; 240:
+                    #This pixel would be white if red channel set to 255
+                    #so set the green and blue channels to 240
+                    greenVal = blueVal = 240
+                value = qRgb(255, greenVal, blueVal)
+                self.qImage.setPixel(x, y, value)
+    except Exception as e:
+        print(&#39;Error in FreeHandROI.GraphicsItem.addROItoImage: &#39; + str(e))
+        logger.error(&#39;Error in FreeHandROI.GraphicsItem.addROItoImage: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.boundingRect"><code class="name flex">
+<span>def <span class="ident">boundingRect</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Built in PyQt function used to render the DICOM image</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def boundingRect(self): 
+    &#34;&#34;&#34;Built in PyQt function used to render the DICOM image&#34;&#34;&#34;
+    return QRectF(0,0,self.width, self.height)</code></pre>
+</details>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.closeAndFillROI"><code class="name flex">
+<span>def <span class="ident">closeAndFillROI</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates the mask corresponding to the RIO and sets the pixels within the RIO to red.</p>
+<p>If the boundary drawn around a ROI is not closed, this function closes it
+with a straight line connecting the start and end points of the line.
+Then a mask is created from the coordinates of the pixels on the this boundary.
+The mask is a boolean array with the same shape as the image, in which elements
+corresponding to the RIO are True and those outside the RIO are False. </p>
+<p>Pixels within the RIO then have only their red channel set to 255, to
+make them appear red but still allowing the image to be visible.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def closeAndFillROI(self):
+    &#34;&#34;&#34;
+    Creates the mask corresponding to the RIO and sets the pixels within the RIO to red.
+
+    If the boundary drawn around a ROI is not closed, this function closes it 
+    with a straight line connecting the start and end points of the line. 
+    Then a mask is created from the coordinates of the pixels on the this boundary.
+    The mask is a boolean array with the same shape as the image, in which elements
+    corresponding to the RIO are True and those outside the RIO are False. 
+
+    Pixels within the RIO then have only their red channel set to 255, to 
+    make them appear red but still allowing the image to be visible.
+    &#34;&#34;&#34;
+    if  (self.last_x != None and self.start_x != None 
+            and self.last_y != None and self.start_y != None):
+        self.createMaskFromDrawnROI(self.pathCoordsList)
+        self.addROIBoundaryToMask()
+        #store mask
+        self.sigGetDetailsROI.emit()
+        self.linkToGraphicsView.dictROIs.addMask(self.mask)
+
+        self.sigRecalculateMeanROI.emit()
+        
+        self.listROICoords = self.getListRoiInnerPoints(self.mask)
+        self.fillFreeHandRoi()
+        self.update()
+        self.start_x = None 
+        self.start_y = None
+        self.last_x = None
+        self.last_y = None
+        self.pathCoordsList = []
+        self.mouseMoved = False</code></pre>
+</details>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.createBlankMask"><code class="name flex">
+<span>def <span class="ident">createBlankMask</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a boolean array with the same shape as the image's
+pixel array. All its elements are set to False. This boolean array
+is assigned to the class property self.mask.</p>
+<p>This function is used by the paintROI function and when no ROI exists
+and an ROI is drawn on just one pixel.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def createBlankMask(self):
+    &#34;&#34;&#34;
+    Creates a boolean array with the same shape as the image&#39;s
+    pixel array. All its elements are set to False. This boolean array
+    is assigned to the class property self.mask.
+
+    This function is used by the paintROI function and when no ROI exists
+    and an ROI is drawn on just one pixel.
+    &#34;&#34;&#34;
+    logger.info(&#34;FreeHandROI.GraphicsItem.createBlankMask called&#34;)
+    rows, cols = np.shape(self.pixelArray)
+    self.mask = np.full((rows, cols), False, dtype=bool)</code></pre>
+</details>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.createMaskFromDrawnROI"><code class="name flex">
+<span>def <span class="ident">createMaskFromDrawnROI</span></span>(<span>self, roiBoundaryCoords)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Using the coordinates of the points on the boundary of a drawn RIO,
+this function creates a mask.
+The mask is a boolean array with the same shape as
+the image.
+Elements in the mask with the value True represent the ROI.
+Elements in the mask outside the RIO have the value False.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def createMaskFromDrawnROI(self, roiBoundaryCoords):
+    &#34;&#34;&#34;
+    Using the coordinates of the points on the boundary of a drawn RIO,
+    this function creates a mask. 
+    The mask is a boolean array with the same shape as
+    the image. 
+    Elements in the mask with the value True represent the ROI. 
+    Elements in the mask outside the RIO have the value False. 
+    &#34;&#34;&#34;
+    logger.info(&#34;FreeHandROI.GraphicsItem.createMaskFromDrawnROI called&#34;)
+    try:
+        self.mask = None
+        #1. Create a list called points
+        # of x,y coordinates for each element 
+        #in self.pixelArray, the pixel array of the DICOM image
+        nx, ny = np.shape(self.pixelArray)
+        x, y = np.meshgrid(np.arange(nx), np.arange(ny))
+        points = list(zip(x.flatten(),y.flatten()))
+
+        #2. Convert the ROI boundary coordinates into a path object
+        roiPath = MplPath(roiBoundaryCoords, closed=True)
+
+        #3.Create a boolean array representing the original pixel array
+        #with all elements set to False except those falling within the
+        #ROI that are set to True.  
+        #Setting radius=0.0 does not include the drawn boundary in the ROI
+        self.mask = roiPath.contains_points(points, radius=0.0).reshape((ny, nx))   
+    except Exception as e:
+        print(&#39;Error in FreeHandROI.GraphicsItem.createMaskFromDrawnROI: &#39; + str(e))
+        logger.error(&#39;Error in FreeHandROI.GraphicsItem.createMaskFromDrawnROI: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.drawROIBoundary"><code class="name flex">
+<span>def <span class="ident">drawROIBoundary</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>As the mouse is moved over the image,</p>
+<ol>
+<li>
+<p>The red channel of the
+pixel under the cursor tip is set to 255, making it appear red.</p>
+</li>
+<li>
+<p>The coordinates of each pixel the mouse cursor moves over
+is added to a list.</p>
+</li>
+</ol></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def drawROIBoundary(self):
+    &#34;&#34;&#34;
+    As the mouse is moved over the image,
+   
+    1. The red channel of the 
+    pixel under the cursor tip is set to 255, making it appear red.
+
+    2. The coordinates of each pixel the mouse cursor moves over
+    is added to a list. 
+    &#34;&#34;&#34;
+    if self.last_x is None: # First draw event.
+        self.last_x = self.xMouseCoord
+        self.last_y = self.yMouseCoord
+        self.start_x = self.xMouseCoord
+        self.start_y = self.yMouseCoord
+        return #  Ignore the first time.
+    self.setPixelToRed(self.xMouseCoord, self.yMouseCoord)
+    
+    #Update the current mouse pointer position
+    #These values are used to close the ROI
+    self.last_x = self.xMouseCoord
+    self.last_y = self.yMouseCoord
+    #Do not add duplicates to the list
+    if [self.last_x, self.last_y] not in self.pathCoordsList:
+        self.pathCoordsList.append([self.last_x, self.last_y])
+    self.mouseMoved = True</code></pre>
+</details>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.eraseROI"><code class="name flex">
+<span>def <span class="ident">eraseROI</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Depending on the brush size selected, this function
+returns one or more contiguous pixels to their original colour
+and removes them from the RIO; i.e., in the mask it sets the
+corresponding pixel(s) to False.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def eraseROI(self):
+    &#34;&#34;&#34;
+    Depending on the brush size selected, this function 
+    returns one or more contiguous pixels to their original colour 
+    and removes them from the RIO; i.e., in the mask it sets the
+    corresponding pixel(s) to False.
+    &#34;&#34;&#34;
+    #Make sure we are erasing the RIO on the latest version of the mask
+    self.mask = self.linkToGraphicsView.dictROIs.getUpdatedMask()
+    if self.mask is not None:
+        if self.linkToGraphicsView.pixelSquareSize == 1:
+            self.resetPixelToOriginalValue(self.xMouseCoord, self.yMouseCoord)
+            #indices reversed for setting mask values to
+            #fit with the numpy [rows, columns] format
+            self.mask[self.yMouseCoord, self.xMouseCoord] = False
+        else:
+            increment = (self.linkToGraphicsView.pixelSquareSize - 1)/2
+            lowX = int(self.xMouseCoord - increment)
+            highX = int(self.xMouseCoord + increment)
+            lowY = int(self.yMouseCoord - increment)
+            highY = int(self.yMouseCoord + increment)
+        
+            for x in range(lowX, highX+1, 1):
+                for y in range(lowY, highY+1, 1):
+                    if x &gt; -1 and  y &gt; -1:
+                        self.resetPixelToOriginalValue(x, y)
+                        #indices reversed for setting mask values to
+                        #fit with the numpy [rows, columns] format
+                        self.mask[y, x] = False
+                        
+        self.sigGetDetailsROI.emit()
+        #update existing mask
+        self.linkToGraphicsView.dictROIs.replaceMask(self.mask)
+        self.sigRecalculateMeanROI.emit()</code></pre>
+</details>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.fillFreeHandRoi"><code class="name flex">
+<span>def <span class="ident">fillFreeHandRoi</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the Red channel to 255 of the pixels within the RIO.<br>
+This makes them appear red.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def fillFreeHandRoi(self):
+    &#34;&#34;&#34;
+    Sets the Red channel to 255 of the pixels within the RIO.  
+    This makes them appear red.
+    &#34;&#34;&#34;
+    logger.info(&#34;FreeHandROI.GraphicsItem.fillFreeHandRoi called&#34;)
+    try:
+        #self.listROICoords is a list of the coordinates of the pixels
+        #within the RIO
+        if self.listROICoords is not None:
+            for coords in self.listROICoords:
+                x = coords[0]
+                y = coords[1]
+                self.setPixelToRed(x, y)
+    except Exception as e:
+        print(&#39;Error in FreeHandROI.GraphicsItem.fillFreeHandRoi: &#39; + str(e))
+        logger.error(&#39;Error in FreeHandROI.GraphicsItem.fillFreeHandRoi: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.getListRoiInnerPoints"><code class="name flex">
+<span>def <span class="ident">getListRoiInnerPoints</span></span>(<span>self, mask)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function returns a list of the coordinates
+of the elements in the mask whose values are True. </p>
+<p>Input argument</p>
+<hr>
+<p>mask - a boolean array the same size as the image.
+Elements in the mask whose value is True correspond<br>
+to the pixels in the ROI drawn on the image.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getListRoiInnerPoints(self, mask):
+    &#34;&#34;&#34;
+    This function returns a list of the coordinates 
+    of the elements in the mask whose values are True. 
+   
+    Input argument
+    ***************
+    mask - a boolean array the same size as the image. 
+        Elements in the mask whose value is True correspond  
+        to the pixels in the ROI drawn on the image.
+    &#34;&#34;&#34;
+    logger.info(&#34;FreeHandROI.GraphicsItem.getListRoiInnerPoints called&#34;)
+    try:
+        if mask is not None:
+            roi = np.where(mask == True)
+            return list(zip(roi[1], roi[0]))
+        else:
+            return None
+    except Exception as e:
+        print(&#39;Error in FreeHandROI.GraphicsItem.getListRoiInnerPoints: &#39; + str(e))
+        logger.error(&#39;Error in FreeHandROI.GraphicsItem.getListRoiInnerPoints: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.getMaskData"><code class="name flex">
+<span>def <span class="ident">getMaskData</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function returns the mask (boolean array) associated with
+the GraphicsItem object.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getMaskData(self):
+    &#34;&#34;&#34;
+    This function returns the mask (boolean array) associated with 
+    the GraphicsItem object. 
+    &#34;&#34;&#34;
+    logger.info(&#34;FreeHandROI.GraphicsItem.getMaskData called&#34;)
+    return self.mask</code></pre>
+</details>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.hoverEnterEvent"><code class="name flex">
+<span>def <span class="ident">hoverEnterEvent</span></span>(<span>self, event)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Built in PyQt function that is executed when the cursor enters the
+GraphicItem object. </p>
+<p>Here it is used to set the cursor icon according
+to ROI drawing function selected: draw, paint, zoom or erase.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def hoverEnterEvent(self, event):
+    &#34;&#34;&#34;
+    Built in PyQt function that is executed when the cursor enters the 
+    GraphicItem object. 
+    
+    Here it is used to set the cursor icon according
+    to ROI drawing function selected: draw, paint, zoom or erase.
+    &#34;&#34;&#34;
+    logger.info(&#34;FreeHandROI.GraphicsItem.hoverEnterEvent called&#34;)
+    try:
+        if self.linkToGraphicsView.drawEnabled:
+            pm = QPixmap(PEN_CURSOR)
+            cursor = QCursor(pm, hotX=0, hotY=30)
+            QApplication.setOverrideCursor(cursor)
+
+        if self.linkToGraphicsView.eraseEnabled:
+            pm = QPixmap(ERASER_CURSOR)
+            cursor = QCursor(pm, hotX=0, hotY=30)
+            QApplication.setOverrideCursor(cursor)
+
+        if self.linkToGraphicsView.paintEnabled:
+            pm = QPixmap(BRUSH_CURSOR)
+            cursor = QCursor(pm, hotX=0, hotY=30)
+            QApplication.setOverrideCursor(cursor)
+
+        if self.linkToGraphicsView.zoomEnabled:
+            pm = QPixmap(MAGNIFYING_GLASS_CURSOR)
+            cursor = QCursor(pm, hotX=0, hotY=30)
+            QApplication.setOverrideCursor(cursor)
+    except Exception as e:
+        print(&#39;Error in FreeHandROI.GraphicsItem.hoverEnterEvent: &#39; + str(e))
+        logger.error(&#39;Error in FreeHandROI.GraphicsItem.hoverEnterEvent: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.hoverLeaveEvent"><code class="name flex">
+<span>def <span class="ident">hoverLeaveEvent</span></span>(<span>self, event)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Built in PyQt function that is executed when the cursor leaves the
+GraphicItem object. </p>
+<p>Restores the mouse cursor from that set in hoverEnterEvent
+to the default arrow.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def hoverLeaveEvent(self, event):
+    &#34;&#34;&#34;
+    Built in PyQt function that is executed when the cursor leaves the 
+    GraphicItem object. 
+
+    Restores the mouse cursor from that set in hoverEnterEvent 
+    to the default arrow.
+    &#34;&#34;&#34;
+    logger.info(&#34;FreeHandROI.GraphicsItem.hoverLeaveEvent called&#34;)
+    try:
+        QApplication.restoreOverrideCursor()
+        self.sigMouseHovered.emit(False)
+    except Exception as e:
+        print(&#39;Error in FreeHandROI.GraphicsItem.hoverEnterEvent: &#39; + str(e))
+        logger.error(&#39;Error in FreeHandROI.GraphicsItem.hoverEnterEvent: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.hoverMoveEvent"><code class="name flex">
+<span>def <span class="ident">hoverMoveEvent</span></span>(<span>self, event)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Built in PyQt function that is executed as the cursor hovers over the
+GraphicItem object. </p>
+<p>Determines the x,y coordinates of the mouse pointer and value of the pixel
+under it's tip.
+When these values change the sigMouseHovered signal is
+emitted to alert the module hosting the GraphicsView widget.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def hoverMoveEvent(self, event):
+    &#34;&#34;&#34;
+    Built in PyQt function that is executed as the cursor hovers over the 
+    GraphicItem object. 
+
+    Determines the x,y coordinates of the mouse pointer and value of the pixel
+    under it&#39;s tip.  When these values change the sigMouseHovered signal is 
+    emitted to alert the module hosting the GraphicsView widget.
+    &#34;&#34;&#34;
+    logger.info(&#34;FreeHandROI.GraphicsItem.hoverMoveEvent called&#34;)
+    try:
+        self.xMouseCoord = int(event.pos().x()) #columns
+        self.yMouseCoord = int(event.pos().y()) #rows
+        maxRow, maxCol = self.pixelArray.shape
+        if self.yMouseCoord &lt; maxRow and self.xMouseCoord &lt; maxCol:
+            #only get pixel value when mouse pointer is over the image
+            self.pixelValue = self.pixelArray[self.xMouseCoord, self.yMouseCoord]
+            self.sigMouseHovered.emit(True)
+    except Exception as e:
+        print(&#39;Error in FreeHandROI.GraphicsItem.hoverMoveEvent when xMouseCoord={}, yMouseCoord={}: &#39;.format(self.xMouseCoord, self.yMouseCoord) + str(e))
+        logger.error(&#39;Error in FreeHandROI.GraphicsItem.hoverMoveEvent: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.mouseMoveEvent"><code class="name flex">
+<span>def <span class="ident">mouseMoveEvent</span></span>(<span>self, event)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Built in PyQt function that is executed when a mouse button is pressed
+&amp; the cursor is moved over the GraphicsItem object.</p>
+<p>If the left mouse button is pressed, if any of the following functions
+are selected they are performed: draw a boundary around the RIO, paint the ROI
+&amp; erase the ROI.</p>
+<p>If the right mouse button is pressed, the sigRightMouseDrag signal is emitted
+with the distance moved in the x &amp; y directions. This is used to adjust image
+levels.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def mouseMoveEvent(self, event):
+    &#34;&#34;&#34;
+    Built in PyQt function that is executed when a mouse button is pressed 
+    &amp; the cursor is moved over the GraphicsItem object.
+
+    If the left mouse button is pressed, if any of the following functions 
+    are selected they are performed: draw a boundary around the RIO, paint the ROI 
+    &amp; erase the ROI.
+
+    If the right mouse button is pressed, the sigRightMouseDrag signal is emitted
+    with the distance moved in the x &amp; y directions. This is used to adjust image 
+    levels.
+    &#34;&#34;&#34;
+    logger.info(&#34;FreeHandROI.GraphicsItem.mouseMoveEvent called&#34;)
+    try:
+        buttons = event.buttons()
+        if buttons == Qt.LeftButton:
+            self.xMouseCoord = int(event.pos().x())
+            self.yMouseCoord = int(event.pos().y())
+            
+            if self.linkToGraphicsView.drawEnabled:
+                self.drawROIBoundary()
+
+            if self.linkToGraphicsView.eraseEnabled:
+                self.eraseROI()
+
+            if self.linkToGraphicsView.paintEnabled:
+                self.paintROI()
+
+        elif buttons == Qt.RightButton:
+            delta = event.screenPos() - event.lastScreenPos()
+            deltaY = delta.y()
+            deltaX =  delta.x()
+            self.sigRightMouseDrag.emit(deltaX, deltaY)
+    except Exception as e:
+        print(&#39;Error in FreeHandROI.GraphicsItem.mouseMoveEvent: &#39; + str(e))
+        logger.error(&#39;Error in FreeHandROI.GraphicsItem.mouseMoveEvent: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.mousePressEvent"><code class="name flex">
+<span>def <span class="ident">mousePressEvent</span></span>(<span>self, event)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Built in PyQt function that is executed when the mouse button is pressed.</p>
+<p>When the left mouse button is pressed, the sigZoomIn signal is emitted to
+communicate this to the host GraphicsView widget, that then zooms in on
+the image.</p>
+<p>When the right mouse button is pressed, the sigZoomOut signal is emitted to
+communicate this to the host GraphicsView widget, that then zooms out from
+the image.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def mousePressEvent(self, event):
+    &#34;&#34;&#34;
+    Built in PyQt function that is executed when the mouse button is pressed.
+
+    When the left mouse button is pressed, the sigZoomIn signal is emitted to 
+    communicate this to the host GraphicsView widget, that then zooms in on 
+    the image.
+
+    When the right mouse button is pressed, the sigZoomOut signal is emitted to 
+    communicate this to the host GraphicsView widget, that then zooms out from 
+    the image.
+    &#34;&#34;&#34;
+    logger.info(&#34;FreeHandROI.GraphicsItem.mousePressEvent called&#34;)
+    try:
+        pass
+        button = event.button()
+        if (button == Qt.LeftButton):
+          self.sigZoomIn.emit()
+        elif (button == Qt.RightButton): 
+          self.sigZoomOut.emit()
+    except Exception as e:
+        print(&#39;Error in FreeHandROI.GraphicsItem.mousePressEvent: &#39; + str(e))
+        logger.error(&#39;Error in FreeHandROI.GraphicsItem.mousePressEvent: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.mouseReleaseEvent"><code class="name flex">
+<span>def <span class="ident">mouseReleaseEvent</span></span>(<span>self, event)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Built in PyQt function that is executed when the mouse button is released.</p>
+<p>If the left mouse button is released, the draw RIO function was selected
+and the mouse was moved over the image immediately prior to releasing
+the left mouse button, then the ROI is closed if necessary and coloured
+red.</p>
+<p>If the left mouse button is released, the draw RIO function was selected
+and the mouse was not moved over the image immediately prior to releasing
+the left mouse button, then a single pixel is coloured red and added to the
+existing ROI on that image or a new ROI is created.</p>
+<p>If the left mouse button is released and the paint RIO function was selected
+then one or more contiguous pixels, depending on the brush size selected, are coloured red
+and added to the existing RIO on that image or a new RIO is created.</p>
+<p>If the left mouse button is released and the erase RIO function was selected
+then one or more contiguous pixels, depending on the eraser size selected, are returned
+to their original colour and removed from the existing RIO on that image.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def mouseReleaseEvent(self, event):
+    &#34;&#34;&#34;
+    Built in PyQt function that is executed when the mouse button is released.
+
+    If the left mouse button is released, the draw RIO function was selected 
+    and the mouse was moved over the image immediately prior to releasing 
+    the left mouse button, then the ROI is closed if necessary and coloured
+    red.
+
+
+    If the left mouse button is released, the draw RIO function was selected 
+    and the mouse was not moved over the image immediately prior to releasing 
+    the left mouse button, then a single pixel is coloured red and added to the
+    existing ROI on that image or a new ROI is created.
+
+
+    If the left mouse button is released and the paint RIO function was selected
+    then one or more contiguous pixels, depending on the brush size selected, are coloured red
+    and added to the existing RIO on that image or a new RIO is created.
+
+
+    If the left mouse button is released and the erase RIO function was selected
+    then one or more contiguous pixels, depending on the eraser size selected, are returned
+    to their original colour and removed from the existing RIO on that image.
+    &#34;&#34;&#34;
+    logger.info(&#34;FreeHandROI.GraphicsItem.mouseReleaseEvent called&#34;)
+    try:
+        #Get the coordinates of the cursor
+        self.xMouseCoord = int(event.pos().x())
+        self.yMouseCoord = int(event.pos().y())
+        button = event.button()
+        if (button == Qt.LeftButton):
+            if self.linkToGraphicsView.drawEnabled:
+                if self.mouseMoved:
+                    self.closeAndFillROI()
+                else:
+                    #The mouse was not moved, so a pixel was clicked on
+                    if self.mask is not None:
+                        if self.mask[self.yMouseCoord, self.xMouseCoord] == True:
+                            pass
+                            #mask already exists at this pixel, 
+                            #so do nothing
+                        else:
+                            #update mask
+                            self.setPixelToRed(self.xMouseCoord, self.yMouseCoord)
+                            self.mask[self.yMouseCoord, self.xMouseCoord] = True
+                            #store mask
+                            self.sigGetDetailsROI.emit()
+                            self.linkToGraphicsView.dictROIs.addMask(self.mask)
+                            self.sigRecalculateMeanROI.emit()
+                    else:
+                        self.createBlankMask() #create a new boolean mask with all values False
+                        self.setPixelToRed(self.xMouseCoord, self.yMouseCoord)
+                        self.mask[self.yMouseCoord, self.xMouseCoord] = True
+                        #store mask
+                        self.sigGetDetailsROI.emit()
+                        self.linkToGraphicsView.dictROIs.addMask(self.mask)
+                        self.sigRecalculateMeanROI.emit()
+
+            if self.linkToGraphicsView.eraseEnabled:
+                self.eraseROI()
+                #pixel values from the original image
+                #will have the initial contrast &amp; intensity of that
+                #image, so update the image levels so that they are the same as
+                #those in the levels spinboxes
+                self.sigUpdateImageLevels.emit()
+                    
+            if self.linkToGraphicsView.paintEnabled:
+                self.paintROI()
+    except Exception as e:
+        print(&#39;Error in FreeHandROI.GraphicsItem.mouseReleaseEvent: &#39; + str(e))
+        logger.error(&#39;Error in FreeHandROI.GraphicsItem.mouseReleaseEvent: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.paint"><code class="name flex">
+<span>def <span class="ident">paint</span></span>(<span>self, painter, option, widget)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Built in PyQt function used to render the DICOM image</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def paint(self, painter, option, widget):
+    &#34;&#34;&#34;Built in PyQt function used to render the DICOM image&#34;&#34;&#34;
+    logger.info(&#34;FreeHandROI.GraphicsItem.paint called&#34;)
+    try:
+        painter.setOpacity(1)
+        painter.drawPixmap(0,0, self.width, self.height, self.pixMap)
+    except Exception as e:
+        print(&#39;Error in FreeHandROI.GraphicsItem.paint: &#39; + str(e))
+        logger.error(&#39;Error in FreeHandROI.GraphicsItem.paint: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.paintROI"><code class="name flex">
+<span>def <span class="ident">paintROI</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Depending on the brush size selected, this function paints
+one or more contiguous pixels red and adds them to the
+existing RIO on the image; i.e., in the mask it sets the
+corresponding pixel(s) to True.
+If there is no existing RIO on the image, then a blank mask is created first.<br>
+A blank mask is a boolean array with all its elements set to False
+and that has the same shape as the image.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def paintROI(self):
+    &#34;&#34;&#34;
+    Depending on the brush size selected, this function paints 
+    one or more contiguous pixels red and adds them to the 
+    existing RIO on the image; i.e., in the mask it sets the
+    corresponding pixel(s) to True.
+    If there is no existing RIO on the image, then a blank mask is created first.  
+    A blank mask is a boolean array with all its elements set to False 
+    and that has the same shape as the image. 
+    &#34;&#34;&#34;
+    if self.mask is None:
+        self.createBlankMask()
+        
+    if self.linkToGraphicsView.pixelSquareSize == 1:
+        #indices reversed for setting mask values to
+        #fit with the numpy [rows, columns] format
+        self.mask[self.yMouseCoord, self.xMouseCoord] = True
+        self.setPixelToRed(self.xMouseCoord, self.yMouseCoord)
+    else:
+        increment = (self.linkToGraphicsView.pixelSquareSize - 1)/2
+        lowX = int(self.xMouseCoord - increment)
+        highX = int(self.xMouseCoord + increment)
+        lowY = int(self.yMouseCoord - increment)
+        highY = int(self.yMouseCoord + increment)
+        
+        for x in range(lowX, highX+1, 1):
+            for y in range(lowY, highY+1, 1):
+                if x &gt; -1 and  y &gt; -1:
+                    #indices reversed for setting mask values to
+                    #fit with the numpy [rows, columns] format
+                    self.mask[y, x] = True
+                    self.setPixelToRed(x, y)    
+    self.update()
+    self.sigGetDetailsROI.emit()
+    self.linkToGraphicsView.dictROIs.addMask(self.mask)
+    self.sigRecalculateMeanROI.emit()</code></pre>
+</details>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.reloadMask"><code class="name flex">
+<span>def <span class="ident">reloadMask</span></span>(<span>self, mask)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Redisplays the ROI represented by mask on the image.</p>
+<p>This function makes a list of the coordinates of the elements
+in the input argument mask that have the value True and therefore correspond
+to the RIO. Then the pixels in the image, within the RIO, have
+their Red channel set to 255, to make them appear red.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reloadMask(self, mask):
+    &#34;&#34;&#34;
+    Redisplays the ROI represented by mask on the image.
+
+    This function makes a list of the coordinates of the elements
+    in the input argument mask that have the value True and therefore correspond
+    to the RIO. Then the pixels in the image, within the RIO, have 
+    their Red channel set to 255, to make them appear red. 
+    &#34;&#34;&#34;
+    logger.info(&#34;FreeHandROI.GraphicsItem.reloadMask called&#34;)
+    try:
+        self.listROICoords = self.getListRoiInnerPoints(mask)
+        self.fillFreeHandRoi()
+        self.listROICoords = []
+    except Exception as e:
+        print(&#39;Error in FreeHandROI.GraphicsItem.reloadMask: &#39; + str(e))
+        logger.error(&#39;Error in FreeHandROI.GraphicsItem.reloadMask: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.resetPixelToOriginalValue"><code class="name flex">
+<span>def <span class="ident">resetPixelToOriginalValue</span></span>(<span>self, x, y)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function is used by the eraseRIO function to return
+a pixel in the RIO to its original grey value. </p>
+<p>The pixel value is obtained from a copy of the image at x,y and
+the pixel at x,y in the viewed image is set to this value.
+A new QPixmap of the image is then created and the image repainted.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def resetPixelToOriginalValue(self, x, y):
+    &#34;&#34;&#34;
+    This function is used by the eraseRIO function to return
+    a pixel in the RIO to its original grey value. 
+
+    The pixel value is obtained from a copy of the image at x,y and
+    the pixel at x,y in the viewed image is set to this value. 
+    A new QPixmap of the image is then created and the image repainted.
+    &#34;&#34;&#34;
+    logger.info(&#34;FreeHandROI.GraphicsItem.resetPixelToOriginalValue called&#34;)
+    try:
+        origPixelValue = self.origQImage.pixel(x, y) 
+        self.qImage.setPixel(x, y,  origPixelValue)
+        #convert QImage to QPixmap to be able to update image
+        self.pixMap = QPixmap.fromImage(self.qImage)
+        #repaint image by updating it
+        self.update()
+        
+    except Exception as e:
+        print(&#39;Error in FreeHandROI.GraphicsItem.resetPixelToOriginalValue: &#39; + str(e))
+        logger.error(&#39;Error in FreeHandROI.GraphicsItem.resetPixelToOriginalValue: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.setImage"><code class="name flex">
+<span>def <span class="ident">setImage</span></span>(<span>self, pixelArray, roi, path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Displays the image with it's ROI if it has one in the GraphicsItem object.</p>
+<p>The image's pixel array is transformed into a PyQt QPixmap for display
+in the GraphicsItem object. </p>
+<p>Input arguments</p>
+<hr>
+<p>pixelArray - the image's pixel array
+roi - pixel array of the ROI on the image
+path - file path to the image file</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setImage(self, pixelArray, roi, path):
+    &#34;&#34;&#34;
+    Displays the image with it&#39;s ROI if it has one in the GraphicsItem object.
+
+    The image&#39;s pixel array is transformed into a PyQt QPixmap for display 
+    in the GraphicsItem object. 
+
+    Input arguments
+    ***************
+    pixelArray - the image&#39;s pixel array
+    roi - pixel array of the ROI on the image
+    path - file path to the image file
+    &#34;&#34;&#34;
+    logger.info(&#34;GraphicsItem.setImage called&#34;)
+    self.origQImage = None
+    self.qImage = None
+    self.mask = None
+    self.pixelArray = pixelArray
+    if path is not None:
+        minValue, maxValue = readLevels(path, self.pixelArray)
+    else:
+        minValue, maxValue = self.__quickMinMax(self.pixelArray)
+    self.contrast = maxValue - minValue
+    self.intensity = minValue + (maxValue - minValue)/2
+    imgData, alpha = makeARGB(data=self.pixelArray, levels=[minValue, maxValue])
+    self.origQImage = makeQImage(imgData, alpha)
+    self.qImage = makeQImage(imgData, alpha)
+    if roi is not None:
+        #add roi to pixel map
+        self.addROItoImage(roi)
+        self.mask = roi
+    #The contents of self.pixMap are displayed in this graphics item 
+    #in the paint event
+    self.pixMap = QPixmap.fromImage(self.qImage)
+    self.width = float(self.pixMap.width()) 
+    self.height = float(self.pixMap.height())
+    #Calling update() causes the paint event to execute
+    self.update()</code></pre>
+</details>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.setPixelToRed"><code class="name flex">
+<span>def <span class="ident">setPixelToRed</span></span>(<span>self, x, y)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function sets the red channel of the pixel at x,y to 255; thus,
+making it appear red.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setPixelToRed(self, x, y):
+    &#34;&#34;&#34;
+    This function sets the red channel of the pixel at x,y to 255; thus,
+    making it appear red. 
+    &#34;&#34;&#34;
+    logger.info(&#34;FreeHandROI.GraphicsItem.setPixelToRed called&#34;)
+    try:
+        pixelColour = self.qImage.pixel(x, y) 
+        pixelRGB =  QColor(pixelColour).getRgb()
+        redVal = pixelRGB[0]
+        greenVal = pixelRGB[1]
+        blueVal = pixelRGB[2]
+        if greenVal &gt; 240 and blueVal &gt; 240:
+            #This pixel would be white if red channel set to 255
+            #so set the green and blue channels to 240
+            greenVal = blueVal = 240
+        value = qRgb(255, greenVal, blueVal)
+        self.qImage.setPixel(x, y, value)
+        #convert QImage to QPixmap to be able to update image
+        #with filled ROI
+        self.pixMap = QPixmap.fromImage(self.qImage)
+        #repaint image
+        self.update()
+    except Exception as e:
+        print(&#39;Error in FreeHandROI.GraphicsItem.setPixelToRed: &#39; + str(e))
+        logger.error(&#39;Error in FreeHandROI.GraphicsItem.setPixelToRed: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.sigGetDetailsROI"><code class="name flex">
+<span>def <span class="ident">sigGetDetailsROI</span></span>(<span>...)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.sigMouseHovered"><code class="name flex">
+<span>def <span class="ident">sigMouseHovered</span></span>(<span>...)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.sigRecalculateMeanROI"><code class="name flex">
+<span>def <span class="ident">sigRecalculateMeanROI</span></span>(<span>...)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.sigRightMouseDrag"><code class="name flex">
+<span>def <span class="ident">sigRightMouseDrag</span></span>(<span>...)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.sigUpdateImageLevels"><code class="name flex">
+<span>def <span class="ident">sigUpdateImageLevels</span></span>(<span>...)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.sigZoomIn"><code class="name flex">
+<span>def <span class="ident">sigZoomIn</span></span>(<span>...)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.sigZoomOut"><code class="name flex">
+<span>def <span class="ident">sigZoomOut</span></span>(<span>...)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.updateImageLevels"><code class="name flex">
+<span>def <span class="ident">updateImageLevels</span></span>(<span>self, intensity, contrast, roi)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Applies new intensity and contrast values to the image.</p>
+<p>A new QPixmap object is formed from the pixel array with the
+new contrast &amp; intensity values.
+Then the image is repainted
+so to display this new QPixmap object.</p>
+<p>Input arguments</p>
+<hr>
+<p>intensity - integer representing the image intensity value
+contrast - integer representing the image contrast value
+roi - pixel array of the ROI on the image</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def updateImageLevels(self, intensity, contrast, roi):
+    &#34;&#34;&#34;
+    Applies new intensity and contrast values to the image.
+
+    A new QPixmap object is formed from the pixel array with the
+    new contrast &amp; intensity values.  Then the image is repainted
+    so to display this new QPixmap object.
+
+    Input arguments
+    ***************
+    intensity - integer representing the image intensity value
+    contrast - integer representing the image contrast value
+    roi - pixel array of the ROI on the image
+    &#34;&#34;&#34;
+    logger.info(&#34;FreeHandROI.GraphicsItem.updateImageLevels called&#34;)
+    try:
+        minValue = intensity - (contrast/2)
+        maxValue = contrast + minValue
+        imgData, alpha = makeARGB(data=self.pixelArray, levels=[minValue, maxValue])
+        self.qImage = makeQImage(imgData, alpha)
+        self.pixMap = QPixmap.fromImage(self.qImage)
+        #Need to reapply mask
+        if roi is not None and roi.any():
+            self.reloadMask(roi)
+        #repaint the image with the new contrast &amp; intensity values. 
+        self.update()
+    except Exception as e:
+        print(&#39;Error in FreeHandROI.GraphicsItem.updateImageLevels: &#39; + str(e))
+        logger.error(&#39;Error in FreeHandROI.GraphicsItem.updateImageLevels: &#39; + str(e))</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI" href="index.html">Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem">GraphicsItem</a></code></h4>
+<ul class="">
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.addROIBoundaryToMask" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.addROIBoundaryToMask">addROIBoundaryToMask</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.addROItoImage" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.addROItoImage">addROItoImage</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.boundingRect" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.boundingRect">boundingRect</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.closeAndFillROI" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.closeAndFillROI">closeAndFillROI</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.createBlankMask" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.createBlankMask">createBlankMask</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.createMaskFromDrawnROI" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.createMaskFromDrawnROI">createMaskFromDrawnROI</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.drawROIBoundary" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.drawROIBoundary">drawROIBoundary</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.eraseROI" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.eraseROI">eraseROI</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.fillFreeHandRoi" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.fillFreeHandRoi">fillFreeHandRoi</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.getListRoiInnerPoints" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.getListRoiInnerPoints">getListRoiInnerPoints</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.getMaskData" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.getMaskData">getMaskData</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.hoverEnterEvent" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.hoverEnterEvent">hoverEnterEvent</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.hoverLeaveEvent" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.hoverLeaveEvent">hoverLeaveEvent</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.hoverMoveEvent" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.hoverMoveEvent">hoverMoveEvent</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.mouseMoveEvent" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.mouseMoveEvent">mouseMoveEvent</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.mousePressEvent" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.mousePressEvent">mousePressEvent</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.mouseReleaseEvent" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.mouseReleaseEvent">mouseReleaseEvent</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.paint" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.paint">paint</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.paintROI" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.paintROI">paintROI</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.reloadMask" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.reloadMask">reloadMask</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.resetPixelToOriginalValue" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.resetPixelToOriginalValue">resetPixelToOriginalValue</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.setImage" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.setImage">setImage</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.setPixelToRed" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.setPixelToRed">setPixelToRed</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.sigGetDetailsROI" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.sigGetDetailsROI">sigGetDetailsROI</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.sigMouseHovered" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.sigMouseHovered">sigMouseHovered</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.sigRecalculateMeanROI" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.sigRecalculateMeanROI">sigRecalculateMeanROI</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.sigRightMouseDrag" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.sigRightMouseDrag">sigRightMouseDrag</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.sigUpdateImageLevels" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.sigUpdateImageLevels">sigUpdateImageLevels</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.sigZoomIn" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.sigZoomIn">sigZoomIn</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.sigZoomOut" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.sigZoomOut">sigZoomOut</a></code></li>
+<li><code><a title="Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.updateImageLevels" href="#Weasel.Displays.ImageViewers.ComponentsUI.FreeHandROI.GraphicsItem.GraphicsItem.updateImageLevels">updateImageLevels</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

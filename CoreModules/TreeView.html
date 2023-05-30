@@ -1,0 +1,1306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>Weasel.CoreModules.TreeView API documentation</title>
+<meta name="description" content="Class for building a tree view showing a visual representation of DICOM file structure …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>Weasel.CoreModules.TreeView</code></h1>
+</header>
+<section id="section-intro">
+<p>Class for building a tree view showing a visual representation of DICOM file structure.</p>
+<p>It uses an XML file that describes a DICOM file structure to build a
+tree view showing a visual representation of that file structure.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+Class for building a tree view showing a visual representation of DICOM file structure.
+
+It uses an XML file that describes a DICOM file structure to build a
+tree view showing a visual representation of that file structure.
+&#34;&#34;&#34;
+
+from PyQt5.QtCore import  Qt
+from PyQt5.QtWidgets import (QWidget, QVBoxLayout, QApplication, QAbstractItemView,
+                             QMdiSubWindow, QMenu, QAction, QHeaderView, QDockWidget,
+                            QLabel, QProgressBar, QTreeWidget, QTreeWidgetItem)
+import os
+import sys
+import logging
+from CoreModules.WeaselXMLReader import WeaselXMLReader
+from Displays.ImageViewers.ImageViewer import ImageViewer as imageViewer
+from DICOM.Classes import (Image, Series)
+
+
+logger = logging.getLogger(__name__)
+__author__ = &#34;Steve Shillitoe&#34;
+
+
+class TreeView():
+    &#34;&#34;&#34;Class TreeView uses an XML file that describes a DICOM file structure to build a
+    tree view showing a visual representation of that file structure.&#34;&#34;&#34;
+
+    def __init__(self, weasel, XML_File_Path):
+            &#34;&#34;&#34;
+            Creates the tree view in a dock widget and populates it with DICOM data.
+
+            Placing the tree view in a dock widget ensures that it is displayed on the
+            left-hand side of the MDI.
+            &#34;&#34;&#34;
+            logger.info(&#34;TreeView init called&#34;)
+            if os.path.exists(XML_File_Path):
+                QApplication.setOverrideCursor(Qt.WaitCursor)
+                self.weasel = weasel
+                self.weasel.objXMLReader = WeaselXMLReader(weasel, XML_File_Path)
+                self.treeViewColumnWidths = { 1: 0, 2: 0, 3: 0} 
+
+                self.treeViewWidget = QTreeWidget()
+                self.treeViewWidget.setMinimumSize(300,500)
+                self.treeViewWidget.setAutoScroll(False)
+                self.treeViewWidget.setSelectionMode(QAbstractItemView.ExtendedSelection)
+                self.treeViewWidget.setUniformRowHeights(True)
+                self.treeViewWidget.setColumnCount(4)
+                self.treeViewWidget.header().setSectionResizeMode(0, QHeaderView.ResizeToContents)
+                self.treeViewWidget.header().setSectionResizeMode(1, QHeaderView.ResizeToContents)
+                self.treeViewWidget.header().setSectionResizeMode(2, QHeaderView.ResizeToContents)
+                self.treeViewWidget.header().setSectionResizeMode(3, QHeaderView.ResizeToContents)
+                self.treeViewWidget.setHeaderLabels([&#34;&#34;, &#34;DICOM Files&#34;, &#34;Date&#34;, &#34;Time&#34;, &#34;Path&#34;])
+                self.treeViewWidget.setContextMenuPolicy(Qt.CustomContextMenu)
+                self.treeViewWidget.itemDoubleClicked.connect(lambda item, col: self._displayImage(item, col))
+                self.treeViewWidget.customContextMenuRequested.connect(lambda pos: self._displayContextMenu(pos))
+                self.treeViewWidget.itemClicked.connect(lambda item, col: self._itemClickedEvent(item, col))
+                self.treeViewWidget.itemExpanded.connect(lambda: self.treeViewWidget.resizeColumnToContents(0))
+
+                self._buildTreeView()
+
+                self.treeViewWidget.resizeColumnToContents(0)
+                self.treeViewWidget.resizeColumnToContents(1)
+                self.treeViewWidget.resizeColumnToContents(2)
+                self.treeViewWidget.hideColumn(4)
+                self.treeViewColumnWidths[1] = self.treeViewWidget.columnWidth(1)
+                self.treeViewColumnWidths[2] = self.treeViewWidget.columnWidth(2)
+                self.treeViewColumnWidths[3] = self.treeViewWidget.columnWidth(3)
+
+                self.treeViewWidget.header().setSectionResizeMode(0, QHeaderView.Interactive)
+                self.treeViewWidget.header().setSectionResizeMode(1, QHeaderView.Interactive)
+                self.treeViewWidget.header().setSectionResizeMode(2, QHeaderView.Interactive)
+                self.treeViewWidget.header().setSectionResizeMode(3, QHeaderView.Interactive)
+
+                if self.weasel.cmd == False:
+                    #Display tree view in left-hand side docked widget
+                    #If such a widget already exists remove it to allow
+                    #a new tree view to be displayed
+                    dockwidget = self.weasel.findChild(QDockWidget)
+                    if dockwidget:
+                        self.weasel.removeDockWidget(dockwidget)
+
+                    dockwidget =  QDockWidget(&#34;DICOM Study Structure&#34;, self.weasel, Qt.SubWindow)
+                    dockwidget.setAllowedAreas(Qt.LeftDockWidgetArea)
+                    dockwidget.setFeatures(QDockWidget.NoDockWidgetFeatures)
+                    self.weasel.addDockWidget(Qt.LeftDockWidgetArea, dockwidget)
+                    dockwidget.setWidget(self.treeViewWidget)
+                    self.treeViewWidget.show()
+                QApplication.restoreOverrideCursor()
+
+
+    def _buildTreeView(self):
+        &#34;&#34;&#34;
+        This function populates the tree view with DICOM data.
+
+        Subject, study, series and image data are read from an
+        XML file containing heirarchical DICOM data and used to 
+        create the branches and leaves of the tree view. 
+
+        Subject, study &amp; series data are displayed as the branches
+        of the tree view. 
+        Image data is displayed as the leaves of the tree view.
+        &#34;&#34;&#34;
+        logger.info(&#34;TreeView.buildTreeView called&#34;)
+        self.treeViewWidget.clear()
+        self.treeViewWidget.blockSignals(True)
+        for subjectElement in self.weasel.objXMLReader.root:
+            subjectTreeBranch = self._createTreeBranch(&#34;Subject&#34;,  subjectElement,  self.treeViewWidget)
+            for studyElement in subjectElement:
+                studyTreeBranch = self._createTreeBranch(&#34;Study&#34;,  studyElement, subjectTreeBranch)
+                for seriesElement in studyElement:
+                    seriesTreeBranch = self._createTreeBranch(&#34;Series&#34;, seriesElement,  studyTreeBranch)
+                    for imageElement in seriesElement:
+                        self._createImageLeaf(imageElement, seriesTreeBranch)
+        self.expand()
+        self.treeViewWidget.blockSignals(False)   
+
+
+    def _createTreeBranch(self, branchName, elementTreeBranch, widgetTreeParent):
+        &#34;&#34;&#34;
+        Creates a branch in the tree view. 
+        
+        A branch has a parent branch and one or more child branches or leaves.
+
+        Input arguments
+        ***************
+        branchName - Name of the data type represented by the branch. 
+                    Takes the value: Subject, Study or Series.
+
+        elementTreeBranch - Element in the XML file, whose data will be
+                    represented in this branch.
+
+
+        widgetTreeParent - parent branch of the branch being created.
+        &#34;&#34;&#34;
+        try:
+            elementTreeBranchID = elementTreeBranch.attrib[&#39;id&#39;]
+            logger.info(&#34;TreeView.createTreeBranch, branch ID={}&#34;.format(elementTreeBranchID))
+            item = QTreeWidgetItem(widgetTreeParent)
+
+            #Associate and store the element in the XML file with this branch
+            item.element = elementTreeBranch
+
+            item.setText(0, &#39;&#39;)
+            item.setText(1, branchName + &#34; - {}&#34;.format(elementTreeBranchID))
+            item.setFlags(Qt.ItemIsEnabled | Qt.ItemIsSelectable)
+            item.setFlags(item.flags() | Qt.ItemIsUserCheckable)
+
+            #set the checked state of the branch according
+            #to the state stored in the XML file
+            if elementTreeBranch.attrib[&#39;checked&#39;] == &#34;True&#34;:
+                item.setCheckState(0, Qt.Checked)
+            else:
+                item.setCheckState(0, Qt.Unchecked)
+
+            return item
+        except Exception as e:
+            exception_type, exception_object, exception_traceback = sys.exc_info()
+            #filename = exception_traceback.tb_frame.f_code.co_filename
+            line_number = exception_traceback.tb_lineno
+            print(&#39;Error in TreeView.createTreeBranch at line {} when branch ID={}: &#39;.format(line_number, branchName) + str(e)) 
+            logger.exception(&#39;Error in TreeView.createTreeBranch at line {}: &#39;.format(line_number) + str(e)) 
+
+
+    def _createImageLeaf(self, imageElement, parent):
+        &#34;&#34;&#34;
+        Creates a leaf element in the tree view, which represents an 
+        individual image.
+
+        Input arguments
+        ***************
+        imageElement - The XML element containing the data for an individual image
+        parent - The tree view branch acting as the parent to the leaf element 
+                 being created.  It will be branch representing a series.
+        &#34;&#34;&#34;
+        if imageElement:
+            if imageElement.find(&#39;label&#39;) is None:
+                imageLabel = os.path.basename(imageElement.find(&#39;name&#39;).text)
+            else:
+                imageLabel = imageElement.find(&#39;label&#39;).text
+            imageDate = imageElement.find(&#39;date&#39;).text
+            imageTime = imageElement.find(&#39;time&#39;).text
+            imagePath = imageElement.find(&#39;name&#39;).text
+            item = QTreeWidgetItem(parent)
+            item.element = imageElement
+            item.setToolTip(0, &#34;At least one image must be checked to view an image(s)&#34;)
+            item.setFlags(Qt.ItemIsEnabled | Qt.ItemIsSelectable)
+            #put a checkbox in front of each image
+            item.setFlags(item.flags() | Qt.ItemIsUserCheckable)
+            item.setText(0, &#39;&#39;)
+            item.setText(1, &#39; Image - &#39; + imageLabel)
+            item.setText(2, imageDate)
+            item.setText(3, imageTime)
+            item.setText(4, imagePath)
+
+            #If this image has previously been checked, 
+            #set its checked state to checked.
+            if imageElement.attrib[&#39;checked&#39;] == &#34;True&#34;:
+                item.setCheckState(0, Qt.Checked)
+            else:
+                item.setCheckState(0, Qt.Unchecked)
+            return item 
+
+
+    def _displayImage(self, item, col):
+        &#34;&#34;&#34;
+        This function displays a series of DICOM images or an individual image 
+        when it is double-clicked in the tree view.
+
+        The image viewer is only displayed when an item in column 1 is 
+        double-clicked.  To determine if an image or a series has been
+        double-clicked, the XML element describing that item is retrieved
+        and it&#39;s tag examined. A tag containing the string &#39;image&#39; indicates
+        an image has been double-clicked. Likewise, tag containing the 
+        string &#39;series&#39; indicates a series has been double-clicked.
+
+         Input Parameters
+        ****************
+        item  - A QTreeWidgetItem representing a DICOM image or series that has
+                been double-clicked
+        col - The number of the column occupied by the double-clicked item.
+        &#34;&#34;&#34;
+        if col == 1:
+            id = self.weasel.objXMLReader.objectID(item.element)
+            if item.element.tag == &#39;image&#39;:
+                image = Image(self, id[0], id[1], id[2], id[3])
+                imageViewer(self.weasel, image)
+            elif item.element.tag == &#39;series&#39;:
+                imageList = [image.find(&#39;name&#39;).text for image in item.element]
+                series = Series(self, id[0], id[1], id[2], listPaths=imageList)
+                imageViewer(self.weasel, series)
+
+
+    def _displayContextMenu(self, pos):
+        &#34;&#34;&#34;
+        Displays a context menu for the tree view when the right
+        mouse button is pressed. 
+
+        Input arguments
+        ***************
+        pos - mouse pointer position when the right mouse button is pressed.
+            The context menu is displayed at this position. 
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;TreeView.displayContextMenu called&#34;)
+            #if (self.weasel.series() != []) or (self.weasel.images() != []):
+            self.weasel.menuBuilder.context.exec_(self.treeViewWidget.mapToGlobal(pos))
+        except Exception as e:
+            print(&#39;Error in function TreeView.displayContextMenu: &#39; + str(e))
+
+
+    def _itemClickedEvent(self, item, col):
+        &#34;&#34;&#34;When a tree view item is selected, it is also checked
+        and when a tree view item is checked, it is also selected.
+        This function also sets boolean flags that indicate if a 
+        subject, study, series or image is checked.
+
+         Input Parameters
+        ****************
+        item  - A QTreeWidgetItem whose checkbox state has just changed
+        col - The number of the column occupied by the checked/selected item.
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;TreeView.itemClickedEvent called.&#34;)
+            if col == 0:
+                self._saveCheckedState(item)
+                self._checkChildItems(item)
+                self._checkParentItems(item) 
+            else:              
+                selectedItems = self.treeViewWidget.selectedItems()
+                if selectedItems:
+                    if len(selectedItems) == 1:
+                        if item.checkState(0) == Qt.Checked:
+                            item.setCheckState(0, Qt.Unchecked) 
+                        else:
+                            item.setCheckState(0, Qt.Checked) 
+                        self._saveCheckedState(item)
+                        self._checkChildItems(item)
+                        self._checkParentItems(item)
+                    else:
+                        for i, item in enumerate(selectedItems):
+                            if i == 0:
+                                checked = item.checkState(0) == Qt.Checked
+                            else:
+                                if checked:
+                                    item.setCheckState(0, Qt.Checked)
+                                else:
+                                    item.setCheckState(0, Qt.Unchecked) 
+                                self._saveCheckedState(item)  
+                                self._checkChildItems(item)
+                                self._checkParentItems(item)              
+            self.weasel.refresh_menus()
+        except Exception as e:
+            exception_type, exception_object, exception_traceback = sys.exc_info()
+            line_number = exception_traceback.tb_lineno
+            print(&#39;Error in itemClickedEvent at line number {} when {}: &#39;.format(line_number, e))
+            logger.exception(&#39;Error in itemClickedEvent: &#39; + str(e))
+
+
+    def refreshDICOMStudiesTreeView(self):
+        &#34;&#34;&#34;Refreshes the Tree View and saves the checked state.&#34;&#34;&#34;
+        try:
+            logger.info(&#34;TreeView.refreshDICOMStudiesTreeView called.&#34;)
+            QApplication.setOverrideCursor(Qt.WaitCursor)
+    
+            self.treeViewColumnWidths[1] = self.treeViewWidget.columnWidth(1)
+            self.treeViewColumnWidths[2] = self.treeViewWidget.columnWidth(2)
+            self.treeViewColumnWidths[3] = self.treeViewWidget.columnWidth(3)
+            self.treeViewWidget.hide()
+            self.weasel.objXMLReader.save()
+            self._buildTreeView()
+            self.treeViewWidget.setColumnWidth(1, self.treeViewColumnWidths[1])
+            self.treeViewWidget.setColumnWidth(2, self.treeViewColumnWidths[2])  
+            self.treeViewWidget.setColumnWidth(3, self.treeViewColumnWidths[3])
+            self.weasel.refresh_menus()
+            self.treeViewWidget.show()
+            
+            QApplication.restoreOverrideCursor()
+        except Exception as e:
+            QApplication.restoreOverrideCursor()
+            print(&#39;Error in TreeView.refreshDICOMStudiesTreeView: &#39; + str(e))
+            logger.exception(&#39;Error in TreeView.refreshDICOMStudiesTreeView: &#39; + str(e))
+
+
+    def close(self):
+        &#34;&#34;&#34;
+        This function closes the tree view &amp; saves the XML file 
+        containing the DICOM data displayed in the tree view.
+        &#34;&#34;&#34;
+        try:
+            self.weasel.objXMLReader.save()
+            self.weasel.objXMLReader = None
+            self.treeViewWidget.clear()
+            self.treeViewWidget.close()
+        except Exception as e:
+            print(&#39;Error in TreeView.CloseTreeView: &#39; + str(e))
+            logger.exception(&#39;Error in TreeView.CloseTreeView: &#39; + str(e))
+
+
+    def callUnCheckTreeViewItems(self):
+        &#34;&#34;&#34;
+        This function sets the checked state of all items in the
+        tree view to unchecked.  It does this by calling the
+        recursive function _unCheckTreeViewItems.
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;TreeView.callUnCheckTreeViewItems called&#34;)
+            QApplication.setOverrideCursor(Qt.WaitCursor)
+            root = self.treeViewWidget.invisibleRootItem()
+            self._unCheckTreeViewItems(root)
+            QApplication.restoreOverrideCursor()
+        except Exception as e:
+            print(&#39;Error in TreeView.callCheckTreeViewItems: &#39; + str(e))
+            logger.exception(&#39;Error in TreeView.callCheckTreeViewItems: &#39; + str(e))
+
+    def callCheckAllTreeViewItems(self):
+        &#34;&#34;&#34;
+        This function sets the unchecked state of all items in the
+        tree view to checked.  It does this by calling the
+        recursive function _CheckTreeViewItems.
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;TreeView.callCheckAllTreeViewItems called&#34;)
+            QApplication.setOverrideCursor(Qt.WaitCursor)
+            root = self.treeViewWidget.invisibleRootItem()
+            self._checkTreeViewItems(root)
+            QApplication.restoreOverrideCursor()
+        except Exception as e:
+            print(&#39;Error in TreeView.callCheckAllTreeViewItems: &#39; + str(e))
+            logger.exception(&#39;Error in TreeView.callCheckAllTreeViewItems: &#39; + str(e))
+
+
+    def _unCheckTreeViewItems(self, item):
+        &#34;&#34;&#34;Starting at the root of the tree view, 
+        this function uses recursion to set the state of child checkboxes 
+        of item to unchecked.  An item could represent a subject, study or series.
+        
+         Input Parameters
+        ****************
+        item  - A QTreeWidgetItem whose checkbox state has just changed
+        &#34;&#34;&#34;
+        logger.info(&#34;TreeView._unCheckTreeViewItems called&#34;)
+        try:
+            if item.childCount() &gt; 0:
+                itemCount = item.childCount()
+                for n in range(itemCount):
+                    childItem = item.child(n)
+                    item.treeWidget().blockSignals(True)
+                    childItem.setCheckState(0, Qt.Unchecked)
+                    self._saveCheckedState(childItem)
+                    item.treeWidget().blockSignals(False)
+                    self._unCheckTreeViewItems(childItem)
+        except Exception as e:
+            print(&#39;Error in TreeView._unCheckTreeViewItems: &#39; + str(e))
+            logger.exception(&#39;Error in TreeView._unCheckTreeViewItems: &#39; + str(e))
+
+    def _checkTreeViewItems(self, item):
+        &#34;&#34;&#34;Starting at the root of the tree view, 
+        this function uses recursion to set the state of child checkboxes 
+        of item to checked. An item could represent a subject, study or series.
+        
+        Input Parameters
+        ****************
+        item  - A QTreeWidgetItem whose checkbox state has just changed
+        &#34;&#34;&#34;
+        logger.info(&#34;TreeView._checkTreeViewItems called&#34;)
+        try:
+            if item.childCount() &gt; 0:
+                itemCount = item.childCount()
+                for n in range(itemCount):
+                    childItem = item.child(n)
+                    item.treeWidget().blockSignals(True)
+                    childItem.setCheckState(0, Qt.Checked)
+                    self._saveCheckedState(childItem)
+                    item.treeWidget().blockSignals(False)
+                    self._checkTreeViewItems(childItem)
+        except Exception as e:
+            print(&#39;Error in TreeView._checkTreeViewItems: &#39; + str(e))
+            logger.exception(&#39;Error in TreeView._checkTreeViewItems: &#39; + str(e))
+
+    def expand(self):
+        &#34;&#34;&#34;Resets the expanded state to default.
+        
+        The default state is chosen so that all checked items are exposed.
+        Specifically, a node is expanded as soon as one of its children is expanded
+        and a series is expanded as soon as a single image is checked
+        &#34;&#34;&#34;
+        logger.info(&#34;TreeView.setExpanded called&#34;)
+        try:
+            root = self.treeViewWidget.invisibleRootItem()
+            for i in range(root.childCount()):
+                subject = root.child(i)
+                subjectExpand = False
+                for j in range(subject.childCount()):
+                    study = subject.child(j) 
+                    studyExpand = False
+                    for k in range(study.childCount()):
+                        series = study.child(k)
+                        seriesExpand = False
+                        for n in range(series.childCount()):
+                            image = series.child(n)
+                            imageChecked = image.checkState(0) == Qt.Checked
+                            seriesExpand = seriesExpand or imageChecked
+                        series.setExpanded(seriesExpand)
+                        studyExpand = studyExpand or seriesExpand
+                    study.setExpanded(studyExpand)
+                    subjectExpand = subjectExpand or studyExpand
+                subject.setExpanded(subjectExpand)    
+        except Exception as e:
+            print(&#39;Error in TreeView.setExpanded: &#39; + str(e))
+            logger.exception(&#39;Error in TreeView.setExpanded: &#39; + str(e))
+
+
+    def _saveCheckedState(self, item):
+        &#34;&#34;&#34;
+        This function saves the checked state of a tree view item
+        to the XML element associated with it. 
+
+        The XML element contains data describing the tree view item.
+
+         Input Parameters
+        ****************
+        item  - A QTreeWidgetItem whose checkbox state has just changed
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;TreeView.saveCheckedState called.&#34;)
+            if item.checkState(0) == Qt.Checked:
+                checkedState = &#39;True&#39; 
+            else:
+                checkedState = &#39;False&#39;
+            item.element.set(&#39;checked&#39;, checkedState)
+        except Exception as e:
+                print(&#39;Error in TreeView.saveCheckedState: &#39; + str(e))
+                logger.exception(&#39;Error in TreeView.saveCheckedState: &#39; + str(e))
+
+
+    def _checkChildItems(self, parentItem):
+        &#34;&#34;&#34;This function uses recursion to set the state of child checkboxes to
+        match that of their parent.
+        
+        Input Parameters
+        ****************
+        parentItem  - A QTreeWidgetItem whose checkbox state has just changed
+        &#34;&#34;&#34;
+        logger.info(&#34;TreeView.checkChildItems called&#34;)
+        #print(&#34;TreeView.checkChildItems called&#34;)
+        try:
+            if parentItem.childCount() &gt; 0:
+                itemCount = parentItem.childCount()
+                for n in range(itemCount):
+                    childItem = parentItem.child(n)
+                    parentItem.treeWidget().blockSignals(True)
+                    childItem.setCheckState(0, parentItem.checkState(0))
+                    self._saveCheckedState(childItem)
+                    parentItem.treeWidget().blockSignals(False)
+                    self._checkChildItems(childItem)
+        except Exception as e:
+            print(&#39;Error in TreeView.checkChildItems: &#39; + str(e))
+            logger.exception(&#39;Error in TreeView.checkChildItems: &#39; + str(e))
+
+
+    def _checkParentItems(self, childItem):
+        &#34;&#34;&#34;This function uses recursion to set the state of Parent checkboxes to
+        match the collective state of their children.
+        
+        Input Parameters
+        ****************
+        childItem  - A QTreeWidgetItem whose checkbox state has just changed
+        &#34;&#34;&#34;
+        logger.info(&#34;TreeView.checkParentItems called&#34;)
+        try:
+            parentItem = childItem.parent()
+            if parentItem:
+                childItem.treeWidget().blockSignals(True)
+                if _areAllChildrenChecked(parentItem):
+                    parentItem.setCheckState(0, Qt.Checked)
+                else:
+                    parentItem.setCheckState(0, Qt.Unchecked)
+                self._saveCheckedState(parentItem)
+                childItem.treeWidget().blockSignals(False)
+                self._checkParentItems(parentItem)
+        except Exception as e:
+                print(&#39;Error in TreeView.checkParentItems: &#39; + str(e))
+                logger.exception(&#39;Error in TreeView.checkParentItems: &#39; + str(e))
+
+
+def _areAllChildrenChecked(item):
+    &#34;&#34;&#34; Returns True is all the children of a QTreeWidgetItem are checked
+    otherwise returns False 
+
+    Input Parameter
+    ****************
+    item  - A QTreeWidgetItem whose checkbox state has just changed
+
+    Returns
+    *****************
+    True or False
+    &#34;&#34;&#34;
+    logger.info(&#34;TreeView.areAllChildrenChecked called&#34;)
+    try:
+        childCount = item.childCount()
+        for n in range(childCount):
+            if item.child(n).checkState(0) == Qt.Unchecked:
+                return False
+        return True
+    except Exception as e:
+            print(&#39;Error in TreeView.areAllChildrenChecked: &#39; + str(e))
+            logger.exception(&#39;Error in TreeView.areAllChildrenChecked: &#39; + str(e))</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="Weasel.CoreModules.TreeView.TreeView"><code class="flex name class">
+<span>class <span class="ident">TreeView</span></span>
+<span>(</span><span>weasel, XML_File_Path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Class TreeView uses an XML file that describes a DICOM file structure to build a
+tree view showing a visual representation of that file structure.</p>
+<p>Creates the tree view in a dock widget and populates it with DICOM data.</p>
+<p>Placing the tree view in a dock widget ensures that it is displayed on the
+left-hand side of the MDI.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TreeView():
+    &#34;&#34;&#34;Class TreeView uses an XML file that describes a DICOM file structure to build a
+    tree view showing a visual representation of that file structure.&#34;&#34;&#34;
+
+    def __init__(self, weasel, XML_File_Path):
+            &#34;&#34;&#34;
+            Creates the tree view in a dock widget and populates it with DICOM data.
+
+            Placing the tree view in a dock widget ensures that it is displayed on the
+            left-hand side of the MDI.
+            &#34;&#34;&#34;
+            logger.info(&#34;TreeView init called&#34;)
+            if os.path.exists(XML_File_Path):
+                QApplication.setOverrideCursor(Qt.WaitCursor)
+                self.weasel = weasel
+                self.weasel.objXMLReader = WeaselXMLReader(weasel, XML_File_Path)
+                self.treeViewColumnWidths = { 1: 0, 2: 0, 3: 0} 
+
+                self.treeViewWidget = QTreeWidget()
+                self.treeViewWidget.setMinimumSize(300,500)
+                self.treeViewWidget.setAutoScroll(False)
+                self.treeViewWidget.setSelectionMode(QAbstractItemView.ExtendedSelection)
+                self.treeViewWidget.setUniformRowHeights(True)
+                self.treeViewWidget.setColumnCount(4)
+                self.treeViewWidget.header().setSectionResizeMode(0, QHeaderView.ResizeToContents)
+                self.treeViewWidget.header().setSectionResizeMode(1, QHeaderView.ResizeToContents)
+                self.treeViewWidget.header().setSectionResizeMode(2, QHeaderView.ResizeToContents)
+                self.treeViewWidget.header().setSectionResizeMode(3, QHeaderView.ResizeToContents)
+                self.treeViewWidget.setHeaderLabels([&#34;&#34;, &#34;DICOM Files&#34;, &#34;Date&#34;, &#34;Time&#34;, &#34;Path&#34;])
+                self.treeViewWidget.setContextMenuPolicy(Qt.CustomContextMenu)
+                self.treeViewWidget.itemDoubleClicked.connect(lambda item, col: self._displayImage(item, col))
+                self.treeViewWidget.customContextMenuRequested.connect(lambda pos: self._displayContextMenu(pos))
+                self.treeViewWidget.itemClicked.connect(lambda item, col: self._itemClickedEvent(item, col))
+                self.treeViewWidget.itemExpanded.connect(lambda: self.treeViewWidget.resizeColumnToContents(0))
+
+                self._buildTreeView()
+
+                self.treeViewWidget.resizeColumnToContents(0)
+                self.treeViewWidget.resizeColumnToContents(1)
+                self.treeViewWidget.resizeColumnToContents(2)
+                self.treeViewWidget.hideColumn(4)
+                self.treeViewColumnWidths[1] = self.treeViewWidget.columnWidth(1)
+                self.treeViewColumnWidths[2] = self.treeViewWidget.columnWidth(2)
+                self.treeViewColumnWidths[3] = self.treeViewWidget.columnWidth(3)
+
+                self.treeViewWidget.header().setSectionResizeMode(0, QHeaderView.Interactive)
+                self.treeViewWidget.header().setSectionResizeMode(1, QHeaderView.Interactive)
+                self.treeViewWidget.header().setSectionResizeMode(2, QHeaderView.Interactive)
+                self.treeViewWidget.header().setSectionResizeMode(3, QHeaderView.Interactive)
+
+                if self.weasel.cmd == False:
+                    #Display tree view in left-hand side docked widget
+                    #If such a widget already exists remove it to allow
+                    #a new tree view to be displayed
+                    dockwidget = self.weasel.findChild(QDockWidget)
+                    if dockwidget:
+                        self.weasel.removeDockWidget(dockwidget)
+
+                    dockwidget =  QDockWidget(&#34;DICOM Study Structure&#34;, self.weasel, Qt.SubWindow)
+                    dockwidget.setAllowedAreas(Qt.LeftDockWidgetArea)
+                    dockwidget.setFeatures(QDockWidget.NoDockWidgetFeatures)
+                    self.weasel.addDockWidget(Qt.LeftDockWidgetArea, dockwidget)
+                    dockwidget.setWidget(self.treeViewWidget)
+                    self.treeViewWidget.show()
+                QApplication.restoreOverrideCursor()
+
+
+    def _buildTreeView(self):
+        &#34;&#34;&#34;
+        This function populates the tree view with DICOM data.
+
+        Subject, study, series and image data are read from an
+        XML file containing heirarchical DICOM data and used to 
+        create the branches and leaves of the tree view. 
+
+        Subject, study &amp; series data are displayed as the branches
+        of the tree view. 
+        Image data is displayed as the leaves of the tree view.
+        &#34;&#34;&#34;
+        logger.info(&#34;TreeView.buildTreeView called&#34;)
+        self.treeViewWidget.clear()
+        self.treeViewWidget.blockSignals(True)
+        for subjectElement in self.weasel.objXMLReader.root:
+            subjectTreeBranch = self._createTreeBranch(&#34;Subject&#34;,  subjectElement,  self.treeViewWidget)
+            for studyElement in subjectElement:
+                studyTreeBranch = self._createTreeBranch(&#34;Study&#34;,  studyElement, subjectTreeBranch)
+                for seriesElement in studyElement:
+                    seriesTreeBranch = self._createTreeBranch(&#34;Series&#34;, seriesElement,  studyTreeBranch)
+                    for imageElement in seriesElement:
+                        self._createImageLeaf(imageElement, seriesTreeBranch)
+        self.expand()
+        self.treeViewWidget.blockSignals(False)   
+
+
+    def _createTreeBranch(self, branchName, elementTreeBranch, widgetTreeParent):
+        &#34;&#34;&#34;
+        Creates a branch in the tree view. 
+        
+        A branch has a parent branch and one or more child branches or leaves.
+
+        Input arguments
+        ***************
+        branchName - Name of the data type represented by the branch. 
+                    Takes the value: Subject, Study or Series.
+
+        elementTreeBranch - Element in the XML file, whose data will be
+                    represented in this branch.
+
+
+        widgetTreeParent - parent branch of the branch being created.
+        &#34;&#34;&#34;
+        try:
+            elementTreeBranchID = elementTreeBranch.attrib[&#39;id&#39;]
+            logger.info(&#34;TreeView.createTreeBranch, branch ID={}&#34;.format(elementTreeBranchID))
+            item = QTreeWidgetItem(widgetTreeParent)
+
+            #Associate and store the element in the XML file with this branch
+            item.element = elementTreeBranch
+
+            item.setText(0, &#39;&#39;)
+            item.setText(1, branchName + &#34; - {}&#34;.format(elementTreeBranchID))
+            item.setFlags(Qt.ItemIsEnabled | Qt.ItemIsSelectable)
+            item.setFlags(item.flags() | Qt.ItemIsUserCheckable)
+
+            #set the checked state of the branch according
+            #to the state stored in the XML file
+            if elementTreeBranch.attrib[&#39;checked&#39;] == &#34;True&#34;:
+                item.setCheckState(0, Qt.Checked)
+            else:
+                item.setCheckState(0, Qt.Unchecked)
+
+            return item
+        except Exception as e:
+            exception_type, exception_object, exception_traceback = sys.exc_info()
+            #filename = exception_traceback.tb_frame.f_code.co_filename
+            line_number = exception_traceback.tb_lineno
+            print(&#39;Error in TreeView.createTreeBranch at line {} when branch ID={}: &#39;.format(line_number, branchName) + str(e)) 
+            logger.exception(&#39;Error in TreeView.createTreeBranch at line {}: &#39;.format(line_number) + str(e)) 
+
+
+    def _createImageLeaf(self, imageElement, parent):
+        &#34;&#34;&#34;
+        Creates a leaf element in the tree view, which represents an 
+        individual image.
+
+        Input arguments
+        ***************
+        imageElement - The XML element containing the data for an individual image
+        parent - The tree view branch acting as the parent to the leaf element 
+                 being created.  It will be branch representing a series.
+        &#34;&#34;&#34;
+        if imageElement:
+            if imageElement.find(&#39;label&#39;) is None:
+                imageLabel = os.path.basename(imageElement.find(&#39;name&#39;).text)
+            else:
+                imageLabel = imageElement.find(&#39;label&#39;).text
+            imageDate = imageElement.find(&#39;date&#39;).text
+            imageTime = imageElement.find(&#39;time&#39;).text
+            imagePath = imageElement.find(&#39;name&#39;).text
+            item = QTreeWidgetItem(parent)
+            item.element = imageElement
+            item.setToolTip(0, &#34;At least one image must be checked to view an image(s)&#34;)
+            item.setFlags(Qt.ItemIsEnabled | Qt.ItemIsSelectable)
+            #put a checkbox in front of each image
+            item.setFlags(item.flags() | Qt.ItemIsUserCheckable)
+            item.setText(0, &#39;&#39;)
+            item.setText(1, &#39; Image - &#39; + imageLabel)
+            item.setText(2, imageDate)
+            item.setText(3, imageTime)
+            item.setText(4, imagePath)
+
+            #If this image has previously been checked, 
+            #set its checked state to checked.
+            if imageElement.attrib[&#39;checked&#39;] == &#34;True&#34;:
+                item.setCheckState(0, Qt.Checked)
+            else:
+                item.setCheckState(0, Qt.Unchecked)
+            return item 
+
+
+    def _displayImage(self, item, col):
+        &#34;&#34;&#34;
+        This function displays a series of DICOM images or an individual image 
+        when it is double-clicked in the tree view.
+
+        The image viewer is only displayed when an item in column 1 is 
+        double-clicked.  To determine if an image or a series has been
+        double-clicked, the XML element describing that item is retrieved
+        and it&#39;s tag examined. A tag containing the string &#39;image&#39; indicates
+        an image has been double-clicked. Likewise, tag containing the 
+        string &#39;series&#39; indicates a series has been double-clicked.
+
+         Input Parameters
+        ****************
+        item  - A QTreeWidgetItem representing a DICOM image or series that has
+                been double-clicked
+        col - The number of the column occupied by the double-clicked item.
+        &#34;&#34;&#34;
+        if col == 1:
+            id = self.weasel.objXMLReader.objectID(item.element)
+            if item.element.tag == &#39;image&#39;:
+                image = Image(self, id[0], id[1], id[2], id[3])
+                imageViewer(self.weasel, image)
+            elif item.element.tag == &#39;series&#39;:
+                imageList = [image.find(&#39;name&#39;).text for image in item.element]
+                series = Series(self, id[0], id[1], id[2], listPaths=imageList)
+                imageViewer(self.weasel, series)
+
+
+    def _displayContextMenu(self, pos):
+        &#34;&#34;&#34;
+        Displays a context menu for the tree view when the right
+        mouse button is pressed. 
+
+        Input arguments
+        ***************
+        pos - mouse pointer position when the right mouse button is pressed.
+            The context menu is displayed at this position. 
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;TreeView.displayContextMenu called&#34;)
+            #if (self.weasel.series() != []) or (self.weasel.images() != []):
+            self.weasel.menuBuilder.context.exec_(self.treeViewWidget.mapToGlobal(pos))
+        except Exception as e:
+            print(&#39;Error in function TreeView.displayContextMenu: &#39; + str(e))
+
+
+    def _itemClickedEvent(self, item, col):
+        &#34;&#34;&#34;When a tree view item is selected, it is also checked
+        and when a tree view item is checked, it is also selected.
+        This function also sets boolean flags that indicate if a 
+        subject, study, series or image is checked.
+
+         Input Parameters
+        ****************
+        item  - A QTreeWidgetItem whose checkbox state has just changed
+        col - The number of the column occupied by the checked/selected item.
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;TreeView.itemClickedEvent called.&#34;)
+            if col == 0:
+                self._saveCheckedState(item)
+                self._checkChildItems(item)
+                self._checkParentItems(item) 
+            else:              
+                selectedItems = self.treeViewWidget.selectedItems()
+                if selectedItems:
+                    if len(selectedItems) == 1:
+                        if item.checkState(0) == Qt.Checked:
+                            item.setCheckState(0, Qt.Unchecked) 
+                        else:
+                            item.setCheckState(0, Qt.Checked) 
+                        self._saveCheckedState(item)
+                        self._checkChildItems(item)
+                        self._checkParentItems(item)
+                    else:
+                        for i, item in enumerate(selectedItems):
+                            if i == 0:
+                                checked = item.checkState(0) == Qt.Checked
+                            else:
+                                if checked:
+                                    item.setCheckState(0, Qt.Checked)
+                                else:
+                                    item.setCheckState(0, Qt.Unchecked) 
+                                self._saveCheckedState(item)  
+                                self._checkChildItems(item)
+                                self._checkParentItems(item)              
+            self.weasel.refresh_menus()
+        except Exception as e:
+            exception_type, exception_object, exception_traceback = sys.exc_info()
+            line_number = exception_traceback.tb_lineno
+            print(&#39;Error in itemClickedEvent at line number {} when {}: &#39;.format(line_number, e))
+            logger.exception(&#39;Error in itemClickedEvent: &#39; + str(e))
+
+
+    def refreshDICOMStudiesTreeView(self):
+        &#34;&#34;&#34;Refreshes the Tree View and saves the checked state.&#34;&#34;&#34;
+        try:
+            logger.info(&#34;TreeView.refreshDICOMStudiesTreeView called.&#34;)
+            QApplication.setOverrideCursor(Qt.WaitCursor)
+    
+            self.treeViewColumnWidths[1] = self.treeViewWidget.columnWidth(1)
+            self.treeViewColumnWidths[2] = self.treeViewWidget.columnWidth(2)
+            self.treeViewColumnWidths[3] = self.treeViewWidget.columnWidth(3)
+            self.treeViewWidget.hide()
+            self.weasel.objXMLReader.save()
+            self._buildTreeView()
+            self.treeViewWidget.setColumnWidth(1, self.treeViewColumnWidths[1])
+            self.treeViewWidget.setColumnWidth(2, self.treeViewColumnWidths[2])  
+            self.treeViewWidget.setColumnWidth(3, self.treeViewColumnWidths[3])
+            self.weasel.refresh_menus()
+            self.treeViewWidget.show()
+            
+            QApplication.restoreOverrideCursor()
+        except Exception as e:
+            QApplication.restoreOverrideCursor()
+            print(&#39;Error in TreeView.refreshDICOMStudiesTreeView: &#39; + str(e))
+            logger.exception(&#39;Error in TreeView.refreshDICOMStudiesTreeView: &#39; + str(e))
+
+
+    def close(self):
+        &#34;&#34;&#34;
+        This function closes the tree view &amp; saves the XML file 
+        containing the DICOM data displayed in the tree view.
+        &#34;&#34;&#34;
+        try:
+            self.weasel.objXMLReader.save()
+            self.weasel.objXMLReader = None
+            self.treeViewWidget.clear()
+            self.treeViewWidget.close()
+        except Exception as e:
+            print(&#39;Error in TreeView.CloseTreeView: &#39; + str(e))
+            logger.exception(&#39;Error in TreeView.CloseTreeView: &#39; + str(e))
+
+
+    def callUnCheckTreeViewItems(self):
+        &#34;&#34;&#34;
+        This function sets the checked state of all items in the
+        tree view to unchecked.  It does this by calling the
+        recursive function _unCheckTreeViewItems.
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;TreeView.callUnCheckTreeViewItems called&#34;)
+            QApplication.setOverrideCursor(Qt.WaitCursor)
+            root = self.treeViewWidget.invisibleRootItem()
+            self._unCheckTreeViewItems(root)
+            QApplication.restoreOverrideCursor()
+        except Exception as e:
+            print(&#39;Error in TreeView.callCheckTreeViewItems: &#39; + str(e))
+            logger.exception(&#39;Error in TreeView.callCheckTreeViewItems: &#39; + str(e))
+
+    def callCheckAllTreeViewItems(self):
+        &#34;&#34;&#34;
+        This function sets the unchecked state of all items in the
+        tree view to checked.  It does this by calling the
+        recursive function _CheckTreeViewItems.
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;TreeView.callCheckAllTreeViewItems called&#34;)
+            QApplication.setOverrideCursor(Qt.WaitCursor)
+            root = self.treeViewWidget.invisibleRootItem()
+            self._checkTreeViewItems(root)
+            QApplication.restoreOverrideCursor()
+        except Exception as e:
+            print(&#39;Error in TreeView.callCheckAllTreeViewItems: &#39; + str(e))
+            logger.exception(&#39;Error in TreeView.callCheckAllTreeViewItems: &#39; + str(e))
+
+
+    def _unCheckTreeViewItems(self, item):
+        &#34;&#34;&#34;Starting at the root of the tree view, 
+        this function uses recursion to set the state of child checkboxes 
+        of item to unchecked.  An item could represent a subject, study or series.
+        
+         Input Parameters
+        ****************
+        item  - A QTreeWidgetItem whose checkbox state has just changed
+        &#34;&#34;&#34;
+        logger.info(&#34;TreeView._unCheckTreeViewItems called&#34;)
+        try:
+            if item.childCount() &gt; 0:
+                itemCount = item.childCount()
+                for n in range(itemCount):
+                    childItem = item.child(n)
+                    item.treeWidget().blockSignals(True)
+                    childItem.setCheckState(0, Qt.Unchecked)
+                    self._saveCheckedState(childItem)
+                    item.treeWidget().blockSignals(False)
+                    self._unCheckTreeViewItems(childItem)
+        except Exception as e:
+            print(&#39;Error in TreeView._unCheckTreeViewItems: &#39; + str(e))
+            logger.exception(&#39;Error in TreeView._unCheckTreeViewItems: &#39; + str(e))
+
+    def _checkTreeViewItems(self, item):
+        &#34;&#34;&#34;Starting at the root of the tree view, 
+        this function uses recursion to set the state of child checkboxes 
+        of item to checked. An item could represent a subject, study or series.
+        
+        Input Parameters
+        ****************
+        item  - A QTreeWidgetItem whose checkbox state has just changed
+        &#34;&#34;&#34;
+        logger.info(&#34;TreeView._checkTreeViewItems called&#34;)
+        try:
+            if item.childCount() &gt; 0:
+                itemCount = item.childCount()
+                for n in range(itemCount):
+                    childItem = item.child(n)
+                    item.treeWidget().blockSignals(True)
+                    childItem.setCheckState(0, Qt.Checked)
+                    self._saveCheckedState(childItem)
+                    item.treeWidget().blockSignals(False)
+                    self._checkTreeViewItems(childItem)
+        except Exception as e:
+            print(&#39;Error in TreeView._checkTreeViewItems: &#39; + str(e))
+            logger.exception(&#39;Error in TreeView._checkTreeViewItems: &#39; + str(e))
+
+    def expand(self):
+        &#34;&#34;&#34;Resets the expanded state to default.
+        
+        The default state is chosen so that all checked items are exposed.
+        Specifically, a node is expanded as soon as one of its children is expanded
+        and a series is expanded as soon as a single image is checked
+        &#34;&#34;&#34;
+        logger.info(&#34;TreeView.setExpanded called&#34;)
+        try:
+            root = self.treeViewWidget.invisibleRootItem()
+            for i in range(root.childCount()):
+                subject = root.child(i)
+                subjectExpand = False
+                for j in range(subject.childCount()):
+                    study = subject.child(j) 
+                    studyExpand = False
+                    for k in range(study.childCount()):
+                        series = study.child(k)
+                        seriesExpand = False
+                        for n in range(series.childCount()):
+                            image = series.child(n)
+                            imageChecked = image.checkState(0) == Qt.Checked
+                            seriesExpand = seriesExpand or imageChecked
+                        series.setExpanded(seriesExpand)
+                        studyExpand = studyExpand or seriesExpand
+                    study.setExpanded(studyExpand)
+                    subjectExpand = subjectExpand or studyExpand
+                subject.setExpanded(subjectExpand)    
+        except Exception as e:
+            print(&#39;Error in TreeView.setExpanded: &#39; + str(e))
+            logger.exception(&#39;Error in TreeView.setExpanded: &#39; + str(e))
+
+
+    def _saveCheckedState(self, item):
+        &#34;&#34;&#34;
+        This function saves the checked state of a tree view item
+        to the XML element associated with it. 
+
+        The XML element contains data describing the tree view item.
+
+         Input Parameters
+        ****************
+        item  - A QTreeWidgetItem whose checkbox state has just changed
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;TreeView.saveCheckedState called.&#34;)
+            if item.checkState(0) == Qt.Checked:
+                checkedState = &#39;True&#39; 
+            else:
+                checkedState = &#39;False&#39;
+            item.element.set(&#39;checked&#39;, checkedState)
+        except Exception as e:
+                print(&#39;Error in TreeView.saveCheckedState: &#39; + str(e))
+                logger.exception(&#39;Error in TreeView.saveCheckedState: &#39; + str(e))
+
+
+    def _checkChildItems(self, parentItem):
+        &#34;&#34;&#34;This function uses recursion to set the state of child checkboxes to
+        match that of their parent.
+        
+        Input Parameters
+        ****************
+        parentItem  - A QTreeWidgetItem whose checkbox state has just changed
+        &#34;&#34;&#34;
+        logger.info(&#34;TreeView.checkChildItems called&#34;)
+        #print(&#34;TreeView.checkChildItems called&#34;)
+        try:
+            if parentItem.childCount() &gt; 0:
+                itemCount = parentItem.childCount()
+                for n in range(itemCount):
+                    childItem = parentItem.child(n)
+                    parentItem.treeWidget().blockSignals(True)
+                    childItem.setCheckState(0, parentItem.checkState(0))
+                    self._saveCheckedState(childItem)
+                    parentItem.treeWidget().blockSignals(False)
+                    self._checkChildItems(childItem)
+        except Exception as e:
+            print(&#39;Error in TreeView.checkChildItems: &#39; + str(e))
+            logger.exception(&#39;Error in TreeView.checkChildItems: &#39; + str(e))
+
+
+    def _checkParentItems(self, childItem):
+        &#34;&#34;&#34;This function uses recursion to set the state of Parent checkboxes to
+        match the collective state of their children.
+        
+        Input Parameters
+        ****************
+        childItem  - A QTreeWidgetItem whose checkbox state has just changed
+        &#34;&#34;&#34;
+        logger.info(&#34;TreeView.checkParentItems called&#34;)
+        try:
+            parentItem = childItem.parent()
+            if parentItem:
+                childItem.treeWidget().blockSignals(True)
+                if _areAllChildrenChecked(parentItem):
+                    parentItem.setCheckState(0, Qt.Checked)
+                else:
+                    parentItem.setCheckState(0, Qt.Unchecked)
+                self._saveCheckedState(parentItem)
+                childItem.treeWidget().blockSignals(False)
+                self._checkParentItems(parentItem)
+        except Exception as e:
+                print(&#39;Error in TreeView.checkParentItems: &#39; + str(e))
+                logger.exception(&#39;Error in TreeView.checkParentItems: &#39; + str(e))</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="Weasel.CoreModules.TreeView.TreeView.callCheckAllTreeViewItems"><code class="name flex">
+<span>def <span class="ident">callCheckAllTreeViewItems</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function sets the unchecked state of all items in the
+tree view to checked.
+It does this by calling the
+recursive function _CheckTreeViewItems.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def callCheckAllTreeViewItems(self):
+    &#34;&#34;&#34;
+    This function sets the unchecked state of all items in the
+    tree view to checked.  It does this by calling the
+    recursive function _CheckTreeViewItems.
+    &#34;&#34;&#34;
+    try:
+        logger.info(&#34;TreeView.callCheckAllTreeViewItems called&#34;)
+        QApplication.setOverrideCursor(Qt.WaitCursor)
+        root = self.treeViewWidget.invisibleRootItem()
+        self._checkTreeViewItems(root)
+        QApplication.restoreOverrideCursor()
+    except Exception as e:
+        print(&#39;Error in TreeView.callCheckAllTreeViewItems: &#39; + str(e))
+        logger.exception(&#39;Error in TreeView.callCheckAllTreeViewItems: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.TreeView.TreeView.callUnCheckTreeViewItems"><code class="name flex">
+<span>def <span class="ident">callUnCheckTreeViewItems</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function sets the checked state of all items in the
+tree view to unchecked.
+It does this by calling the
+recursive function _unCheckTreeViewItems.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def callUnCheckTreeViewItems(self):
+    &#34;&#34;&#34;
+    This function sets the checked state of all items in the
+    tree view to unchecked.  It does this by calling the
+    recursive function _unCheckTreeViewItems.
+    &#34;&#34;&#34;
+    try:
+        logger.info(&#34;TreeView.callUnCheckTreeViewItems called&#34;)
+        QApplication.setOverrideCursor(Qt.WaitCursor)
+        root = self.treeViewWidget.invisibleRootItem()
+        self._unCheckTreeViewItems(root)
+        QApplication.restoreOverrideCursor()
+    except Exception as e:
+        print(&#39;Error in TreeView.callCheckTreeViewItems: &#39; + str(e))
+        logger.exception(&#39;Error in TreeView.callCheckTreeViewItems: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.TreeView.TreeView.close"><code class="name flex">
+<span>def <span class="ident">close</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function closes the tree view &amp; saves the XML file
+containing the DICOM data displayed in the tree view.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def close(self):
+    &#34;&#34;&#34;
+    This function closes the tree view &amp; saves the XML file 
+    containing the DICOM data displayed in the tree view.
+    &#34;&#34;&#34;
+    try:
+        self.weasel.objXMLReader.save()
+        self.weasel.objXMLReader = None
+        self.treeViewWidget.clear()
+        self.treeViewWidget.close()
+    except Exception as e:
+        print(&#39;Error in TreeView.CloseTreeView: &#39; + str(e))
+        logger.exception(&#39;Error in TreeView.CloseTreeView: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.TreeView.TreeView.expand"><code class="name flex">
+<span>def <span class="ident">expand</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Resets the expanded state to default.</p>
+<p>The default state is chosen so that all checked items are exposed.
+Specifically, a node is expanded as soon as one of its children is expanded
+and a series is expanded as soon as a single image is checked</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def expand(self):
+    &#34;&#34;&#34;Resets the expanded state to default.
+    
+    The default state is chosen so that all checked items are exposed.
+    Specifically, a node is expanded as soon as one of its children is expanded
+    and a series is expanded as soon as a single image is checked
+    &#34;&#34;&#34;
+    logger.info(&#34;TreeView.setExpanded called&#34;)
+    try:
+        root = self.treeViewWidget.invisibleRootItem()
+        for i in range(root.childCount()):
+            subject = root.child(i)
+            subjectExpand = False
+            for j in range(subject.childCount()):
+                study = subject.child(j) 
+                studyExpand = False
+                for k in range(study.childCount()):
+                    series = study.child(k)
+                    seriesExpand = False
+                    for n in range(series.childCount()):
+                        image = series.child(n)
+                        imageChecked = image.checkState(0) == Qt.Checked
+                        seriesExpand = seriesExpand or imageChecked
+                    series.setExpanded(seriesExpand)
+                    studyExpand = studyExpand or seriesExpand
+                study.setExpanded(studyExpand)
+                subjectExpand = subjectExpand or studyExpand
+            subject.setExpanded(subjectExpand)    
+    except Exception as e:
+        print(&#39;Error in TreeView.setExpanded: &#39; + str(e))
+        logger.exception(&#39;Error in TreeView.setExpanded: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.TreeView.TreeView.refreshDICOMStudiesTreeView"><code class="name flex">
+<span>def <span class="ident">refreshDICOMStudiesTreeView</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Refreshes the Tree View and saves the checked state.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def refreshDICOMStudiesTreeView(self):
+    &#34;&#34;&#34;Refreshes the Tree View and saves the checked state.&#34;&#34;&#34;
+    try:
+        logger.info(&#34;TreeView.refreshDICOMStudiesTreeView called.&#34;)
+        QApplication.setOverrideCursor(Qt.WaitCursor)
+
+        self.treeViewColumnWidths[1] = self.treeViewWidget.columnWidth(1)
+        self.treeViewColumnWidths[2] = self.treeViewWidget.columnWidth(2)
+        self.treeViewColumnWidths[3] = self.treeViewWidget.columnWidth(3)
+        self.treeViewWidget.hide()
+        self.weasel.objXMLReader.save()
+        self._buildTreeView()
+        self.treeViewWidget.setColumnWidth(1, self.treeViewColumnWidths[1])
+        self.treeViewWidget.setColumnWidth(2, self.treeViewColumnWidths[2])  
+        self.treeViewWidget.setColumnWidth(3, self.treeViewColumnWidths[3])
+        self.weasel.refresh_menus()
+        self.treeViewWidget.show()
+        
+        QApplication.restoreOverrideCursor()
+    except Exception as e:
+        QApplication.restoreOverrideCursor()
+        print(&#39;Error in TreeView.refreshDICOMStudiesTreeView: &#39; + str(e))
+        logger.exception(&#39;Error in TreeView.refreshDICOMStudiesTreeView: &#39; + str(e))</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="Weasel.CoreModules" href="index.html">Weasel.CoreModules</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="Weasel.CoreModules.TreeView.TreeView" href="#Weasel.CoreModules.TreeView.TreeView">TreeView</a></code></h4>
+<ul class="">
+<li><code><a title="Weasel.CoreModules.TreeView.TreeView.callCheckAllTreeViewItems" href="#Weasel.CoreModules.TreeView.TreeView.callCheckAllTreeViewItems">callCheckAllTreeViewItems</a></code></li>
+<li><code><a title="Weasel.CoreModules.TreeView.TreeView.callUnCheckTreeViewItems" href="#Weasel.CoreModules.TreeView.TreeView.callUnCheckTreeViewItems">callUnCheckTreeViewItems</a></code></li>
+<li><code><a title="Weasel.CoreModules.TreeView.TreeView.close" href="#Weasel.CoreModules.TreeView.TreeView.close">close</a></code></li>
+<li><code><a title="Weasel.CoreModules.TreeView.TreeView.expand" href="#Weasel.CoreModules.TreeView.TreeView.expand">expand</a></code></li>
+<li><code><a title="Weasel.CoreModules.TreeView.TreeView.refreshDICOMStudiesTreeView" href="#Weasel.CoreModules.TreeView.TreeView.refreshDICOMStudiesTreeView">refreshDICOMStudiesTreeView</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

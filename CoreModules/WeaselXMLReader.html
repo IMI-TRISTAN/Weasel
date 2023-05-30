@@ -1,0 +1,3033 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>Weasel.CoreModules.WeaselXMLReader API documentation</title>
+<meta name="description" content="Class for reading, editing and writing to the XML file summarising
+the contents of a DICOM folder." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>Weasel.CoreModules.WeaselXMLReader</code></h1>
+</header>
+<section id="section-intro">
+<p>Class for reading, editing and writing to the XML file summarising
+the contents of a DICOM folder.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+Class for reading, editing and writing to the XML file summarising 
+the contents of a DICOM folder.
+&#34;&#34;&#34;
+import xml.etree.cElementTree as ET  
+from datetime import datetime
+import logging
+import DICOM.ReadDICOM_Image as ReadDICOM_Image
+from DICOM.Classes import (ImagesList, SeriesList, StudyList, SubjectList, Image, Series, Study, Subject)
+
+
+logger = logging.getLogger(__name__)
+
+__author__ = &#34;Steve Shillitoe&#34;
+
+class WeaselXMLReader:
+    &#34;&#34;&#34;Reads, edits and writes the XML file summarising the DICOM folder.
+
+    WeaselXMLReader represents the XML file in memory as an ElementTree,
+    and uses the ElementTree functionality to edit the XML file. 
+    &#34;&#34;&#34;
+    def __init__(self, weasel, xml_file): 
+        &#34;&#34;&#34; Initialise an object of  WeaselXMLReader class
+
+        Input arguments
+        -----------------
+        weasel: instance of Weasel
+        xml_file: the XML file to be represented
+        &#34;&#34;&#34;
+        try:
+            self.weasel = weasel
+            self.file = xml_file
+            self.tree = ET.parse(xml_file)
+            self.root = self.tree.getroot()
+            logger.info(&#39;In module &#39; + __name__ + &#39; Created XML Reader Object&#39;)
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.__init__: &#39; + str(e)) 
+            logger.error(&#39;Error in WeaselXMLReader.__init__: &#39; + str(e)) 
+            
+
+    def __repr__(self):
+       &#34;&#34;&#34;Represents this class&#39;s objects as a string&#34;&#34;&#34;
+       return &#39;{}, {!r}&#39;.format(
+           self.__class__.__name__,
+           self.fullFilePath)
+
+
+    def save(self):
+        &#34;&#34;&#34;
+        Saves the contents of the XML tree in memory to a physical file.
+        &#34;&#34;&#34;
+        try:
+            self.tree.write(self.file)
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.saveXMLFile: &#39; + str(e)) 
+            logger.error(&#39;Error in WeaselXMLReader.saveXMLFile: &#39; + str(e))
+
+    
+    def checkedImages(self, root=None):
+        &#34;&#34;&#34;
+        Returns a list of images checked by the user.
+        &#34;&#34;&#34;
+        list = []
+        if root is None:
+            root = self.root
+        for image in root.iter(&#39;image&#39;):
+            if image.attrib[&#39;checked&#39;] == &#39;True&#39;:
+                id = self.objectID(image)
+                dcm = Image(self.weasel, id[0], id[1], id[2], id[3])
+                list.append(dcm)
+        return ImagesList(list)
+
+
+    def checkedSeries(self, root=None):
+        &#34;&#34;&#34;
+        Returns a list of  series checked by the user.
+        &#34;&#34;&#34;
+        list = []
+        if root is None:
+            root = self.root
+        for series in root.iter(&#39;series&#39;):
+            if series.attrib[&#39;checked&#39;] == &#39;True&#39;:
+                images = [image.find(&#39;name&#39;).text for image in series]
+                id = self.objectID(series)
+                dcm = Series(self.weasel, id[0], id[1], id[2], listPaths=images)
+                list.append(dcm)
+        return SeriesList(list)
+
+
+    def checkedStudies(self, root=None):
+        &#34;&#34;&#34;
+        Returns a list of studies checked by the user.
+        &#34;&#34;&#34;
+        list = []
+        if root is None:
+            root = self.root
+        for study in root.iter(&#39;study&#39;):
+            if study.attrib[&#39;checked&#39;] == &#39;True&#39;:
+                id = self.objectID(study)
+                dcm = Study(self.weasel, id[0], id[1])
+                list.append(dcm)
+        return StudyList(list)
+
+
+    def checkedSubjects(self):
+        &#34;&#34;&#34;
+        Returns a list of  subjects checked by the user.
+        &#34;&#34;&#34;
+        list = []
+        root = self.root
+        for subject in root.iter(&#39;subject&#39;):
+            if subject.attrib[&#39;checked&#39;] == &#39;True&#39;:
+                id = self.objectID(subject)
+                dcm = Subject(self.weasel, id[0])
+                list.append(dcm)
+        return SubjectList(list)
+
+
+    def getNumImagesInSeries(self, subjectID, studyID, seriesID):
+        &#34;&#34;&#34;
+        Returns the number of images in a particular series
+
+        Input arguments
+        ***************
+        subjectID  - ID of the subject to which this image belongs
+        studyID - ID of the study to which this image belongs
+        seriesID - ID of the series to which this image belongs
+
+        Returns
+        *******
+        The number of images in a series
+        &#34;&#34;&#34;
+        return len(self._getImageList(subjectID, studyID, seriesID))
+
+
+    def _getImageList(self, subjectID, studyID, seriesID):
+        &#34;&#34;&#34;
+        Returns a list of image elements in a specific series
+
+        Input arguments
+        ***************
+        subjectID  - ID of the subject to which this image belongs
+        studyID - ID of the study to which this image belongs
+        seriesID - ID of the series to which this image belongs
+
+        Returns
+        *******
+        A list of images in a series
+        &#34;&#34;&#34;
+        try:
+            #print(&#34;getImageList: studyID={}, seriesID={}&#34;.format(studyID, seriesID))
+
+            xPath = &#39;.//subject[@id=&#39;+ chr(34) + subjectID + chr(34) + \
+                    &#39;]/study[@id=&#39; + chr(34) + studyID + chr(34) + \
+                    &#39;]/series[@id=&#39; + chr(34) + seriesID + chr(34) + &#39;]/image&#39;        
+            return self.root.findall(xPath)
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.getImageList: &#39; + str(e)) 
+            logger.error(&#39;Error in WeaselXMLReader.getImageList: &#39; + str(e))
+
+
+    def getSubject(self, subjectID):
+        &#34;&#34;&#34;
+        Returns the subject with the ID, subjectID
+        &#34;&#34;&#34;
+        try:
+            xPath = &#39;.//subject[@id=&#39; + chr(34) + subjectID + chr(34) + &#39;]&#39;
+            #print(xPath)
+            return self.root.find(xPath)
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.getSubject: &#39; + str(e)) 
+            logger.error(&#39;Error in WeaselXMLReader.getSubject: &#39; + str(e))
+
+
+    def getStudy(self, subjectID, studyID):
+        &#34;&#34;&#34;
+        Returns the study with the ID, studyID
+        &#34;&#34;&#34;
+        try:
+            xPath = &#39;.//subject[@id=&#39; + chr(34) + subjectID + chr(34) +  \
+                    &#39;]/study[@id=&#39; + chr(34) + studyID + chr(34) + &#39;]&#39;
+            #print(xPath)
+            return self.root.find(xPath)
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.getStudy: &#39; + str(e)) 
+            logger.error(&#39;Error in WeaselXMLReader.getStudy: &#39; + str(e))
+
+
+    def getSeries(self, subjectID, studyID, seriesID):
+        &#34;&#34;&#34;
+        Returns the series with the ID, seriesID
+        &#34;&#34;&#34;
+        try: 
+            xPath = &#39;.//subject[@id=&#39; + chr(34) + subjectID + chr(34) + &#39;]&#39; \
+                    &#39;/study[@id=&#39; + chr(34) + studyID + chr(34) + &#39;]&#39; + \
+                    &#39;/series[@id=&#39; + chr(34) + seriesID + chr(34) + &#39;]&#39;
+            #print (&#34;get series Xpath = {}&#34;.format(xPath))
+            return self.root.find(xPath)
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.getSeries: &#39; + str(e)) 
+            logger.error(&#39;Error in WeaselXMLReader.getSeries_: &#39; + str(e))
+
+
+    def getImageLabel(self, subjectID, studyID, seriesID, imageName = None):
+        &#34;&#34;&#34;
+        Gets the name or label of the image that is used to represent an 
+        image in the tree view.
+
+        Input arguments
+        ***************
+        subjectID  - ID of the subject to which this image belongs
+        studyID - ID of the study to which this image belongs
+        seriesID - ID of the series to which this image belongs
+        imageName - full file path including name of the image.
+
+        Returns
+        *******
+        string containing the image&#39;s label
+        &#34;&#34;&#34;
+        try:
+            if imageName is None:
+                return &#34;000000&#34;
+            else:
+                xPath = &#39;.//subject[@id=&#39; + chr(34) + subjectID + chr(34) +  \
+                        &#39;]/study[@id=&#39; + chr(34) + studyID + chr(34) + \
+                        &#39;]/series[@id=&#39; + chr(34) + seriesID + chr(34)  + \
+                        &#39;]/image[name=&#39; + chr(34) + imageName + chr(34) +&#39;]/label&#39;
+                return self.root.find(xPath).text
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.getImageLabel: &#39; + str(e)) 
+            logger.error(&#39;Error in WeaselXMLReader.getImageLabel: &#39; + str(e))
+
+
+    def _getImageTime(self, subjectID, studyID, seriesID, imageName = None):
+        &#34;&#34;&#34;
+        Gets the acquisition time  of the image that is used to represent an 
+        image in the tree view.
+
+        Input arguments
+        ***************
+        subjectID  - ID of the subject to which this image belongs
+        studyID - ID of the study to which this image belongs
+        seriesID - ID of the series to which this image belongs
+        imageName - full file path including name of the image.
+
+        Returns
+        *******
+        string containing the image&#39;s acquisition time
+        &#34;&#34;&#34;
+        try:
+            if imageName is None:
+                now = datetime.now()
+                return now.strftime(&#34;%H:%M:%S&#34;)
+            else:
+                xPath = &#39;.//subject[@id=&#39; + chr(34) + subjectID + chr(34) +  \
+                        &#39;]/study[@id=&#39; + chr(34) + studyID + chr(34) + \
+                        &#39;]/series[@id=&#39; + chr(34) + seriesID + chr(34)  + \
+                        &#39;]/image[name=&#39; + chr(34) + imageName + chr(34) +&#39;]/time&#39;
+                return self.root.find(xPath).text
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.getImageTime: &#39; + str(e)) 
+            logger.error(&#39;Error in WeaselXMLReader.getImageTime: &#39; + str(e))
+
+    
+    def _getImageDate(self, subjectID, studyID, seriesID, imageName = None):
+        &#34;&#34;&#34;
+        Gets the acquisition date  of the image that is used to represent an 
+        image in the tree view.
+
+        Input arguments
+        ***************
+        subjectID  - ID of the subject to which this image belongs
+        studyID - ID of the study to which this image belongs
+        seriesID - ID of the series to which this image belongs
+        imageName - full file path including name of the image.
+
+        Returns
+        *******
+        string containing the image&#39;s acquisition date
+        &#34;&#34;&#34;
+        try:
+            if imageName is None:
+                now = datetime.now()
+                return now.strftime(&#34;%d/%m/%Y&#34;) 
+            else:
+                xPath = &#39;.//subject[@id=&#39; + chr(34) + subjectID + chr(34) +  \
+                        &#39;]/study[@id=&#39; + chr(34) + studyID + chr(34) + \
+                        &#39;]/series[@id=&#39; + chr(34) + seriesID + chr(34)  + \
+                        &#39;]/image[name=&#39; + chr(34) + imageName + chr(34) +&#39;]/date&#39;
+                return self.root.find(xPath).text   
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.getImageDate: &#39; + str(e)) 
+            logger.error(&#39;Error in WeaselXMLReader.getImageDate: &#39; + str(e))
+
+
+    def getImagePathList(self, subjectID, studyID, seriesID):
+        &#34;&#34;&#34;
+        Returns a list of the file paths of the images in a given series.
+
+        Input arguments
+        ***************
+        subjectID  - ID of the subject to which this image belongs
+        studyID - ID of the study to which this image belongs
+        seriesID - ID of the series to which this image belongs
+
+        Returns
+        *******
+        list of the image file paths
+        &#34;&#34;&#34;
+        try:
+            xPath = &#39;.//subject[@id=&#39; + chr(34) + subjectID + chr(34) +  \
+                    &#39;]/study[@id=&#39; + chr(34) + studyID + chr(34) + \
+                    &#39;]/series[@id=&#39; + chr(34) + seriesID + chr(34) + &#39;]/image&#39;
+            # print(xPath)
+            images = self.root.findall(xPath)
+            #print(&#34;images={}&#34;.format(images))
+            imageList = [image.find(&#39;name&#39;).text for image in images]
+            #print(&#34;length imageList={}&#34;.format(len(imageList)))
+            return imageList
+        except Exception as e:
+            print(&#39;Error in weaselXMLReader.getImagePathList: &#39; + str(e))
+            logger.error(&#39;Error in weaselXMLReader.getImagePathList: &#39; + str(e))
+    
+
+    def getImageParentIDs(self, imageName):
+        &#34;&#34;&#34;
+        Returns a list of an image&#39;s parent IDs
+
+        Input arguement
+        ***************
+        imageName -  the filepath, including name of the image
+
+        Returns
+        *******
+        subjectID - ID of the subject the image belongs to
+        studyID - ID of the study the image belongs to 
+        seriesID - ID of the series the image belongs to
+        &#34;&#34;&#34;
+        try:
+            xPathSubject = &#39;.//subject/study/series/image[name=&#39; + chr(34) + imageName + chr(34) +&#39;]/../../..&#39;
+            if self.root.find(xPathSubject):
+                subjectID = self.root.find(xPathSubject).attrib[&#39;id&#39;]
+            else:
+                subjectID = None
+            xPathStudy = &#39;.//subject/study/series/image[name=&#39; + chr(34) + imageName + chr(34) +&#39;]/../..&#39;
+            if self.root.find(xPathStudy):
+                studyID = self.root.find(xPathStudy).attrib[&#39;id&#39;]
+            else:
+                studyID = None
+            xPathSeries = &#39;.//subject/study/series/image[name=&#39; + chr(34) + imageName + chr(34) +&#39;]/..&#39;
+            if self.root.find(xPathSeries):
+                seriesID = self.root.find(xPathSeries).attrib[&#39;id&#39;]
+            else:
+                seriesID = None
+            return (subjectID, studyID, seriesID)
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.getImageParentIDs: &#39; + str(e)) 
+            logger.error(&#39;Error in WeaselXMLReader.getImageParentIDs: &#39; + str(e))
+
+
+    def branch(self, elem):
+        &#34;&#34;&#34;
+        Returns the parents of the current element.
+        
+        This function checks where in the XML hierarchy the element, elem, lies.
+        Then it returns the IDs of its parent branches.
+        &#34;&#34;&#34;
+        if elem in self.root: # elem is a subject
+            return [self.root, elem]
+        else:
+            for subject in self.root:
+                if elem in subject: # elem is a study
+                    return [self.root, subject, elem]
+                else:
+                    for study in subject:
+                        if elem in study: # elem is a series
+                            return [self.root, subject, study, elem]
+                        else:
+                            for series in study:
+                                if elem in series: # elem is an image
+                                    return [self.root, subject, study, series, elem]
+
+
+    def objectID(self, elem):
+        &#34;&#34;&#34;Returns the ID as currently used within weasel as a list&#34;&#34;&#34;
+        branch = self.branch(elem)
+        if len(branch) == 2:
+            return [branch[1].attrib[&#39;id&#39;]]
+        elif len(branch) == 3:
+            return [branch[1].attrib[&#39;id&#39;], branch[2].attrib[&#39;id&#39;]]
+        elif len(branch) == 4:
+            return [branch[1].attrib[&#39;id&#39;], branch[2].attrib[&#39;id&#39;], branch[3].attrib[&#39;id&#39;]]
+        elif len(branch) == 5:
+            return [branch[1].attrib[&#39;id&#39;], branch[2].attrib[&#39;id&#39;], branch[3].attrib[&#39;id&#39;], branch[4].find(&#39;name&#39;).text ]
+
+
+    def removeSubjectFromXMLFile(self, subjectID):
+        &#34;&#34;&#34;
+        Removes a subject with ID, subjectID, from the DICOM XML file
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;WeaselXMLReader removeSubjectFromXMLFile called&#34;)
+            subject = self.getSubject(subjectID)
+            if subject:
+                self.root.remove(subject)
+            else:
+                print(&#34;Unable to remove subject {}&#34;.format(subjectID))
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader removeSubjectFromXMLFile: &#39; + str(e))
+            logger.error(&#39;Error in WeaselXMLReader removeSubjectFromXMLFile: &#39; + str(e))
+
+
+    def _removeOneStudyFromXMLFile(self, subjectID, studyID):
+        &#34;&#34;&#34;
+        Removes a whole study from the DICOM XML file.
+        
+        Input arguments
+        ***************
+        subjectID  - ID of the subject to which this studybelongs
+        studyID - ID of the study to be removed
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;weaseXMLReader.removeOneStudyFromSubject called&#34;)
+            subject = self.getSubject(subjectID)
+            study = self.getStudy(subjectID, studyID)
+            if study and subject:
+                subject.remove(study)
+            else:
+                print(&#34;Unable to remove study {}&#34;.format(studyID))
+        except AttributeError as e:
+            print(&#39;Attribute Error in weaseXMLReader.removeOneStudyFromSubject : &#39; + str(e))
+            logger.error(&#39;Attribute Error in weaseXMLReader.removeOneStudyFromSubject: &#39; + str(e))
+        except Exception as e:
+            print(&#39;Error in weaseXMLReader.removeOneStudyFromSubject : &#39; + str(e))
+            logger.error(&#39;Error in weaseXMLReader.removeOneStudyFromSubject: &#39; + str(e))
+
+
+    def _removeOneSeriesFromXMLFile(self, subjectID, studyID, seriesID):
+        &#34;&#34;&#34;
+        Removes a whole series from the DICOM XML file.
+        
+        Input arguments
+        ***************
+        subjectID  - ID of the subject to which this series belongs
+        studyID - ID of the study to which this series belongs
+        seriesID - ID of the series to be removed
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;weaseXMLReader.removeOneSeriesFromStudy called&#34;)
+            study = self.getStudy(subjectID, studyID)
+            series = self.getSeries(subjectID, studyID, seriesID)
+            if study and series:
+                study.remove(series)
+            else:
+                print(&#34;Unable to remove series {}&#34;.format(seriesID))
+        except AttributeError as e:
+            print(&#39;Attribute Error in weaseXMLReader.removeOneSeriesFromStudy : &#39; + str(e))
+            logger.error(&#39;Attribute Error in weaseXMLReader.removeOneSeriesFromStudy: &#39; + str(e))
+        except Exception as e:
+            print(&#39;Error in weaseXMLReader.removeOneSeriesFromStudy : &#39; + str(e))
+            logger.error(&#39;Error in weaseXMLReader.removeOneSeriesFromStudy: &#39; + str(e))
+
+
+    def removeOneImageFromSeries(self, subjectID, studyID, seriesID, imagePath):
+        &#34;&#34;&#34;
+        This function removes a single image from a series in the XML file.
+
+        Input arguments
+        ***************
+        subjectID  - ID of the subject to which this image belongs
+        studyID - ID of the study to which this image belongs
+        seriesID - ID of the series to which this image belongs
+        &#34;&#34;&#34;
+        try:
+            series = self.getSeries(subjectID, studyID, seriesID)
+
+            if series:
+                for image in series:
+                    if image.find(&#39;name&#39;).text == imagePath:
+                        series.remove(image)
+                        break
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.removeOneImageFromSeries: &#39; + str(e)) 
+            logger.error(&#39;Error in WeaselXMLReader.removeOneImageFromSeries: &#39; + str(e))
+
+
+    def removeOneStudyFromSubject(self, subjectID, studyID):
+        &#34;&#34;&#34;
+        Removes a study from the given subject from the DICOM XML file
+        
+        Input arguments
+        ***************
+        subjectID  - ID of the subject to which this study belongs
+        studyID - ID of the study to be removed
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;WeaselXMLReader removeOneStudyFromSubject called&#34;)
+            studiesList = self.getSubject(subjectID)
+            if len(studiesList) == 1:
+                self.removeSubjectFromXMLFile(subjectID)
+            elif len(studiesList) &gt; 1:
+                self._removeOneStudyFromXMLFile(subjectID, studyID)
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader removeOneStudyFromSubject: &#39; + str(e))
+            logger.error(&#39;Error in WeaselXMLReader removeOneStudyFromSubject: &#39; + str(e))
+
+
+    def removeOneSeriesFromStudy(self, subjectID, studyID, seriesID):
+        &#34;&#34;&#34;
+        Removes a whole series from the DICOM XML file
+        
+        Input arguments
+        ***************
+        subjectID  - ID of the subject to which this series belongs
+        studyID - ID of the study to which this series belongs
+        seriesID - ID of the series to be removed
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;WeaselXMLReader removeOneSeriesFromStudy called&#34;)
+            seriesList = self.getStudy(subjectID, studyID)
+            if len(seriesList) == 1:
+                self.removeOneStudyFromSubject(subjectID, studyID)
+            elif len(seriesList) &gt; 1:
+                self._removeOneSeriesFromXMLFile(subjectID, studyID, seriesID)
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader removeOneSeriesFromStudy: &#39; + str(e))
+            logger.error(&#39;Error in WeaselXMLReader removeOneSeriesFromStudy: &#39; + str(e))
+
+
+    def removeImageFromXMLFile(self, imageFileName):
+        &#34;&#34;&#34;Removes an image from the DICOM XML file
+        
+        Input arguments
+        **************
+        imageFileName - file path including name of the image to be removed.
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;WeaselXMLReader removeImageFromXMLFile called&#34;)
+            (subjectID, studyID, seriesID) = self.getImageParentIDs(imageFileName)
+            images = self._getImageList(subjectID, studyID, seriesID)
+            if len(images) == 1:
+                self.removeOneSeriesFromStudy(subjectID, studyID, seriesID)
+            elif len(images) &gt; 1:
+                self.removeOneImageFromSeries(subjectID, studyID, seriesID, imageFileName)
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader removeImageFromXMLFile: &#39; + str(e))
+            logger.error(&#39;Error in WeaselXMLReader removeImageFromXMLFile: &#39; + str(e))
+
+
+    def removeMultipleImagesFromXMLFile(self, origImageList):
+        &#34;&#34;&#34;
+        Removes a list of images from the DICOM XML file.
+        
+        Input arguments
+        ***************
+        origImageList - list of file paths of the images to be removed.
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;WeaselXMLReader removeMultipleImagesFromXMLFile called&#34;)
+            for image in origImageList:
+                self.removeImageFromXMLFile(image)
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader removeMultipleImagesFromXMLFile: &#39; + str(e))
+            logger.error(&#39;Error in WeaselXMLReader removeMultipleImagesFromXMLFile: &#39; + str(e))
+
+
+    def moveImageInXMLFile(self, subjectID, studyID, seriesID, newSubjectID, newStudyID, newSeriesID, imageName, suffix):
+        &#34;&#34;&#34;
+        Moves an image from one series to another.
+
+        Input arguments
+        ***************
+        subjectID  - Origin subject ID of image
+        studyID - Origin study ID of image
+        seriesID - Origin series ID of image
+        newSubjectID - Destination subject ID of image
+        newStudyID - Destination study ID of image
+        newSeriesID - Destination series ID of image
+        imageName - file path &amp; name of the image
+        suffix - series and image name suffix
+        &#34;&#34;&#34;
+        try:
+            self.insertNewImageInXML(imageName, imageName, newSubjectID, newStudyID, newSeriesID, suffix)
+            images = self._getImageList(subjectID, studyID, seriesID)
+            if len(images) == 1:
+                self.removeOneSeriesFromStudy(subjectID, studyID, seriesID)
+            elif len(images) &gt; 1:
+                self.removeOneImageFromSeries(subjectID, studyID, seriesID, imageName)
+        except Exception as e:
+            print(&#39;Error in InterfaceDICOMXMLFile.moveImageInXMLFile: &#39; + str(e)) 
+            logger.error(&#39;Error in InterfaceDICOMXMLFile.moveImageInXMLFile: &#39; + str(e))
+
+
+    def insertNewStudyInXMLFile(self, subjectID, newStudyID, suffix, seriesList=[], newSubjectName=None):
+        &#34;&#34;&#34;
+        Creates a new study in the XML tree.
+
+        If a new subject name is specified, 
+        then the new study is created within a new subject.
+
+        Input arguments
+        ***************
+        subjectID  - string containing the ID of the subject
+        newStudyID - string containing the ID of the new study
+        suffix - series and image name suffix
+        seriesList - list of the series names in the new study.
+        newSubjectName - string containing the name of the new subject.
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;WeaselXMLReader insertNewStudyInXMLFile called&#34;)
+            if newSubjectName is not None: subjectID = newSubjectName
+            self.insertNewStudyinXML(seriesList, subjectID, newStudyID, suffix)
+            if self.weasel is None:
+                print(&#39;New study created: - &#39; + newStudyID)
+            else:
+                self.weasel.set_status(&#39;New study created: - &#39; + newStudyID)
+            return newStudyID
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.insertNewStudyInXMLFile: &#39; + str(e))
+            logger.error(&#39;Error in WeaselXMLReader.insertNewStudyInXMLFile: &#39; + str(e))
+
+
+    def insertNewSeriesInXMLFile(self, origImageList, newImageList, suffix, newSeriesName=None, newStudyName=None, newSubjectName=None):
+        &#34;&#34;&#34;
+        Creates a new series to hold a series of New images.
+
+        If a new study name is specified, 
+        then the new series is created within a new study.
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;InterfaceDICOMXMLFile insertNewSeriesInXMLFile called&#34;)
+            (subjectID, studyID, seriesID) = self.getImageParentIDs(origImageList[0])
+            dataset = ReadDICOM_Image.getDicomDataset(newImageList[0])
+            if newStudyName is not None: studyID = str(dataset.StudyDate) + &#34;_&#34; + str(dataset.StudyTime).split(&#34;.&#34;)[0] + &#34;_&#34; + newStudyName
+            if newSubjectName is not None: subjectID = newSubjectName
+            newSeriesID = self.getNewSeriesName(subjectID, studyID, dataset, suffix, newSeriesName=newSeriesName) # If developer sets seriesName
+            self.insertNewSeriesInXML(origImageList, 
+                        newImageList, subjectID, studyID, newSeriesID, seriesID, suffix)
+            if self.weasel is None:
+                print(&#39;New series created: - &#39; + newSeriesID)
+            else:
+                self.weasel.set_status(&#39;New series created: - &#39; + newSeriesID)
+            return newSeriesID
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.insertNewSeriesInXMLFile: &#39; + str(e))
+            logger.error(&#39;Error in WeaselXMLReader.insertNewSeriesInXMLFile: &#39; + str(e))
+
+
+    def insertNewImageInXMLFile(self, imagePath, newImageFileName, suffix, newSeriesName=None, newStudyName=None, newSubjectName=None):
+        &#34;&#34;&#34;
+        This function inserts information regarding a new image 
+        in the DICOM XML file
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;InterfaceDICOMXMLFile insertNewImageInXMLFile called&#34;)
+            (subjectID, studyID, seriesID) = self.getImageParentIDs(imagePath)
+            return self.insertNewImageInXML(imagePath,
+                newImageFileName, subjectID, studyID, seriesID, suffix, newSeriesName=newSeriesName, newStudyName=newStudyName, newSubjectName=newSubjectName)
+        except Exception as e:
+            print(&#39;Error in insertNewImageInXMLFile: &#39; + str(e))
+            logger.error(&#39;Error in insertNewImageInXMLFile: &#39; + str(e))
+
+
+    def insertNewSubjectinXML(self, newStudiesList, newSubjectID, suffix):
+        newAttributes = {&#39;id&#39;:newSubjectID, 
+                         &#39;typeID&#39;:suffix,
+                         &#39;checked&#39;: &#39;False&#39;}
+        &#34;&#34;&#34;
+        Adds a  new subject to the XML tree and populates it with the studies 
+        the list newStudiesList
+        &#34;&#34;&#34;
+        newSubject = ET.SubElement(self.root, &#39;subject&#39;, newAttributes)
+        for newStudy in newStudiesList:
+            dataset = ReadDICOM_Image.getDicomDataset(newStudy[0][0])
+            newStudyID = str(dataset.StudyDate) + &#34;_&#34; + str(dataset.StudyTime).split(&#34;.&#34;)[0] + &#34;_&#34; + str(dataset.StudyDescription)
+            self.insertNewStudyinXML(newStudy, newSubjectID, newStudyID, &#39;&#39;)
+
+
+    def insertNewStudyinXML(self, newSeriesList, subjectID, newStudyID, suffix):
+        &#34;&#34;&#34;
+        This function inserts a new study in the XML tree and populates it with
+        the series in the list new SeriesList.
+
+        Input arguments
+        ***************
+        newSeriesList - This is a list of lists. 
+                Each nested list is a set of image filenames belonging to same series.
+        &#34;&#34;&#34;
+        try:
+            dataset = ReadDICOM_Image.getDicomDataset(newSeriesList[0][0])
+            currentSubject = self.getSubject(subjectID)
+            newAttributes = {&#39;id&#39;:newStudyID, 
+                             &#39;typeID&#39;:suffix,
+                             &#39;uid&#39;:str(dataset.StudyInstanceUID),
+                             &#39;checked&#39;: &#39;False&#39;}
+
+            if currentSubject is not None:
+                #Add new study to subject to hold new series+images
+                newStudy = ET.SubElement(currentSubject, &#39;study&#39;, newAttributes)
+                for newSeries in newSeriesList:
+                    dataset = ReadDICOM_Image.getDicomDataset(newSeries[0])
+                    newSeriesID = str(dataset.SeriesNumber) + &#34;_&#34; + str(dataset.SeriesDescription)
+                    self.insertNewSeriesInXML(newSeries, newSeries, subjectID, newStudyID, newSeriesID, newSeriesID, suffix)
+            else:
+                self.insertNewSubjectinXML([newSeriesList], subjectID, suffix)
+                #self.insertNewSubjectinXML([newSeriesList], subjectID, &#39;&#39;)
+                #self.insertNewStudyinXML(newSeriesList, subjectID, newStudyID, suffix)
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.insertNewStudyInXML: &#39; + str(e)) 
+            logger.error(&#39;Error in WeaselXMLReader.insertNewStduyInXML: &#39; + str(e))
+
+
+    def insertNewSeriesInXML(self, origImageList, newImageList, subjectID,
+                     studyID, newSeriesID, seriesID, suffix):
+        &#34;&#34;&#34;
+        Inserts a new series in the XML tree and populates it with new images
+        that have the same attributes as an existing series of images.
+        &#34;&#34;&#34;
+        try:
+            dataset = ReadDICOM_Image.getDicomDataset(newImageList[0])
+            currentStudy = self.getStudy(subjectID, studyID)
+            newAttributes = {&#39;id&#39;:newSeriesID, 
+                             &#39;typeID&#39;:suffix,
+                             &#39;uid&#39;:str(dataset.SeriesInstanceUID),
+                             &#39;checked&#39;: &#39;False&#39;}
+
+            if currentStudy is not None:
+                #Add new series to study to hold new images
+                newSeries = ET.SubElement(currentStudy, &#39;series&#39;, newAttributes)
+                #Get image date &amp; time from original image
+                for index, imageNewName in enumerate(newImageList):
+                    subjectID_Original, studyID_Original, seriesID_Original = self.getImageParentIDs(origImageList[index])
+                    if subjectID_Original is None or studyID_Original is None or seriesID_Original is None:
+                        imageLabel = str(index + 1).zfill(6) # + suffix
+                    else:
+                        imageLabel = str(ReadDICOM_Image.getImageTagValue(newImageList[index], &#39;InstanceNumber&#39;)).zfill(6)
+                        #imageLabel = self.getImageLabel(subjectID_Original, studyID_Original, seriesID_Original, origImageList[index])
+                    imageTime = self._getImageTime(subjectID, studyID, seriesID)
+                    imageDate = self._getImageDate(subjectID, studyID, seriesID)
+                    newAttributes = {&#39;checked&#39;:&#39;False&#39;}
+                    newImage = ET.SubElement(newSeries,&#39;image&#39;, newAttributes)
+                    #Add child nodes of the image element
+                    labelNewImage = ET.SubElement(newImage, &#39;label&#39;)
+                    #labelNewImage.text = str(index + 1).zfill(6)
+                    labelNewImage.text = imageLabel # + suffix
+                    nameNewImage = ET.SubElement(newImage, &#39;name&#39;)
+                    nameNewImage.text = imageNewName
+                    timeNewImage = ET.SubElement(newImage, &#39;time&#39;)
+                    timeNewImage.text = imageTime
+                    dateNewImage = ET.SubElement(newImage, &#39;date&#39;)
+                    dateNewImage.text = imageDate
+            else:
+                self.insertNewStudyinXML([newImageList], subjectID, studyID, suffix)
+                #self.insertNewStudyinXML([[]], subjectID, studyID, &#39;&#39;)
+                #self.insertNewSeriesInXML(origImageList, newImageList, subjectID, studyID, newSeriesID, seriesID, suffix)
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.insertNewSeriesInXML: &#39; + str(e)) 
+            logger.error(&#39;Error in WeaselXMLReader.insertNewSeriesInXML: &#39; + str(e))
+
+  
+    def insertNewImageInXML(self, imageName, newImageFileName, subjectID, studyID, seriesID, suffix, 
+                            newSeriesName=None, newStudyName=None, newSubjectName=None):
+        &#34;&#34;&#34;
+        This function inserts a new image in the XML tree.
+        &#34;&#34;&#34;
+        try:
+            dataset = ReadDICOM_Image.getDicomDataset(newImageFileName)
+            if newSeriesName:
+                newSeriesID = str(dataset.SeriesNumber) + &#34;_&#34; + newSeriesName
+            else:
+                if hasattr(dataset, &#34;SeriesDescription&#34;):
+                    newSeriesID = str(dataset.SeriesNumber) + &#34;_&#34; + dataset.SeriesDescription
+                elif hasattr(dataset, &#34;SequenceName&#34;):
+                    newSeriesID = str(dataset.SeriesNumber) + &#34;_&#34; + dataset.SequenceName
+                elif hasattr(dataset, &#34;ProtocolName&#34;):
+                    newSeriesID = str(dataset.SeriesNumber) + &#34;_&#34; + dataset.ProtocolName
+                else:
+                    newSeriesID = str(dataset.SeriesNumber) + &#34;_&#34; + &#34;No Sequence Name&#34;
+            # Check if the newSeries exists or not
+            series = self.getSeries(subjectID, studyID, newSeriesID)
+            #Get image label, date &amp; time of Original image in case it&#39;s needed.
+            subjectID_Original, studyID_Original, seriesID_Original = self.getImageParentIDs(imageName)
+            if subjectID_Original is None or studyID_Original is None or seriesID_Original is None:
+                imageLabel = self.getImageLabel(subjectID_Original, studyID_Original, seriesID_Original)
+            else:
+                imageLabel = str(ReadDICOM_Image.getImageTagValue(newImageFileName, &#39;InstanceNumber&#39;)).zfill(6)
+                #imageLabel = self.getImageLabel(subjectID_Original, studyID_Original, seriesID_Original, imageName)
+            imageTime = self._getImageTime(subjectID, studyID, seriesID)
+            imageDate = self._getImageDate(subjectID, studyID, seriesID)
+            if series is None:
+                #Need to create a new series to hold this new image
+                #Get study branch
+                currentStudy = self.getStudy(subjectID, studyID)
+                if currentStudy is None:
+                    currentSubject = self.getSubject(subjectID)
+                    if currentSubject is None:
+                        if newSubjectName:
+                            newSubjectID = newSubjectName
+                        else:
+                            newSubjectID = str(dataset.PatientID)
+                        self.insertNewSubjectinXML([[[newImageFileName]]], newSubjectID, &#39;&#39;)
+                        return newSeriesID
+                    else:
+                        newSubjectID = subjectID
+                        if newStudyName:
+                            newStudyID = str(dataset.StudyDate) + &#34;_&#34; + str(dataset.StudyTime).split(&#34;.&#34;)[0] + &#34;_&#34; + newStudyName
+                        else:
+                            newStudyID = str(dataset.StudyDate) + &#34;_&#34; + str(dataset.StudyTime).split(&#34;.&#34;)[0] + &#34;_&#34; + str(dataset.StudyDescription)
+                        self.insertNewStudyinXML([[newImageFileName]], newSubjectID, newStudyID, &#39;&#39;)
+                        return newSeriesID
+                    #currentStudy = self.getStudy(newSubjectID, newStudyID)
+                newAttributes = {&#39;id&#39;:newSeriesID, 
+                                 &#39;typeID&#39;:suffix,
+                                 &#39;uid&#39;:str(dataset.SeriesInstanceUID),
+                                 &#39;checked&#39;:&#39;False&#39;}
+
+                #Add new series to study to hold new images
+                newSeries = ET.SubElement(currentStudy, &#39;series&#39;, newAttributes)     
+                #print(&#34;image time {}, date {}&#34;.format(imageTime, imageDate))
+                #Now add image element
+                newAttributes = {&#39;checked&#39;:&#39;False&#39;}
+                newImage = ET.SubElement(newSeries, &#39;image&#39;, newAttributes)
+                #Add child nodes of the image element
+                labelNewImage = ET.SubElement(newImage, &#39;label&#39;)
+                labelNewImage.text = imageLabel # + suffix
+                #labelNewImage.text = &#34;000001&#34;
+                nameNewImage = ET.SubElement(newImage, &#39;name&#39;)
+                nameNewImage.text = newImageFileName
+                timeNewImage = ET.SubElement(newImage, &#39;time&#39;)
+                timeNewImage.text = imageTime
+                dateNewImage = ET.SubElement(newImage, &#39;date&#39;)
+                dateNewImage.text = imageDate
+                return newSeriesID
+            else:
+                #A series already exists to hold new images from
+                #the current parent series
+                newAttributes = {&#39;checked&#39;:&#39;False&#39;}
+                newImage = ET.SubElement(series, &#39;image&#39;, newAttributes)
+                #Add child nodes of the image element
+                labelNewImage = ET.SubElement(newImage, &#39;label&#39;)
+                #imageLabel = self.getImageLabel(subjectID, studyID, seriesID, imageName)
+                labelNewImage.text = imageLabel # + suffix
+                #labelNewImage.text = str(len(series)).zfill(6)
+                nameNewImage = ET.SubElement(newImage, &#39;name&#39;)
+                nameNewImage.text = newImageFileName
+                timeNewImage = ET.SubElement(newImage, &#39;time&#39;)
+                timeNewImage.text = imageTime
+                dateNewImage = ET.SubElement(newImage, &#39;date&#39;)
+                dateNewImage.text = imageDate
+                return series.attrib[&#39;id&#39;]
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.insertNewImageInXML: &#39; + str(e)) 
+            logger.error(&#39;Error in WeaselXMLReader.insertNewImageInXML: &#39; + str(e))
+
+
+    def renameSeriesinXMLFile(self, imageList, series_id=None, series_name=None):
+        &#34;&#34;&#34;Renames a whole series in the DICOM XML file&#34;&#34;&#34;
+        try:
+            logger.info(&#34;InterfaceDICOMXMLFile renameSeriesinXMLFile called&#34;)
+            (subjectID, studyID, seriesID) = self.getImageParentIDs(imageList[0])
+            seriesNumber = str(ReadDICOM_Image.getDicomDataset(imageList[0]).SeriesNumber) if series_id is None else str(series_id)
+            try:
+                newName = str(ReadDICOM_Image.getDicomDataset(imageList[0]).SeriesDescription) if series_name is None else str(series_name)
+            except:
+                try:
+                    newName = str(ReadDICOM_Image.getDicomDataset(imageList[0]).SequenceName) if series_name is None else str(series_name)
+                except:
+                    newName = str(ReadDICOM_Image.getDicomDataset(imageList[0]).ProtocolName) if series_name is None else str(series_name)
+            xmlSeriesName = seriesNumber + &#34;_&#34; + newName
+            self.getSeries(subjectID, studyID, seriesID).attrib[&#39;id&#39;] = xmlSeriesName
+        except Exception as e:
+            print(&#39;Error in InterfaceDICOMXMLFile removeOneSeriesFromStudy: &#39; + str(e))
+            logger.error(&#39;Error in InterfaceDICOMXMLFile removeOneSeriesFromStudy: &#39; + str(e))
+
+
+    def getNewSeriesName(self, subjectID, studyID, dataset, suffix, newSeriesName=None):
+        &#34;&#34;&#34;This function uses recursion to find the next available
+        series name.  A new series name is created by adding a suffix
+        at the end of an existing series name. &#34;&#34;&#34;
+        try:
+            # Swapped SeriesNumber with SeriesDescription
+            if newSeriesName:
+                seriesID = str(dataset.SeriesNumber) + &#34;_&#34; + newSeriesName
+            else:
+                if hasattr(dataset, &#34;SeriesDescription&#34;):
+                    seriesID = str(dataset.SeriesNumber) + &#34;_&#34; + dataset.SeriesDescription
+                elif hasattr(dataset, &#34;SequenceName&#34;):
+                    seriesID = str(dataset.SeriesNumber) + &#34;_&#34; + dataset.SequenceName
+                elif hasattr(dataset, &#34;ProtocolName&#34;):
+                    seriesID = str(dataset.SeriesNumber) + &#34;_&#34; + dataset.ProtocolName
+            imageList = self._getImageList(subjectID, studyID, seriesID)
+            if imageList:
+                #A series of images already exists 
+                #for the series called seriesID
+                #so make another new series ID 
+                #by adding the suffix to the previous
+                #new series ID
+                if newSeriesName:
+                    dataset.SeriesDescription = newSeriesName
+                    return self.getNewSeriesName(subjectID, studyID, dataset, suffix, newSeriesName=None)
+                else:
+                    if hasattr(dataset, &#34;SeriesDescription&#34;):
+                        dataset.SeriesDescription = dataset.SeriesDescription + suffix
+                    elif hasattr(dataset, &#34;SequenceName&#34;):
+                        dataset.SequenceName = dataset.SequenceName + suffix
+                    elif hasattr(dataset, &#34;ProtocolName&#34;):
+                        dataset.ProtocolName = dataset.ProtocolName + suffix
+                    return self.getNewSeriesName(subjectID, studyID, dataset, suffix)
+            else:
+                logger.info(&#34;WeaselXMLReader getNewSeriesName returns seriesID {}&#34;.format(seriesID))
+                return seriesID
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.getNewSeriesName: &#39; + str(e))</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader"><code class="flex name class">
+<span>class <span class="ident">WeaselXMLReader</span></span>
+<span>(</span><span>weasel, xml_file)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Reads, edits and writes the XML file summarising the DICOM folder.</p>
+<p>WeaselXMLReader represents the XML file in memory as an ElementTree,
+and uses the ElementTree functionality to edit the XML file. </p>
+<p>Initialise an object of
+WeaselXMLReader class</p>
+<h2 id="input-arguments">Input Arguments</h2>
+<p>weasel: instance of Weasel
+xml_file: the XML file to be represented</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class WeaselXMLReader:
+    &#34;&#34;&#34;Reads, edits and writes the XML file summarising the DICOM folder.
+
+    WeaselXMLReader represents the XML file in memory as an ElementTree,
+    and uses the ElementTree functionality to edit the XML file. 
+    &#34;&#34;&#34;
+    def __init__(self, weasel, xml_file): 
+        &#34;&#34;&#34; Initialise an object of  WeaselXMLReader class
+
+        Input arguments
+        -----------------
+        weasel: instance of Weasel
+        xml_file: the XML file to be represented
+        &#34;&#34;&#34;
+        try:
+            self.weasel = weasel
+            self.file = xml_file
+            self.tree = ET.parse(xml_file)
+            self.root = self.tree.getroot()
+            logger.info(&#39;In module &#39; + __name__ + &#39; Created XML Reader Object&#39;)
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.__init__: &#39; + str(e)) 
+            logger.error(&#39;Error in WeaselXMLReader.__init__: &#39; + str(e)) 
+            
+
+    def __repr__(self):
+       &#34;&#34;&#34;Represents this class&#39;s objects as a string&#34;&#34;&#34;
+       return &#39;{}, {!r}&#39;.format(
+           self.__class__.__name__,
+           self.fullFilePath)
+
+
+    def save(self):
+        &#34;&#34;&#34;
+        Saves the contents of the XML tree in memory to a physical file.
+        &#34;&#34;&#34;
+        try:
+            self.tree.write(self.file)
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.saveXMLFile: &#39; + str(e)) 
+            logger.error(&#39;Error in WeaselXMLReader.saveXMLFile: &#39; + str(e))
+
+    
+    def checkedImages(self, root=None):
+        &#34;&#34;&#34;
+        Returns a list of images checked by the user.
+        &#34;&#34;&#34;
+        list = []
+        if root is None:
+            root = self.root
+        for image in root.iter(&#39;image&#39;):
+            if image.attrib[&#39;checked&#39;] == &#39;True&#39;:
+                id = self.objectID(image)
+                dcm = Image(self.weasel, id[0], id[1], id[2], id[3])
+                list.append(dcm)
+        return ImagesList(list)
+
+
+    def checkedSeries(self, root=None):
+        &#34;&#34;&#34;
+        Returns a list of  series checked by the user.
+        &#34;&#34;&#34;
+        list = []
+        if root is None:
+            root = self.root
+        for series in root.iter(&#39;series&#39;):
+            if series.attrib[&#39;checked&#39;] == &#39;True&#39;:
+                images = [image.find(&#39;name&#39;).text for image in series]
+                id = self.objectID(series)
+                dcm = Series(self.weasel, id[0], id[1], id[2], listPaths=images)
+                list.append(dcm)
+        return SeriesList(list)
+
+
+    def checkedStudies(self, root=None):
+        &#34;&#34;&#34;
+        Returns a list of studies checked by the user.
+        &#34;&#34;&#34;
+        list = []
+        if root is None:
+            root = self.root
+        for study in root.iter(&#39;study&#39;):
+            if study.attrib[&#39;checked&#39;] == &#39;True&#39;:
+                id = self.objectID(study)
+                dcm = Study(self.weasel, id[0], id[1])
+                list.append(dcm)
+        return StudyList(list)
+
+
+    def checkedSubjects(self):
+        &#34;&#34;&#34;
+        Returns a list of  subjects checked by the user.
+        &#34;&#34;&#34;
+        list = []
+        root = self.root
+        for subject in root.iter(&#39;subject&#39;):
+            if subject.attrib[&#39;checked&#39;] == &#39;True&#39;:
+                id = self.objectID(subject)
+                dcm = Subject(self.weasel, id[0])
+                list.append(dcm)
+        return SubjectList(list)
+
+
+    def getNumImagesInSeries(self, subjectID, studyID, seriesID):
+        &#34;&#34;&#34;
+        Returns the number of images in a particular series
+
+        Input arguments
+        ***************
+        subjectID  - ID of the subject to which this image belongs
+        studyID - ID of the study to which this image belongs
+        seriesID - ID of the series to which this image belongs
+
+        Returns
+        *******
+        The number of images in a series
+        &#34;&#34;&#34;
+        return len(self._getImageList(subjectID, studyID, seriesID))
+
+
+    def _getImageList(self, subjectID, studyID, seriesID):
+        &#34;&#34;&#34;
+        Returns a list of image elements in a specific series
+
+        Input arguments
+        ***************
+        subjectID  - ID of the subject to which this image belongs
+        studyID - ID of the study to which this image belongs
+        seriesID - ID of the series to which this image belongs
+
+        Returns
+        *******
+        A list of images in a series
+        &#34;&#34;&#34;
+        try:
+            #print(&#34;getImageList: studyID={}, seriesID={}&#34;.format(studyID, seriesID))
+
+            xPath = &#39;.//subject[@id=&#39;+ chr(34) + subjectID + chr(34) + \
+                    &#39;]/study[@id=&#39; + chr(34) + studyID + chr(34) + \
+                    &#39;]/series[@id=&#39; + chr(34) + seriesID + chr(34) + &#39;]/image&#39;        
+            return self.root.findall(xPath)
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.getImageList: &#39; + str(e)) 
+            logger.error(&#39;Error in WeaselXMLReader.getImageList: &#39; + str(e))
+
+
+    def getSubject(self, subjectID):
+        &#34;&#34;&#34;
+        Returns the subject with the ID, subjectID
+        &#34;&#34;&#34;
+        try:
+            xPath = &#39;.//subject[@id=&#39; + chr(34) + subjectID + chr(34) + &#39;]&#39;
+            #print(xPath)
+            return self.root.find(xPath)
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.getSubject: &#39; + str(e)) 
+            logger.error(&#39;Error in WeaselXMLReader.getSubject: &#39; + str(e))
+
+
+    def getStudy(self, subjectID, studyID):
+        &#34;&#34;&#34;
+        Returns the study with the ID, studyID
+        &#34;&#34;&#34;
+        try:
+            xPath = &#39;.//subject[@id=&#39; + chr(34) + subjectID + chr(34) +  \
+                    &#39;]/study[@id=&#39; + chr(34) + studyID + chr(34) + &#39;]&#39;
+            #print(xPath)
+            return self.root.find(xPath)
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.getStudy: &#39; + str(e)) 
+            logger.error(&#39;Error in WeaselXMLReader.getStudy: &#39; + str(e))
+
+
+    def getSeries(self, subjectID, studyID, seriesID):
+        &#34;&#34;&#34;
+        Returns the series with the ID, seriesID
+        &#34;&#34;&#34;
+        try: 
+            xPath = &#39;.//subject[@id=&#39; + chr(34) + subjectID + chr(34) + &#39;]&#39; \
+                    &#39;/study[@id=&#39; + chr(34) + studyID + chr(34) + &#39;]&#39; + \
+                    &#39;/series[@id=&#39; + chr(34) + seriesID + chr(34) + &#39;]&#39;
+            #print (&#34;get series Xpath = {}&#34;.format(xPath))
+            return self.root.find(xPath)
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.getSeries: &#39; + str(e)) 
+            logger.error(&#39;Error in WeaselXMLReader.getSeries_: &#39; + str(e))
+
+
+    def getImageLabel(self, subjectID, studyID, seriesID, imageName = None):
+        &#34;&#34;&#34;
+        Gets the name or label of the image that is used to represent an 
+        image in the tree view.
+
+        Input arguments
+        ***************
+        subjectID  - ID of the subject to which this image belongs
+        studyID - ID of the study to which this image belongs
+        seriesID - ID of the series to which this image belongs
+        imageName - full file path including name of the image.
+
+        Returns
+        *******
+        string containing the image&#39;s label
+        &#34;&#34;&#34;
+        try:
+            if imageName is None:
+                return &#34;000000&#34;
+            else:
+                xPath = &#39;.//subject[@id=&#39; + chr(34) + subjectID + chr(34) +  \
+                        &#39;]/study[@id=&#39; + chr(34) + studyID + chr(34) + \
+                        &#39;]/series[@id=&#39; + chr(34) + seriesID + chr(34)  + \
+                        &#39;]/image[name=&#39; + chr(34) + imageName + chr(34) +&#39;]/label&#39;
+                return self.root.find(xPath).text
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.getImageLabel: &#39; + str(e)) 
+            logger.error(&#39;Error in WeaselXMLReader.getImageLabel: &#39; + str(e))
+
+
+    def _getImageTime(self, subjectID, studyID, seriesID, imageName = None):
+        &#34;&#34;&#34;
+        Gets the acquisition time  of the image that is used to represent an 
+        image in the tree view.
+
+        Input arguments
+        ***************
+        subjectID  - ID of the subject to which this image belongs
+        studyID - ID of the study to which this image belongs
+        seriesID - ID of the series to which this image belongs
+        imageName - full file path including name of the image.
+
+        Returns
+        *******
+        string containing the image&#39;s acquisition time
+        &#34;&#34;&#34;
+        try:
+            if imageName is None:
+                now = datetime.now()
+                return now.strftime(&#34;%H:%M:%S&#34;)
+            else:
+                xPath = &#39;.//subject[@id=&#39; + chr(34) + subjectID + chr(34) +  \
+                        &#39;]/study[@id=&#39; + chr(34) + studyID + chr(34) + \
+                        &#39;]/series[@id=&#39; + chr(34) + seriesID + chr(34)  + \
+                        &#39;]/image[name=&#39; + chr(34) + imageName + chr(34) +&#39;]/time&#39;
+                return self.root.find(xPath).text
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.getImageTime: &#39; + str(e)) 
+            logger.error(&#39;Error in WeaselXMLReader.getImageTime: &#39; + str(e))
+
+    
+    def _getImageDate(self, subjectID, studyID, seriesID, imageName = None):
+        &#34;&#34;&#34;
+        Gets the acquisition date  of the image that is used to represent an 
+        image in the tree view.
+
+        Input arguments
+        ***************
+        subjectID  - ID of the subject to which this image belongs
+        studyID - ID of the study to which this image belongs
+        seriesID - ID of the series to which this image belongs
+        imageName - full file path including name of the image.
+
+        Returns
+        *******
+        string containing the image&#39;s acquisition date
+        &#34;&#34;&#34;
+        try:
+            if imageName is None:
+                now = datetime.now()
+                return now.strftime(&#34;%d/%m/%Y&#34;) 
+            else:
+                xPath = &#39;.//subject[@id=&#39; + chr(34) + subjectID + chr(34) +  \
+                        &#39;]/study[@id=&#39; + chr(34) + studyID + chr(34) + \
+                        &#39;]/series[@id=&#39; + chr(34) + seriesID + chr(34)  + \
+                        &#39;]/image[name=&#39; + chr(34) + imageName + chr(34) +&#39;]/date&#39;
+                return self.root.find(xPath).text   
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.getImageDate: &#39; + str(e)) 
+            logger.error(&#39;Error in WeaselXMLReader.getImageDate: &#39; + str(e))
+
+
+    def getImagePathList(self, subjectID, studyID, seriesID):
+        &#34;&#34;&#34;
+        Returns a list of the file paths of the images in a given series.
+
+        Input arguments
+        ***************
+        subjectID  - ID of the subject to which this image belongs
+        studyID - ID of the study to which this image belongs
+        seriesID - ID of the series to which this image belongs
+
+        Returns
+        *******
+        list of the image file paths
+        &#34;&#34;&#34;
+        try:
+            xPath = &#39;.//subject[@id=&#39; + chr(34) + subjectID + chr(34) +  \
+                    &#39;]/study[@id=&#39; + chr(34) + studyID + chr(34) + \
+                    &#39;]/series[@id=&#39; + chr(34) + seriesID + chr(34) + &#39;]/image&#39;
+            # print(xPath)
+            images = self.root.findall(xPath)
+            #print(&#34;images={}&#34;.format(images))
+            imageList = [image.find(&#39;name&#39;).text for image in images]
+            #print(&#34;length imageList={}&#34;.format(len(imageList)))
+            return imageList
+        except Exception as e:
+            print(&#39;Error in weaselXMLReader.getImagePathList: &#39; + str(e))
+            logger.error(&#39;Error in weaselXMLReader.getImagePathList: &#39; + str(e))
+    
+
+    def getImageParentIDs(self, imageName):
+        &#34;&#34;&#34;
+        Returns a list of an image&#39;s parent IDs
+
+        Input arguement
+        ***************
+        imageName -  the filepath, including name of the image
+
+        Returns
+        *******
+        subjectID - ID of the subject the image belongs to
+        studyID - ID of the study the image belongs to 
+        seriesID - ID of the series the image belongs to
+        &#34;&#34;&#34;
+        try:
+            xPathSubject = &#39;.//subject/study/series/image[name=&#39; + chr(34) + imageName + chr(34) +&#39;]/../../..&#39;
+            if self.root.find(xPathSubject):
+                subjectID = self.root.find(xPathSubject).attrib[&#39;id&#39;]
+            else:
+                subjectID = None
+            xPathStudy = &#39;.//subject/study/series/image[name=&#39; + chr(34) + imageName + chr(34) +&#39;]/../..&#39;
+            if self.root.find(xPathStudy):
+                studyID = self.root.find(xPathStudy).attrib[&#39;id&#39;]
+            else:
+                studyID = None
+            xPathSeries = &#39;.//subject/study/series/image[name=&#39; + chr(34) + imageName + chr(34) +&#39;]/..&#39;
+            if self.root.find(xPathSeries):
+                seriesID = self.root.find(xPathSeries).attrib[&#39;id&#39;]
+            else:
+                seriesID = None
+            return (subjectID, studyID, seriesID)
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.getImageParentIDs: &#39; + str(e)) 
+            logger.error(&#39;Error in WeaselXMLReader.getImageParentIDs: &#39; + str(e))
+
+
+    def branch(self, elem):
+        &#34;&#34;&#34;
+        Returns the parents of the current element.
+        
+        This function checks where in the XML hierarchy the element, elem, lies.
+        Then it returns the IDs of its parent branches.
+        &#34;&#34;&#34;
+        if elem in self.root: # elem is a subject
+            return [self.root, elem]
+        else:
+            for subject in self.root:
+                if elem in subject: # elem is a study
+                    return [self.root, subject, elem]
+                else:
+                    for study in subject:
+                        if elem in study: # elem is a series
+                            return [self.root, subject, study, elem]
+                        else:
+                            for series in study:
+                                if elem in series: # elem is an image
+                                    return [self.root, subject, study, series, elem]
+
+
+    def objectID(self, elem):
+        &#34;&#34;&#34;Returns the ID as currently used within weasel as a list&#34;&#34;&#34;
+        branch = self.branch(elem)
+        if len(branch) == 2:
+            return [branch[1].attrib[&#39;id&#39;]]
+        elif len(branch) == 3:
+            return [branch[1].attrib[&#39;id&#39;], branch[2].attrib[&#39;id&#39;]]
+        elif len(branch) == 4:
+            return [branch[1].attrib[&#39;id&#39;], branch[2].attrib[&#39;id&#39;], branch[3].attrib[&#39;id&#39;]]
+        elif len(branch) == 5:
+            return [branch[1].attrib[&#39;id&#39;], branch[2].attrib[&#39;id&#39;], branch[3].attrib[&#39;id&#39;], branch[4].find(&#39;name&#39;).text ]
+
+
+    def removeSubjectFromXMLFile(self, subjectID):
+        &#34;&#34;&#34;
+        Removes a subject with ID, subjectID, from the DICOM XML file
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;WeaselXMLReader removeSubjectFromXMLFile called&#34;)
+            subject = self.getSubject(subjectID)
+            if subject:
+                self.root.remove(subject)
+            else:
+                print(&#34;Unable to remove subject {}&#34;.format(subjectID))
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader removeSubjectFromXMLFile: &#39; + str(e))
+            logger.error(&#39;Error in WeaselXMLReader removeSubjectFromXMLFile: &#39; + str(e))
+
+
+    def _removeOneStudyFromXMLFile(self, subjectID, studyID):
+        &#34;&#34;&#34;
+        Removes a whole study from the DICOM XML file.
+        
+        Input arguments
+        ***************
+        subjectID  - ID of the subject to which this studybelongs
+        studyID - ID of the study to be removed
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;weaseXMLReader.removeOneStudyFromSubject called&#34;)
+            subject = self.getSubject(subjectID)
+            study = self.getStudy(subjectID, studyID)
+            if study and subject:
+                subject.remove(study)
+            else:
+                print(&#34;Unable to remove study {}&#34;.format(studyID))
+        except AttributeError as e:
+            print(&#39;Attribute Error in weaseXMLReader.removeOneStudyFromSubject : &#39; + str(e))
+            logger.error(&#39;Attribute Error in weaseXMLReader.removeOneStudyFromSubject: &#39; + str(e))
+        except Exception as e:
+            print(&#39;Error in weaseXMLReader.removeOneStudyFromSubject : &#39; + str(e))
+            logger.error(&#39;Error in weaseXMLReader.removeOneStudyFromSubject: &#39; + str(e))
+
+
+    def _removeOneSeriesFromXMLFile(self, subjectID, studyID, seriesID):
+        &#34;&#34;&#34;
+        Removes a whole series from the DICOM XML file.
+        
+        Input arguments
+        ***************
+        subjectID  - ID of the subject to which this series belongs
+        studyID - ID of the study to which this series belongs
+        seriesID - ID of the series to be removed
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;weaseXMLReader.removeOneSeriesFromStudy called&#34;)
+            study = self.getStudy(subjectID, studyID)
+            series = self.getSeries(subjectID, studyID, seriesID)
+            if study and series:
+                study.remove(series)
+            else:
+                print(&#34;Unable to remove series {}&#34;.format(seriesID))
+        except AttributeError as e:
+            print(&#39;Attribute Error in weaseXMLReader.removeOneSeriesFromStudy : &#39; + str(e))
+            logger.error(&#39;Attribute Error in weaseXMLReader.removeOneSeriesFromStudy: &#39; + str(e))
+        except Exception as e:
+            print(&#39;Error in weaseXMLReader.removeOneSeriesFromStudy : &#39; + str(e))
+            logger.error(&#39;Error in weaseXMLReader.removeOneSeriesFromStudy: &#39; + str(e))
+
+
+    def removeOneImageFromSeries(self, subjectID, studyID, seriesID, imagePath):
+        &#34;&#34;&#34;
+        This function removes a single image from a series in the XML file.
+
+        Input arguments
+        ***************
+        subjectID  - ID of the subject to which this image belongs
+        studyID - ID of the study to which this image belongs
+        seriesID - ID of the series to which this image belongs
+        &#34;&#34;&#34;
+        try:
+            series = self.getSeries(subjectID, studyID, seriesID)
+
+            if series:
+                for image in series:
+                    if image.find(&#39;name&#39;).text == imagePath:
+                        series.remove(image)
+                        break
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.removeOneImageFromSeries: &#39; + str(e)) 
+            logger.error(&#39;Error in WeaselXMLReader.removeOneImageFromSeries: &#39; + str(e))
+
+
+    def removeOneStudyFromSubject(self, subjectID, studyID):
+        &#34;&#34;&#34;
+        Removes a study from the given subject from the DICOM XML file
+        
+        Input arguments
+        ***************
+        subjectID  - ID of the subject to which this study belongs
+        studyID - ID of the study to be removed
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;WeaselXMLReader removeOneStudyFromSubject called&#34;)
+            studiesList = self.getSubject(subjectID)
+            if len(studiesList) == 1:
+                self.removeSubjectFromXMLFile(subjectID)
+            elif len(studiesList) &gt; 1:
+                self._removeOneStudyFromXMLFile(subjectID, studyID)
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader removeOneStudyFromSubject: &#39; + str(e))
+            logger.error(&#39;Error in WeaselXMLReader removeOneStudyFromSubject: &#39; + str(e))
+
+
+    def removeOneSeriesFromStudy(self, subjectID, studyID, seriesID):
+        &#34;&#34;&#34;
+        Removes a whole series from the DICOM XML file
+        
+        Input arguments
+        ***************
+        subjectID  - ID of the subject to which this series belongs
+        studyID - ID of the study to which this series belongs
+        seriesID - ID of the series to be removed
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;WeaselXMLReader removeOneSeriesFromStudy called&#34;)
+            seriesList = self.getStudy(subjectID, studyID)
+            if len(seriesList) == 1:
+                self.removeOneStudyFromSubject(subjectID, studyID)
+            elif len(seriesList) &gt; 1:
+                self._removeOneSeriesFromXMLFile(subjectID, studyID, seriesID)
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader removeOneSeriesFromStudy: &#39; + str(e))
+            logger.error(&#39;Error in WeaselXMLReader removeOneSeriesFromStudy: &#39; + str(e))
+
+
+    def removeImageFromXMLFile(self, imageFileName):
+        &#34;&#34;&#34;Removes an image from the DICOM XML file
+        
+        Input arguments
+        **************
+        imageFileName - file path including name of the image to be removed.
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;WeaselXMLReader removeImageFromXMLFile called&#34;)
+            (subjectID, studyID, seriesID) = self.getImageParentIDs(imageFileName)
+            images = self._getImageList(subjectID, studyID, seriesID)
+            if len(images) == 1:
+                self.removeOneSeriesFromStudy(subjectID, studyID, seriesID)
+            elif len(images) &gt; 1:
+                self.removeOneImageFromSeries(subjectID, studyID, seriesID, imageFileName)
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader removeImageFromXMLFile: &#39; + str(e))
+            logger.error(&#39;Error in WeaselXMLReader removeImageFromXMLFile: &#39; + str(e))
+
+
+    def removeMultipleImagesFromXMLFile(self, origImageList):
+        &#34;&#34;&#34;
+        Removes a list of images from the DICOM XML file.
+        
+        Input arguments
+        ***************
+        origImageList - list of file paths of the images to be removed.
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;WeaselXMLReader removeMultipleImagesFromXMLFile called&#34;)
+            for image in origImageList:
+                self.removeImageFromXMLFile(image)
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader removeMultipleImagesFromXMLFile: &#39; + str(e))
+            logger.error(&#39;Error in WeaselXMLReader removeMultipleImagesFromXMLFile: &#39; + str(e))
+
+
+    def moveImageInXMLFile(self, subjectID, studyID, seriesID, newSubjectID, newStudyID, newSeriesID, imageName, suffix):
+        &#34;&#34;&#34;
+        Moves an image from one series to another.
+
+        Input arguments
+        ***************
+        subjectID  - Origin subject ID of image
+        studyID - Origin study ID of image
+        seriesID - Origin series ID of image
+        newSubjectID - Destination subject ID of image
+        newStudyID - Destination study ID of image
+        newSeriesID - Destination series ID of image
+        imageName - file path &amp; name of the image
+        suffix - series and image name suffix
+        &#34;&#34;&#34;
+        try:
+            self.insertNewImageInXML(imageName, imageName, newSubjectID, newStudyID, newSeriesID, suffix)
+            images = self._getImageList(subjectID, studyID, seriesID)
+            if len(images) == 1:
+                self.removeOneSeriesFromStudy(subjectID, studyID, seriesID)
+            elif len(images) &gt; 1:
+                self.removeOneImageFromSeries(subjectID, studyID, seriesID, imageName)
+        except Exception as e:
+            print(&#39;Error in InterfaceDICOMXMLFile.moveImageInXMLFile: &#39; + str(e)) 
+            logger.error(&#39;Error in InterfaceDICOMXMLFile.moveImageInXMLFile: &#39; + str(e))
+
+
+    def insertNewStudyInXMLFile(self, subjectID, newStudyID, suffix, seriesList=[], newSubjectName=None):
+        &#34;&#34;&#34;
+        Creates a new study in the XML tree.
+
+        If a new subject name is specified, 
+        then the new study is created within a new subject.
+
+        Input arguments
+        ***************
+        subjectID  - string containing the ID of the subject
+        newStudyID - string containing the ID of the new study
+        suffix - series and image name suffix
+        seriesList - list of the series names in the new study.
+        newSubjectName - string containing the name of the new subject.
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;WeaselXMLReader insertNewStudyInXMLFile called&#34;)
+            if newSubjectName is not None: subjectID = newSubjectName
+            self.insertNewStudyinXML(seriesList, subjectID, newStudyID, suffix)
+            if self.weasel is None:
+                print(&#39;New study created: - &#39; + newStudyID)
+            else:
+                self.weasel.set_status(&#39;New study created: - &#39; + newStudyID)
+            return newStudyID
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.insertNewStudyInXMLFile: &#39; + str(e))
+            logger.error(&#39;Error in WeaselXMLReader.insertNewStudyInXMLFile: &#39; + str(e))
+
+
+    def insertNewSeriesInXMLFile(self, origImageList, newImageList, suffix, newSeriesName=None, newStudyName=None, newSubjectName=None):
+        &#34;&#34;&#34;
+        Creates a new series to hold a series of New images.
+
+        If a new study name is specified, 
+        then the new series is created within a new study.
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;InterfaceDICOMXMLFile insertNewSeriesInXMLFile called&#34;)
+            (subjectID, studyID, seriesID) = self.getImageParentIDs(origImageList[0])
+            dataset = ReadDICOM_Image.getDicomDataset(newImageList[0])
+            if newStudyName is not None: studyID = str(dataset.StudyDate) + &#34;_&#34; + str(dataset.StudyTime).split(&#34;.&#34;)[0] + &#34;_&#34; + newStudyName
+            if newSubjectName is not None: subjectID = newSubjectName
+            newSeriesID = self.getNewSeriesName(subjectID, studyID, dataset, suffix, newSeriesName=newSeriesName) # If developer sets seriesName
+            self.insertNewSeriesInXML(origImageList, 
+                        newImageList, subjectID, studyID, newSeriesID, seriesID, suffix)
+            if self.weasel is None:
+                print(&#39;New series created: - &#39; + newSeriesID)
+            else:
+                self.weasel.set_status(&#39;New series created: - &#39; + newSeriesID)
+            return newSeriesID
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.insertNewSeriesInXMLFile: &#39; + str(e))
+            logger.error(&#39;Error in WeaselXMLReader.insertNewSeriesInXMLFile: &#39; + str(e))
+
+
+    def insertNewImageInXMLFile(self, imagePath, newImageFileName, suffix, newSeriesName=None, newStudyName=None, newSubjectName=None):
+        &#34;&#34;&#34;
+        This function inserts information regarding a new image 
+        in the DICOM XML file
+        &#34;&#34;&#34;
+        try:
+            logger.info(&#34;InterfaceDICOMXMLFile insertNewImageInXMLFile called&#34;)
+            (subjectID, studyID, seriesID) = self.getImageParentIDs(imagePath)
+            return self.insertNewImageInXML(imagePath,
+                newImageFileName, subjectID, studyID, seriesID, suffix, newSeriesName=newSeriesName, newStudyName=newStudyName, newSubjectName=newSubjectName)
+        except Exception as e:
+            print(&#39;Error in insertNewImageInXMLFile: &#39; + str(e))
+            logger.error(&#39;Error in insertNewImageInXMLFile: &#39; + str(e))
+
+
+    def insertNewSubjectinXML(self, newStudiesList, newSubjectID, suffix):
+        newAttributes = {&#39;id&#39;:newSubjectID, 
+                         &#39;typeID&#39;:suffix,
+                         &#39;checked&#39;: &#39;False&#39;}
+        &#34;&#34;&#34;
+        Adds a  new subject to the XML tree and populates it with the studies 
+        the list newStudiesList
+        &#34;&#34;&#34;
+        newSubject = ET.SubElement(self.root, &#39;subject&#39;, newAttributes)
+        for newStudy in newStudiesList:
+            dataset = ReadDICOM_Image.getDicomDataset(newStudy[0][0])
+            newStudyID = str(dataset.StudyDate) + &#34;_&#34; + str(dataset.StudyTime).split(&#34;.&#34;)[0] + &#34;_&#34; + str(dataset.StudyDescription)
+            self.insertNewStudyinXML(newStudy, newSubjectID, newStudyID, &#39;&#39;)
+
+
+    def insertNewStudyinXML(self, newSeriesList, subjectID, newStudyID, suffix):
+        &#34;&#34;&#34;
+        This function inserts a new study in the XML tree and populates it with
+        the series in the list new SeriesList.
+
+        Input arguments
+        ***************
+        newSeriesList - This is a list of lists. 
+                Each nested list is a set of image filenames belonging to same series.
+        &#34;&#34;&#34;
+        try:
+            dataset = ReadDICOM_Image.getDicomDataset(newSeriesList[0][0])
+            currentSubject = self.getSubject(subjectID)
+            newAttributes = {&#39;id&#39;:newStudyID, 
+                             &#39;typeID&#39;:suffix,
+                             &#39;uid&#39;:str(dataset.StudyInstanceUID),
+                             &#39;checked&#39;: &#39;False&#39;}
+
+            if currentSubject is not None:
+                #Add new study to subject to hold new series+images
+                newStudy = ET.SubElement(currentSubject, &#39;study&#39;, newAttributes)
+                for newSeries in newSeriesList:
+                    dataset = ReadDICOM_Image.getDicomDataset(newSeries[0])
+                    newSeriesID = str(dataset.SeriesNumber) + &#34;_&#34; + str(dataset.SeriesDescription)
+                    self.insertNewSeriesInXML(newSeries, newSeries, subjectID, newStudyID, newSeriesID, newSeriesID, suffix)
+            else:
+                self.insertNewSubjectinXML([newSeriesList], subjectID, suffix)
+                #self.insertNewSubjectinXML([newSeriesList], subjectID, &#39;&#39;)
+                #self.insertNewStudyinXML(newSeriesList, subjectID, newStudyID, suffix)
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.insertNewStudyInXML: &#39; + str(e)) 
+            logger.error(&#39;Error in WeaselXMLReader.insertNewStduyInXML: &#39; + str(e))
+
+
+    def insertNewSeriesInXML(self, origImageList, newImageList, subjectID,
+                     studyID, newSeriesID, seriesID, suffix):
+        &#34;&#34;&#34;
+        Inserts a new series in the XML tree and populates it with new images
+        that have the same attributes as an existing series of images.
+        &#34;&#34;&#34;
+        try:
+            dataset = ReadDICOM_Image.getDicomDataset(newImageList[0])
+            currentStudy = self.getStudy(subjectID, studyID)
+            newAttributes = {&#39;id&#39;:newSeriesID, 
+                             &#39;typeID&#39;:suffix,
+                             &#39;uid&#39;:str(dataset.SeriesInstanceUID),
+                             &#39;checked&#39;: &#39;False&#39;}
+
+            if currentStudy is not None:
+                #Add new series to study to hold new images
+                newSeries = ET.SubElement(currentStudy, &#39;series&#39;, newAttributes)
+                #Get image date &amp; time from original image
+                for index, imageNewName in enumerate(newImageList):
+                    subjectID_Original, studyID_Original, seriesID_Original = self.getImageParentIDs(origImageList[index])
+                    if subjectID_Original is None or studyID_Original is None or seriesID_Original is None:
+                        imageLabel = str(index + 1).zfill(6) # + suffix
+                    else:
+                        imageLabel = str(ReadDICOM_Image.getImageTagValue(newImageList[index], &#39;InstanceNumber&#39;)).zfill(6)
+                        #imageLabel = self.getImageLabel(subjectID_Original, studyID_Original, seriesID_Original, origImageList[index])
+                    imageTime = self._getImageTime(subjectID, studyID, seriesID)
+                    imageDate = self._getImageDate(subjectID, studyID, seriesID)
+                    newAttributes = {&#39;checked&#39;:&#39;False&#39;}
+                    newImage = ET.SubElement(newSeries,&#39;image&#39;, newAttributes)
+                    #Add child nodes of the image element
+                    labelNewImage = ET.SubElement(newImage, &#39;label&#39;)
+                    #labelNewImage.text = str(index + 1).zfill(6)
+                    labelNewImage.text = imageLabel # + suffix
+                    nameNewImage = ET.SubElement(newImage, &#39;name&#39;)
+                    nameNewImage.text = imageNewName
+                    timeNewImage = ET.SubElement(newImage, &#39;time&#39;)
+                    timeNewImage.text = imageTime
+                    dateNewImage = ET.SubElement(newImage, &#39;date&#39;)
+                    dateNewImage.text = imageDate
+            else:
+                self.insertNewStudyinXML([newImageList], subjectID, studyID, suffix)
+                #self.insertNewStudyinXML([[]], subjectID, studyID, &#39;&#39;)
+                #self.insertNewSeriesInXML(origImageList, newImageList, subjectID, studyID, newSeriesID, seriesID, suffix)
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.insertNewSeriesInXML: &#39; + str(e)) 
+            logger.error(&#39;Error in WeaselXMLReader.insertNewSeriesInXML: &#39; + str(e))
+
+  
+    def insertNewImageInXML(self, imageName, newImageFileName, subjectID, studyID, seriesID, suffix, 
+                            newSeriesName=None, newStudyName=None, newSubjectName=None):
+        &#34;&#34;&#34;
+        This function inserts a new image in the XML tree.
+        &#34;&#34;&#34;
+        try:
+            dataset = ReadDICOM_Image.getDicomDataset(newImageFileName)
+            if newSeriesName:
+                newSeriesID = str(dataset.SeriesNumber) + &#34;_&#34; + newSeriesName
+            else:
+                if hasattr(dataset, &#34;SeriesDescription&#34;):
+                    newSeriesID = str(dataset.SeriesNumber) + &#34;_&#34; + dataset.SeriesDescription
+                elif hasattr(dataset, &#34;SequenceName&#34;):
+                    newSeriesID = str(dataset.SeriesNumber) + &#34;_&#34; + dataset.SequenceName
+                elif hasattr(dataset, &#34;ProtocolName&#34;):
+                    newSeriesID = str(dataset.SeriesNumber) + &#34;_&#34; + dataset.ProtocolName
+                else:
+                    newSeriesID = str(dataset.SeriesNumber) + &#34;_&#34; + &#34;No Sequence Name&#34;
+            # Check if the newSeries exists or not
+            series = self.getSeries(subjectID, studyID, newSeriesID)
+            #Get image label, date &amp; time of Original image in case it&#39;s needed.
+            subjectID_Original, studyID_Original, seriesID_Original = self.getImageParentIDs(imageName)
+            if subjectID_Original is None or studyID_Original is None or seriesID_Original is None:
+                imageLabel = self.getImageLabel(subjectID_Original, studyID_Original, seriesID_Original)
+            else:
+                imageLabel = str(ReadDICOM_Image.getImageTagValue(newImageFileName, &#39;InstanceNumber&#39;)).zfill(6)
+                #imageLabel = self.getImageLabel(subjectID_Original, studyID_Original, seriesID_Original, imageName)
+            imageTime = self._getImageTime(subjectID, studyID, seriesID)
+            imageDate = self._getImageDate(subjectID, studyID, seriesID)
+            if series is None:
+                #Need to create a new series to hold this new image
+                #Get study branch
+                currentStudy = self.getStudy(subjectID, studyID)
+                if currentStudy is None:
+                    currentSubject = self.getSubject(subjectID)
+                    if currentSubject is None:
+                        if newSubjectName:
+                            newSubjectID = newSubjectName
+                        else:
+                            newSubjectID = str(dataset.PatientID)
+                        self.insertNewSubjectinXML([[[newImageFileName]]], newSubjectID, &#39;&#39;)
+                        return newSeriesID
+                    else:
+                        newSubjectID = subjectID
+                        if newStudyName:
+                            newStudyID = str(dataset.StudyDate) + &#34;_&#34; + str(dataset.StudyTime).split(&#34;.&#34;)[0] + &#34;_&#34; + newStudyName
+                        else:
+                            newStudyID = str(dataset.StudyDate) + &#34;_&#34; + str(dataset.StudyTime).split(&#34;.&#34;)[0] + &#34;_&#34; + str(dataset.StudyDescription)
+                        self.insertNewStudyinXML([[newImageFileName]], newSubjectID, newStudyID, &#39;&#39;)
+                        return newSeriesID
+                    #currentStudy = self.getStudy(newSubjectID, newStudyID)
+                newAttributes = {&#39;id&#39;:newSeriesID, 
+                                 &#39;typeID&#39;:suffix,
+                                 &#39;uid&#39;:str(dataset.SeriesInstanceUID),
+                                 &#39;checked&#39;:&#39;False&#39;}
+
+                #Add new series to study to hold new images
+                newSeries = ET.SubElement(currentStudy, &#39;series&#39;, newAttributes)     
+                #print(&#34;image time {}, date {}&#34;.format(imageTime, imageDate))
+                #Now add image element
+                newAttributes = {&#39;checked&#39;:&#39;False&#39;}
+                newImage = ET.SubElement(newSeries, &#39;image&#39;, newAttributes)
+                #Add child nodes of the image element
+                labelNewImage = ET.SubElement(newImage, &#39;label&#39;)
+                labelNewImage.text = imageLabel # + suffix
+                #labelNewImage.text = &#34;000001&#34;
+                nameNewImage = ET.SubElement(newImage, &#39;name&#39;)
+                nameNewImage.text = newImageFileName
+                timeNewImage = ET.SubElement(newImage, &#39;time&#39;)
+                timeNewImage.text = imageTime
+                dateNewImage = ET.SubElement(newImage, &#39;date&#39;)
+                dateNewImage.text = imageDate
+                return newSeriesID
+            else:
+                #A series already exists to hold new images from
+                #the current parent series
+                newAttributes = {&#39;checked&#39;:&#39;False&#39;}
+                newImage = ET.SubElement(series, &#39;image&#39;, newAttributes)
+                #Add child nodes of the image element
+                labelNewImage = ET.SubElement(newImage, &#39;label&#39;)
+                #imageLabel = self.getImageLabel(subjectID, studyID, seriesID, imageName)
+                labelNewImage.text = imageLabel # + suffix
+                #labelNewImage.text = str(len(series)).zfill(6)
+                nameNewImage = ET.SubElement(newImage, &#39;name&#39;)
+                nameNewImage.text = newImageFileName
+                timeNewImage = ET.SubElement(newImage, &#39;time&#39;)
+                timeNewImage.text = imageTime
+                dateNewImage = ET.SubElement(newImage, &#39;date&#39;)
+                dateNewImage.text = imageDate
+                return series.attrib[&#39;id&#39;]
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.insertNewImageInXML: &#39; + str(e)) 
+            logger.error(&#39;Error in WeaselXMLReader.insertNewImageInXML: &#39; + str(e))
+
+
+    def renameSeriesinXMLFile(self, imageList, series_id=None, series_name=None):
+        &#34;&#34;&#34;Renames a whole series in the DICOM XML file&#34;&#34;&#34;
+        try:
+            logger.info(&#34;InterfaceDICOMXMLFile renameSeriesinXMLFile called&#34;)
+            (subjectID, studyID, seriesID) = self.getImageParentIDs(imageList[0])
+            seriesNumber = str(ReadDICOM_Image.getDicomDataset(imageList[0]).SeriesNumber) if series_id is None else str(series_id)
+            try:
+                newName = str(ReadDICOM_Image.getDicomDataset(imageList[0]).SeriesDescription) if series_name is None else str(series_name)
+            except:
+                try:
+                    newName = str(ReadDICOM_Image.getDicomDataset(imageList[0]).SequenceName) if series_name is None else str(series_name)
+                except:
+                    newName = str(ReadDICOM_Image.getDicomDataset(imageList[0]).ProtocolName) if series_name is None else str(series_name)
+            xmlSeriesName = seriesNumber + &#34;_&#34; + newName
+            self.getSeries(subjectID, studyID, seriesID).attrib[&#39;id&#39;] = xmlSeriesName
+        except Exception as e:
+            print(&#39;Error in InterfaceDICOMXMLFile removeOneSeriesFromStudy: &#39; + str(e))
+            logger.error(&#39;Error in InterfaceDICOMXMLFile removeOneSeriesFromStudy: &#39; + str(e))
+
+
+    def getNewSeriesName(self, subjectID, studyID, dataset, suffix, newSeriesName=None):
+        &#34;&#34;&#34;This function uses recursion to find the next available
+        series name.  A new series name is created by adding a suffix
+        at the end of an existing series name. &#34;&#34;&#34;
+        try:
+            # Swapped SeriesNumber with SeriesDescription
+            if newSeriesName:
+                seriesID = str(dataset.SeriesNumber) + &#34;_&#34; + newSeriesName
+            else:
+                if hasattr(dataset, &#34;SeriesDescription&#34;):
+                    seriesID = str(dataset.SeriesNumber) + &#34;_&#34; + dataset.SeriesDescription
+                elif hasattr(dataset, &#34;SequenceName&#34;):
+                    seriesID = str(dataset.SeriesNumber) + &#34;_&#34; + dataset.SequenceName
+                elif hasattr(dataset, &#34;ProtocolName&#34;):
+                    seriesID = str(dataset.SeriesNumber) + &#34;_&#34; + dataset.ProtocolName
+            imageList = self._getImageList(subjectID, studyID, seriesID)
+            if imageList:
+                #A series of images already exists 
+                #for the series called seriesID
+                #so make another new series ID 
+                #by adding the suffix to the previous
+                #new series ID
+                if newSeriesName:
+                    dataset.SeriesDescription = newSeriesName
+                    return self.getNewSeriesName(subjectID, studyID, dataset, suffix, newSeriesName=None)
+                else:
+                    if hasattr(dataset, &#34;SeriesDescription&#34;):
+                        dataset.SeriesDescription = dataset.SeriesDescription + suffix
+                    elif hasattr(dataset, &#34;SequenceName&#34;):
+                        dataset.SequenceName = dataset.SequenceName + suffix
+                    elif hasattr(dataset, &#34;ProtocolName&#34;):
+                        dataset.ProtocolName = dataset.ProtocolName + suffix
+                    return self.getNewSeriesName(subjectID, studyID, dataset, suffix)
+            else:
+                logger.info(&#34;WeaselXMLReader getNewSeriesName returns seriesID {}&#34;.format(seriesID))
+                return seriesID
+        except Exception as e:
+            print(&#39;Error in WeaselXMLReader.getNewSeriesName: &#39; + str(e))</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.branch"><code class="name flex">
+<span>def <span class="ident">branch</span></span>(<span>self, elem)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the parents of the current element.</p>
+<p>This function checks where in the XML hierarchy the element, elem, lies.
+Then it returns the IDs of its parent branches.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def branch(self, elem):
+    &#34;&#34;&#34;
+    Returns the parents of the current element.
+    
+    This function checks where in the XML hierarchy the element, elem, lies.
+    Then it returns the IDs of its parent branches.
+    &#34;&#34;&#34;
+    if elem in self.root: # elem is a subject
+        return [self.root, elem]
+    else:
+        for subject in self.root:
+            if elem in subject: # elem is a study
+                return [self.root, subject, elem]
+            else:
+                for study in subject:
+                    if elem in study: # elem is a series
+                        return [self.root, subject, study, elem]
+                    else:
+                        for series in study:
+                            if elem in series: # elem is an image
+                                return [self.root, subject, study, series, elem]</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.checkedImages"><code class="name flex">
+<span>def <span class="ident">checkedImages</span></span>(<span>self, root=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a list of images checked by the user.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def checkedImages(self, root=None):
+    &#34;&#34;&#34;
+    Returns a list of images checked by the user.
+    &#34;&#34;&#34;
+    list = []
+    if root is None:
+        root = self.root
+    for image in root.iter(&#39;image&#39;):
+        if image.attrib[&#39;checked&#39;] == &#39;True&#39;:
+            id = self.objectID(image)
+            dcm = Image(self.weasel, id[0], id[1], id[2], id[3])
+            list.append(dcm)
+    return ImagesList(list)</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.checkedSeries"><code class="name flex">
+<span>def <span class="ident">checkedSeries</span></span>(<span>self, root=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a list of
+series checked by the user.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def checkedSeries(self, root=None):
+    &#34;&#34;&#34;
+    Returns a list of  series checked by the user.
+    &#34;&#34;&#34;
+    list = []
+    if root is None:
+        root = self.root
+    for series in root.iter(&#39;series&#39;):
+        if series.attrib[&#39;checked&#39;] == &#39;True&#39;:
+            images = [image.find(&#39;name&#39;).text for image in series]
+            id = self.objectID(series)
+            dcm = Series(self.weasel, id[0], id[1], id[2], listPaths=images)
+            list.append(dcm)
+    return SeriesList(list)</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.checkedStudies"><code class="name flex">
+<span>def <span class="ident">checkedStudies</span></span>(<span>self, root=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a list of studies checked by the user.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def checkedStudies(self, root=None):
+    &#34;&#34;&#34;
+    Returns a list of studies checked by the user.
+    &#34;&#34;&#34;
+    list = []
+    if root is None:
+        root = self.root
+    for study in root.iter(&#39;study&#39;):
+        if study.attrib[&#39;checked&#39;] == &#39;True&#39;:
+            id = self.objectID(study)
+            dcm = Study(self.weasel, id[0], id[1])
+            list.append(dcm)
+    return StudyList(list)</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.checkedSubjects"><code class="name flex">
+<span>def <span class="ident">checkedSubjects</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a list of
+subjects checked by the user.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def checkedSubjects(self):
+    &#34;&#34;&#34;
+    Returns a list of  subjects checked by the user.
+    &#34;&#34;&#34;
+    list = []
+    root = self.root
+    for subject in root.iter(&#39;subject&#39;):
+        if subject.attrib[&#39;checked&#39;] == &#39;True&#39;:
+            id = self.objectID(subject)
+            dcm = Subject(self.weasel, id[0])
+            list.append(dcm)
+    return SubjectList(list)</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.getImageLabel"><code class="name flex">
+<span>def <span class="ident">getImageLabel</span></span>(<span>self, subjectID, studyID, seriesID, imageName=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Gets the name or label of the image that is used to represent an
+image in the tree view.</p>
+<p>Input arguments</p>
+<hr>
+<p>subjectID
+- ID of the subject to which this image belongs
+studyID - ID of the study to which this image belongs
+seriesID - ID of the series to which this image belongs
+imageName - full file path including name of the image.</p>
+<p>Returns</p>
+<hr>
+<p>string containing the image's label</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getImageLabel(self, subjectID, studyID, seriesID, imageName = None):
+    &#34;&#34;&#34;
+    Gets the name or label of the image that is used to represent an 
+    image in the tree view.
+
+    Input arguments
+    ***************
+    subjectID  - ID of the subject to which this image belongs
+    studyID - ID of the study to which this image belongs
+    seriesID - ID of the series to which this image belongs
+    imageName - full file path including name of the image.
+
+    Returns
+    *******
+    string containing the image&#39;s label
+    &#34;&#34;&#34;
+    try:
+        if imageName is None:
+            return &#34;000000&#34;
+        else:
+            xPath = &#39;.//subject[@id=&#39; + chr(34) + subjectID + chr(34) +  \
+                    &#39;]/study[@id=&#39; + chr(34) + studyID + chr(34) + \
+                    &#39;]/series[@id=&#39; + chr(34) + seriesID + chr(34)  + \
+                    &#39;]/image[name=&#39; + chr(34) + imageName + chr(34) +&#39;]/label&#39;
+            return self.root.find(xPath).text
+    except Exception as e:
+        print(&#39;Error in WeaselXMLReader.getImageLabel: &#39; + str(e)) 
+        logger.error(&#39;Error in WeaselXMLReader.getImageLabel: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.getImageParentIDs"><code class="name flex">
+<span>def <span class="ident">getImageParentIDs</span></span>(<span>self, imageName)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a list of an image's parent IDs</p>
+<p>Input arguement</p>
+<hr>
+<p>imageName -
+the filepath, including name of the image</p>
+<p>Returns</p>
+<hr>
+<p>subjectID - ID of the subject the image belongs to
+studyID - ID of the study the image belongs to
+seriesID - ID of the series the image belongs to</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getImageParentIDs(self, imageName):
+    &#34;&#34;&#34;
+    Returns a list of an image&#39;s parent IDs
+
+    Input arguement
+    ***************
+    imageName -  the filepath, including name of the image
+
+    Returns
+    *******
+    subjectID - ID of the subject the image belongs to
+    studyID - ID of the study the image belongs to 
+    seriesID - ID of the series the image belongs to
+    &#34;&#34;&#34;
+    try:
+        xPathSubject = &#39;.//subject/study/series/image[name=&#39; + chr(34) + imageName + chr(34) +&#39;]/../../..&#39;
+        if self.root.find(xPathSubject):
+            subjectID = self.root.find(xPathSubject).attrib[&#39;id&#39;]
+        else:
+            subjectID = None
+        xPathStudy = &#39;.//subject/study/series/image[name=&#39; + chr(34) + imageName + chr(34) +&#39;]/../..&#39;
+        if self.root.find(xPathStudy):
+            studyID = self.root.find(xPathStudy).attrib[&#39;id&#39;]
+        else:
+            studyID = None
+        xPathSeries = &#39;.//subject/study/series/image[name=&#39; + chr(34) + imageName + chr(34) +&#39;]/..&#39;
+        if self.root.find(xPathSeries):
+            seriesID = self.root.find(xPathSeries).attrib[&#39;id&#39;]
+        else:
+            seriesID = None
+        return (subjectID, studyID, seriesID)
+    except Exception as e:
+        print(&#39;Error in WeaselXMLReader.getImageParentIDs: &#39; + str(e)) 
+        logger.error(&#39;Error in WeaselXMLReader.getImageParentIDs: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.getImagePathList"><code class="name flex">
+<span>def <span class="ident">getImagePathList</span></span>(<span>self, subjectID, studyID, seriesID)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a list of the file paths of the images in a given series.</p>
+<p>Input arguments</p>
+<hr>
+<p>subjectID
+- ID of the subject to which this image belongs
+studyID - ID of the study to which this image belongs
+seriesID - ID of the series to which this image belongs</p>
+<p>Returns</p>
+<hr>
+<p>list of the image file paths</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getImagePathList(self, subjectID, studyID, seriesID):
+    &#34;&#34;&#34;
+    Returns a list of the file paths of the images in a given series.
+
+    Input arguments
+    ***************
+    subjectID  - ID of the subject to which this image belongs
+    studyID - ID of the study to which this image belongs
+    seriesID - ID of the series to which this image belongs
+
+    Returns
+    *******
+    list of the image file paths
+    &#34;&#34;&#34;
+    try:
+        xPath = &#39;.//subject[@id=&#39; + chr(34) + subjectID + chr(34) +  \
+                &#39;]/study[@id=&#39; + chr(34) + studyID + chr(34) + \
+                &#39;]/series[@id=&#39; + chr(34) + seriesID + chr(34) + &#39;]/image&#39;
+        # print(xPath)
+        images = self.root.findall(xPath)
+        #print(&#34;images={}&#34;.format(images))
+        imageList = [image.find(&#39;name&#39;).text for image in images]
+        #print(&#34;length imageList={}&#34;.format(len(imageList)))
+        return imageList
+    except Exception as e:
+        print(&#39;Error in weaselXMLReader.getImagePathList: &#39; + str(e))
+        logger.error(&#39;Error in weaselXMLReader.getImagePathList: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.getNewSeriesName"><code class="name flex">
+<span>def <span class="ident">getNewSeriesName</span></span>(<span>self, subjectID, studyID, dataset, suffix, newSeriesName=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function uses recursion to find the next available
+series name.
+A new series name is created by adding a suffix
+at the end of an existing series name.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getNewSeriesName(self, subjectID, studyID, dataset, suffix, newSeriesName=None):
+    &#34;&#34;&#34;This function uses recursion to find the next available
+    series name.  A new series name is created by adding a suffix
+    at the end of an existing series name. &#34;&#34;&#34;
+    try:
+        # Swapped SeriesNumber with SeriesDescription
+        if newSeriesName:
+            seriesID = str(dataset.SeriesNumber) + &#34;_&#34; + newSeriesName
+        else:
+            if hasattr(dataset, &#34;SeriesDescription&#34;):
+                seriesID = str(dataset.SeriesNumber) + &#34;_&#34; + dataset.SeriesDescription
+            elif hasattr(dataset, &#34;SequenceName&#34;):
+                seriesID = str(dataset.SeriesNumber) + &#34;_&#34; + dataset.SequenceName
+            elif hasattr(dataset, &#34;ProtocolName&#34;):
+                seriesID = str(dataset.SeriesNumber) + &#34;_&#34; + dataset.ProtocolName
+        imageList = self._getImageList(subjectID, studyID, seriesID)
+        if imageList:
+            #A series of images already exists 
+            #for the series called seriesID
+            #so make another new series ID 
+            #by adding the suffix to the previous
+            #new series ID
+            if newSeriesName:
+                dataset.SeriesDescription = newSeriesName
+                return self.getNewSeriesName(subjectID, studyID, dataset, suffix, newSeriesName=None)
+            else:
+                if hasattr(dataset, &#34;SeriesDescription&#34;):
+                    dataset.SeriesDescription = dataset.SeriesDescription + suffix
+                elif hasattr(dataset, &#34;SequenceName&#34;):
+                    dataset.SequenceName = dataset.SequenceName + suffix
+                elif hasattr(dataset, &#34;ProtocolName&#34;):
+                    dataset.ProtocolName = dataset.ProtocolName + suffix
+                return self.getNewSeriesName(subjectID, studyID, dataset, suffix)
+        else:
+            logger.info(&#34;WeaselXMLReader getNewSeriesName returns seriesID {}&#34;.format(seriesID))
+            return seriesID
+    except Exception as e:
+        print(&#39;Error in WeaselXMLReader.getNewSeriesName: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.getNumImagesInSeries"><code class="name flex">
+<span>def <span class="ident">getNumImagesInSeries</span></span>(<span>self, subjectID, studyID, seriesID)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the number of images in a particular series</p>
+<p>Input arguments</p>
+<hr>
+<p>subjectID
+- ID of the subject to which this image belongs
+studyID - ID of the study to which this image belongs
+seriesID - ID of the series to which this image belongs</p>
+<p>Returns</p>
+<hr>
+<p>The number of images in a series</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getNumImagesInSeries(self, subjectID, studyID, seriesID):
+    &#34;&#34;&#34;
+    Returns the number of images in a particular series
+
+    Input arguments
+    ***************
+    subjectID  - ID of the subject to which this image belongs
+    studyID - ID of the study to which this image belongs
+    seriesID - ID of the series to which this image belongs
+
+    Returns
+    *******
+    The number of images in a series
+    &#34;&#34;&#34;
+    return len(self._getImageList(subjectID, studyID, seriesID))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.getSeries"><code class="name flex">
+<span>def <span class="ident">getSeries</span></span>(<span>self, subjectID, studyID, seriesID)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the series with the ID, seriesID</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getSeries(self, subjectID, studyID, seriesID):
+    &#34;&#34;&#34;
+    Returns the series with the ID, seriesID
+    &#34;&#34;&#34;
+    try: 
+        xPath = &#39;.//subject[@id=&#39; + chr(34) + subjectID + chr(34) + &#39;]&#39; \
+                &#39;/study[@id=&#39; + chr(34) + studyID + chr(34) + &#39;]&#39; + \
+                &#39;/series[@id=&#39; + chr(34) + seriesID + chr(34) + &#39;]&#39;
+        #print (&#34;get series Xpath = {}&#34;.format(xPath))
+        return self.root.find(xPath)
+    except Exception as e:
+        print(&#39;Error in WeaselXMLReader.getSeries: &#39; + str(e)) 
+        logger.error(&#39;Error in WeaselXMLReader.getSeries_: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.getStudy"><code class="name flex">
+<span>def <span class="ident">getStudy</span></span>(<span>self, subjectID, studyID)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the study with the ID, studyID</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getStudy(self, subjectID, studyID):
+    &#34;&#34;&#34;
+    Returns the study with the ID, studyID
+    &#34;&#34;&#34;
+    try:
+        xPath = &#39;.//subject[@id=&#39; + chr(34) + subjectID + chr(34) +  \
+                &#39;]/study[@id=&#39; + chr(34) + studyID + chr(34) + &#39;]&#39;
+        #print(xPath)
+        return self.root.find(xPath)
+    except Exception as e:
+        print(&#39;Error in WeaselXMLReader.getStudy: &#39; + str(e)) 
+        logger.error(&#39;Error in WeaselXMLReader.getStudy: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.getSubject"><code class="name flex">
+<span>def <span class="ident">getSubject</span></span>(<span>self, subjectID)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the subject with the ID, subjectID</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getSubject(self, subjectID):
+    &#34;&#34;&#34;
+    Returns the subject with the ID, subjectID
+    &#34;&#34;&#34;
+    try:
+        xPath = &#39;.//subject[@id=&#39; + chr(34) + subjectID + chr(34) + &#39;]&#39;
+        #print(xPath)
+        return self.root.find(xPath)
+    except Exception as e:
+        print(&#39;Error in WeaselXMLReader.getSubject: &#39; + str(e)) 
+        logger.error(&#39;Error in WeaselXMLReader.getSubject: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.insertNewImageInXML"><code class="name flex">
+<span>def <span class="ident">insertNewImageInXML</span></span>(<span>self, imageName, newImageFileName, subjectID, studyID, seriesID, suffix, newSeriesName=None, newStudyName=None, newSubjectName=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function inserts a new image in the XML tree.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def insertNewImageInXML(self, imageName, newImageFileName, subjectID, studyID, seriesID, suffix, 
+                        newSeriesName=None, newStudyName=None, newSubjectName=None):
+    &#34;&#34;&#34;
+    This function inserts a new image in the XML tree.
+    &#34;&#34;&#34;
+    try:
+        dataset = ReadDICOM_Image.getDicomDataset(newImageFileName)
+        if newSeriesName:
+            newSeriesID = str(dataset.SeriesNumber) + &#34;_&#34; + newSeriesName
+        else:
+            if hasattr(dataset, &#34;SeriesDescription&#34;):
+                newSeriesID = str(dataset.SeriesNumber) + &#34;_&#34; + dataset.SeriesDescription
+            elif hasattr(dataset, &#34;SequenceName&#34;):
+                newSeriesID = str(dataset.SeriesNumber) + &#34;_&#34; + dataset.SequenceName
+            elif hasattr(dataset, &#34;ProtocolName&#34;):
+                newSeriesID = str(dataset.SeriesNumber) + &#34;_&#34; + dataset.ProtocolName
+            else:
+                newSeriesID = str(dataset.SeriesNumber) + &#34;_&#34; + &#34;No Sequence Name&#34;
+        # Check if the newSeries exists or not
+        series = self.getSeries(subjectID, studyID, newSeriesID)
+        #Get image label, date &amp; time of Original image in case it&#39;s needed.
+        subjectID_Original, studyID_Original, seriesID_Original = self.getImageParentIDs(imageName)
+        if subjectID_Original is None or studyID_Original is None or seriesID_Original is None:
+            imageLabel = self.getImageLabel(subjectID_Original, studyID_Original, seriesID_Original)
+        else:
+            imageLabel = str(ReadDICOM_Image.getImageTagValue(newImageFileName, &#39;InstanceNumber&#39;)).zfill(6)
+            #imageLabel = self.getImageLabel(subjectID_Original, studyID_Original, seriesID_Original, imageName)
+        imageTime = self._getImageTime(subjectID, studyID, seriesID)
+        imageDate = self._getImageDate(subjectID, studyID, seriesID)
+        if series is None:
+            #Need to create a new series to hold this new image
+            #Get study branch
+            currentStudy = self.getStudy(subjectID, studyID)
+            if currentStudy is None:
+                currentSubject = self.getSubject(subjectID)
+                if currentSubject is None:
+                    if newSubjectName:
+                        newSubjectID = newSubjectName
+                    else:
+                        newSubjectID = str(dataset.PatientID)
+                    self.insertNewSubjectinXML([[[newImageFileName]]], newSubjectID, &#39;&#39;)
+                    return newSeriesID
+                else:
+                    newSubjectID = subjectID
+                    if newStudyName:
+                        newStudyID = str(dataset.StudyDate) + &#34;_&#34; + str(dataset.StudyTime).split(&#34;.&#34;)[0] + &#34;_&#34; + newStudyName
+                    else:
+                        newStudyID = str(dataset.StudyDate) + &#34;_&#34; + str(dataset.StudyTime).split(&#34;.&#34;)[0] + &#34;_&#34; + str(dataset.StudyDescription)
+                    self.insertNewStudyinXML([[newImageFileName]], newSubjectID, newStudyID, &#39;&#39;)
+                    return newSeriesID
+                #currentStudy = self.getStudy(newSubjectID, newStudyID)
+            newAttributes = {&#39;id&#39;:newSeriesID, 
+                             &#39;typeID&#39;:suffix,
+                             &#39;uid&#39;:str(dataset.SeriesInstanceUID),
+                             &#39;checked&#39;:&#39;False&#39;}
+
+            #Add new series to study to hold new images
+            newSeries = ET.SubElement(currentStudy, &#39;series&#39;, newAttributes)     
+            #print(&#34;image time {}, date {}&#34;.format(imageTime, imageDate))
+            #Now add image element
+            newAttributes = {&#39;checked&#39;:&#39;False&#39;}
+            newImage = ET.SubElement(newSeries, &#39;image&#39;, newAttributes)
+            #Add child nodes of the image element
+            labelNewImage = ET.SubElement(newImage, &#39;label&#39;)
+            labelNewImage.text = imageLabel # + suffix
+            #labelNewImage.text = &#34;000001&#34;
+            nameNewImage = ET.SubElement(newImage, &#39;name&#39;)
+            nameNewImage.text = newImageFileName
+            timeNewImage = ET.SubElement(newImage, &#39;time&#39;)
+            timeNewImage.text = imageTime
+            dateNewImage = ET.SubElement(newImage, &#39;date&#39;)
+            dateNewImage.text = imageDate
+            return newSeriesID
+        else:
+            #A series already exists to hold new images from
+            #the current parent series
+            newAttributes = {&#39;checked&#39;:&#39;False&#39;}
+            newImage = ET.SubElement(series, &#39;image&#39;, newAttributes)
+            #Add child nodes of the image element
+            labelNewImage = ET.SubElement(newImage, &#39;label&#39;)
+            #imageLabel = self.getImageLabel(subjectID, studyID, seriesID, imageName)
+            labelNewImage.text = imageLabel # + suffix
+            #labelNewImage.text = str(len(series)).zfill(6)
+            nameNewImage = ET.SubElement(newImage, &#39;name&#39;)
+            nameNewImage.text = newImageFileName
+            timeNewImage = ET.SubElement(newImage, &#39;time&#39;)
+            timeNewImage.text = imageTime
+            dateNewImage = ET.SubElement(newImage, &#39;date&#39;)
+            dateNewImage.text = imageDate
+            return series.attrib[&#39;id&#39;]
+    except Exception as e:
+        print(&#39;Error in WeaselXMLReader.insertNewImageInXML: &#39; + str(e)) 
+        logger.error(&#39;Error in WeaselXMLReader.insertNewImageInXML: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.insertNewImageInXMLFile"><code class="name flex">
+<span>def <span class="ident">insertNewImageInXMLFile</span></span>(<span>self, imagePath, newImageFileName, suffix, newSeriesName=None, newStudyName=None, newSubjectName=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function inserts information regarding a new image
+in the DICOM XML file</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def insertNewImageInXMLFile(self, imagePath, newImageFileName, suffix, newSeriesName=None, newStudyName=None, newSubjectName=None):
+    &#34;&#34;&#34;
+    This function inserts information regarding a new image 
+    in the DICOM XML file
+    &#34;&#34;&#34;
+    try:
+        logger.info(&#34;InterfaceDICOMXMLFile insertNewImageInXMLFile called&#34;)
+        (subjectID, studyID, seriesID) = self.getImageParentIDs(imagePath)
+        return self.insertNewImageInXML(imagePath,
+            newImageFileName, subjectID, studyID, seriesID, suffix, newSeriesName=newSeriesName, newStudyName=newStudyName, newSubjectName=newSubjectName)
+    except Exception as e:
+        print(&#39;Error in insertNewImageInXMLFile: &#39; + str(e))
+        logger.error(&#39;Error in insertNewImageInXMLFile: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.insertNewSeriesInXML"><code class="name flex">
+<span>def <span class="ident">insertNewSeriesInXML</span></span>(<span>self, origImageList, newImageList, subjectID, studyID, newSeriesID, seriesID, suffix)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Inserts a new series in the XML tree and populates it with new images
+that have the same attributes as an existing series of images.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def insertNewSeriesInXML(self, origImageList, newImageList, subjectID,
+                 studyID, newSeriesID, seriesID, suffix):
+    &#34;&#34;&#34;
+    Inserts a new series in the XML tree and populates it with new images
+    that have the same attributes as an existing series of images.
+    &#34;&#34;&#34;
+    try:
+        dataset = ReadDICOM_Image.getDicomDataset(newImageList[0])
+        currentStudy = self.getStudy(subjectID, studyID)
+        newAttributes = {&#39;id&#39;:newSeriesID, 
+                         &#39;typeID&#39;:suffix,
+                         &#39;uid&#39;:str(dataset.SeriesInstanceUID),
+                         &#39;checked&#39;: &#39;False&#39;}
+
+        if currentStudy is not None:
+            #Add new series to study to hold new images
+            newSeries = ET.SubElement(currentStudy, &#39;series&#39;, newAttributes)
+            #Get image date &amp; time from original image
+            for index, imageNewName in enumerate(newImageList):
+                subjectID_Original, studyID_Original, seriesID_Original = self.getImageParentIDs(origImageList[index])
+                if subjectID_Original is None or studyID_Original is None or seriesID_Original is None:
+                    imageLabel = str(index + 1).zfill(6) # + suffix
+                else:
+                    imageLabel = str(ReadDICOM_Image.getImageTagValue(newImageList[index], &#39;InstanceNumber&#39;)).zfill(6)
+                    #imageLabel = self.getImageLabel(subjectID_Original, studyID_Original, seriesID_Original, origImageList[index])
+                imageTime = self._getImageTime(subjectID, studyID, seriesID)
+                imageDate = self._getImageDate(subjectID, studyID, seriesID)
+                newAttributes = {&#39;checked&#39;:&#39;False&#39;}
+                newImage = ET.SubElement(newSeries,&#39;image&#39;, newAttributes)
+                #Add child nodes of the image element
+                labelNewImage = ET.SubElement(newImage, &#39;label&#39;)
+                #labelNewImage.text = str(index + 1).zfill(6)
+                labelNewImage.text = imageLabel # + suffix
+                nameNewImage = ET.SubElement(newImage, &#39;name&#39;)
+                nameNewImage.text = imageNewName
+                timeNewImage = ET.SubElement(newImage, &#39;time&#39;)
+                timeNewImage.text = imageTime
+                dateNewImage = ET.SubElement(newImage, &#39;date&#39;)
+                dateNewImage.text = imageDate
+        else:
+            self.insertNewStudyinXML([newImageList], subjectID, studyID, suffix)
+            #self.insertNewStudyinXML([[]], subjectID, studyID, &#39;&#39;)
+            #self.insertNewSeriesInXML(origImageList, newImageList, subjectID, studyID, newSeriesID, seriesID, suffix)
+    except Exception as e:
+        print(&#39;Error in WeaselXMLReader.insertNewSeriesInXML: &#39; + str(e)) 
+        logger.error(&#39;Error in WeaselXMLReader.insertNewSeriesInXML: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.insertNewSeriesInXMLFile"><code class="name flex">
+<span>def <span class="ident">insertNewSeriesInXMLFile</span></span>(<span>self, origImageList, newImageList, suffix, newSeriesName=None, newStudyName=None, newSubjectName=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a new series to hold a series of New images.</p>
+<p>If a new study name is specified,
+then the new series is created within a new study.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def insertNewSeriesInXMLFile(self, origImageList, newImageList, suffix, newSeriesName=None, newStudyName=None, newSubjectName=None):
+    &#34;&#34;&#34;
+    Creates a new series to hold a series of New images.
+
+    If a new study name is specified, 
+    then the new series is created within a new study.
+    &#34;&#34;&#34;
+    try:
+        logger.info(&#34;InterfaceDICOMXMLFile insertNewSeriesInXMLFile called&#34;)
+        (subjectID, studyID, seriesID) = self.getImageParentIDs(origImageList[0])
+        dataset = ReadDICOM_Image.getDicomDataset(newImageList[0])
+        if newStudyName is not None: studyID = str(dataset.StudyDate) + &#34;_&#34; + str(dataset.StudyTime).split(&#34;.&#34;)[0] + &#34;_&#34; + newStudyName
+        if newSubjectName is not None: subjectID = newSubjectName
+        newSeriesID = self.getNewSeriesName(subjectID, studyID, dataset, suffix, newSeriesName=newSeriesName) # If developer sets seriesName
+        self.insertNewSeriesInXML(origImageList, 
+                    newImageList, subjectID, studyID, newSeriesID, seriesID, suffix)
+        if self.weasel is None:
+            print(&#39;New series created: - &#39; + newSeriesID)
+        else:
+            self.weasel.set_status(&#39;New series created: - &#39; + newSeriesID)
+        return newSeriesID
+    except Exception as e:
+        print(&#39;Error in WeaselXMLReader.insertNewSeriesInXMLFile: &#39; + str(e))
+        logger.error(&#39;Error in WeaselXMLReader.insertNewSeriesInXMLFile: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.insertNewStudyInXMLFile"><code class="name flex">
+<span>def <span class="ident">insertNewStudyInXMLFile</span></span>(<span>self, subjectID, newStudyID, suffix, seriesList=[], newSubjectName=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a new study in the XML tree.</p>
+<p>If a new subject name is specified,
+then the new study is created within a new subject.</p>
+<p>Input arguments</p>
+<hr>
+<p>subjectID
+- string containing the ID of the subject
+newStudyID - string containing the ID of the new study
+suffix - series and image name suffix
+seriesList - list of the series names in the new study.
+newSubjectName - string containing the name of the new subject.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def insertNewStudyInXMLFile(self, subjectID, newStudyID, suffix, seriesList=[], newSubjectName=None):
+    &#34;&#34;&#34;
+    Creates a new study in the XML tree.
+
+    If a new subject name is specified, 
+    then the new study is created within a new subject.
+
+    Input arguments
+    ***************
+    subjectID  - string containing the ID of the subject
+    newStudyID - string containing the ID of the new study
+    suffix - series and image name suffix
+    seriesList - list of the series names in the new study.
+    newSubjectName - string containing the name of the new subject.
+    &#34;&#34;&#34;
+    try:
+        logger.info(&#34;WeaselXMLReader insertNewStudyInXMLFile called&#34;)
+        if newSubjectName is not None: subjectID = newSubjectName
+        self.insertNewStudyinXML(seriesList, subjectID, newStudyID, suffix)
+        if self.weasel is None:
+            print(&#39;New study created: - &#39; + newStudyID)
+        else:
+            self.weasel.set_status(&#39;New study created: - &#39; + newStudyID)
+        return newStudyID
+    except Exception as e:
+        print(&#39;Error in WeaselXMLReader.insertNewStudyInXMLFile: &#39; + str(e))
+        logger.error(&#39;Error in WeaselXMLReader.insertNewStudyInXMLFile: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.insertNewStudyinXML"><code class="name flex">
+<span>def <span class="ident">insertNewStudyinXML</span></span>(<span>self, newSeriesList, subjectID, newStudyID, suffix)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function inserts a new study in the XML tree and populates it with
+the series in the list new SeriesList.</p>
+<p>Input arguments</p>
+<hr>
+<p>newSeriesList - This is a list of lists.
+Each nested list is a set of image filenames belonging to same series.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def insertNewStudyinXML(self, newSeriesList, subjectID, newStudyID, suffix):
+    &#34;&#34;&#34;
+    This function inserts a new study in the XML tree and populates it with
+    the series in the list new SeriesList.
+
+    Input arguments
+    ***************
+    newSeriesList - This is a list of lists. 
+            Each nested list is a set of image filenames belonging to same series.
+    &#34;&#34;&#34;
+    try:
+        dataset = ReadDICOM_Image.getDicomDataset(newSeriesList[0][0])
+        currentSubject = self.getSubject(subjectID)
+        newAttributes = {&#39;id&#39;:newStudyID, 
+                         &#39;typeID&#39;:suffix,
+                         &#39;uid&#39;:str(dataset.StudyInstanceUID),
+                         &#39;checked&#39;: &#39;False&#39;}
+
+        if currentSubject is not None:
+            #Add new study to subject to hold new series+images
+            newStudy = ET.SubElement(currentSubject, &#39;study&#39;, newAttributes)
+            for newSeries in newSeriesList:
+                dataset = ReadDICOM_Image.getDicomDataset(newSeries[0])
+                newSeriesID = str(dataset.SeriesNumber) + &#34;_&#34; + str(dataset.SeriesDescription)
+                self.insertNewSeriesInXML(newSeries, newSeries, subjectID, newStudyID, newSeriesID, newSeriesID, suffix)
+        else:
+            self.insertNewSubjectinXML([newSeriesList], subjectID, suffix)
+            #self.insertNewSubjectinXML([newSeriesList], subjectID, &#39;&#39;)
+            #self.insertNewStudyinXML(newSeriesList, subjectID, newStudyID, suffix)
+    except Exception as e:
+        print(&#39;Error in WeaselXMLReader.insertNewStudyInXML: &#39; + str(e)) 
+        logger.error(&#39;Error in WeaselXMLReader.insertNewStduyInXML: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.insertNewSubjectinXML"><code class="name flex">
+<span>def <span class="ident">insertNewSubjectinXML</span></span>(<span>self, newStudiesList, newSubjectID, suffix)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def insertNewSubjectinXML(self, newStudiesList, newSubjectID, suffix):
+    newAttributes = {&#39;id&#39;:newSubjectID, 
+                     &#39;typeID&#39;:suffix,
+                     &#39;checked&#39;: &#39;False&#39;}
+    &#34;&#34;&#34;
+    Adds a  new subject to the XML tree and populates it with the studies 
+    the list newStudiesList
+    &#34;&#34;&#34;
+    newSubject = ET.SubElement(self.root, &#39;subject&#39;, newAttributes)
+    for newStudy in newStudiesList:
+        dataset = ReadDICOM_Image.getDicomDataset(newStudy[0][0])
+        newStudyID = str(dataset.StudyDate) + &#34;_&#34; + str(dataset.StudyTime).split(&#34;.&#34;)[0] + &#34;_&#34; + str(dataset.StudyDescription)
+        self.insertNewStudyinXML(newStudy, newSubjectID, newStudyID, &#39;&#39;)</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.moveImageInXMLFile"><code class="name flex">
+<span>def <span class="ident">moveImageInXMLFile</span></span>(<span>self, subjectID, studyID, seriesID, newSubjectID, newStudyID, newSeriesID, imageName, suffix)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Moves an image from one series to another.</p>
+<p>Input arguments</p>
+<hr>
+<p>subjectID
+- Origin subject ID of image
+studyID - Origin study ID of image
+seriesID - Origin series ID of image
+newSubjectID - Destination subject ID of image
+newStudyID - Destination study ID of image
+newSeriesID - Destination series ID of image
+imageName - file path &amp; name of the image
+suffix - series and image name suffix</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def moveImageInXMLFile(self, subjectID, studyID, seriesID, newSubjectID, newStudyID, newSeriesID, imageName, suffix):
+    &#34;&#34;&#34;
+    Moves an image from one series to another.
+
+    Input arguments
+    ***************
+    subjectID  - Origin subject ID of image
+    studyID - Origin study ID of image
+    seriesID - Origin series ID of image
+    newSubjectID - Destination subject ID of image
+    newStudyID - Destination study ID of image
+    newSeriesID - Destination series ID of image
+    imageName - file path &amp; name of the image
+    suffix - series and image name suffix
+    &#34;&#34;&#34;
+    try:
+        self.insertNewImageInXML(imageName, imageName, newSubjectID, newStudyID, newSeriesID, suffix)
+        images = self._getImageList(subjectID, studyID, seriesID)
+        if len(images) == 1:
+            self.removeOneSeriesFromStudy(subjectID, studyID, seriesID)
+        elif len(images) &gt; 1:
+            self.removeOneImageFromSeries(subjectID, studyID, seriesID, imageName)
+    except Exception as e:
+        print(&#39;Error in InterfaceDICOMXMLFile.moveImageInXMLFile: &#39; + str(e)) 
+        logger.error(&#39;Error in InterfaceDICOMXMLFile.moveImageInXMLFile: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.objectID"><code class="name flex">
+<span>def <span class="ident">objectID</span></span>(<span>self, elem)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the ID as currently used within weasel as a list</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def objectID(self, elem):
+    &#34;&#34;&#34;Returns the ID as currently used within weasel as a list&#34;&#34;&#34;
+    branch = self.branch(elem)
+    if len(branch) == 2:
+        return [branch[1].attrib[&#39;id&#39;]]
+    elif len(branch) == 3:
+        return [branch[1].attrib[&#39;id&#39;], branch[2].attrib[&#39;id&#39;]]
+    elif len(branch) == 4:
+        return [branch[1].attrib[&#39;id&#39;], branch[2].attrib[&#39;id&#39;], branch[3].attrib[&#39;id&#39;]]
+    elif len(branch) == 5:
+        return [branch[1].attrib[&#39;id&#39;], branch[2].attrib[&#39;id&#39;], branch[3].attrib[&#39;id&#39;], branch[4].find(&#39;name&#39;).text ]</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.removeImageFromXMLFile"><code class="name flex">
+<span>def <span class="ident">removeImageFromXMLFile</span></span>(<span>self, imageFileName)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Removes an image from the DICOM XML file</p>
+<p>Input arguments</p>
+<hr>
+<p>imageFileName - file path including name of the image to be removed.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def removeImageFromXMLFile(self, imageFileName):
+    &#34;&#34;&#34;Removes an image from the DICOM XML file
+    
+    Input arguments
+    **************
+    imageFileName - file path including name of the image to be removed.
+    &#34;&#34;&#34;
+    try:
+        logger.info(&#34;WeaselXMLReader removeImageFromXMLFile called&#34;)
+        (subjectID, studyID, seriesID) = self.getImageParentIDs(imageFileName)
+        images = self._getImageList(subjectID, studyID, seriesID)
+        if len(images) == 1:
+            self.removeOneSeriesFromStudy(subjectID, studyID, seriesID)
+        elif len(images) &gt; 1:
+            self.removeOneImageFromSeries(subjectID, studyID, seriesID, imageFileName)
+    except Exception as e:
+        print(&#39;Error in WeaselXMLReader removeImageFromXMLFile: &#39; + str(e))
+        logger.error(&#39;Error in WeaselXMLReader removeImageFromXMLFile: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.removeMultipleImagesFromXMLFile"><code class="name flex">
+<span>def <span class="ident">removeMultipleImagesFromXMLFile</span></span>(<span>self, origImageList)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Removes a list of images from the DICOM XML file.</p>
+<p>Input arguments</p>
+<hr>
+<p>origImageList - list of file paths of the images to be removed.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def removeMultipleImagesFromXMLFile(self, origImageList):
+    &#34;&#34;&#34;
+    Removes a list of images from the DICOM XML file.
+    
+    Input arguments
+    ***************
+    origImageList - list of file paths of the images to be removed.
+    &#34;&#34;&#34;
+    try:
+        logger.info(&#34;WeaselXMLReader removeMultipleImagesFromXMLFile called&#34;)
+        for image in origImageList:
+            self.removeImageFromXMLFile(image)
+    except Exception as e:
+        print(&#39;Error in WeaselXMLReader removeMultipleImagesFromXMLFile: &#39; + str(e))
+        logger.error(&#39;Error in WeaselXMLReader removeMultipleImagesFromXMLFile: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.removeOneImageFromSeries"><code class="name flex">
+<span>def <span class="ident">removeOneImageFromSeries</span></span>(<span>self, subjectID, studyID, seriesID, imagePath)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function removes a single image from a series in the XML file.</p>
+<p>Input arguments</p>
+<hr>
+<p>subjectID
+- ID of the subject to which this image belongs
+studyID - ID of the study to which this image belongs
+seriesID - ID of the series to which this image belongs</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def removeOneImageFromSeries(self, subjectID, studyID, seriesID, imagePath):
+    &#34;&#34;&#34;
+    This function removes a single image from a series in the XML file.
+
+    Input arguments
+    ***************
+    subjectID  - ID of the subject to which this image belongs
+    studyID - ID of the study to which this image belongs
+    seriesID - ID of the series to which this image belongs
+    &#34;&#34;&#34;
+    try:
+        series = self.getSeries(subjectID, studyID, seriesID)
+
+        if series:
+            for image in series:
+                if image.find(&#39;name&#39;).text == imagePath:
+                    series.remove(image)
+                    break
+    except Exception as e:
+        print(&#39;Error in WeaselXMLReader.removeOneImageFromSeries: &#39; + str(e)) 
+        logger.error(&#39;Error in WeaselXMLReader.removeOneImageFromSeries: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.removeOneSeriesFromStudy"><code class="name flex">
+<span>def <span class="ident">removeOneSeriesFromStudy</span></span>(<span>self, subjectID, studyID, seriesID)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Removes a whole series from the DICOM XML file</p>
+<p>Input arguments</p>
+<hr>
+<p>subjectID
+- ID of the subject to which this series belongs
+studyID - ID of the study to which this series belongs
+seriesID - ID of the series to be removed</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def removeOneSeriesFromStudy(self, subjectID, studyID, seriesID):
+    &#34;&#34;&#34;
+    Removes a whole series from the DICOM XML file
+    
+    Input arguments
+    ***************
+    subjectID  - ID of the subject to which this series belongs
+    studyID - ID of the study to which this series belongs
+    seriesID - ID of the series to be removed
+    &#34;&#34;&#34;
+    try:
+        logger.info(&#34;WeaselXMLReader removeOneSeriesFromStudy called&#34;)
+        seriesList = self.getStudy(subjectID, studyID)
+        if len(seriesList) == 1:
+            self.removeOneStudyFromSubject(subjectID, studyID)
+        elif len(seriesList) &gt; 1:
+            self._removeOneSeriesFromXMLFile(subjectID, studyID, seriesID)
+    except Exception as e:
+        print(&#39;Error in WeaselXMLReader removeOneSeriesFromStudy: &#39; + str(e))
+        logger.error(&#39;Error in WeaselXMLReader removeOneSeriesFromStudy: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.removeOneStudyFromSubject"><code class="name flex">
+<span>def <span class="ident">removeOneStudyFromSubject</span></span>(<span>self, subjectID, studyID)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Removes a study from the given subject from the DICOM XML file</p>
+<p>Input arguments</p>
+<hr>
+<p>subjectID
+- ID of the subject to which this study belongs
+studyID - ID of the study to be removed</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def removeOneStudyFromSubject(self, subjectID, studyID):
+    &#34;&#34;&#34;
+    Removes a study from the given subject from the DICOM XML file
+    
+    Input arguments
+    ***************
+    subjectID  - ID of the subject to which this study belongs
+    studyID - ID of the study to be removed
+    &#34;&#34;&#34;
+    try:
+        logger.info(&#34;WeaselXMLReader removeOneStudyFromSubject called&#34;)
+        studiesList = self.getSubject(subjectID)
+        if len(studiesList) == 1:
+            self.removeSubjectFromXMLFile(subjectID)
+        elif len(studiesList) &gt; 1:
+            self._removeOneStudyFromXMLFile(subjectID, studyID)
+    except Exception as e:
+        print(&#39;Error in WeaselXMLReader removeOneStudyFromSubject: &#39; + str(e))
+        logger.error(&#39;Error in WeaselXMLReader removeOneStudyFromSubject: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.removeSubjectFromXMLFile"><code class="name flex">
+<span>def <span class="ident">removeSubjectFromXMLFile</span></span>(<span>self, subjectID)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Removes a subject with ID, subjectID, from the DICOM XML file</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def removeSubjectFromXMLFile(self, subjectID):
+    &#34;&#34;&#34;
+    Removes a subject with ID, subjectID, from the DICOM XML file
+    &#34;&#34;&#34;
+    try:
+        logger.info(&#34;WeaselXMLReader removeSubjectFromXMLFile called&#34;)
+        subject = self.getSubject(subjectID)
+        if subject:
+            self.root.remove(subject)
+        else:
+            print(&#34;Unable to remove subject {}&#34;.format(subjectID))
+    except Exception as e:
+        print(&#39;Error in WeaselXMLReader removeSubjectFromXMLFile: &#39; + str(e))
+        logger.error(&#39;Error in WeaselXMLReader removeSubjectFromXMLFile: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.renameSeriesinXMLFile"><code class="name flex">
+<span>def <span class="ident">renameSeriesinXMLFile</span></span>(<span>self, imageList, series_id=None, series_name=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Renames a whole series in the DICOM XML file</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def renameSeriesinXMLFile(self, imageList, series_id=None, series_name=None):
+    &#34;&#34;&#34;Renames a whole series in the DICOM XML file&#34;&#34;&#34;
+    try:
+        logger.info(&#34;InterfaceDICOMXMLFile renameSeriesinXMLFile called&#34;)
+        (subjectID, studyID, seriesID) = self.getImageParentIDs(imageList[0])
+        seriesNumber = str(ReadDICOM_Image.getDicomDataset(imageList[0]).SeriesNumber) if series_id is None else str(series_id)
+        try:
+            newName = str(ReadDICOM_Image.getDicomDataset(imageList[0]).SeriesDescription) if series_name is None else str(series_name)
+        except:
+            try:
+                newName = str(ReadDICOM_Image.getDicomDataset(imageList[0]).SequenceName) if series_name is None else str(series_name)
+            except:
+                newName = str(ReadDICOM_Image.getDicomDataset(imageList[0]).ProtocolName) if series_name is None else str(series_name)
+        xmlSeriesName = seriesNumber + &#34;_&#34; + newName
+        self.getSeries(subjectID, studyID, seriesID).attrib[&#39;id&#39;] = xmlSeriesName
+    except Exception as e:
+        print(&#39;Error in InterfaceDICOMXMLFile removeOneSeriesFromStudy: &#39; + str(e))
+        logger.error(&#39;Error in InterfaceDICOMXMLFile removeOneSeriesFromStudy: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.save"><code class="name flex">
+<span>def <span class="ident">save</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Saves the contents of the XML tree in memory to a physical file.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def save(self):
+    &#34;&#34;&#34;
+    Saves the contents of the XML tree in memory to a physical file.
+    &#34;&#34;&#34;
+    try:
+        self.tree.write(self.file)
+    except Exception as e:
+        print(&#39;Error in WeaselXMLReader.saveXMLFile: &#39; + str(e)) 
+        logger.error(&#39;Error in WeaselXMLReader.saveXMLFile: &#39; + str(e))</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="Weasel.CoreModules" href="index.html">Weasel.CoreModules</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader">WeaselXMLReader</a></code></h4>
+<ul class="">
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.branch" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.branch">branch</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.checkedImages" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.checkedImages">checkedImages</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.checkedSeries" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.checkedSeries">checkedSeries</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.checkedStudies" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.checkedStudies">checkedStudies</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.checkedSubjects" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.checkedSubjects">checkedSubjects</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.getImageLabel" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.getImageLabel">getImageLabel</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.getImageParentIDs" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.getImageParentIDs">getImageParentIDs</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.getImagePathList" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.getImagePathList">getImagePathList</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.getNewSeriesName" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.getNewSeriesName">getNewSeriesName</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.getNumImagesInSeries" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.getNumImagesInSeries">getNumImagesInSeries</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.getSeries" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.getSeries">getSeries</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.getStudy" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.getStudy">getStudy</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.getSubject" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.getSubject">getSubject</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.insertNewImageInXML" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.insertNewImageInXML">insertNewImageInXML</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.insertNewImageInXMLFile" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.insertNewImageInXMLFile">insertNewImageInXMLFile</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.insertNewSeriesInXML" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.insertNewSeriesInXML">insertNewSeriesInXML</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.insertNewSeriesInXMLFile" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.insertNewSeriesInXMLFile">insertNewSeriesInXMLFile</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.insertNewStudyInXMLFile" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.insertNewStudyInXMLFile">insertNewStudyInXMLFile</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.insertNewStudyinXML" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.insertNewStudyinXML">insertNewStudyinXML</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.insertNewSubjectinXML" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.insertNewSubjectinXML">insertNewSubjectinXML</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.moveImageInXMLFile" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.moveImageInXMLFile">moveImageInXMLFile</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.objectID" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.objectID">objectID</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.removeImageFromXMLFile" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.removeImageFromXMLFile">removeImageFromXMLFile</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.removeMultipleImagesFromXMLFile" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.removeMultipleImagesFromXMLFile">removeMultipleImagesFromXMLFile</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.removeOneImageFromSeries" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.removeOneImageFromSeries">removeOneImageFromSeries</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.removeOneSeriesFromStudy" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.removeOneSeriesFromStudy">removeOneSeriesFromStudy</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.removeOneStudyFromSubject" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.removeOneStudyFromSubject">removeOneStudyFromSubject</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.removeSubjectFromXMLFile" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.removeSubjectFromXMLFile">removeSubjectFromXMLFile</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.renameSeriesinXMLFile" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.renameSeriesinXMLFile">renameSeriesinXMLFile</a></code></li>
+<li><code><a title="Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.save" href="#Weasel.CoreModules.WeaselXMLReader.WeaselXMLReader.save">save</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

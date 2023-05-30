@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>Weasel.Pipelines API documentation</title>
+<meta name="description" content="A collection of Weasel buttons that contain processes and calculations that are performed in the GUI …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>Weasel.Pipelines</code></h1>
+</header>
+<section id="section-intro">
+<p>A collection of Weasel buttons that contain processes and calculations that are performed in the GUI.</p>
+<p>Some of the buttons (the ones where the filename starts with "Tutorial__") are good examples of how to develop new pipelines for Weasel and how to extend its usage.</p>
+<p>The golden rule for every pipeline is that every file/button contains a main function with "weasel" as the only input argument: <code>def main(weasel):</code>. The developer can import and use any python packages that are necessary for processing within each pipeline.</p>
+<p>For more information and details about the functions and classes belonging to the input argument "weasel", please consult the documentation of the <code>API</code> module. Examples such as <code>weasel.images()</code> and <code>weasel.progress_bar()</code> can be found in the <code>ReadWrite.py</code> and <code>Messaging.py</code> files respectively inside the <code>API</code> folder.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+A collection of Weasel buttons that contain processes and calculations that are performed in the GUI.
+
+Some of the buttons (the ones where the filename starts with &#34;Tutorial__&#34;) are good examples of how to develop new pipelines for Weasel and how to extend its usage.
+
+The golden rule for every pipeline is that every file/button contains a main function with &#34;weasel&#34; as the only input argument: `def main(weasel): `. The developer can import and use any python packages that are necessary for processing within each pipeline.
+
+For more information and details about the functions and classes belonging to the input argument &#34;weasel&#34;, please consult the documentation of the `API` module. Examples such as `weasel.images()` and `weasel.progress_bar()` can be found in the `ReadWrite.py` and `Messaging.py` files respectively inside the `API` folder.
+&#34;&#34;&#34;</code></pre>
+</details>
+</section>
+<section>
+<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+<dl>
+<dt><code class="name"><a title="Weasel.Pipelines.Edit__Anonymise" href="Edit__Anonymise.html">Weasel.Pipelines.Edit__Anonymise</a></code></dt>
+<dd>
+<div class="desc"><p>Anonymises the checked images showing progress with a status bar.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.Edit__AnonymiseCopy" href="Edit__AnonymiseCopy.html">Weasel.Pipelines.Edit__AnonymiseCopy</a></code></dt>
+<dd>
+<div class="desc"><p>Anonymises a copy of the checked images showing progress with a status bar.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.Edit__CopyImages" href="Edit__CopyImages.html">Weasel.Pipelines.Edit__CopyImages</a></code></dt>
+<dd>
+<div class="desc"><p>Creates a copy of the checked images in the same series showing progress with a status bar.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.Edit__CopySeries" href="Edit__CopySeries.html">Weasel.Pipelines.Edit__CopySeries</a></code></dt>
+<dd>
+<div class="desc"><p>Creates a copy of all of the checked series as siblings in the same study showing progress with a status bar and displaying the copied series.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.Edit__CopyStudies" href="Edit__CopyStudies.html">Weasel.Pipelines.Edit__CopyStudies</a></code></dt>
+<dd>
+<div class="desc"><p>Creates a copy of the checked studies showing progress with a status bar.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.Edit__CopySubject" href="Edit__CopySubject.html">Weasel.Pipelines.Edit__CopySubject</a></code></dt>
+<dd>
+<div class="desc"><p>Creates a copy of the checked subjects showing progress with a status bar.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.Edit__DeleteImages" href="Edit__DeleteImages.html">Weasel.Pipelines.Edit__DeleteImages</a></code></dt>
+<dd>
+<div class="desc"><p>Deletes the selected images showing progress with a status bar.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.Edit__DeleteSeries" href="Edit__DeleteSeries.html">Weasel.Pipelines.Edit__DeleteSeries</a></code></dt>
+<dd>
+<div class="desc"><p>Deletes the selected series showing progress with a status bar.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.Edit__DeleteStudies" href="Edit__DeleteStudies.html">Weasel.Pipelines.Edit__DeleteStudies</a></code></dt>
+<dd>
+<div class="desc"><p>Creates a copy of the checked studies showing progress with a status bar.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.Edit__DeleteSubject" href="Edit__DeleteSubject.html">Weasel.Pipelines.Edit__DeleteSubject</a></code></dt>
+<dd>
+<div class="desc"><p>Creates a copy of the checked studies showing progress with a status bar.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.Edit__MergeImages" href="Edit__MergeImages.html">Weasel.Pipelines.Edit__MergeImages</a></code></dt>
+<dd>
+<div class="desc"><p>Merges the Images checked by the user into a new series under the same study.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.Edit__MergeImagesCopy" href="Edit__MergeImagesCopy.html">Weasel.Pipelines.Edit__MergeImagesCopy</a></code></dt>
+<dd>
+<div class="desc"><p>Merges the Images checked by the user into a new series under the same study, preserving a copy of the original images in the original series.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.Edit__MergeSeries" href="Edit__MergeSeries.html">Weasel.Pipelines.Edit__MergeSeries</a></code></dt>
+<dd>
+<div class="desc"><p>Merges the series checked by the user into a new series under the same study.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.Edit__MergeSeriesCopy" href="Edit__MergeSeriesCopy.html">Weasel.Pipelines.Edit__MergeSeriesCopy</a></code></dt>
+<dd>
+<div class="desc"><p>Merges the series checked by the user into a new series under the same study.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.File__CloseDICOM" href="File__CloseDICOM.html">Weasel.Pipelines.File__CloseDICOM</a></code></dt>
+<dd>
+<div class="desc"><p>Close the DICOM folder and update display</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.File__ExportToCSV" href="File__ExportToCSV.html">Weasel.Pipelines.File__ExportToCSV</a></code></dt>
+<dd>
+<div class="desc"><p>Saves the pixel arrays of the checked images/series as .csv files.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.File__ExportToNIfTI" href="File__ExportToNIfTI.html">Weasel.Pipelines.File__ExportToNIfTI</a></code></dt>
+<dd>
+<div class="desc"><p>Saves the pixel arrays of the checked images/series as .nii.gz files.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.File__OpenDICOM" href="File__OpenDICOM.html">Weasel.Pipelines.File__OpenDICOM</a></code></dt>
+<dd>
+<div class="desc"><p>Open a DICOM folder and update display.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.File__ReadDICOM" href="File__ReadDICOM.html">Weasel.Pipelines.File__ReadDICOM</a></code></dt>
+<dd>
+<div class="desc"><p>Reopen and load the DICOM folder and presented in the display.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.File__ResetTreeView" href="File__ResetTreeView.html">Weasel.Pipelines.File__ResetTreeView</a></code></dt>
+<dd>
+<div class="desc"><p>Clear all selections in the check boxes.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.File__SaveTreeView" href="File__SaveTreeView.html">Weasel.Pipelines.File__SaveTreeView</a></code></dt>
+<dd>
+<div class="desc"><p>Saves all selections in the check boxes into the .xml file holding the dataset information/index.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.Help__WeaselWeb" href="Help__WeaselWeb.html">Weasel.Pipelines.Help__WeaselWeb</a></code></dt>
+<dd>
+<div class="desc"><p>This help button forwards the user to the website <a href="https://weasel.pro.">https://weasel.pro.</a></p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.Test_CreateSeriesBySliceLocation" href="Test_CreateSeriesBySliceLocation.html">Weasel.Pipelines.Test_CreateSeriesBySliceLocation</a></code></dt>
+<dd>
+<div class="desc"><p>Create new series holding images of the same slice location. If images are selected from multiple studies then a new series is created inside each study.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.Test_MergeSeriesByAcquisitionTime" href="Test_MergeSeriesByAcquisitionTime.html">Weasel.Pipelines.Test_MergeSeriesByAcquisitionTime</a></code></dt>
+<dd>
+<div class="desc"><p>Find all series with the same acquisition time and merge them into a new series of the same study.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.Tutorial__BinaryOperations" href="Tutorial__BinaryOperations.html">Weasel.Pipelines.Tutorial__BinaryOperations</a></code></dt>
+<dd>
+<div class="desc"><p>Performs a binary operation on two images and saves them in a new series, image by image and showing a progress bar.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.Tutorial__GaussianPixelValuesInNewSeries" href="Tutorial__GaussianPixelValuesInNewSeries.html">Weasel.Pipelines.Tutorial__GaussianPixelValuesInNewSeries</a></code></dt>
+<dd>
+<div class="desc"><p>Apply Gaussian filter to a number of selected images in new series.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.Tutorial__HelloWorld" href="Tutorial__HelloWorld.html">Weasel.Pipelines.Tutorial__HelloWorld</a></code></dt>
+<dd>
+<div class="desc"><p>Displays a message window in the Weasel GUI saying "Hello World".</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.Tutorial__InvertPixelValues" href="Tutorial__InvertPixelValues.html">Weasel.Pipelines.Tutorial__InvertPixelValues</a></code></dt>
+<dd>
+<div class="desc"><p>Inverts a number of selected images in place, image by image and showing a progress bar.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.Tutorial__InvertPixelValuesInNewSeries" href="Tutorial__InvertPixelValuesInNewSeries.html">Weasel.Pipelines.Tutorial__InvertPixelValuesInNewSeries</a></code></dt>
+<dd>
+<div class="desc"><p>Inverts a number of selected images and saves them in a new series, image by image and showing a progress bar.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.Tutorial__InvertPixelValuesSeries" href="Tutorial__InvertPixelValuesSeries.html">Weasel.Pipelines.Tutorial__InvertPixelValuesSeries</a></code></dt>
+<dd>
+<div class="desc"><p>Inverts a number of selected images in place, series by series and showing a progress bar.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.Tutorial__InvertPixelValuesSeriesInNewSeries" href="Tutorial__InvertPixelValuesSeriesInNewSeries.html">Weasel.Pipelines.Tutorial__InvertPixelValuesSeriesInNewSeries</a></code></dt>
+<dd>
+<div class="desc"><p>Inverts the images in a number of selected series and saves them in a new series, series by series and showing a progress bar.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.Tutorial__LocalFilterImages" href="Tutorial__LocalFilterImages.html">Weasel.Pipelines.Tutorial__LocalFilterImages</a></code></dt>
+<dd>
+<div class="desc"><p>Applies a local filter to checked images and saves them in a new series, image by image and showing a progress bar. Filter settings are derived …</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.Tutorial__Message" href="Tutorial__Message.html">Weasel.Pipelines.Tutorial__Message</a></code></dt>
+<dd>
+<div class="desc"><p>Tutorial showing the use of the Message Window in the Weasel GUI.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.Tutorial__ProgressBar" href="Tutorial__ProgressBar.html">Weasel.Pipelines.Tutorial__ProgressBar</a></code></dt>
+<dd>
+<div class="desc"><p>Tutorial showing the use of the Progress Bar in the Weasel GUI.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.Tutorial__ThresholdPixelValuesInNewSeries" href="Tutorial__ThresholdPixelValuesInNewSeries.html">Weasel.Pipelines.Tutorial__ThresholdPixelValuesInNewSeries</a></code></dt>
+<dd>
+<div class="desc"><p>Thresholds a number of selected images into a new series.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.Tutorial__UserInput" href="Tutorial__UserInput.html">Weasel.Pipelines.Tutorial__UserInput</a></code></dt>
+<dd>
+<div class="desc"><p>Tutorial showing the use of user_input(). It runs the user input window in various configurations.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.View__CloseAllSubWindows" href="View__CloseAllSubWindows.html">Weasel.Pipelines.View__CloseAllSubWindows</a></code></dt>
+<dd>
+<div class="desc"><p>Closes all the sub windows that are currently open in the Weasel GUI.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.View__DICOMheader" href="View__DICOMheader.html">Weasel.Pipelines.View__DICOMheader</a></code></dt>
+<dd>
+<div class="desc"><p>Creates a subwindow that displays a DICOM image's metadata.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.View__DisplayImages" href="View__DisplayImages.html">Weasel.Pipelines.View__DisplayImages</a></code></dt>
+<dd>
+<div class="desc"><p>Displays a subwindow in the Weasel GUI containing a viewer of the selected images.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.View__ImageMultiSlider" href="View__ImageMultiSlider.html">Weasel.Pipelines.View__ImageMultiSlider</a></code></dt>
+<dd>
+<div class="desc"><p>Displays a subwindow in the Weasel GUI containing a viewer of the selected images …</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.View__ImageMultiSliderROI" href="View__ImageMultiSliderROI.html">Weasel.Pipelines.View__ImageMultiSliderROI</a></code></dt>
+<dd>
+<div class="desc"><p>Displays a DICOM image or series with ROI drawing tools.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.View__TileAllSubWindows" href="View__TileAllSubWindows.html">Weasel.Pipelines.View__TileAllSubWindows</a></code></dt>
+<dd>
+<div class="desc"><p>Tiles all the sub windows that are currently open in the Weasel GUI.</p></div>
+</dd>
+<dt><code class="name"><a title="Weasel.Pipelines.XNAT__App" href="XNAT__App.html">Weasel.Pipelines.XNAT__App</a></code></dt>
+<dd>
+<div class="desc"><p>Prompts an Input Window where the user can insert their XNAT portal credentials and download or upload the selected DICOM images.</p></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="Weasel" href="../index.html">Weasel</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<ul>
+<li><code><a title="Weasel.Pipelines.Edit__Anonymise" href="Edit__Anonymise.html">Weasel.Pipelines.Edit__Anonymise</a></code></li>
+<li><code><a title="Weasel.Pipelines.Edit__AnonymiseCopy" href="Edit__AnonymiseCopy.html">Weasel.Pipelines.Edit__AnonymiseCopy</a></code></li>
+<li><code><a title="Weasel.Pipelines.Edit__CopyImages" href="Edit__CopyImages.html">Weasel.Pipelines.Edit__CopyImages</a></code></li>
+<li><code><a title="Weasel.Pipelines.Edit__CopySeries" href="Edit__CopySeries.html">Weasel.Pipelines.Edit__CopySeries</a></code></li>
+<li><code><a title="Weasel.Pipelines.Edit__CopyStudies" href="Edit__CopyStudies.html">Weasel.Pipelines.Edit__CopyStudies</a></code></li>
+<li><code><a title="Weasel.Pipelines.Edit__CopySubject" href="Edit__CopySubject.html">Weasel.Pipelines.Edit__CopySubject</a></code></li>
+<li><code><a title="Weasel.Pipelines.Edit__DeleteImages" href="Edit__DeleteImages.html">Weasel.Pipelines.Edit__DeleteImages</a></code></li>
+<li><code><a title="Weasel.Pipelines.Edit__DeleteSeries" href="Edit__DeleteSeries.html">Weasel.Pipelines.Edit__DeleteSeries</a></code></li>
+<li><code><a title="Weasel.Pipelines.Edit__DeleteStudies" href="Edit__DeleteStudies.html">Weasel.Pipelines.Edit__DeleteStudies</a></code></li>
+<li><code><a title="Weasel.Pipelines.Edit__DeleteSubject" href="Edit__DeleteSubject.html">Weasel.Pipelines.Edit__DeleteSubject</a></code></li>
+<li><code><a title="Weasel.Pipelines.Edit__MergeImages" href="Edit__MergeImages.html">Weasel.Pipelines.Edit__MergeImages</a></code></li>
+<li><code><a title="Weasel.Pipelines.Edit__MergeImagesCopy" href="Edit__MergeImagesCopy.html">Weasel.Pipelines.Edit__MergeImagesCopy</a></code></li>
+<li><code><a title="Weasel.Pipelines.Edit__MergeSeries" href="Edit__MergeSeries.html">Weasel.Pipelines.Edit__MergeSeries</a></code></li>
+<li><code><a title="Weasel.Pipelines.Edit__MergeSeriesCopy" href="Edit__MergeSeriesCopy.html">Weasel.Pipelines.Edit__MergeSeriesCopy</a></code></li>
+<li><code><a title="Weasel.Pipelines.File__CloseDICOM" href="File__CloseDICOM.html">Weasel.Pipelines.File__CloseDICOM</a></code></li>
+<li><code><a title="Weasel.Pipelines.File__ExportToCSV" href="File__ExportToCSV.html">Weasel.Pipelines.File__ExportToCSV</a></code></li>
+<li><code><a title="Weasel.Pipelines.File__ExportToNIfTI" href="File__ExportToNIfTI.html">Weasel.Pipelines.File__ExportToNIfTI</a></code></li>
+<li><code><a title="Weasel.Pipelines.File__OpenDICOM" href="File__OpenDICOM.html">Weasel.Pipelines.File__OpenDICOM</a></code></li>
+<li><code><a title="Weasel.Pipelines.File__ReadDICOM" href="File__ReadDICOM.html">Weasel.Pipelines.File__ReadDICOM</a></code></li>
+<li><code><a title="Weasel.Pipelines.File__ResetTreeView" href="File__ResetTreeView.html">Weasel.Pipelines.File__ResetTreeView</a></code></li>
+<li><code><a title="Weasel.Pipelines.File__SaveTreeView" href="File__SaveTreeView.html">Weasel.Pipelines.File__SaveTreeView</a></code></li>
+<li><code><a title="Weasel.Pipelines.Help__WeaselWeb" href="Help__WeaselWeb.html">Weasel.Pipelines.Help__WeaselWeb</a></code></li>
+<li><code><a title="Weasel.Pipelines.Test_CreateSeriesBySliceLocation" href="Test_CreateSeriesBySliceLocation.html">Weasel.Pipelines.Test_CreateSeriesBySliceLocation</a></code></li>
+<li><code><a title="Weasel.Pipelines.Test_MergeSeriesByAcquisitionTime" href="Test_MergeSeriesByAcquisitionTime.html">Weasel.Pipelines.Test_MergeSeriesByAcquisitionTime</a></code></li>
+<li><code><a title="Weasel.Pipelines.Tutorial__BinaryOperations" href="Tutorial__BinaryOperations.html">Weasel.Pipelines.Tutorial__BinaryOperations</a></code></li>
+<li><code><a title="Weasel.Pipelines.Tutorial__GaussianPixelValuesInNewSeries" href="Tutorial__GaussianPixelValuesInNewSeries.html">Weasel.Pipelines.Tutorial__GaussianPixelValuesInNewSeries</a></code></li>
+<li><code><a title="Weasel.Pipelines.Tutorial__HelloWorld" href="Tutorial__HelloWorld.html">Weasel.Pipelines.Tutorial__HelloWorld</a></code></li>
+<li><code><a title="Weasel.Pipelines.Tutorial__InvertPixelValues" href="Tutorial__InvertPixelValues.html">Weasel.Pipelines.Tutorial__InvertPixelValues</a></code></li>
+<li><code><a title="Weasel.Pipelines.Tutorial__InvertPixelValuesInNewSeries" href="Tutorial__InvertPixelValuesInNewSeries.html">Weasel.Pipelines.Tutorial__InvertPixelValuesInNewSeries</a></code></li>
+<li><code><a title="Weasel.Pipelines.Tutorial__InvertPixelValuesSeries" href="Tutorial__InvertPixelValuesSeries.html">Weasel.Pipelines.Tutorial__InvertPixelValuesSeries</a></code></li>
+<li><code><a title="Weasel.Pipelines.Tutorial__InvertPixelValuesSeriesInNewSeries" href="Tutorial__InvertPixelValuesSeriesInNewSeries.html">Weasel.Pipelines.Tutorial__InvertPixelValuesSeriesInNewSeries</a></code></li>
+<li><code><a title="Weasel.Pipelines.Tutorial__LocalFilterImages" href="Tutorial__LocalFilterImages.html">Weasel.Pipelines.Tutorial__LocalFilterImages</a></code></li>
+<li><code><a title="Weasel.Pipelines.Tutorial__Message" href="Tutorial__Message.html">Weasel.Pipelines.Tutorial__Message</a></code></li>
+<li><code><a title="Weasel.Pipelines.Tutorial__ProgressBar" href="Tutorial__ProgressBar.html">Weasel.Pipelines.Tutorial__ProgressBar</a></code></li>
+<li><code><a title="Weasel.Pipelines.Tutorial__ThresholdPixelValuesInNewSeries" href="Tutorial__ThresholdPixelValuesInNewSeries.html">Weasel.Pipelines.Tutorial__ThresholdPixelValuesInNewSeries</a></code></li>
+<li><code><a title="Weasel.Pipelines.Tutorial__UserInput" href="Tutorial__UserInput.html">Weasel.Pipelines.Tutorial__UserInput</a></code></li>
+<li><code><a title="Weasel.Pipelines.View__CloseAllSubWindows" href="View__CloseAllSubWindows.html">Weasel.Pipelines.View__CloseAllSubWindows</a></code></li>
+<li><code><a title="Weasel.Pipelines.View__DICOMheader" href="View__DICOMheader.html">Weasel.Pipelines.View__DICOMheader</a></code></li>
+<li><code><a title="Weasel.Pipelines.View__DisplayImages" href="View__DisplayImages.html">Weasel.Pipelines.View__DisplayImages</a></code></li>
+<li><code><a title="Weasel.Pipelines.View__ImageMultiSlider" href="View__ImageMultiSlider.html">Weasel.Pipelines.View__ImageMultiSlider</a></code></li>
+<li><code><a title="Weasel.Pipelines.View__ImageMultiSliderROI" href="View__ImageMultiSliderROI.html">Weasel.Pipelines.View__ImageMultiSliderROI</a></code></li>
+<li><code><a title="Weasel.Pipelines.View__TileAllSubWindows" href="View__TileAllSubWindows.html">Weasel.Pipelines.View__TileAllSubWindows</a></code></li>
+<li><code><a title="Weasel.Pipelines.XNAT__App" href="XNAT__App.html">Weasel.Pipelines.XNAT__App</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

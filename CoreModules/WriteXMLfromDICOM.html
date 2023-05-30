@@ -1,0 +1,1031 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>Weasel.CoreModules.WriteXMLfromDICOM API documentation</title>
+<meta name="description" content="Class for reading the DICOM files and folders selected by the user and store its structure information in an XML file …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>Weasel.CoreModules.WriteXMLfromDICOM</code></h1>
+</header>
+<section id="section-intro">
+<p>Class for reading the DICOM files and folders selected by the user and store its structure information in an XML file.</p>
+<p>It ouptputs an XML file that describes a DICOM file structure that is used to build a tree view showing a visual representation of that file structure (see <code>TreeView.py</code>).</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+Class for reading the DICOM files and folders selected by the user and store its structure information in an XML file.
+
+It ouptputs an XML file that describes a DICOM file structure that is used to build a tree view showing a visual representation of that file structure (see `TreeView.py`).
+&#34;&#34;&#34;
+import os
+import sys
+import time
+import pathlib
+import subprocess
+import re
+import datetime
+import numpy as np
+from pydicom import Dataset, DataElement, dcmread
+import xml.etree.ElementTree as ET
+from xml.dom import minidom
+from collections import defaultdict
+from PyQt5.QtWidgets import (QApplication, QFileDialog, QMessageBox)
+
+import logging
+logger = logging.getLogger(__name__)
+
+
+def get_files_info(scan_directory):
+    &#34;&#34;&#34;This method returns the number of files and subfolders in a folder. It doesn&#39;t mean that they are all DICOM.
+    &#34;&#34;&#34;
+    try:
+        logger.info(&#34;WriteXMLfromDICOM.get_files_info called&#34;)
+        number_files = 0
+        number_folders = 0
+        for _, sub_folders, file_list in os.walk(scan_directory):
+            number_files += len(file_list)
+            number_folders += len(sub_folders)
+        if number_files == 0:
+            raise FileNotFoundError(&#39;No files present in the selected folder&#39;)
+        return number_files, number_folders
+    except Exception as e:
+        print(&#39;Error in WriteXMLfromDICOM.get_files_info: &#39; + str(e))
+        logger.exception(&#39;Error in WriteXMLfromDICOM.get_files_info: &#39; + str(e))
+
+
+def atof(text):
+    &#34;&#34;&#34; This function is auxiliary for the natural sorting of the paths names&#34;&#34;&#34;
+    try:
+        retval = float(text)
+    except ValueError:
+        retval = text
+    return retval
+
+
+def natural_keys(text):
+    &#34;&#34;&#34;
+    alist.sort(key=natural_keys) sorts in human order
+    http://nedbatchelder.com/blog/200712/human_sorting.html
+    (See Toothy&#39;s implementation in the comments)
+    float regex comes from https://stackoverflow.com/a/12643073/190597
+    &#34;&#34;&#34;
+    return [atof(c) for c in re.split(r&#39;[+-]?([0-9]+(?:[.][0-9]*)?|[.][0-9]+)&#39;, text)]
+
+
+def series_sort(elem):
+    &#34;&#34;&#34;
+    This is a helper function that will be used in key argument of sorted()
+    in order to sort the list of series by series number
+    &#34;&#34;&#34;
+    # return int(elem.split(&#34;_&#34;)[-1]) # USE THIS IF %SeriesDescription_%SeriesNumber
+    return int(elem.split(&#34;_&#34;)[0])
+
+
+def scan_tree(scan_directory):
+    &#34;&#34;&#34;Recursively yield DirEntry objects for given directory.&#34;&#34;&#34;
+    for entry in os.scandir(scan_directory):
+        if entry.is_dir(follow_symlinks=False):
+            yield from scan_tree(entry.path)
+        else:
+            yield entry
+
+
+def get_scan_data(scan_directory, progBarMsg, self):
+    &#34;&#34;&#34;This method opens all DICOM files in the provided path recursively and saves 
+        each file individually as a variable into a list/array.
+    &#34;&#34;&#34;
+    try:
+        logger.info(&#34;WriteXMLfromDICOM.get_scan_data called&#34;)
+        list_paths = list()
+        list_dicom = list()
+        file_list = [item.path for item in scan_tree(scan_directory) if item.is_file()]
+        file_list.sort(key=natural_keys)
+        multiframe_files_list = list()
+        self.progress_bar(max=len(file_list), index=0, msg=progBarMsg, title=&#34;Loading DICOM&#34;)
+        fileCounter = 0
+        multiframeCounter = 0
+        for filepath in file_list:
+            try:
+                fileCounter += 1
+                self.update_progress_bar(index=fileCounter)
+                list_tags = [&#39;InstanceNumber&#39;, &#39;SOPInstanceUID&#39;, &#39;PixelData&#39;, &#39;FloatPixelData&#39;, &#39;DoubleFloatPixelData&#39;, &#39;AcquisitionTime&#39;,
+                             &#39;AcquisitionDate&#39;, &#39;SeriesTime&#39;, &#39;SeriesDate&#39;, &#39;PatientName&#39;, &#39;PatientID&#39;, &#39;StudyDate&#39;, &#39;StudyTime&#39;, 
+                             &#39;SeriesDescription&#39;, &#39;StudyDescription&#39;, &#39;SequenceName&#39;, &#39;ProtocolName&#39;, &#39;SeriesNumber&#39;, &#39;PerFrameFunctionalGroupsSequence&#39;,
+                             &#39;StudyInstanceUID&#39;, &#39;SeriesInstanceUID&#39;]
+                dataset = dcmread(filepath, specific_tags=list_tags) # Check the force=True flag once in a while
+                if not hasattr(dataset, &#39;SeriesDescription&#39;) and not hasattr(dataset, &#39;StudyDescription&#39;):
+                    elemSeries = DataElement(0x0008103E, &#39;LO&#39;, &#39;No Series Description&#39;)
+                    elemStudy = DataElement(0x00081030, &#39;LO&#39;, &#39;No Study Description&#39;)
+                    with dcmread(filepath, force=True) as ds:
+                        ds.add(elemSeries)
+                        ds.add(elemStudy)
+                        ds.save_as(filepath)
+                    dataset.SeriesDescription = &#39;No Series Description&#39;
+                    dataset.StudyDescription = &#39;No Study Description&#39;
+                elif not hasattr(dataset, &#39;SeriesDescription&#39;):
+                    elem = DataElement(0x0008103E, &#39;LO&#39;, &#39;No Series Description&#39;)
+                    with dcmread(filepath, force=True) as ds:
+                        ds.add(elem)
+                        ds.save_as(filepath)
+                    dataset.SeriesDescription = &#39;No Series Description&#39;
+                elif not hasattr(dataset, &#39;StudyDescription&#39;):
+                    elem = DataElement(0x00081030, &#39;LO&#39;, &#39;No Study Description&#39;)
+                    with dcmread(filepath, force=True) as ds:
+                        ds.add(elem)
+                        ds.save_as(filepath)
+                    dataset.StudyDescription = &#39;No Study Description&#39;
+                # If Multiframe, use dcm4che to split into single-frame
+                if hasattr(dataset, &#39;PerFrameFunctionalGroupsSequence&#39;):
+                    multiframeCounter += 1
+                    if multiframeCounter == 1:
+                        buttonReply = QMessageBox.question(self, &#34;Multiframe DICOM files found&#34;,
+                                      &#34;Weasel detected the existence of multiframe DICOM in the selected directory and will convert these. This operation requires overwriting the original files. Do you wish to proceed?&#34;, 
+                                      QMessageBox.Ok | QMessageBox.Cancel, QMessageBox.Cancel)
+                        if buttonReply == QMessageBox.Cancel:
+                            print(&#34;User chose not to convert Multiframe DICOM. Loading process halted.&#34;)
+                            self.close_progress_bar()
+                            return None, None
+                    if os.name ==&#39;nt&#39;:
+                        multiframeScript = &#39;emf2sf.bat&#39;
+                    else:
+                        multiframeScript = &#39;emf2sf&#39;
+                    multiframeProgram = multiframeScript
+                    # If running Weasel as executable
+                    if getattr(sys, &#39;frozen&#39;, False) and hasattr(sys, &#39;_MEIPASS&#39;):
+                        search_directory = pathlib.Path(sys._MEIPASS)
+                    # If running Weasel as normal Python script
+                    else:
+                        search_directory = pathlib.Path().absolute()
+                    for dirpath, _, filenames in os.walk(search_directory):
+                        for individualFile in filenames:
+                            if individualFile.endswith(multiframeScript):
+                                sys.path.append(dirpath)
+                                multiframeProgram = os.path.join(dirpath, individualFile)
+                    multiframeDir = os.path.dirname(filepath)
+                    fileBase = &#34;SingleFrame_&#34;
+                    fileBaseFlag = fileBase + &#34;000000_&#34; + str(dataset.SeriesDescription)
+                    #if hasattr(dataset, &#39;SeriesDescription&#39;):
+                    #elif hasattr(dataset, &#39;ProtocolName&#39;):
+                    #    fileBaseFlag = fileBase + &#34;00_&#34; + str(dataset.ProtocolName)
+                    #elif hasattr(dataset, &#39;SequenceName&#39;):
+                    #    fileBaseFlag = fileBase + &#34;00_&#34; + str(dataset.SequenceName)
+                    # Run the dcm4che emf2sf
+                    self.update_progress_bar(index=fileCounter, msg=&#34;Multiframe DICOM detected. Converting to single frame ...&#34;)
+                    multiframeCommand = [multiframeProgram, &#34;--inst-no&#34;, &#34;&#39;%s&#39;&#34;, &#34;--not-chseries&#34;, &#34;--out-dir&#34;, multiframeDir, &#34;--out-file&#34;, fileBaseFlag, filepath]
+                    try:
+                        commandResult = subprocess.call(multiframeCommand, stdout=subprocess.PIPE)
+                    except Exception as e:
+                        commandResult = 1
+                        print(&#39;Error in &#39; + multiframeScript + &#39;: &#39; + str(e)) 
+                        logger.exception(&#39;Error in &#39; + multiframeScript + &#39;: &#39; + str(e))
+                    # Get list of filenames with fileBase and add to multiframe_files_list
+                    if commandResult == 0:
+                        for new_file in os.listdir(multiframeDir):
+                            if new_file.startswith(fileBase):
+                                multiframe_files_list.append(os.path.join(multiframeDir, new_file))
+                        # Discussion about removing the original file or not
+                        os.remove(filepath)
+                    else:
+                        print(&#39;Error in dcm4che: Could not split the detected Multi-frame DICOM file.\n&#39;\
+                              &#39;The DICOM file &#39; + filepath + &#39; was not deleted.&#39;)
+                    continue
+                if (hasattr(dataset, &#39;InstanceNumber&#39;) and hasattr(dataset, &#39;SOPInstanceUID&#39;) and 
+                    any(hasattr(dataset, attr) for attr in [&#39;PixelData&#39;, &#39;FloatPixelData&#39;, &#39;DoubleFloatPixelData&#39;])
+                    and (&#39;DIRFILE&#39; not in filepath) and (&#39;DICOMDIR&#39; not in filepath)):
+                    list_paths.extend([filepath])
+                    list_dicom.extend([dataset])
+            except:
+                continue
+        self.close_progress_bar()
+        # The following segment is to deal with the multiframe images if there is any.
+        # The np.unique removes files that might have appended more than once previously
+        fileCounter = 0
+        if len(np.unique(multiframe_files_list)) &gt; 0:
+            self.progress_bar(max=len(np.unique(multiframe_files_list)), index=0, msg=&#34;Reading {} single frame DICOM files converted earlier&#34;.format(len(np.unique(multiframe_files_list))), title=&#34;Load ROI&#34;)
+            for singleframe in np.unique(multiframe_files_list):
+                try:
+                    fileCounter += 1
+                    self.update_progress_bar(index=fileCounter)
+                    list_tags = [&#39;InstanceNumber&#39;, &#39;SOPInstanceUID&#39;, &#39;PixelData&#39;, &#39;FloatPixelData&#39;, &#39;DoubleFloatPixelData&#39;, &#39;SliceLocation&#39;, (0x2001, 0x100a),
+                                 &#39;AcquisitionTime&#39;, &#39;AcquisitionDate&#39;, &#39;SeriesTime&#39;, &#39;SeriesDate&#39;, &#39;PatientName&#39;, &#39;PatientID&#39;, &#39;StudyDate&#39;, &#39;StudyTime&#39;, 
+                                 &#39;SeriesDescription&#39;, &#39;StudyDescription&#39;, &#39;SequenceName&#39;, &#39;ProtocolName&#39;, &#39;SeriesNumber&#39;, &#39;StudyInstanceUID&#39;, &#39;SeriesInstanceUID&#39;]
+                    dataset = dcmread(singleframe, specific_tags=list_tags) # Check the force=True flag once in a while
+                    # The multiframe converter stores SliceLocation in tag (0x2001, 0x100a), so this step is to store it in SliceLocation.
+                    dicomTag = (0x2001, 0x100a)
+                    sliceValue = dataset[dicomTag].value
+                    if not hasattr(dataset, &#39;SliceLocation&#39;):
+                        elem = DataElement(0x00201041, &#39;DS&#39;, sliceValue)
+                        with dcmread(singleframe, force=True) as ds:
+                            ds.add(elem)
+                            ds.save_as(singleframe)
+                    dataset.SliceLocation = sliceValue
+                    if (hasattr(dataset, &#39;InstanceNumber&#39;) and hasattr(dataset, &#39;SOPInstanceUID&#39;) and 
+                        any(hasattr(dataset, attr) for attr in [&#39;PixelData&#39;, &#39;FloatPixelData&#39;, &#39;DoubleFloatPixelData&#39;])
+                        and (&#39;DIRFILE&#39; not in singleframe) and (&#39;DICOMDIR&#39; not in singleframe)):
+                        list_paths.extend([singleframe])
+                        list_dicom.extend([dataset])
+                except:
+                    continue
+            self.close_progress_bar()
+        if len(list_dicom) == 0:
+            self.message(msg=&#34;No DICOM files present in the selected folder&#34;)
+            raise FileNotFoundError(&#39;No DICOM files present in the selected folder&#39;)
+
+        return list_dicom, list_paths
+    except Exception as e:
+        print(&#39;Error in WriteXMLfromDICOM.get_scan_data: &#39; + str(e))
+        logger.exception(&#39;Error in function WriteXMLfromDICOM.get_scan_data: &#39; + str(e))
+
+
+def get_study_series(dicom):
+    &#34;&#34;&#34;This method extracts information about subject, study and series 
+    of a single DICOM file and returns a list of strings. It is used in the `build_dictionary` method.
+    &#34;&#34;&#34;
+    try:
+        logger.info(&#34;WriteXMLfromDICOM.get_study_series called&#34;)
+        subject = str(dicom.PatientID)
+        study = str(dicom.StudyDate) + &#34;_&#34; + str(dicom.StudyTime).split(&#34;.&#34;)[0] + &#34;_&#34; + str(dicom.StudyDescription)
+        sequence = str(dicom.SeriesDescription)
+        series_number = str(dicom.SeriesNumber)
+        study_uid = str(dicom.StudyInstanceUID)
+        series_uid = str(dicom.SeriesInstanceUID)
+        return subject, study, sequence, series_number, study_uid, series_uid
+    except Exception as e:
+        print(&#39;Error in WriteXMLfromDICOM.get_study_series: &#39; + str(e))
+        logger.exception(&#39;Error in WriteXMLfromDICOM.get_study_series: &#39; + str(e))
+
+
+def build_dictionary(list_dicom):
+    &#34;&#34;&#34;This method takes the list of all DICOM files, extracts all the information regarding 
+    the subjects, studies and series they belong to and store that in a hierarchical dictionary.&#34;&#34;&#34;
+    try:
+        logger.info(&#34;WriteXMLfromDICOM.build_dictionary called&#34;)
+        xml_dict = {}
+        for dicomfile in list_dicom:
+            subject, study, sequence, series_number, _, _ = get_study_series(dicomfile)
+            if subject not in xml_dict:
+                xml_dict[subject] = defaultdict(list)
+            xml_dict[subject][study].append(series_number + &#34;_&#34; + sequence)
+        for subject in xml_dict:
+            for study in xml_dict[subject]:
+                xml_dict[subject][study] = sorted(np.unique(xml_dict[subject][study]), key=series_sort)
+        return xml_dict
+    except Exception as e:
+        print(&#39;Error in WriteXMLfromDICOM.build_dictionary: &#39; + str(e))
+        logger.exception(&#39;Error in WriteXMLfromDICOM.build_dictionary: &#39; + str(e))
+
+
+def open_dicom_to_xml(xml_dict, list_dicom, list_paths):
+    &#34;&#34;&#34;This method opens all DICOM files in the given list and saves 
+        information from each file individually to an XML tree/structure.
+    &#34;&#34;&#34;
+    try:    
+        logger.info(&#34;WriteXMLfromDICOM.open_dicom_to_xml called&#34;)
+        DICOM_XML_object = ET.Element(&#39;DICOM&#39;)
+        comment = ET.Comment(&#39;WARNING: PLEASE, DO NOT MODIFY THIS FILE \n This .xml file is automatically generated by a script that reads folders containing DICOM files. \n Any changes can affect the software\&#39;s functionality, so do them at your own risk&#39;)
+        DICOM_XML_object.append(comment)
+
+        for subject in xml_dict:
+            subject_element = ET.SubElement(DICOM_XML_object, &#39;subject&#39;)
+            subject_element.set(&#39;id&#39;, subject)
+            subject_element.set(&#39;checked&#39;, &#39;False&#39;)  #added by SS 16.03.21
+            for study in xml_dict[subject]:
+                study_element = ET.SubElement(subject_element, &#39;study&#39;)
+                study_element.set(&#39;id&#39;, study)
+                study_element.set(&#39;checked&#39;, &#39;False&#39;)  #added by SS 16.03.21
+                for series in xml_dict[subject][study]:
+                    series_element = ET.SubElement(study_element, &#39;series&#39;)
+                    series_element.set(&#39;id&#39;, series)
+                    series_element.set(&#39;checked&#39;, &#39;False&#39;)  #added by SS 16.03.21
+        for index, dicomfile in enumerate(list_dicom):
+            subject, study, sequence, series_number, study_uid, series_uid = get_study_series(dicomfile)
+            subject_search_string = &#34;./*[@id=&#39;&#34; + subject + &#34;&#39;]&#34;
+            study_root = DICOM_XML_object.find(subject_search_string)
+            study_search_string = &#34;./*[@id=&#39;&#34; + study + &#34;&#39;]&#34;
+            series_root = study_root.find(study_search_string)
+            series_search_string = &#34;./*[@id=&#39;&#34;+ series_number + &#34;_&#34; + sequence + &#34;&#39;]&#34;
+            image_root = series_root.find(series_search_string)
+            series_root.set(&#39;uid&#39;, study_uid)
+            image_root.set(&#39;uid&#39;, series_uid)
+            image_element = ET.SubElement(image_root, &#39;image&#39;)
+            image_element.set(&#39;checked&#39;, &#39;False&#39;)  #added by SS 16.03.21
+            label = ET.SubElement(image_element, &#39;label&#39;)
+            name = ET.SubElement(image_element, &#39;name&#39;)
+            time = ET.SubElement(image_element, &#39;time&#39;)
+            date = ET.SubElement(image_element, &#39;date&#39;)
+            label.text = str(dicomfile.InstanceNumber).zfill(6)
+            #label.text = str(len(list(image_root.iter(&#39;image&#39;)))).zfill(6)
+            name.text = os.path.normpath(list_paths[index])
+            
+            # The next lines save the time and date to XML - They consider multiple/eventual formats
+            if len(dicomfile.dir(&#34;AcquisitionTime&#34;))&gt;0:
+                try:
+                    time.text = datetime.datetime.strptime(dicomfile.AcquisitionTime, &#39;%H%M%S&#39;).strftime(&#39;%H:%M&#39;)
+                except:
+                    time.text = datetime.datetime.strptime(dicomfile.AcquisitionTime, &#39;%H%M%S.%f&#39;).strftime(&#39;%H:%M&#39;)
+                try:
+                    date.text = datetime.datetime.strptime(dicomfile.AcquisitionDate, &#39;%Y%m%d&#39;).strftime(&#39;%d/%m/%Y&#39;)
+                except:
+                    date.text = datetime.datetime.strptime(dicomfile.StudyDate, &#39;%Y%m%d&#39;).strftime(&#39;%d/%m/%Y&#39;)
+            elif len(dicomfile.dir(&#34;SeriesTime&#34;))&gt;0:
+                # It means it&#39;s Enhanced MRI
+                try:
+                    time.text = datetime.datetime.strptime(dicomfile.SeriesTime, &#39;%H%M%S&#39;).strftime(&#39;%H:%M&#39;)
+                except:
+                    time.text = datetime.datetime.strptime(dicomfile.SeriesTime, &#39;%H%M%S.%f&#39;).strftime(&#39;%H:%M&#39;)
+                try:
+                    date.text = datetime.datetime.strptime(dicomfile.SeriesDate, &#39;%Y%m%d&#39;).strftime(&#39;%d/%m/%Y&#39;)
+                except:
+                    date.text = datetime.datetime.strptime(dicomfile.StudyDate, &#39;%Y%m%d&#39;).strftime(&#39;%d/%m/%Y&#39;)
+            else:
+                time.text = datetime.datetime.strptime(&#39;000000&#39;, &#39;%H%M%S&#39;).strftime(&#39;%H:%M&#39;)
+                date.text = datetime.datetime.strptime(&#39;20000101&#39;, &#39;%Y%m%d&#39;).strftime(&#39;%d/%m/%Y&#39;)
+        return DICOM_XML_object
+    except Exception as e:
+        print(&#39;Error in WriteXMLfromDICOM.open_dicom_to_xml: &#39; + str(e))
+        logger.exception(&#39;Error in WriteXMLfromDICOM.open_dicom_to_xml: &#39; + str(e))
+
+
+def create_XML_file(DICOM_XML_object, scan_directory):
+    &#34;&#34;&#34;This method creates a new XML file with the based on the structure of the selected DICOM folder&#34;&#34;&#34;
+    try:
+        logger.info(&#34;WriteXMLfromDICOM.create_XML_file called&#34;)
+        xmlstr = ET.tostring(DICOM_XML_object, encoding=&#39;utf-8&#39;)
+        XML_data = minidom.parseString(xmlstr).toprettyxml(encoding=&#34;utf-8&#34;, indent=&#34;  &#34;)
+        filename = os.path.basename(os.path.normpath(scan_directory)) + &#34;.xml&#34;
+        with open(os.path.join(scan_directory, filename), &#34;wb&#34;) as f:
+            f.write(XML_data)  
+        return os.path.join(scan_directory, filename)
+    except Exception as e:
+        print(&#39;Error in WriteXMLfromDICOM.create_XML_file: &#39; + str(e))
+        logger.exception(&#39;Error in WriteXMLfromDICOM.create_XML_file: &#39; + str(e))
+
+
+def getScanDirectory(self):
+    &#34;&#34;&#34;Displays an open folder dialog window to allow the
+    user to select the folder holding the DICOM files&#34;&#34;&#34;
+    try:
+        logger.info(&#39;WriteXMLfromDICOM.getScanDirectory called.&#39;)
+        #cwd = os.getcwd()
+
+        scan_directory = QFileDialog.getExistingDirectory(
+            self,
+            &#39;Select the directory containing the scan&#39;, 
+            self.weaselDataFolder, 
+            QFileDialog.ShowDirsOnly)
+        return scan_directory
+    except Exception as e:
+        print(&#39;Error in function WriteXMLfromDICOM.getScanDirectory: &#39; + str(e))
+        logger.exception(&#39;Error in function WriteXMLfromDICOM.getScanDirectory: &#39; + str(e))
+
+
+def existsDICOMXMLFile(scanDirectory):
+    &#34;&#34;&#34;This function returns True if an XML file of scan images already
+    exists in the scan directory.&#34;&#34;&#34;
+    try:
+        logger.info(&#34;WriteXMLfromDICOM.existsDICOMXMLFile called&#34;)
+        flag = False
+        with os.scandir(scanDirectory) as entries:
+                for entry in entries:
+                    if entry.is_file():
+                        if entry.name.lower() == \
+                            os.path.basename(scanDirectory).lower() + &#34;.xml&#34;:
+                            flag = True
+                            break
+        return flag                   
+    except Exception as e:
+        print(&#39;Error in function WriteXMLfromDICOM.existsDICOMXMLFile: &#39; + str(e))
+        logger.error(&#39;Error in function WriteXMLfromDICOM.existsDICOMXMLFile: &#39; + str(e))
+
+
+def makeDICOM_XML_File(self, scan_directory):
+    &#34;&#34;&#34;Creates an XML file that describes the contents of the scan folder,
+    scan_directory.  Returns the full file path of the resulting XML file,
+    which takes it&#39;s name from the scan folder.&#34;&#34;&#34;
+    try:
+        logger.info(&#34;WriteXMLfromDICOM.makeDICOM_XML_File called.&#34;)
+        fullFilePath = &#39;&#39;
+        if scan_directory:
+            start_time=time.time()
+            numFiles, numFolders = get_files_info(scan_directory)
+            if numFolders == 0:
+                folder = os.path.basename(scan_directory) + &#39; folder.&#39;
+            else:
+                folder = os.path.basename(scan_directory) + &#39; folder and {} &#39;.format(numFolders) \
+                    + &#39;subdirectory(s)&#39;
+
+            progBarMsg = &#34;Collecting {} files from the {}&#34;.format(numFiles, folder)
+            scans, paths = get_scan_data(scan_directory, progBarMsg, self)
+            if scans and paths:
+                self.message(msg=&#34;Reading data from each DICOM file&#34;, title=&#34;Loading DICOM&#34;)
+                dictionary = build_dictionary(scans)
+                self.update_message(&#34;Writing DICOM data to an XML file&#34;)
+                xml = open_dicom_to_xml(dictionary, scans, paths)
+                self.update_message(&#34;Saving XML file&#34;)
+                fullFilePath = create_XML_file(xml, scan_directory)
+                self.close_message()
+                end_time=time.time()
+                xmlCreationTime = end_time - start_time 
+                #print(&#39;XML file creation time = {}&#39;.format(xmlCreationTime))
+                logger.info(&#34;WriteXMLfromDICOM.makeDICOM_XML_File returns {}.&#34;
+                            .format(fullFilePath))
+        return fullFilePath
+    except Exception as e:
+        print(&#39;Error in function WriteXMLfromDICOM.makeDICOM_XML_File: &#39; + str(e))
+        logger.exception(&#39;Error in function WriteXMLfromDICOM.makeDICOM_XML_File: &#39; + str(e))</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="Weasel.CoreModules.WriteXMLfromDICOM.atof"><code class="name flex">
+<span>def <span class="ident">atof</span></span>(<span>text)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function is auxiliary for the natural sorting of the paths names</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def atof(text):
+    &#34;&#34;&#34; This function is auxiliary for the natural sorting of the paths names&#34;&#34;&#34;
+    try:
+        retval = float(text)
+    except ValueError:
+        retval = text
+    return retval</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WriteXMLfromDICOM.build_dictionary"><code class="name flex">
+<span>def <span class="ident">build_dictionary</span></span>(<span>list_dicom)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method takes the list of all DICOM files, extracts all the information regarding
+the subjects, studies and series they belong to and store that in a hierarchical dictionary.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def build_dictionary(list_dicom):
+    &#34;&#34;&#34;This method takes the list of all DICOM files, extracts all the information regarding 
+    the subjects, studies and series they belong to and store that in a hierarchical dictionary.&#34;&#34;&#34;
+    try:
+        logger.info(&#34;WriteXMLfromDICOM.build_dictionary called&#34;)
+        xml_dict = {}
+        for dicomfile in list_dicom:
+            subject, study, sequence, series_number, _, _ = get_study_series(dicomfile)
+            if subject not in xml_dict:
+                xml_dict[subject] = defaultdict(list)
+            xml_dict[subject][study].append(series_number + &#34;_&#34; + sequence)
+        for subject in xml_dict:
+            for study in xml_dict[subject]:
+                xml_dict[subject][study] = sorted(np.unique(xml_dict[subject][study]), key=series_sort)
+        return xml_dict
+    except Exception as e:
+        print(&#39;Error in WriteXMLfromDICOM.build_dictionary: &#39; + str(e))
+        logger.exception(&#39;Error in WriteXMLfromDICOM.build_dictionary: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WriteXMLfromDICOM.create_XML_file"><code class="name flex">
+<span>def <span class="ident">create_XML_file</span></span>(<span>DICOM_XML_object, scan_directory)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method creates a new XML file with the based on the structure of the selected DICOM folder</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_XML_file(DICOM_XML_object, scan_directory):
+    &#34;&#34;&#34;This method creates a new XML file with the based on the structure of the selected DICOM folder&#34;&#34;&#34;
+    try:
+        logger.info(&#34;WriteXMLfromDICOM.create_XML_file called&#34;)
+        xmlstr = ET.tostring(DICOM_XML_object, encoding=&#39;utf-8&#39;)
+        XML_data = minidom.parseString(xmlstr).toprettyxml(encoding=&#34;utf-8&#34;, indent=&#34;  &#34;)
+        filename = os.path.basename(os.path.normpath(scan_directory)) + &#34;.xml&#34;
+        with open(os.path.join(scan_directory, filename), &#34;wb&#34;) as f:
+            f.write(XML_data)  
+        return os.path.join(scan_directory, filename)
+    except Exception as e:
+        print(&#39;Error in WriteXMLfromDICOM.create_XML_file: &#39; + str(e))
+        logger.exception(&#39;Error in WriteXMLfromDICOM.create_XML_file: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WriteXMLfromDICOM.existsDICOMXMLFile"><code class="name flex">
+<span>def <span class="ident">existsDICOMXMLFile</span></span>(<span>scanDirectory)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function returns True if an XML file of scan images already
+exists in the scan directory.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def existsDICOMXMLFile(scanDirectory):
+    &#34;&#34;&#34;This function returns True if an XML file of scan images already
+    exists in the scan directory.&#34;&#34;&#34;
+    try:
+        logger.info(&#34;WriteXMLfromDICOM.existsDICOMXMLFile called&#34;)
+        flag = False
+        with os.scandir(scanDirectory) as entries:
+                for entry in entries:
+                    if entry.is_file():
+                        if entry.name.lower() == \
+                            os.path.basename(scanDirectory).lower() + &#34;.xml&#34;:
+                            flag = True
+                            break
+        return flag                   
+    except Exception as e:
+        print(&#39;Error in function WriteXMLfromDICOM.existsDICOMXMLFile: &#39; + str(e))
+        logger.error(&#39;Error in function WriteXMLfromDICOM.existsDICOMXMLFile: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WriteXMLfromDICOM.getScanDirectory"><code class="name flex">
+<span>def <span class="ident">getScanDirectory</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Displays an open folder dialog window to allow the
+user to select the folder holding the DICOM files</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getScanDirectory(self):
+    &#34;&#34;&#34;Displays an open folder dialog window to allow the
+    user to select the folder holding the DICOM files&#34;&#34;&#34;
+    try:
+        logger.info(&#39;WriteXMLfromDICOM.getScanDirectory called.&#39;)
+        #cwd = os.getcwd()
+
+        scan_directory = QFileDialog.getExistingDirectory(
+            self,
+            &#39;Select the directory containing the scan&#39;, 
+            self.weaselDataFolder, 
+            QFileDialog.ShowDirsOnly)
+        return scan_directory
+    except Exception as e:
+        print(&#39;Error in function WriteXMLfromDICOM.getScanDirectory: &#39; + str(e))
+        logger.exception(&#39;Error in function WriteXMLfromDICOM.getScanDirectory: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WriteXMLfromDICOM.get_files_info"><code class="name flex">
+<span>def <span class="ident">get_files_info</span></span>(<span>scan_directory)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method returns the number of files and subfolders in a folder. It doesn't mean that they are all DICOM.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_files_info(scan_directory):
+    &#34;&#34;&#34;This method returns the number of files and subfolders in a folder. It doesn&#39;t mean that they are all DICOM.
+    &#34;&#34;&#34;
+    try:
+        logger.info(&#34;WriteXMLfromDICOM.get_files_info called&#34;)
+        number_files = 0
+        number_folders = 0
+        for _, sub_folders, file_list in os.walk(scan_directory):
+            number_files += len(file_list)
+            number_folders += len(sub_folders)
+        if number_files == 0:
+            raise FileNotFoundError(&#39;No files present in the selected folder&#39;)
+        return number_files, number_folders
+    except Exception as e:
+        print(&#39;Error in WriteXMLfromDICOM.get_files_info: &#39; + str(e))
+        logger.exception(&#39;Error in WriteXMLfromDICOM.get_files_info: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WriteXMLfromDICOM.get_scan_data"><code class="name flex">
+<span>def <span class="ident">get_scan_data</span></span>(<span>scan_directory, progBarMsg, self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method opens all DICOM files in the provided path recursively and saves
+each file individually as a variable into a list/array.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_scan_data(scan_directory, progBarMsg, self):
+    &#34;&#34;&#34;This method opens all DICOM files in the provided path recursively and saves 
+        each file individually as a variable into a list/array.
+    &#34;&#34;&#34;
+    try:
+        logger.info(&#34;WriteXMLfromDICOM.get_scan_data called&#34;)
+        list_paths = list()
+        list_dicom = list()
+        file_list = [item.path for item in scan_tree(scan_directory) if item.is_file()]
+        file_list.sort(key=natural_keys)
+        multiframe_files_list = list()
+        self.progress_bar(max=len(file_list), index=0, msg=progBarMsg, title=&#34;Loading DICOM&#34;)
+        fileCounter = 0
+        multiframeCounter = 0
+        for filepath in file_list:
+            try:
+                fileCounter += 1
+                self.update_progress_bar(index=fileCounter)
+                list_tags = [&#39;InstanceNumber&#39;, &#39;SOPInstanceUID&#39;, &#39;PixelData&#39;, &#39;FloatPixelData&#39;, &#39;DoubleFloatPixelData&#39;, &#39;AcquisitionTime&#39;,
+                             &#39;AcquisitionDate&#39;, &#39;SeriesTime&#39;, &#39;SeriesDate&#39;, &#39;PatientName&#39;, &#39;PatientID&#39;, &#39;StudyDate&#39;, &#39;StudyTime&#39;, 
+                             &#39;SeriesDescription&#39;, &#39;StudyDescription&#39;, &#39;SequenceName&#39;, &#39;ProtocolName&#39;, &#39;SeriesNumber&#39;, &#39;PerFrameFunctionalGroupsSequence&#39;,
+                             &#39;StudyInstanceUID&#39;, &#39;SeriesInstanceUID&#39;]
+                dataset = dcmread(filepath, specific_tags=list_tags) # Check the force=True flag once in a while
+                if not hasattr(dataset, &#39;SeriesDescription&#39;) and not hasattr(dataset, &#39;StudyDescription&#39;):
+                    elemSeries = DataElement(0x0008103E, &#39;LO&#39;, &#39;No Series Description&#39;)
+                    elemStudy = DataElement(0x00081030, &#39;LO&#39;, &#39;No Study Description&#39;)
+                    with dcmread(filepath, force=True) as ds:
+                        ds.add(elemSeries)
+                        ds.add(elemStudy)
+                        ds.save_as(filepath)
+                    dataset.SeriesDescription = &#39;No Series Description&#39;
+                    dataset.StudyDescription = &#39;No Study Description&#39;
+                elif not hasattr(dataset, &#39;SeriesDescription&#39;):
+                    elem = DataElement(0x0008103E, &#39;LO&#39;, &#39;No Series Description&#39;)
+                    with dcmread(filepath, force=True) as ds:
+                        ds.add(elem)
+                        ds.save_as(filepath)
+                    dataset.SeriesDescription = &#39;No Series Description&#39;
+                elif not hasattr(dataset, &#39;StudyDescription&#39;):
+                    elem = DataElement(0x00081030, &#39;LO&#39;, &#39;No Study Description&#39;)
+                    with dcmread(filepath, force=True) as ds:
+                        ds.add(elem)
+                        ds.save_as(filepath)
+                    dataset.StudyDescription = &#39;No Study Description&#39;
+                # If Multiframe, use dcm4che to split into single-frame
+                if hasattr(dataset, &#39;PerFrameFunctionalGroupsSequence&#39;):
+                    multiframeCounter += 1
+                    if multiframeCounter == 1:
+                        buttonReply = QMessageBox.question(self, &#34;Multiframe DICOM files found&#34;,
+                                      &#34;Weasel detected the existence of multiframe DICOM in the selected directory and will convert these. This operation requires overwriting the original files. Do you wish to proceed?&#34;, 
+                                      QMessageBox.Ok | QMessageBox.Cancel, QMessageBox.Cancel)
+                        if buttonReply == QMessageBox.Cancel:
+                            print(&#34;User chose not to convert Multiframe DICOM. Loading process halted.&#34;)
+                            self.close_progress_bar()
+                            return None, None
+                    if os.name ==&#39;nt&#39;:
+                        multiframeScript = &#39;emf2sf.bat&#39;
+                    else:
+                        multiframeScript = &#39;emf2sf&#39;
+                    multiframeProgram = multiframeScript
+                    # If running Weasel as executable
+                    if getattr(sys, &#39;frozen&#39;, False) and hasattr(sys, &#39;_MEIPASS&#39;):
+                        search_directory = pathlib.Path(sys._MEIPASS)
+                    # If running Weasel as normal Python script
+                    else:
+                        search_directory = pathlib.Path().absolute()
+                    for dirpath, _, filenames in os.walk(search_directory):
+                        for individualFile in filenames:
+                            if individualFile.endswith(multiframeScript):
+                                sys.path.append(dirpath)
+                                multiframeProgram = os.path.join(dirpath, individualFile)
+                    multiframeDir = os.path.dirname(filepath)
+                    fileBase = &#34;SingleFrame_&#34;
+                    fileBaseFlag = fileBase + &#34;000000_&#34; + str(dataset.SeriesDescription)
+                    #if hasattr(dataset, &#39;SeriesDescription&#39;):
+                    #elif hasattr(dataset, &#39;ProtocolName&#39;):
+                    #    fileBaseFlag = fileBase + &#34;00_&#34; + str(dataset.ProtocolName)
+                    #elif hasattr(dataset, &#39;SequenceName&#39;):
+                    #    fileBaseFlag = fileBase + &#34;00_&#34; + str(dataset.SequenceName)
+                    # Run the dcm4che emf2sf
+                    self.update_progress_bar(index=fileCounter, msg=&#34;Multiframe DICOM detected. Converting to single frame ...&#34;)
+                    multiframeCommand = [multiframeProgram, &#34;--inst-no&#34;, &#34;&#39;%s&#39;&#34;, &#34;--not-chseries&#34;, &#34;--out-dir&#34;, multiframeDir, &#34;--out-file&#34;, fileBaseFlag, filepath]
+                    try:
+                        commandResult = subprocess.call(multiframeCommand, stdout=subprocess.PIPE)
+                    except Exception as e:
+                        commandResult = 1
+                        print(&#39;Error in &#39; + multiframeScript + &#39;: &#39; + str(e)) 
+                        logger.exception(&#39;Error in &#39; + multiframeScript + &#39;: &#39; + str(e))
+                    # Get list of filenames with fileBase and add to multiframe_files_list
+                    if commandResult == 0:
+                        for new_file in os.listdir(multiframeDir):
+                            if new_file.startswith(fileBase):
+                                multiframe_files_list.append(os.path.join(multiframeDir, new_file))
+                        # Discussion about removing the original file or not
+                        os.remove(filepath)
+                    else:
+                        print(&#39;Error in dcm4che: Could not split the detected Multi-frame DICOM file.\n&#39;\
+                              &#39;The DICOM file &#39; + filepath + &#39; was not deleted.&#39;)
+                    continue
+                if (hasattr(dataset, &#39;InstanceNumber&#39;) and hasattr(dataset, &#39;SOPInstanceUID&#39;) and 
+                    any(hasattr(dataset, attr) for attr in [&#39;PixelData&#39;, &#39;FloatPixelData&#39;, &#39;DoubleFloatPixelData&#39;])
+                    and (&#39;DIRFILE&#39; not in filepath) and (&#39;DICOMDIR&#39; not in filepath)):
+                    list_paths.extend([filepath])
+                    list_dicom.extend([dataset])
+            except:
+                continue
+        self.close_progress_bar()
+        # The following segment is to deal with the multiframe images if there is any.
+        # The np.unique removes files that might have appended more than once previously
+        fileCounter = 0
+        if len(np.unique(multiframe_files_list)) &gt; 0:
+            self.progress_bar(max=len(np.unique(multiframe_files_list)), index=0, msg=&#34;Reading {} single frame DICOM files converted earlier&#34;.format(len(np.unique(multiframe_files_list))), title=&#34;Load ROI&#34;)
+            for singleframe in np.unique(multiframe_files_list):
+                try:
+                    fileCounter += 1
+                    self.update_progress_bar(index=fileCounter)
+                    list_tags = [&#39;InstanceNumber&#39;, &#39;SOPInstanceUID&#39;, &#39;PixelData&#39;, &#39;FloatPixelData&#39;, &#39;DoubleFloatPixelData&#39;, &#39;SliceLocation&#39;, (0x2001, 0x100a),
+                                 &#39;AcquisitionTime&#39;, &#39;AcquisitionDate&#39;, &#39;SeriesTime&#39;, &#39;SeriesDate&#39;, &#39;PatientName&#39;, &#39;PatientID&#39;, &#39;StudyDate&#39;, &#39;StudyTime&#39;, 
+                                 &#39;SeriesDescription&#39;, &#39;StudyDescription&#39;, &#39;SequenceName&#39;, &#39;ProtocolName&#39;, &#39;SeriesNumber&#39;, &#39;StudyInstanceUID&#39;, &#39;SeriesInstanceUID&#39;]
+                    dataset = dcmread(singleframe, specific_tags=list_tags) # Check the force=True flag once in a while
+                    # The multiframe converter stores SliceLocation in tag (0x2001, 0x100a), so this step is to store it in SliceLocation.
+                    dicomTag = (0x2001, 0x100a)
+                    sliceValue = dataset[dicomTag].value
+                    if not hasattr(dataset, &#39;SliceLocation&#39;):
+                        elem = DataElement(0x00201041, &#39;DS&#39;, sliceValue)
+                        with dcmread(singleframe, force=True) as ds:
+                            ds.add(elem)
+                            ds.save_as(singleframe)
+                    dataset.SliceLocation = sliceValue
+                    if (hasattr(dataset, &#39;InstanceNumber&#39;) and hasattr(dataset, &#39;SOPInstanceUID&#39;) and 
+                        any(hasattr(dataset, attr) for attr in [&#39;PixelData&#39;, &#39;FloatPixelData&#39;, &#39;DoubleFloatPixelData&#39;])
+                        and (&#39;DIRFILE&#39; not in singleframe) and (&#39;DICOMDIR&#39; not in singleframe)):
+                        list_paths.extend([singleframe])
+                        list_dicom.extend([dataset])
+                except:
+                    continue
+            self.close_progress_bar()
+        if len(list_dicom) == 0:
+            self.message(msg=&#34;No DICOM files present in the selected folder&#34;)
+            raise FileNotFoundError(&#39;No DICOM files present in the selected folder&#39;)
+
+        return list_dicom, list_paths
+    except Exception as e:
+        print(&#39;Error in WriteXMLfromDICOM.get_scan_data: &#39; + str(e))
+        logger.exception(&#39;Error in function WriteXMLfromDICOM.get_scan_data: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WriteXMLfromDICOM.get_study_series"><code class="name flex">
+<span>def <span class="ident">get_study_series</span></span>(<span>dicom)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method extracts information about subject, study and series
+of a single DICOM file and returns a list of strings. It is used in the <code><a title="Weasel.CoreModules.WriteXMLfromDICOM.build_dictionary" href="#Weasel.CoreModules.WriteXMLfromDICOM.build_dictionary">build_dictionary()</a></code> method.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_study_series(dicom):
+    &#34;&#34;&#34;This method extracts information about subject, study and series 
+    of a single DICOM file and returns a list of strings. It is used in the `build_dictionary` method.
+    &#34;&#34;&#34;
+    try:
+        logger.info(&#34;WriteXMLfromDICOM.get_study_series called&#34;)
+        subject = str(dicom.PatientID)
+        study = str(dicom.StudyDate) + &#34;_&#34; + str(dicom.StudyTime).split(&#34;.&#34;)[0] + &#34;_&#34; + str(dicom.StudyDescription)
+        sequence = str(dicom.SeriesDescription)
+        series_number = str(dicom.SeriesNumber)
+        study_uid = str(dicom.StudyInstanceUID)
+        series_uid = str(dicom.SeriesInstanceUID)
+        return subject, study, sequence, series_number, study_uid, series_uid
+    except Exception as e:
+        print(&#39;Error in WriteXMLfromDICOM.get_study_series: &#39; + str(e))
+        logger.exception(&#39;Error in WriteXMLfromDICOM.get_study_series: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WriteXMLfromDICOM.makeDICOM_XML_File"><code class="name flex">
+<span>def <span class="ident">makeDICOM_XML_File</span></span>(<span>self, scan_directory)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates an XML file that describes the contents of the scan folder,
+scan_directory.
+Returns the full file path of the resulting XML file,
+which takes it's name from the scan folder.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def makeDICOM_XML_File(self, scan_directory):
+    &#34;&#34;&#34;Creates an XML file that describes the contents of the scan folder,
+    scan_directory.  Returns the full file path of the resulting XML file,
+    which takes it&#39;s name from the scan folder.&#34;&#34;&#34;
+    try:
+        logger.info(&#34;WriteXMLfromDICOM.makeDICOM_XML_File called.&#34;)
+        fullFilePath = &#39;&#39;
+        if scan_directory:
+            start_time=time.time()
+            numFiles, numFolders = get_files_info(scan_directory)
+            if numFolders == 0:
+                folder = os.path.basename(scan_directory) + &#39; folder.&#39;
+            else:
+                folder = os.path.basename(scan_directory) + &#39; folder and {} &#39;.format(numFolders) \
+                    + &#39;subdirectory(s)&#39;
+
+            progBarMsg = &#34;Collecting {} files from the {}&#34;.format(numFiles, folder)
+            scans, paths = get_scan_data(scan_directory, progBarMsg, self)
+            if scans and paths:
+                self.message(msg=&#34;Reading data from each DICOM file&#34;, title=&#34;Loading DICOM&#34;)
+                dictionary = build_dictionary(scans)
+                self.update_message(&#34;Writing DICOM data to an XML file&#34;)
+                xml = open_dicom_to_xml(dictionary, scans, paths)
+                self.update_message(&#34;Saving XML file&#34;)
+                fullFilePath = create_XML_file(xml, scan_directory)
+                self.close_message()
+                end_time=time.time()
+                xmlCreationTime = end_time - start_time 
+                #print(&#39;XML file creation time = {}&#39;.format(xmlCreationTime))
+                logger.info(&#34;WriteXMLfromDICOM.makeDICOM_XML_File returns {}.&#34;
+                            .format(fullFilePath))
+        return fullFilePath
+    except Exception as e:
+        print(&#39;Error in function WriteXMLfromDICOM.makeDICOM_XML_File: &#39; + str(e))
+        logger.exception(&#39;Error in function WriteXMLfromDICOM.makeDICOM_XML_File: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WriteXMLfromDICOM.natural_keys"><code class="name flex">
+<span>def <span class="ident">natural_keys</span></span>(<span>text)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>alist.sort(key=natural_keys) sorts in human order
+<a href="http://nedbatchelder.com/blog/200712/human_sorting.html">http://nedbatchelder.com/blog/200712/human_sorting.html</a>
+(See Toothy's implementation in the comments)
+float regex comes from <a href="https://stackoverflow.com/a/12643073/190597">https://stackoverflow.com/a/12643073/190597</a></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def natural_keys(text):
+    &#34;&#34;&#34;
+    alist.sort(key=natural_keys) sorts in human order
+    http://nedbatchelder.com/blog/200712/human_sorting.html
+    (See Toothy&#39;s implementation in the comments)
+    float regex comes from https://stackoverflow.com/a/12643073/190597
+    &#34;&#34;&#34;
+    return [atof(c) for c in re.split(r&#39;[+-]?([0-9]+(?:[.][0-9]*)?|[.][0-9]+)&#39;, text)]</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WriteXMLfromDICOM.open_dicom_to_xml"><code class="name flex">
+<span>def <span class="ident">open_dicom_to_xml</span></span>(<span>xml_dict, list_dicom, list_paths)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method opens all DICOM files in the given list and saves
+information from each file individually to an XML tree/structure.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def open_dicom_to_xml(xml_dict, list_dicom, list_paths):
+    &#34;&#34;&#34;This method opens all DICOM files in the given list and saves 
+        information from each file individually to an XML tree/structure.
+    &#34;&#34;&#34;
+    try:    
+        logger.info(&#34;WriteXMLfromDICOM.open_dicom_to_xml called&#34;)
+        DICOM_XML_object = ET.Element(&#39;DICOM&#39;)
+        comment = ET.Comment(&#39;WARNING: PLEASE, DO NOT MODIFY THIS FILE \n This .xml file is automatically generated by a script that reads folders containing DICOM files. \n Any changes can affect the software\&#39;s functionality, so do them at your own risk&#39;)
+        DICOM_XML_object.append(comment)
+
+        for subject in xml_dict:
+            subject_element = ET.SubElement(DICOM_XML_object, &#39;subject&#39;)
+            subject_element.set(&#39;id&#39;, subject)
+            subject_element.set(&#39;checked&#39;, &#39;False&#39;)  #added by SS 16.03.21
+            for study in xml_dict[subject]:
+                study_element = ET.SubElement(subject_element, &#39;study&#39;)
+                study_element.set(&#39;id&#39;, study)
+                study_element.set(&#39;checked&#39;, &#39;False&#39;)  #added by SS 16.03.21
+                for series in xml_dict[subject][study]:
+                    series_element = ET.SubElement(study_element, &#39;series&#39;)
+                    series_element.set(&#39;id&#39;, series)
+                    series_element.set(&#39;checked&#39;, &#39;False&#39;)  #added by SS 16.03.21
+        for index, dicomfile in enumerate(list_dicom):
+            subject, study, sequence, series_number, study_uid, series_uid = get_study_series(dicomfile)
+            subject_search_string = &#34;./*[@id=&#39;&#34; + subject + &#34;&#39;]&#34;
+            study_root = DICOM_XML_object.find(subject_search_string)
+            study_search_string = &#34;./*[@id=&#39;&#34; + study + &#34;&#39;]&#34;
+            series_root = study_root.find(study_search_string)
+            series_search_string = &#34;./*[@id=&#39;&#34;+ series_number + &#34;_&#34; + sequence + &#34;&#39;]&#34;
+            image_root = series_root.find(series_search_string)
+            series_root.set(&#39;uid&#39;, study_uid)
+            image_root.set(&#39;uid&#39;, series_uid)
+            image_element = ET.SubElement(image_root, &#39;image&#39;)
+            image_element.set(&#39;checked&#39;, &#39;False&#39;)  #added by SS 16.03.21
+            label = ET.SubElement(image_element, &#39;label&#39;)
+            name = ET.SubElement(image_element, &#39;name&#39;)
+            time = ET.SubElement(image_element, &#39;time&#39;)
+            date = ET.SubElement(image_element, &#39;date&#39;)
+            label.text = str(dicomfile.InstanceNumber).zfill(6)
+            #label.text = str(len(list(image_root.iter(&#39;image&#39;)))).zfill(6)
+            name.text = os.path.normpath(list_paths[index])
+            
+            # The next lines save the time and date to XML - They consider multiple/eventual formats
+            if len(dicomfile.dir(&#34;AcquisitionTime&#34;))&gt;0:
+                try:
+                    time.text = datetime.datetime.strptime(dicomfile.AcquisitionTime, &#39;%H%M%S&#39;).strftime(&#39;%H:%M&#39;)
+                except:
+                    time.text = datetime.datetime.strptime(dicomfile.AcquisitionTime, &#39;%H%M%S.%f&#39;).strftime(&#39;%H:%M&#39;)
+                try:
+                    date.text = datetime.datetime.strptime(dicomfile.AcquisitionDate, &#39;%Y%m%d&#39;).strftime(&#39;%d/%m/%Y&#39;)
+                except:
+                    date.text = datetime.datetime.strptime(dicomfile.StudyDate, &#39;%Y%m%d&#39;).strftime(&#39;%d/%m/%Y&#39;)
+            elif len(dicomfile.dir(&#34;SeriesTime&#34;))&gt;0:
+                # It means it&#39;s Enhanced MRI
+                try:
+                    time.text = datetime.datetime.strptime(dicomfile.SeriesTime, &#39;%H%M%S&#39;).strftime(&#39;%H:%M&#39;)
+                except:
+                    time.text = datetime.datetime.strptime(dicomfile.SeriesTime, &#39;%H%M%S.%f&#39;).strftime(&#39;%H:%M&#39;)
+                try:
+                    date.text = datetime.datetime.strptime(dicomfile.SeriesDate, &#39;%Y%m%d&#39;).strftime(&#39;%d/%m/%Y&#39;)
+                except:
+                    date.text = datetime.datetime.strptime(dicomfile.StudyDate, &#39;%Y%m%d&#39;).strftime(&#39;%d/%m/%Y&#39;)
+            else:
+                time.text = datetime.datetime.strptime(&#39;000000&#39;, &#39;%H%M%S&#39;).strftime(&#39;%H:%M&#39;)
+                date.text = datetime.datetime.strptime(&#39;20000101&#39;, &#39;%Y%m%d&#39;).strftime(&#39;%d/%m/%Y&#39;)
+        return DICOM_XML_object
+    except Exception as e:
+        print(&#39;Error in WriteXMLfromDICOM.open_dicom_to_xml: &#39; + str(e))
+        logger.exception(&#39;Error in WriteXMLfromDICOM.open_dicom_to_xml: &#39; + str(e))</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WriteXMLfromDICOM.scan_tree"><code class="name flex">
+<span>def <span class="ident">scan_tree</span></span>(<span>scan_directory)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Recursively yield DirEntry objects for given directory.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def scan_tree(scan_directory):
+    &#34;&#34;&#34;Recursively yield DirEntry objects for given directory.&#34;&#34;&#34;
+    for entry in os.scandir(scan_directory):
+        if entry.is_dir(follow_symlinks=False):
+            yield from scan_tree(entry.path)
+        else:
+            yield entry</code></pre>
+</details>
+</dd>
+<dt id="Weasel.CoreModules.WriteXMLfromDICOM.series_sort"><code class="name flex">
+<span>def <span class="ident">series_sort</span></span>(<span>elem)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This is a helper function that will be used in key argument of sorted()
+in order to sort the list of series by series number</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def series_sort(elem):
+    &#34;&#34;&#34;
+    This is a helper function that will be used in key argument of sorted()
+    in order to sort the list of series by series number
+    &#34;&#34;&#34;
+    # return int(elem.split(&#34;_&#34;)[-1]) # USE THIS IF %SeriesDescription_%SeriesNumber
+    return int(elem.split(&#34;_&#34;)[0])</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="Weasel.CoreModules" href="index.html">Weasel.CoreModules</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="two-column">
+<li><code><a title="Weasel.CoreModules.WriteXMLfromDICOM.atof" href="#Weasel.CoreModules.WriteXMLfromDICOM.atof">atof</a></code></li>
+<li><code><a title="Weasel.CoreModules.WriteXMLfromDICOM.build_dictionary" href="#Weasel.CoreModules.WriteXMLfromDICOM.build_dictionary">build_dictionary</a></code></li>
+<li><code><a title="Weasel.CoreModules.WriteXMLfromDICOM.create_XML_file" href="#Weasel.CoreModules.WriteXMLfromDICOM.create_XML_file">create_XML_file</a></code></li>
+<li><code><a title="Weasel.CoreModules.WriteXMLfromDICOM.existsDICOMXMLFile" href="#Weasel.CoreModules.WriteXMLfromDICOM.existsDICOMXMLFile">existsDICOMXMLFile</a></code></li>
+<li><code><a title="Weasel.CoreModules.WriteXMLfromDICOM.getScanDirectory" href="#Weasel.CoreModules.WriteXMLfromDICOM.getScanDirectory">getScanDirectory</a></code></li>
+<li><code><a title="Weasel.CoreModules.WriteXMLfromDICOM.get_files_info" href="#Weasel.CoreModules.WriteXMLfromDICOM.get_files_info">get_files_info</a></code></li>
+<li><code><a title="Weasel.CoreModules.WriteXMLfromDICOM.get_scan_data" href="#Weasel.CoreModules.WriteXMLfromDICOM.get_scan_data">get_scan_data</a></code></li>
+<li><code><a title="Weasel.CoreModules.WriteXMLfromDICOM.get_study_series" href="#Weasel.CoreModules.WriteXMLfromDICOM.get_study_series">get_study_series</a></code></li>
+<li><code><a title="Weasel.CoreModules.WriteXMLfromDICOM.makeDICOM_XML_File" href="#Weasel.CoreModules.WriteXMLfromDICOM.makeDICOM_XML_File">makeDICOM_XML_File</a></code></li>
+<li><code><a title="Weasel.CoreModules.WriteXMLfromDICOM.natural_keys" href="#Weasel.CoreModules.WriteXMLfromDICOM.natural_keys">natural_keys</a></code></li>
+<li><code><a title="Weasel.CoreModules.WriteXMLfromDICOM.open_dicom_to_xml" href="#Weasel.CoreModules.WriteXMLfromDICOM.open_dicom_to_xml">open_dicom_to_xml</a></code></li>
+<li><code><a title="Weasel.CoreModules.WriteXMLfromDICOM.scan_tree" href="#Weasel.CoreModules.WriteXMLfromDICOM.scan_tree">scan_tree</a></code></li>
+<li><code><a title="Weasel.CoreModules.WriteXMLfromDICOM.series_sort" href="#Weasel.CoreModules.WriteXMLfromDICOM.series_sort">series_sort</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
