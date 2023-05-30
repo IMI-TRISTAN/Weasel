@@ -1,5 +1,5 @@
 <!-- Put this file in .gitignore-->
 <config>
   <menu_config_file>GettingStarted_EndUsers.py</menu_config_file>
-  <weasel_data_folder></weasel_data_folder>
+  <weasel_data_folder>C:\Users\Steve Shillitoe\source\DICOM Files\</weasel_data_folder>
 </config>
